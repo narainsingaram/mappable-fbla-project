@@ -88,8 +88,27 @@ header("Location: index.php");
 </div>
 
 
+<script>
+$(document).ready(function(){
+  $("p").mouseover(function(){
+    <?php $banana = 'fdasfa'; ?>
+  });
+  $("p").mouseout(function(){
+    $("p").css("background-color", "lightgray");
+  });
+});
+</script>
+
+
+
+<p>fsadfa</p>
+
+
 <div class="w-1/2 p-5">
 <?php
+
+echo $banana; 
+
 if($fetch_event_rows['num_event_rows'] > 0) {
    $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='$userLoggedIn'");
    $match_request_rows = mysqli_num_rows($check_requests);

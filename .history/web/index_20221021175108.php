@@ -88,6 +88,22 @@ header("Location: index.php");
 </div>
 
 
+<script>
+  var viewed = 'fadsfa';
+$(document).ready(function(){
+  $("p").mouseover(function(){
+    var viewed = 'yes';
+    console.log(viewed);
+  });
+});
+</script>
+
+<p>fsadfa</p>
+
+<?php
+   echo "<script>document.writeln(viewed);</script>";
+?>
+
 <div class="w-1/2 p-5">
 <?php
 if($fetch_event_rows['num_event_rows'] > 0) {
