@@ -4,7 +4,10 @@ include("../includes/classes/User_Info.php");
 include("../includes/classes/Teacher_Events.php");
 
 if(isset($_SESSION['username'])) {
-    $userLoggedIn = $_SESSION['username'];
+    $userLoggedIn = $_SESSION['userLoggedIn'];
+    echo '<script>
+        userLoggedIn = $userLoggedIn; 
+        </script>';
     $user_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$userLoggedIn'");
     $user = mysqli_fetch_assoc($user_details_query);
 }
@@ -77,7 +80,6 @@ $color_array = array("red", "orange", "amber", "yellow", "lime", "green", "emera
 </style>
 
 <body>
-    
 
 
 

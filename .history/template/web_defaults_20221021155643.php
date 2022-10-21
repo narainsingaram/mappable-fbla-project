@@ -77,7 +77,6 @@ $color_array = array("red", "orange", "amber", "yellow", "lime", "green", "emera
 </style>
 
 <body>
-    
 
 
 
