@@ -65,7 +65,6 @@ $color_array = array("red", "orange", "amber", "yellow", "lime", "green", "emera
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 <script type="text/javascript" src="https://cdn.tailwindcss.com"></script>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 </head>
 
 <style>
@@ -83,7 +82,8 @@ $color_array = array("red", "orange", "amber", "yellow", "lime", "green", "emera
 
 <script src="../assets\javascript\index.js"></script>
 <script type='text/javascript' src='../assets/js/toggle_notification.js'></script>
-<script type='text/javascript' src='../assets/js/seamless_transition.js'></script>
+<script type='text/javascript' src='../assets/js/toggle_notification.js'></script>
+
 <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/vuesax@4.0.1-alpha.16/dist/vuesax.min.js"></script>
