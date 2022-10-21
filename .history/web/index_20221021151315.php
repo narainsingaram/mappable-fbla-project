@@ -1,4 +1,3 @@
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 <?php
 include("../template/web_defaults.php");

@@ -90,19 +90,20 @@ header("Location: index.php");
 </div>
 
 
-<div id="app">{{ message }}</div>
 
 <script>
-  const { createApp } = Vue
-
-  createApp({
-    data() {
-      return {
-        message: 'Hello Vue!'
-      }
+export default {
+  data() {
+    return {
+      message: 'Hello World!'
     }
-  }).mount('#app')
+  }
+}
 </script>
+
+<template>
+  <h1>{{ message }}</h1>
+</template>
 
 
 

@@ -92,16 +92,12 @@ header("Location: index.php");
 
 <div id="app">{{ message }}</div>
 
-<script>
-  const { createApp } = Vue
+<!-- index.html -->
+<script type="module">
+  import { createApp } from 'vue'
+  import MyComponent from './my-component.js'
 
-  createApp({
-    data() {
-      return {
-        message: 'Hello Vue!'
-      }
-    }
-  }).mount('#app')
+  createApp(MyComponent).mount('#app')
 </script>
 
 

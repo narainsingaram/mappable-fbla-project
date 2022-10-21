@@ -93,16 +93,18 @@ header("Location: index.php");
 <div id="app">{{ message }}</div>
 
 <script>
-  const { createApp } = Vue
+import ComponentA from './ComponentA.vue'
 
-  createApp({
-    data() {
-      return {
-        message: 'Hello Vue!'
-      }
-    }
-  }).mount('#app')
+export default {
+  components: {
+    ComponentA
+  }
+}
 </script>
+
+<template>
+  <ComponentA />
+</template>
 
 
 

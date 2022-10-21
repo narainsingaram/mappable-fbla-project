@@ -1,4 +1,3 @@
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
 <?php
 include("../template/web_defaults.php");
@@ -88,22 +87,6 @@ header("Location: index.php");
       $post->load_regular_feed();
   ?>
 </div>
-
-
-<div id="app">{{ message }}</div>
-
-<script>
-  const { createApp } = Vue
-
-  createApp({
-    data() {
-      return {
-        message: 'Hello Vue!'
-      }
-    }
-  }).mount('#app')
-</script>
-
 
 
 <div class="w-1/2 p-5">

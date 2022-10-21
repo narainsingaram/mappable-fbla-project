@@ -90,22 +90,6 @@ header("Location: index.php");
 </div>
 
 
-<div id="app">{{ message }}</div>
-
-<script>
-  const { createApp } = Vue
-
-  createApp({
-    data() {
-      return {
-        message: 'Hello Vue!'
-      }
-    }
-  }).mount('#app')
-</script>
-
-
-
 <div class="w-1/2 p-5">
 <?php
 if($fetch_event_rows['num_event_rows'] > 0) {
