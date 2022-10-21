@@ -1,0 +1,29 @@
+<?php
+class User_Info {
+    private $user;
+    private $con;
+
+public function __construct($con, $user) {
+    $this->con = $con;
+    $select_all_user_query = mysqli_query($con, "SELECT * FROM users WHERE username='$user'");
+    $this->user = mysqli_fetch_array($select_all_user_query);
+}
+
+public function gettingUsername() {
+    return $this->user['username'];
+}
+
+public function didUserDeleteAccount() {
+    $username = $this->user['username'];
+    $deleted_query = mysqli_query($this->con, "SELECT user_deleted FROM users WHERE username='$username'");
+    $row = mysqli_fetch_array($deleted_query);
+    
+    if($row['user_deleted'] == 'yes') {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+}
+?>
