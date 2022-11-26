@@ -1,4 +1,4 @@
-<div class="sidebar">
+  <div class="sidebar">
   <ul class="nav-list">
   <li>
       <a id="btn" class="bg-slate-100 hover:bg-slate-200">
