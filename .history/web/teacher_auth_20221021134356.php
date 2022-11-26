@@ -6,7 +6,14 @@ include("../template/navbar.php");
 
     $authentifications_content = "";
 ?>
-<main class=''>  
+<main class=' <?php 
+if($user['theme'] == 'light_theme') {
+    echo 'bg-gray-100';
+}
+else if($user['theme'] == 'dark_theme') {
+    echo 'bg-blue-100';
+}
+ ?>'>  
 <ol class='relative border-l mx-5 border-gray-200'> 
 <?php
 

@@ -2,16 +2,12 @@
 include("../template/web_defaults.php");
 include("../template/navbar.php");
 
-
 $id = $user['id'];
 $first_name = $user['first_name'];
 $last_name = $user['last_name'];
 $username = $user['username'];
 $points = $user['points'];
 $gems = $user['gems'];
-$school = $user['school'];
-$position = $user['position'];
-
 
 $profile_symbol = $first_name[0]. "" . $last_name[0];
 $full_name = $first_name. " " . $last_name;
@@ -35,7 +31,7 @@ if(isset($_GET['profile_username'])) {
       <section class="relative block" style="height: 500px;">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
-          style='background-image: url("https://eoimages.gsfc.nasa.gov/images/imagerecords/87000/87843/tetons_photo_2015_lrg.jpg");'
+          style='background-image: url("https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=2710&amp;q=80");'
         >
           <span
             id="blackOverlay"
@@ -79,7 +75,7 @@ if(isset($_GET['profile_username'])) {
                 >
                   <div class="py-6 px-3 mt-32 sm:mt-0">
                     <button
-                      class="bg-blue-600 active:bg-blue-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
+                      class="bg-pink-500 active:bg-pink-600 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1"
                       type="button"
                       style="transition: all 0.15s ease 0s;"
                     >
@@ -92,76 +88,60 @@ if(isset($_GET['profile_username'])) {
                     <div class="mr-4 p-3 text-center">
                       <span
                         class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                        >10</span
-                      ><span class="text-sm text-gray-500">Events Attended</span>
+                        >22</span
+                      ><span class="text-sm text-gray-500">Friends</span>
                     </div>
                     <div class="mr-4 p-3 text-center">
                       <span
                         class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                        ><?php echo $points ?> </span
-                      ><span class="text-sm text-gray-500">Points</span>
+                        >10</span
+                      ><span class="text-sm text-gray-500">Photos</span>
                     </div>
                     <div class="lg:mr-4 p-3 text-center">
                       <span
                         class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-                        ><?php echo $gems ?></span
-                      ><span class="text-sm text-gray-500">Gems</span>
+                        >89</span
+                      ><span class="text-sm text-gray-500">Comments</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div >
+              <div class="text-center">
                 <h3
-                  class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2 text-center"
+                  class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2"
                 >
                   <?php echo $first_name . ' ' . $last_name; ?>
                 </h3>
                 <div
-                  class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase text-center"
+                  class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase"
                 >
                   <i
-                    class="fas fa-map-marker-alt mr-2 text-lg text-gray-500 text-center"
+                    class="fas fa-map-marker-alt mr-2 text-lg text-gray-500"
                   ></i>
-                  Cumming, Georgia
+                  Los Angeles, California
                 </div>
-                <div class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase text-center">
+                <div class="mb-2 text-gray-700 mt-10">
                   <i class="fas fa-briefcase mr-2 text-lg text-gray-500"></i
-                  ><?php echo $position ?> at <?php echo $school ?>
+                  >Solution Manager - Creative Tim Officer
+                </div>
+                <div class="mb-2 text-gray-700">
+                  <i class="fas fa-university mr-2 text-lg text-gray-500"></i
+                  >University of Computer Science
                 </div>
               </div>
-              <div class="mt-10 py-10 border-t-4 border-gray-300">
-                <div class="flex flex-wrap justify-center ">
-                  <div class="w-full lg:w-9/12 px-4 ">
-                    <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2 text-center">
-                      Events Created
-                    </h3>
-                    <?php
-                      $post = new Teacher_Events($con, $userLoggedIn);
-                      $post->profile_events();
-                    ?>
-                  <div class="text-center">
-                    <a href="#pablo" class="font-normal text-blue-600 "
-                      >View All</a
-                    >
-                  </div> 
-                  </div>
-                </div>
-              </div>
-              <div class="mt-10 py-10 border-t border-gray-200">
+              <div class="mt-10 py-10 border-t border-gray-300 text-center">
                 <div class="flex flex-wrap justify-center">
                   <div class="w-full lg:w-9/12 px-4">
-                    <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2 text-center">
-                      Events Attended
-                    </h3>
-                    <?php
-                      $post = new Teacher_Events($con, $userLoggedIn);
-                      $post->attended_events();
-                    ?>
-                    <div class="text-center">
-                    <a href="#pablo" class="font-normal text-blue-600 "
-                      >View All</a
+                    <p class="mb-4 text-lg leading-relaxed text-gray-800">
+                      An artist of considerable range, Jenna the name taken by
+                      Melbourne-raised, Brooklyn-based Nick Murphy writes,
+                      performs and records all of his own music, giving it a
+                      warm, intimate feel with a solid groove structure. An
+                      artist of considerable range.
+                    </p>
+                    <a href="#pablo" class="font-normal text-pink-500"
+                      >Show more</a
                     >
-                  </div> 
                   </div>
                 </div>
               </div>
@@ -171,3 +151,9 @@ if(isset($_GET['profile_username'])) {
       </section>
     </main>
 
+
+<?php 
+echo $profile_list['username']; 
+echo $profile_list['first_name'];
+echo $profile_list['last_name'];
+?>

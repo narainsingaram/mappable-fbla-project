@@ -188,7 +188,7 @@ public function load_regular_feed() {
                     </div>
                 <div>
                 $reformated_date <br>
-                $start_time $end_time
+                $start_time $end_timefasfa
                 </div>
                     <p class='break-all'>$description</p>
                 </div>
