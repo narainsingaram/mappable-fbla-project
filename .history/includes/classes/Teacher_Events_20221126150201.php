@@ -62,7 +62,7 @@ public function load_requested_feed() {
 
             $match_request_rows = mysqli_num_rows($check_requests);
             
-        
+
         if($match_request_rows == 1) {
     
             $requested_content .="
@@ -77,7 +77,7 @@ public function load_requested_feed() {
 
         <div class='flex-1 min-w-0'>
                     <p class='text-sm font-medium text-gray-900 truncate'>
-                        $first_name $last_name
+                        $title
                     </p>
                     <p class='text-sm text-gray-500 truncate'>
                         $description
@@ -118,8 +118,11 @@ public function load_regular_feed() {
       $title = $_POST['auth_title'];
       $image = $_POST['auth_image'];
       $auth_query = mysqli_query($this->con, "INSERT INTO authentifications VALUES($event_id, '$authentifier', '$userLoggedIn', '$title', '$image', '$comments', 'no', 'no') ORDER BY id DESC");
-    
+
       echo $cross_check_result['checkin_crosscheck'];
+
+      $add_notification = new Notify($this->con, $authentifier);
+      $add_notification->pushNewNotification($authentifier, 'request_received');
       header('Location: index.php');
     }
     
@@ -172,7 +175,8 @@ public function load_regular_feed() {
                         <ul class='mt-2'>
                             <li>
                                 <h3>
-                                $first_name $last_name                                  <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
+                                $first_name $last_name 
+                                <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
                                 </h3>
                             </li>
                             <li><span class='text-gray-400 text-sm'>$date_added</span>
@@ -188,6 +192,7 @@ public function load_regular_feed() {
                 <div>
                 $reformated_date <br>
                 $start_time $end_time
+
                 </div>
                     <p class='break-all'>$description</p>
                 </div>
@@ -212,21 +217,28 @@ public function load_regular_feed() {
             </svg>
           </button>
 
-          <button class='active:scale-105 inline px-0.5 py-2 rounded-full text-xl'>
+        <button class='active:scale-105 inline px-0.5 py-2 rounded-full text-xl'>
+          <svg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 24 24' fill='none'><path opacity='.4' d='m7.11 5.961 9.02-3.01c4.05-1.35 6.25.86 4.91 4.91l-3.01 9.02c-2.02 6.07-5.34 6.07-7.36 0l-.89-2.68-2.68-.89c-6.06-2.01-6.06-5.32.01-7.35Z' fill='#22d3ee'></path><path d='m12.12 11.629 3.81-3.82ZM12.12 12.38c-.19 0-.38-.07-.53-.22a.754.754 0 0 1 0-1.06l3.8-3.82c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-3.8 3.82c-.15.14-.34.22-.53.22Z' fill='#22d3ee'></path></svg>
+        </button>
+
+          <button class='float-right active:scale-105 inline px-0.5 py-2 rounded-full text-xl'>
           <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
           <path opacity='0.4' d='M11.9912 18.6215L5.49945 21.8641C5.00921 22.1302 4.39768 21.9525 4.12348 21.4643C4.0434 21.3108 4.00106 21.1402 4 20.9668V13.7088C4 14.4284 4.40573 14.8726 5.47299 15.3701L11.9912 18.6215Z' fill='#f97316'></path>
           <path opacity='0.4' d='M8.89526 2H15.0695C17.7773 2 19.9735 3.06605 20 5.79337V20.9668C19.9989 21.1374 19.9565 21.3051 19.8765 21.4554C19.7479 21.7007 19.5259 21.8827 19.2615 21.9598C18.997 22.0368 18.7128 22.0023 18.4741 21.8641L11.9912 18.6215L5.47299 15.3701C4.40573 14.8726 4 14.4284 4 13.7088V5.79337C4 3.06605 6.19625 2 8.89526 2ZM8.22492 9.62227H15.7486C16.1822 9.62227 16.5336 9.26828 16.5336 8.83162C16.5336 8.39495 16.1822 8.04096 15.7486 8.04096H8.22492C7.79137 8.04096 7.43991 8.39495 7.43991 8.83162C7.43991 9.26828 7.79137 9.62227 8.22492 9.62227Z' fill='#f97316'></path>
           </svg>
         </button>
-            </div>
+    </main>
+    </div>
     <div class='-top-0 -right-0 absolute dropdown'>
           <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
           <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
-            <li><a>Save to Bookmarks</a></li>
             <li><a>View Profile</a></li>
+            <li><a>Save to Bookmarks</a></li>
+            <li><a>Share</a></li>
+            <li><a>Report</a></li>
           </ul>
         </div>
-        </div>
+    </div>
     
     ";
 }
@@ -284,12 +296,9 @@ public function load_regular_feed() {
             /* integer version of current time - integer version start time must be above 0 for it to be live
                 integer version of current time - integer version end time must be less than 0 for it to be live
             */
-
               if($int_current_time > $int_start_time && $int_current_time < $int_end_time) {
                 $add_live_events = mysqli_query($this->con, "UPDATE teacher_events SET live='yes' WHERE event_id='$id' AND added_by='$added_by'");
                 $live_event_content .="
-                    $id $int_current_time
-
                     <div class='relative'>
     <div class='rounded-full' src='/docs/images/people/profile-picture-5.jpg'>fasdfsa</div>
 </div>
@@ -327,6 +336,216 @@ public function load_regular_feed() {
             }
           }
           echo $live_event_content;
+    }
+    public function attended_events() {
+        $userLoggedIn = $this->user_object->gettingUsername();
+        $attended_events_query = mysqli_query($this->con, "SELECT * FROM authentifications WHERE accepted ='yes' AND requester = '$userLoggedIn' ORDER BY requester DESC");
+        $attended_event_content = '';
+        $profile_event_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE added_by ='$userLoggedIn' ORDER BY event_id DESC");
+        $profile_event_content = '';
+
+        while($profile = mysqli_fetch_array($attended_events_query)) {
+            $id = $profile['event_id'];
+            $title = $profile['title'];
+            $type = $profile['type'];
+            $date = $profile['date'];
+            $start_time = $profile['start']; 
+            $end_time = $profile['end']; 
+            $description = $profile['description'];
+            $image = $profile['image'];
+            $added_by = $profile['added_by'];
+            $date_added = $profile['date_added'];
+
+            $create_event_query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$added_by'");
+            $row = mysqli_fetch_array($create_event_query);
+            $first_name = $row['first_name'];
+            $last_name = $row['last_name'];
+            $username = $row['username'];
+            $position = $row['position'];
+            $level = $row['levels'];
+            $created_account_date = $row['date'];
+
+            $attended_event_content .= "<div class='relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
+            <div>
+                <div>
+                    <div class='flex align-center'> 
+                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mr-2 text-xl bg-slate-300/30 rounded-full'>
+    <span class='font-semibold text-gray-600'>$first_name[0]$last_name[0]</span>
+</div>
+                        <ul class='mt-2'>
+                            <li>
+                                <h3>
+                                $first_name $last_name 
+                                <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
+                                </h3>
+                            </li>
+                            <li><span class='text-gray-400 text-sm'>$date_added</span>
+                            </li>
+                        </ul>
+                    </div>
+            <div>
+                <h1 class='rounded-2xl bg-slate-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>$title</h1>
+            </div>
+                    <div class='post-images'>
+                        <img class='mb-3 rounded-2xl overflow-hidden w-max h-max' src='../assets/event_images/$image'> 
+                    </div>
+                <div>
+                 <br>
+                $start_time $end_time
+
+                </div>
+                    <p class='break-all'>$description</p>
+                </div>
+          <form action='index.php' method='POST' enctype='multipart/form-data' class='inline'>
+          <input type='hidden' name='event_id' value='$id'>
+          <input type='hidden' name='authentifier' value='$added_by'>
+          <input type='hidden' name='auth_title' value='$title'>
+          <input type='hidden' name='auth_image' value='$image'>
+            <button name='auth_submit' type='submit' class='active:scale-105 inline px-1 py-2 rounded-full text-xl'> 
+            <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path opacity='0.4' d='M18.8088 9.021C18.3573 9.021 17.7592 9.011 17.0146 9.011C15.1987 9.011 13.7055 7.508 13.7055 5.675V2.459C13.7055 2.206 13.5026 2 13.253 2H7.96363C5.49517 2 3.5 4.026 3.5 6.509V17.284C3.5 19.889 5.59022 22 8.16958 22H16.0453C18.5058 22 20.5 19.987 20.5 17.502V9.471C20.5 9.217 20.298 9.012 20.0465 9.013C19.6247 9.016 19.1168 9.021 18.8088 9.021Z' fill='#10b981'></path>
+            <path opacity='0.4' d='M16.0842 2.5673C15.7852 2.2563 15.2632 2.4703 15.2632 2.9013V5.5383C15.2632 6.6443 16.1742 7.5543 17.2792 7.5543C17.9772 7.5623 18.9452 7.5643 19.7672 7.5623C20.1882 7.5613 20.4022 7.0583 20.1102 6.7543C19.0552 5.6573 17.1662 3.6913 16.0842 2.5673Z' fill='#10b981'></path>
+            <path d='M15.1052 12.8837C14.8142 13.1727 14.3432 13.1747 14.0512 12.8817L12.4622 11.2847V16.1117C12.4622 16.5227 12.1282 16.8567 11.7172 16.8567C11.3062 16.8567 10.9732 16.5227 10.9732 16.1117V11.2847L9.38223 12.8817C9.09223 13.1747 8.62023 13.1727 8.32923 12.8837C8.03823 12.5947 8.03723 12.1227 8.32723 11.8307L11.1892 8.9557C11.1902 8.9547 11.1902 8.9547 11.1902 8.9547C11.2582 8.8867 11.3402 8.8317 11.4302 8.7947C11.5202 8.7567 11.6182 8.7367 11.7172 8.7367C11.8172 8.7367 11.9152 8.7567 12.0052 8.7947C12.0942 8.8317 12.1752 8.8867 12.2432 8.9537C12.2442 8.9547 12.2452 8.9547 12.2452 8.9557L15.1072 11.8307C15.3972 12.1227 15.3972 12.5947 15.1052 12.8837Z' fill='#10b981'></path>
+            </svg>
+            </button>
+          </form>  
+
+          <button class='active:scale-105 inline px-1 py-2 rounded-full text-xl'>
+            <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path opacity='0.4' d='M12.02 2C6.21 2 2 6.74 2 12C2 13.68 2.49 15.41 3.35 16.99C3.51 17.25 3.53 17.58 3.42 17.89L2.75 20.13C2.6 20.67 3.06 21.07 3.57 20.91L5.59 20.31C6.14 20.13 6.57 20.36 7.081 20.67C8.541 21.53 10.36 21.97 12 21.97C16.96 21.97 22 18.14 22 11.97C22 6.65 17.7 2 12.02 2Z' fill='#6366f1'></path>
+            <path opacity='0.4' d='M11.9805 13.2901C11.2705 13.2801 10.7005 12.7101 10.7005 12.0001C10.7005 11.3001 11.2805 10.7201 11.9805 10.7301C12.6905 10.7301 13.2605 11.3001 13.2605 12.0101C13.2605 12.7101 12.6905 13.2901 11.9805 13.2901ZM7.37009 13.2901C6.67009 13.2901 6.09009 12.7101 6.09009 12.0101C6.09009 11.3001 6.66009 10.7301 7.37009 10.7301C8.08009 10.7301 8.65009 11.3001 8.65009 12.0101C8.65009 12.7101 8.08009 13.2801 7.37009 13.2901ZM15.3103 12.0101C15.3103 12.7101 15.8803 13.2901 16.5903 13.2901C17.3003 13.2901 17.8703 12.7101 17.8703 12.0101C17.8703 11.3001 17.3003 10.7301 16.5903 10.7301C15.8803 10.7301 15.3103 11.3001 15.3103 12.0101Z' fill='#6366f1'></path>
+            </svg>
+          </button>
+
+        <button class='active:scale-105 inline px-0.5 py-2 rounded-full text-xl'>
+          <svg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 24 24' fill='none'><path opacity='.4' d='m7.11 5.961 9.02-3.01c4.05-1.35 6.25.86 4.91 4.91l-3.01 9.02c-2.02 6.07-5.34 6.07-7.36 0l-.89-2.68-2.68-.89c-6.06-2.01-6.06-5.32.01-7.35Z' fill='#22d3ee'></path><path d='m12.12 11.629 3.81-3.82ZM12.12 12.38c-.19 0-.38-.07-.53-.22a.754.754 0 0 1 0-1.06l3.8-3.82c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-3.8 3.82c-.15.14-.34.22-.53.22Z' fill='#22d3ee'></path></svg>
+        </button>
+
+          <button class='float-right active:scale-105 inline px-0.5 py-2 rounded-full text-xl'>
+          <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path opacity='0.4' d='M11.9912 18.6215L5.49945 21.8641C5.00921 22.1302 4.39768 21.9525 4.12348 21.4643C4.0434 21.3108 4.00106 21.1402 4 20.9668V13.7088C4 14.4284 4.40573 14.8726 5.47299 15.3701L11.9912 18.6215Z' fill='#f97316'></path>
+          <path opacity='0.4' d='M8.89526 2H15.0695C17.7773 2 19.9735 3.06605 20 5.79337V20.9668C19.9989 21.1374 19.9565 21.3051 19.8765 21.4554C19.7479 21.7007 19.5259 21.8827 19.2615 21.9598C18.997 22.0368 18.7128 22.0023 18.4741 21.8641L11.9912 18.6215L5.47299 15.3701C4.40573 14.8726 4 14.4284 4 13.7088V5.79337C4 3.06605 6.19625 2 8.89526 2ZM8.22492 9.62227H15.7486C16.1822 9.62227 16.5336 9.26828 16.5336 8.83162C16.5336 8.39495 16.1822 8.04096 15.7486 8.04096H8.22492C7.79137 8.04096 7.43991 8.39495 7.43991 8.83162C7.43991 9.26828 7.79137 9.62227 8.22492 9.62227Z' fill='#f97316'></path>
+          </svg>
+        </button>
+    </main>
+    </div>
+    <div class='-top-0 -right-0 absolute dropdown'>
+          <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
+          <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
+            <li><a>View Profile</a></li>
+            <li><a>Save to Bookmarks</a></li>
+            <li><a>Share</a></li>
+            <li><a>Report</a></li>
+          </ul>
+        </div>
+    </div>";
+         }
+        
+         echo $profile_event_content;
+    }
+    public function profile_events() {
+        $userLoggedIn = $this->user_object->gettingUsername();
+        $profile_event_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE added_by ='$userLoggedIn' ORDER BY event_id DESC");
+        $profile_event_content = '';
+
+        while($profile = mysqli_fetch_array($profile_event_query)) {
+            $id = $profile['event_id'];
+            $title = $profile['title'];
+            $type = $profile['type'];
+            $date = $profile['date'];
+            $start_time = $profile['start']; 
+            $end_time = $profile['end']; 
+            $description = $profile['description'];
+            $image = $profile['image'];
+            $added_by = $profile['added_by'];
+            $date_added = $profile['date_added'];
+
+            $create_event_query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$added_by'");
+            $row = mysqli_fetch_array($create_event_query);
+            $first_name = $row['first_name'];
+            $last_name = $row['last_name'];
+            $username = $row['username'];
+            $position = $row['position'];
+            $level = $row['levels'];
+            $created_account_date = $row['date'];
+
+            $profile_event_content .= "<div class='relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
+            <div>
+                <div>
+                    <div class='flex align-center'> 
+                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mr-2 text-xl bg-slate-300/30 rounded-full'>
+    <span class='font-semibold text-gray-600'>$first_name[0]$last_name[0]</span>
+</div>
+                        <ul class='mt-2'>
+                            <li>
+                                <h3>
+                                $first_name $last_name 
+                                <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
+                                </h3>
+                            </li>
+                            <li><span class='text-gray-400 text-sm'>$date_added</span>
+                            </li>
+                        </ul>
+                    </div>
+            <div>
+                <h1 class='rounded-2xl bg-slate-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>$title</h1>
+            </div>
+                    <div class='post-images'>
+                        <img class='mb-3 rounded-2xl overflow-hidden w-max h-max' src='../assets/event_images/$image'> 
+                    </div>
+                <div>
+                 <br>
+                $start_time $end_time
+
+                </div>
+                    <p class='break-all'>$description</p>
+                </div>
+          <form action='index.php' method='POST' enctype='multipart/form-data' class='inline'>
+          <input type='hidden' name='event_id' value='$id'>
+          <input type='hidden' name='authentifier' value='$added_by'>
+          <input type='hidden' name='auth_title' value='$title'>
+          <input type='hidden' name='auth_image' value='$image'>
+            <button name='auth_submit' type='submit' class='active:scale-105 inline px-1 py-2 rounded-full text-xl'> 
+            <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path opacity='0.4' d='M18.8088 9.021C18.3573 9.021 17.7592 9.011 17.0146 9.011C15.1987 9.011 13.7055 7.508 13.7055 5.675V2.459C13.7055 2.206 13.5026 2 13.253 2H7.96363C5.49517 2 3.5 4.026 3.5 6.509V17.284C3.5 19.889 5.59022 22 8.16958 22H16.0453C18.5058 22 20.5 19.987 20.5 17.502V9.471C20.5 9.217 20.298 9.012 20.0465 9.013C19.6247 9.016 19.1168 9.021 18.8088 9.021Z' fill='#10b981'></path>
+            <path opacity='0.4' d='M16.0842 2.5673C15.7852 2.2563 15.2632 2.4703 15.2632 2.9013V5.5383C15.2632 6.6443 16.1742 7.5543 17.2792 7.5543C17.9772 7.5623 18.9452 7.5643 19.7672 7.5623C20.1882 7.5613 20.4022 7.0583 20.1102 6.7543C19.0552 5.6573 17.1662 3.6913 16.0842 2.5673Z' fill='#10b981'></path>
+            <path d='M15.1052 12.8837C14.8142 13.1727 14.3432 13.1747 14.0512 12.8817L12.4622 11.2847V16.1117C12.4622 16.5227 12.1282 16.8567 11.7172 16.8567C11.3062 16.8567 10.9732 16.5227 10.9732 16.1117V11.2847L9.38223 12.8817C9.09223 13.1747 8.62023 13.1727 8.32923 12.8837C8.03823 12.5947 8.03723 12.1227 8.32723 11.8307L11.1892 8.9557C11.1902 8.9547 11.1902 8.9547 11.1902 8.9547C11.2582 8.8867 11.3402 8.8317 11.4302 8.7947C11.5202 8.7567 11.6182 8.7367 11.7172 8.7367C11.8172 8.7367 11.9152 8.7567 12.0052 8.7947C12.0942 8.8317 12.1752 8.8867 12.2432 8.9537C12.2442 8.9547 12.2452 8.9547 12.2452 8.9557L15.1072 11.8307C15.3972 12.1227 15.3972 12.5947 15.1052 12.8837Z' fill='#10b981'></path>
+            </svg>
+            </button>
+          </form>  
+
+          <button class='active:scale-105 inline px-1 py-2 rounded-full text-xl'>
+            <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path opacity='0.4' d='M12.02 2C6.21 2 2 6.74 2 12C2 13.68 2.49 15.41 3.35 16.99C3.51 17.25 3.53 17.58 3.42 17.89L2.75 20.13C2.6 20.67 3.06 21.07 3.57 20.91L5.59 20.31C6.14 20.13 6.57 20.36 7.081 20.67C8.541 21.53 10.36 21.97 12 21.97C16.96 21.97 22 18.14 22 11.97C22 6.65 17.7 2 12.02 2Z' fill='#6366f1'></path>
+            <path opacity='0.4' d='M11.9805 13.2901C11.2705 13.2801 10.7005 12.7101 10.7005 12.0001C10.7005 11.3001 11.2805 10.7201 11.9805 10.7301C12.6905 10.7301 13.2605 11.3001 13.2605 12.0101C13.2605 12.7101 12.6905 13.2901 11.9805 13.2901ZM7.37009 13.2901C6.67009 13.2901 6.09009 12.7101 6.09009 12.0101C6.09009 11.3001 6.66009 10.7301 7.37009 10.7301C8.08009 10.7301 8.65009 11.3001 8.65009 12.0101C8.65009 12.7101 8.08009 13.2801 7.37009 13.2901ZM15.3103 12.0101C15.3103 12.7101 15.8803 13.2901 16.5903 13.2901C17.3003 13.2901 17.8703 12.7101 17.8703 12.0101C17.8703 11.3001 17.3003 10.7301 16.5903 10.7301C15.8803 10.7301 15.3103 11.3001 15.3103 12.0101Z' fill='#6366f1'></path>
+            </svg>
+          </button>
+
+        <button class='active:scale-105 inline px-0.5 py-2 rounded-full text-xl'>
+          <svg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 24 24' fill='none'><path opacity='.4' d='m7.11 5.961 9.02-3.01c4.05-1.35 6.25.86 4.91 4.91l-3.01 9.02c-2.02 6.07-5.34 6.07-7.36 0l-.89-2.68-2.68-.89c-6.06-2.01-6.06-5.32.01-7.35Z' fill='#22d3ee'></path><path d='m12.12 11.629 3.81-3.82ZM12.12 12.38c-.19 0-.38-.07-.53-.22a.754.754 0 0 1 0-1.06l3.8-3.82c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-3.8 3.82c-.15.14-.34.22-.53.22Z' fill='#22d3ee'></path></svg>
+        </button>
+
+          <button class='float-right active:scale-105 inline px-0.5 py-2 rounded-full text-xl'>
+          <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+          <path opacity='0.4' d='M11.9912 18.6215L5.49945 21.8641C5.00921 22.1302 4.39768 21.9525 4.12348 21.4643C4.0434 21.3108 4.00106 21.1402 4 20.9668V13.7088C4 14.4284 4.40573 14.8726 5.47299 15.3701L11.9912 18.6215Z' fill='#f97316'></path>
+          <path opacity='0.4' d='M8.89526 2H15.0695C17.7773 2 19.9735 3.06605 20 5.79337V20.9668C19.9989 21.1374 19.9565 21.3051 19.8765 21.4554C19.7479 21.7007 19.5259 21.8827 19.2615 21.9598C18.997 22.0368 18.7128 22.0023 18.4741 21.8641L11.9912 18.6215L5.47299 15.3701C4.40573 14.8726 4 14.4284 4 13.7088V5.79337C4 3.06605 6.19625 2 8.89526 2ZM8.22492 9.62227H15.7486C16.1822 9.62227 16.5336 9.26828 16.5336 8.83162C16.5336 8.39495 16.1822 8.04096 15.7486 8.04096H8.22492C7.79137 8.04096 7.43991 8.39495 7.43991 8.83162C7.43991 9.26828 7.79137 9.62227 8.22492 9.62227Z' fill='#f97316'></path>
+          </svg>
+        </button>
+    </main>
+    </div>
+    <div class='-top-0 -right-0 absolute dropdown'>
+          <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
+          <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
+            <li><a>View Profile</a></li>
+            <li><a>Save to Bookmarks</a></li>
+            <li><a>Share</a></li>
+            <li><a>Report</a></li>
+          </ul>
+        </div>
+    </div>";
+         }
+        
+         echo $profile_event_content;
     }
 }
 ?>
