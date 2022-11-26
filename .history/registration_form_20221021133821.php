@@ -1,7 +1,6 @@
 
 <head>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
 </head>
 <?php
 require "includes/configs/configurations.php";
@@ -221,9 +220,29 @@ require 'includes/operators/login_operator.php';
 </div>
     </div>
 <div id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
-    <label for="my-modal-4" class="inline-flex items-center py-3 px-4 text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl">
-    <svg class='mx-1' xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none"><path opacity=".4" d="M18.328 5.67 6.588 17.41c-.44.44-1.18.38-1.54-.14-1.24-1.81-1.97-3.95-1.97-6.15V6.73c0-.82.62-1.75 1.38-2.06l5.57-2.28a5.12 5.12 0 0 1 3.92 0l4.04 1.65c.67.27.84 1.13.34 1.63Z" fill="#2563eb"></path><path d="M19.27 7.042c.65-.55 1.64-.08 1.64.77v3.31c0 4.89-3.55 9.47-8.4 10.81-.33.09-.69.09-1.03 0a11.3 11.3 0 0 1-3.87-1.95c-.48-.37-.53-1.07-.11-1.5 2.18-2.23 8.56-8.73 11.77-11.44Z" fill="#2563eb"></path></svg>
-        I'm Not A Robot</label>
+<?php
+$human_image_verification_array = array("assets/images/183901AFA12.png", "assets/images/2190AU12.png", "assets/images/13809ADH213.png", "assets/images/10239JAHK13.png", "assets/images/578123IJAS9.png", "assets/images/192085JKN.png", "assets/images/3105498KJA.png", "assets/images/123908ADKJ.png");
+shuffle($human_image_verification_array);
+
+$img_rotations = array(12,45,90,180);
+shuffle($img_rotations);
+?>
+<center class=''>
+<main class='relative m-auto w-48 bg-slate-200 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] 0px 9px 20px; rounded-3xl mb-4'>
+    <img class=' p-5 rotate-<?php echo $img_rotations[0];?>' src="<?php echo $human_image_verification_array[0]; ?>" alt="">
+</main>
+</center>
+    <div class="my-4 flex items-center py-2 px-3 bg-slate-100 rounded-2xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] ">
+    <button class="inline-flex justify-center items-center text-lg px-3 py-3 text-slate-500 bg-slate-200 rounded-full">
+        <i class="uil uil-sync"></i>
+    </button>
+        <input name='human_ver_reg_input' class="block mx-4 p-2.5 w-full px-5 py-3 text-slate-600 placeholder-gray-400 transition duration-150 ease-in-out transform rounded-xl bg-slate-200 focus:outline-none focus:ring focus:ring-blue-300" placeholder='What is on the image?'></input>
+        <button type='submit' name='submit_human_verification' class="inline-flex justify-center items-center text-lg px-3 py-3 text-slate-500 bg-slate-200 rounded-full">
+        <i class="uil uil-check"></i>
+    </button>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path opacity="0.4" d="M15.5 13.15h-2.17c-1.78 0-3.23-1.44-3.23-3.23V7.75c0-.41-.33-.75-.75-.75H6.18C3.87 7 2 8.5 2 11.18v6.64C2 20.5 3.87 22 6.18 22h5.89c2.31 0 4.18-1.5 4.18-4.18V13.9c0-.42-.34-.75-.75-.75Z" fill="#94a3b8"></path><path d="M17.82 2H11.93C9.67 2 7.84 3.44 7.76 6.01c.06 0 .11-.01.17-.01h5.89C16.13 6 18 7.5 18 10.18V16.83c0 .06-.01.11-.01.16 2.23-.07 4.01-1.55 4.01-4.16V6.18C22 3.5 20.13 2 17.82 2Z" fill="#94a3b8"></path><path d="M11.98 7.15c-.31-.31-.84-.1-.84.33v2.62c0 1.1.93 2 2.07 2 .71.01 1.7.01 2.55.01.43 0 .65-.5.35-.8-1.09-1.09-3.03-3.04-4.13-4.16Z" fill="#94a3b8"></path></svg>
 
     <div class="button">
         <button class="flex items-center justify-center w-full px-8 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-500 rounded-2xl hover:bg-blue-600" type="submit" name="register_btn">Create Account
@@ -239,37 +258,5 @@ require 'includes/operators/login_operator.php';
     <a class="text-gray-500 text-sm text-center	"href="sign_in.php"><center>Already have a account? Log In</center></a>
 </div>
 </div>
-
-<?php
-$human_image_verification_array = array("assets/images/183901AFA12.png", "assets/images/2190AU12.png", "assets/images/13809ADH213.png", "assets/images/10239JAHK13.png", "assets/images/578123IJAS9.png", "assets/images/192085JKN.png", "assets/images/3105498KJA.png", "assets/images/123908ADKJ.png");
-shuffle($human_image_verification_array);
-
-$img_rotations = array(12,45,90,180);
-shuffle($img_rotations);
-?>
-
-
-<!-- Put this part before </body> tag -->
-<input type="checkbox" id="my-modal-4" class="modal-toggle" />
-<label for="my-modal-4" class="modal cursor-pointer">
-  <label class="bg-white modal-box relative" for="">
-    <center class=''>
-        <main class='relative m-auto w-48 bg-slate-200 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] 0px 9px 20px; rounded-3xl mb-4'>
-            <img class=' p-5 rotate-<?php echo $img_rotations[0];?>' src="<?php echo $human_image_verification_array[0]; ?>" alt="">
-        </main>
-    </center>
-    <form class='inline' action="registration_form.php">
-        <div class="my-4 flex items-center py-2 px-3 bg-slate-100 rounded-2xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px]">
-                <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer">
-                    <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path></svg>
-                </button>
-                    <input class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-white focus:outline-none focus:ring focus:ring-blue-3000" placeholder="What does the image depict?"></input>
-                        <button name='image_auth' type="submit" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer">
-                            <svg aria-hidden="true" class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
-                        </button>
-            </div>
-    </form>
-</label>
-
 </body>
 </html>

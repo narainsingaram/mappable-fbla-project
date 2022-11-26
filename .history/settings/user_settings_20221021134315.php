@@ -1,5 +1,6 @@
 <?php
 include("../template/web_defaults.php");
+include("../template/bottom_drawer.php"); 
 include("../template/navbar.php");
 
 include("../includes/operators/settings_operator.php");
@@ -40,7 +41,7 @@ body, html {
 </head>
 
 <div class='tabcontent m-2'>
-  <a href='user_settings.php' class="tablink bg-blue-600 font-semibold"  >Home</a>
+  <a href='user_settings.php' class="tablink bg-blue-400">Home</a>
   <a href='user_personalization.php' class="tablink bg-gray-200 text-black">Personalization</a>
   <a class="tablink bg-gray-200 text-black">Other</a>
   <a class="tablink bg-gray-200 text-black">Other</a>
@@ -74,10 +75,6 @@ body, html {
     <option value="North Gwinnet Highschool">North Gwinnet Highschool</option>
     <option value="Other">Other</option>
   </select>
-  </div>
-  <div class="mb-6">
-    <label for="change_password" class="block text-sm font-medium text-gray-400 mx-2 my-1">Change Password</label>
-    <input class='block w-full px-3 py-3 text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="password" name="change_password" >
   </div>
   <button type="submit" name="alter_user_info"class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Submit</button>
 </form>

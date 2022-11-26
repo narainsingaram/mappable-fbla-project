@@ -13,13 +13,6 @@ public function gettingUsername() {
     return $this->user['username'];
 }
 
-public function getFullName() {
-    $username = $this->user['username'];
-    $full_name_query = mysqli_query($this->con,"SELECT * FROM users WHERE username='$username'");
-    $user_row = mysqli_fetch_array($full_name_query);
-    return $user_row['first_name'] ." ". $user_row['last_name'];
-}
-
 public function didUserDeleteAccount() {
     $username = $this->user['username'];
     $deleted_query = mysqli_query($this->con, "SELECT user_deleted FROM users WHERE username='$username'");
