@@ -103,7 +103,7 @@ Spaces
                   <h2 class='card-title'>Space $id</h2>
                   <p>If a dog chews shoes whose shoes does he choose?</p>
                   <div class='card-actions justify-end'>
-                      <a href='space.php?space=$id' class='btn' name='$id-spaces-request'>Go To Space</a>
+                      <a href='space.php?space=$id' class='btn btn-circle btn-lg		 glass rounded-full' name='$id-spaces-request'>Go To Space</a>
                 </div>
               </div>
             </div>

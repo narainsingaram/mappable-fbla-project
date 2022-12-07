@@ -57,7 +57,7 @@ $color_array = array("red", "orange", "amber", "yellow", "lime", "green", "emera
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mappable</title>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="../assets/css/font.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/html/styles.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.41.0/dist/full.css" rel="stylesheet" type="text/css" />
