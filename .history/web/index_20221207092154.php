@@ -55,7 +55,7 @@ if(isset($_POST['create_space'])) {
 
 
 <form action="index.php" method='POST'>
-  <button name='getting_points' class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-500 cursor-pointer rounded-xl' type="submit">Get Points</button>
+  <button name='getting_points' class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl' type="submit">Get Points</button>
 </form>
 
 

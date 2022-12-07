@@ -55,7 +55,7 @@ if(isset($_POST['create_space'])) {
 
 
 <form action="index.php" method='POST'>
-  <button name='getting_points' class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-500 cursor-pointer rounded-xl' type="submit">Get Points</button>
+  <button name='getting_points' class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl' type="submit">Get Points</button>
 </form>
 
 
@@ -104,7 +104,7 @@ Spaces
                   <p>If a dog chews shoes whose shoes does he choose?</p>
                   <div class='card-actions justify-end'>
                     <form name='index.php' method='POST'>
-                      <a href='space.php?space=$id' class='btn' type='submit' name='$id-spaces-request'>Go To Space</a>
+                      <a href='space.php?space=$id' class='inline-flex py-2 px-3 font-medium text-center text-green-500 hover:text-green-600 bg-green-200/60 cursor-pointer rounded-xl' type='submit' name='$id-spaces-request'>Go To Space</a>
                     </form>
                 </div>
               </div>
