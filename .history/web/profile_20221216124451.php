@@ -17,8 +17,8 @@ $userData = [
 $userData = $user;
 
 
-$profile_symbol = substr($first_name, 0, 1) . substr($last_name, 0, 1);
-$full_name = "$first_name $last_name";
+$profile_symbol = $first_name[0]. "" . $last_name[0];
+$full_name = $first_name. " " . $last_name;
 
 if(isset($_GET['id'])) {
     $id = $_GET['id'];
