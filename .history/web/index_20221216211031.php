@@ -52,23 +52,24 @@ header("Location: index.php");
   <svg class='inline' xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"><path opacity=".4" d="M2 9.75c-.41 0-.75-.34-.75-.75V6.5c0-2.9 2.36-5.25 5.25-5.25H9c.41 0 .75.34.75.75s-.34.75-.75.75H6.5c-2.07 0-3.75 1.68-3.75 3.75V9c0 .41-.34.75-.75.75Z" fill="#3b82f6"></path><path d="M22 9.75c-.41 0-.75-.34-.75-.75V6.5c0-2.07-1.68-3.75-3.75-3.75H15c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h2.5c2.89 0 5.25 2.35 5.25 5.25V9c0 .41-.34.75-.75.75Z" fill="#3b82f6"></path><path opacity=".4" d="M17.5 22.75H16c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h1.5c2.07 0 3.75-1.68 3.75-3.75V16c0-.41.34-.75.75-.75s.75.34.75.75v1.5c0 2.9-2.36 5.25-5.25 5.25Z" fill="#3b82f6"></path><path d="M9 22.75H6.5c-2.89 0-5.25-2.35-5.25-5.25V15c0-.41.34-.75.75-.75s.75.34.75.75v2.5c0 2.07 1.68 3.75 3.75 3.75H9c.41 0 .75.34.75.75s-.34.75-.75.75ZM8.501 11.381a2.88 2.88 0 1 0 0-5.76 2.88 2.88 0 0 0 0 5.76Z" fill="#3b82f6"></path><path opacity=".4" d="M7.501 18.381a1.88 1.88 0 1 0 0-3.76 1.88 1.88 0 0 0 0 3.76ZM16.501 9.381a1.88 1.88 0 1 0 0-3.76 1.88 1.88 0 0 0 0 3.76Z" fill="#3b82f6"></path><path d="M15.501 18.381a2.88 2.88 0 1 0 0-5.76 2.88 2.88 0 0 0 0 5.76Z" fill="#3b82f6"></path></svg>
 Spaces
 </h1>
-<?php
-  $spcs_list = '';
-  $all_spcs_query = mysqli_query($con, "SELECT * FROM spaces");
+<?php 
+    $spcs_list = '';
+    $all_spcs_query = mysqli_query($con, "SELECT * FROM spaces");
+    $userLoggedIn = $_SESSION["userLoggedIn"];
 
     while($space = mysqli_fetch_array($all_spcs_query)) {
-      $id = $space['space_id'];
-      $date = date("Y-m-d");
-      $space_name = $space['name'];
-      $space_bio = $space['bio'];
-      $founder = $space['founder'];
-      $participant_arr = explode(',', $space['participants']);
+        $id = $space['space_id'];
+        $date = date("Y-m-d");
+        $space_name = $space['name'];
+        $space_bio = $space['bio'];
+        $founder = $space['founder'];
+        $participant_arr = explode(',', $space['participants']);
 
-      if(isset($_POST["$id-spaces-request"])) {
-        $join_spc = mysqli_query($con, "UPDATE spaces SET participants=CONCAT(participants, '$userLoggedIn,') WHERE space_id='$id' AND founder='$founder'");
-        $insert_spc_new_mem_msg = mysqli_query($con, "INSERT INTO spc_msgs VALUES (NULL,'$id', '$userLoggedIn', '', 'new_member', '$date', 'no')");
-        header("Location: space.php?space=$id ");
-      }
+        if(isset($_POST["$id-spaces-request"])) {
+            mysqli_query($con, "UPDATE spaces SET participants=CONCAT(participants, '$userLoggedIn,') WHERE space_id='$id' AND founder='$founder'");
+            mysqli_query($con, "INSERT INTO spc_msgs VALUES (NULL,'$id', '$userLoggedIn', '', 'new_member', '$date', 'no')");
+            header("Location: space.php?space=$id ");
+        }
           if (in_array($userLoggedIn, $participant_arr))
             {
               $spcs_list .= "
@@ -142,11 +143,11 @@ Spaces
 
 <div class="w-1/2 p-5">
 <?php
-  if($fetch_event_rows['num_event_rows'] > 0) {
-    $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
-    $match_request_rows = mysqli_num_rows($check_requests);
-  }
-  ?>
+if($fetch_event_rows['num_event_rows'] > 0) {
+  $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
+  $match_request_rows = mysqli_num_rows($check_requests);
+}
+?>
 
 <i class="uim uim-layer-group"></i>
   <header class='mb-2 ml-4'>

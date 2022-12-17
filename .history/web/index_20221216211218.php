@@ -116,21 +116,21 @@ Spaces
 <p>Explore your school & community's events created by your teachers and administrators.</p>
 
 
-<form action="index.php" method="POST" enctype="multipart/form-data"> 
-  <input name="user_title" type="text" placeholder="Event Title" class='inline-flex items-center py-2 px-3 text-sm font-medium text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl'>
-  <select name="user_type" class='inline-flex items-center py-2 px-3 text-sm font-medium  text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl'>
+<form action="index.php" method="POST" enctype="multipart/form-data">
+  <input name="user_title" type="text" placeholder="Event Title" class='input-field'>
+  <select name="user_type" class='input-field'>
     <option value="Choose Type of Event">Choose Type of Event</option>
     <option value="Academic">Academic</option>
     <option value="Extracurricular">Extracurricular</option>
     <option value="Sports">Sports</option>
     <option value="Other">Other</option>
   </select> <br>
-  <input type="date" name="user_date" id="" class='inline-flex items-center py-2 px-3 text-sm font-medium text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl'>
-  <input type="time" name="user_start" id="" class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl'>
-  <input type="time" name="user_end" id=""  class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl'> <br>
-  <input type="text" name="user_desc"  placeholder="Description of Your Event" class='inline-flex items-center py-2 px-3 text-sm font-medium text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl pt-12'>
-  <input type="file" name="image" id="" class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl'> <br>
-  <button name="user_submit" class='align-middle inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl' type="submit">Submit</button>
+  <input type="date" name="user_date" id="" class='input-field'>
+  <input type="time" name="user_start" id="" class='input-field'>
+  <input type="time" name="user_end" id=""  class='input-field'> <br>
+  <input type="text" name="user_desc"  placeholder="Description of Your Event" class='input-field pt-12'>
+  <input type="file" name="image" id="" class='input-field'> <br> 
+  <button name="user_submit" class='input-field' type="submit">Submit</button>
 </form>
   <?php
       $post = new Teacher_Events($con, $userLoggedIn);
@@ -142,11 +142,11 @@ Spaces
 
 <div class="w-1/2 p-5">
 <?php
-  if($fetch_event_rows['num_event_rows'] > 0) {
-    $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
-    $match_request_rows = mysqli_num_rows($check_requests);
-  }
-  ?>
+if($fetch_event_rows['num_event_rows'] > 0) {
+  $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
+  $match_request_rows = mysqli_num_rows($check_requests);
+}
+?>
 
 <i class="uim uim-layer-group"></i>
   <header class='mb-2 ml-4'>

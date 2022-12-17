@@ -142,11 +142,11 @@ Spaces
 
 <div class="w-1/2 p-5">
 <?php
-  if($fetch_event_rows['num_event_rows'] > 0) {
-    $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
-    $match_request_rows = mysqli_num_rows($check_requests);
-  }
-  ?>
+if($fetch_event_rows['num_event_rows'] > 0) {
+  $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
+  $match_request_rows = mysqli_num_rows($check_requests);
+}
+?>
 
 <i class="uim uim-layer-group"></i>
   <header class='mb-2 ml-4'>

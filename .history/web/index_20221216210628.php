@@ -17,23 +17,35 @@ if(!empty($_FILES['image']['name'])) {
 header("Location: index.php");
 }
 ?>
-<section id='section' class="flex">
-  <?php 
-    if(isset($_POST['getting_points'])){
-        $points_query = mysqli_query($con,"UPDATE users SET points = '$points', gems = '$gems', experience = '$experience * 1.1', levels = 'floor($experience * 1.1 / 100)', percentage_growth = '$experience * 1.1 - (floor($experience * 1.1 / 100) * 100)' WHERE id = '$id'");
-        header("Location: index.php");
-      }
 
-    if(isset($_POST['create_space'])) {
-      $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
-      header("Location: index.php");
-    }
-  ?>
+
+
+
+<!-- Terminal Command -->
+<section id='section' class="flex">
+  
+
+<?php 
+if(isset($_POST['getting_points'])){
+    $points_query = mysqli_query($con,"UPDATE users SET points = '$points', gems = '$gems', experience = '$experience * 1.1', levels = 'floor($experience * 1.1 / 100)', percentage_growth = '$experience * 1.1 - (floor($experience * 1.1 / 100) * 100)' WHERE id = '$id'");
+    header("Location: index.php");
+  }
+
+if(isset($_POST['create_space'])) {
+  $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
+  header("Location: index.php");
+}
+
+
+?>
 
 <div class="w-1/2 p-5">
-  <form action="index.php" method='POST'>
-    <button name='getting_points' class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-500 cursor-pointer rounded-xl' type="submit">Get Points</button>
-  </form>
+
+
+<form action="index.php" method='POST'>
+  <button name='getting_points' class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-500 cursor-pointer rounded-xl' type="submit">Get Points</button>
+</form>
+
 
 <input type="checkbox" id="my-modal-5" class="modal-toggle" />
 <div class="modal">
@@ -142,11 +154,11 @@ Spaces
 
 <div class="w-1/2 p-5">
 <?php
-  if($fetch_event_rows['num_event_rows'] > 0) {
-    $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
-    $match_request_rows = mysqli_num_rows($check_requests);
-  }
-  ?>
+if($fetch_event_rows['num_event_rows'] > 0) {
+  $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
+  $match_request_rows = mysqli_num_rows($check_requests);
+}
+?>
 
 <i class="uim uim-layer-group"></i>
   <header class='mb-2 ml-4'>

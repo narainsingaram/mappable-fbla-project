@@ -2,27 +2,47 @@
 include("../template/web_defaults.php");
 include("../template/navbar.php");
 
-//get number of global users
 $number_of_global_users = mysqli_query($con, "SELECT count( * ) as id FROM users");
 
-//get user list ordered by points and gems
 $user_list_points_query = mysqli_query($con,"SELECT * FROM users ORDER BY points DESC LIMIT 10");
 $user_list_gems_query = mysqli_query($con,"SELECT * FROM users ORDER BY gems DESC LIMIT 10");
 
-//get sum of all gems, points and experience in users table
+//get sum of all gems in users table
 $total_gems = mysqli_query($con, "SELECT SUM(gems) as gem_sum
 FROM users;");
-$total_points = mysqli_query($con, "SELECT SUM(points) as point_sum  FROM users;");
-$total_experience = mysqli_query($con, "SELECT SUM(experience) as experience_sum FROM users;");
-
 $gem_rows = mysqli_fetch_assoc($total_gems);
-$point_rows = mysqli_fetch_assoc($total_points);
-$experience_rows = mysqli_fetch_assoc($total_experience);
+$total_sum_gems = $gem_rows['gem_sum']; 
 
-$total_sum_gems = $gem_rows['gem_sum'];
+//get sum of all points in users table
+$total_points = mysqli_query($con, "SELECT SUM(points) as point_sum
+FROM users;");
+$point_rows = mysqli_fetch_assoc($total_points);
 $total_sum_points = $point_rows['point_sum']; 
-$experience_sum_points = $experience_rows['experience_sum'];
+
+
+
+$total_experience = mysqli_query($con, "SELECT SUM(experience) as experience_sum
+FROM users;");
+$experience_rows = mysqli_fetch_assoc($total_experience);
+$experience_sum_points = $experience_rows['experience_sum']; 
 ?>
+
+
+<script>
+  let arrow = document.querySelectorAll(".arrow");
+  for (var i = 0; i < arrow.length; i++) {
+    arrow[i].addEventListener("click", (e)=>{
+   let arrowParent = e.target.parentElement.parentElement;//selecting main parent of arrow
+   arrowParent.classList.toggle("showMenu");
+    });
+  }
+  let sidebar = document.querySelector(".sidebar");
+  let sidebarBtn = document.querySelector(".bx-menu");
+  console.log(sidebarBtn);
+  sidebarBtn.addEventListener("click", ()=>{
+    sidebar.classList.toggle("close");
+  });
+  </script>
 
 <!-- NAVBAR -->
 <section id="content" class="bg-gray-100">
