@@ -44,8 +44,11 @@ class Notify {
                 <a class='flex' href='index.php'>
                     <span class='bg-slate-200 p-2 w-10 h-10 text-xl font-semibold text-gray-700 rounded-full flex items-center justify-center'>$pfp_name</span>
                     <span>
-                        {$row['message']}
+                    {$row['message']}
                     </span> 
+                    <span>
+                        Close
+                    </span>
                 </a>
             </li>
             ";

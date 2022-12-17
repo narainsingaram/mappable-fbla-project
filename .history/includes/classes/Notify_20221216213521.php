@@ -44,8 +44,14 @@ class Notify {
                 <a class='flex' href='index.php'>
                     <span class='bg-slate-200 p-2 w-10 h-10 text-xl font-semibold text-gray-700 rounded-full flex items-center justify-center'>$pfp_name</span>
                     <span>
-                        {$row['message']}
+                    {$row['message']}
                     </span> 
+                    <span>
+                        <div class='dropdown dropdown-end'>
+                        <label tabindex="0" class='btn btn-ghost p-0 hover:bg-slate-50">
+                        <?php echo "<span class='bg-$color_array[0]-100 w-12 h-12 text-xl font-bold text-gray-700  rounded-full flex items-center justify-center'> $profile_symbol </span>";?>
+                        </label>
+                    </span>
                 </a>
             </li>
             ";
