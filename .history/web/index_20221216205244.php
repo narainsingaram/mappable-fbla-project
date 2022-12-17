@@ -26,13 +26,25 @@ header("Location: index.php");
   
 
 <?php 
-if(isset($_POST['getting_points'])){
-    $points_query = mysqli_query($con,"UPDATE users SET points = '$points', gems = '$gems', experience = '$experience * 1.1', levels = 'floor($experience * 1.1 / 100)', percentage_growth = '$experience * 1.1 - (floor($experience * 1.1 / 100) * 100)' WHERE id = '$id'");
+  if(isset($_POST['getting_points'])){
+    $points_query = mysqli_query($con," UPDATE users SET points = '$points' WHERE id = '$id'");
+    $gems_query = mysqli_query($con," UPDATE users SET gems = '$gems' WHERE id = '$id'");
+    
+    $new_experience_growth = ($experience * 1.1);
+    $experience_division = $new_experience_growth / 100;
+    $level = floor($experience_division);
+    $new_level_growth_percentage = $new_experience_growth - ($level * 100); //percentage they gave grown
+
+    $experience_query = mysqli_query($con," UPDATE users SET experience = '$new_experience_growth' WHERE id = '$id'");
+    $levels_query = mysqli_query($con," UPDATE users SET levels = '$level' WHERE id = '$id'");
+    $percentage_growth = mysqli_query($con," UPDATE users SET percentage_growth = '$new_level_growth_percentage' WHERE id = '$id'");
     header("Location: index.php");
   }
 
 if(isset($_POST['create_space'])) {
-  $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
+  $name = $_POST['space_name'];
+  $bio = $_POST['space_bio'];
+  $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '$name', '$bio', '$userLoggedIn', ',', ',', 'no')");
   header("Location: index.php");
 }
 

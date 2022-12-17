@@ -31,10 +31,10 @@ if(isset($_POST['getting_points'])){
     header("Location: index.php");
   }
 
-if(isset($_POST['create_space'])) {
-  $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
-  header("Location: index.php");
-}
+  if(isset($_POST['create_space'])) {
+    $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
+    header("Location: index.php");
+  }
 
 
 ?>

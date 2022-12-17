@@ -27,12 +27,16 @@ header("Location: index.php");
 
 <?php 
 if(isset($_POST['getting_points'])){
-    $points_query = mysqli_query($con,"UPDATE users SET points = '$points', gems = '$gems', experience = '$experience * 1.1', levels = 'floor($experience * 1.1 / 100)', percentage_growth = '$experience * 1.1 - (floor($experience * 1.1 / 100) * 100)' WHERE id = '$id'");
+    $lvl_growth = $experience * 1.1;
+    $floor_lvl = floor($experience * 1.1 / 100);
+    $points_query = mysqli_query($con,"UPDATE users SET points = '$points', gems = '$gems', experience = '$lvl_growth', levels = '$floor_lvl', percentage_growth = '$lvl_growth - ($floor_lvl) * 100)' WHERE id = '$id'");
     header("Location: index.php");
   }
 
 if(isset($_POST['create_space'])) {
-  $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
+  $name = $_POST['space_name'];
+  $bio = $_POST['space_bio'];
+  $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '$name', '$bio', '$userLoggedIn', ',', ',', 'no')");
   header("Location: index.php");
 }
 
