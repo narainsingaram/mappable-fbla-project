@@ -161,6 +161,10 @@ Spaces
   </header>
 
 <div id='toggle_notification_center' class="stack mb-4 w-100">
+  <?php 
+    $add_notification = new Notify($con, $userLoggedIn);
+    $add_notification->getNotifications();
+  ?>
 </div>
 
 <div class="p-4 w-full shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] bg-white rounded-2xl sm:p-8">
@@ -172,9 +176,6 @@ Spaces
    </div>
    <div class="flow-root">
         <ul role="list" class="divide-y divide-gray-200">
-            <?php
-            $post->load_requested_feed();
-          ?>
         </ul>
    </div>
   </div>

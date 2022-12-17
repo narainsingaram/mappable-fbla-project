@@ -40,9 +40,7 @@ class Notify {
         switch($row['viewed']) {
             case $row['viewed'] == 'no':
             $return_string .= "
-            <li>
-                <a href='index.php'>$pfp_name {$row['message']}</a>
-            </li>
+            <li><a href='index.php'>$pfp_name {$row['message']}</a></li>
             ";
             break;
             case $row['viewed'] == 'yes':

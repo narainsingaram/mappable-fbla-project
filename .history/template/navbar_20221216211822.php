@@ -28,11 +28,7 @@
     <label tabindex="0" class="btn btn-square btn-ghost m-1">
       <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none"><path opacity=".4" d="M17.54 8.81a2.96 2.96 0 1 0 0-5.92 2.96 2.96 0 0 0 0 5.92Z" fill="#000"></path><path d="M6.46 8.81a2.96 2.96 0 1 0 0-5.92 2.96 2.96 0 0 0 0 5.92ZM17.54 21.111a2.96 2.96 0 1 0 0-5.92 2.96 2.96 0 0 0 0 5.92Z" fill="#000"></path><path opacity=".4" d="M6.46 21.111a2.96 2.96 0 1 0 0-5.92 2.96 2.96 0 0 0 0 5.92Z" fill="#000"></path></svg>
     </label>
-    <ul tabindex="0" class="dropdown-content menu p-2 bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] rounded-2xl w-80">
-    <?php 
-      $add_notification = new Notify($con, $userLoggedIn);
-      $add_notification->getNotifications();
-    ?>
+    <ul tabindex="0" class="dropdown-content menu p-2 bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] rounded-2xl w-52">
     </ul>
   </div>
     <div class="dropdown dropdown-end">

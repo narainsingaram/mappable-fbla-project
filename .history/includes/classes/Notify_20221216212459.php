@@ -15,7 +15,6 @@ class Notify {
     }
 
     public function getNotifications() {
-        $pfp_name = $this->user_object->getPfpName();
         $userLoggedIn = $this->user_object->gettingUsername();
         $get_notifications_query = mysqli_query($this->con,"SELECT * FROM notifications WHERE user_from='$userLoggedIn' OR user_to='$userLoggedIn' ORDER BY id DESC LIMIT 5");
 
@@ -40,9 +39,7 @@ class Notify {
         switch($row['viewed']) {
             case $row['viewed'] == 'no':
             $return_string .= "
-            <li>
-                <a href='index.php'>$pfp_name {$row['message']}</a>
-            </li>
+            <li><a href='index.php'>{$row['message']}{$row['message']}</a></li>
             ";
             break;
             case $row['viewed'] == 'yes':

@@ -15,9 +15,8 @@ class Notify {
     }
 
     public function getNotifications() {
-        $pfp_name = $this->user_object->getPfpName();
         $userLoggedIn = $this->user_object->gettingUsername();
-        $get_notifications_query = mysqli_query($this->con,"SELECT * FROM notifications WHERE user_from='$userLoggedIn' OR user_to='$userLoggedIn' ORDER BY id DESC LIMIT 5");
+        $get_notifications_query = mysqli_query($this->con,"SELECT * FROM notifications WHERE user_from='$userLoggedIn' OR user_to='$userLoggedIn' ORDER BY id DESC");
 
         if(mysqli_num_rows($get_notifications_query) == 0) {
             echo "
@@ -40,9 +39,10 @@ class Notify {
         switch($row['viewed']) {
             case $row['viewed'] == 'no':
             $return_string .= "
-            <li>
-                <a href='index.php'>$pfp_name {$row['message']}</a>
-            </li>
+            <div id='noti_card' class='mb-3 grid rounded-2xl bg-slate-200/80 text-black border-0 backdrop-blur-xl'>
+            <div class='card-body'>
+              <h2 class='card-title'>" . $row['message'] . "</h2> 
+              <li><a href='index.php">Home</a></li>
             ";
             break;
             case $row['viewed'] == 'yes':

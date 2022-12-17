@@ -24,7 +24,7 @@ public function getPfpName() {
     $username = $this->user['username'];
     $full_name_query = mysqli_query($this->con,"SELECT * FROM users WHERE username='$username'");
     $user_row = mysqli_fetch_array($full_name_query);
-    return $user_row['first_name'][0] ."". $user_row['last_name'][0];
+    return $user_row['first_name'][0] ." ". $user_row['last_name'][0];
 }
 
 public function didUserDeleteAccount() {
