@@ -41,7 +41,7 @@
       $add_notification = new Notify($con, $userLoggedIn);
       $add_notification->getNotifications();
     ?>
-      <li><center class='bg-slate-100'>View All Notifications</center></li>
+      <li><a>View All Notifications</a></li>
     </ul>
   </div>
     <div class="dropdown dropdown-end">

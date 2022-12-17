@@ -150,6 +150,7 @@ Spaces
 
 <i class="uim uim-layer-group"></i>
   <header class='mb-2 ml-4'>
+    <h1 class='inline text-xl font-bold leading-none text-gray-900'>Notification Center
       <!-- <form class='inline' action="index.php" method='POST'> -->
         <button name='mark_noti_read' type='submit'>
           <svg onclick="toggleNotificationStack()" class='swap-off inline cursor-pointer active:scale-150' xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"><path fill="#60a5fa" d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" opacity=".4"></path><path fill="#60a5fa" d="M12 15.01c-.19 0-.38-.07-.53-.22l-3.53-3.53a.754.754 0 010-1.06c.29-.29.77-.29 1.06 0l3 3 3-3c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-3.53 3.53c-.15.15-.34.22-.53.22z"></path></svg>

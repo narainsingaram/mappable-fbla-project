@@ -29,19 +29,18 @@
       <i class="text-2xl uil uil-bell"></i>
     </label>
     <ul tabindex="0" class="dropdown-content menu p-2 bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] rounded-2xl w-80">
-      <div class="px-5 pt-5 pb-2 flex justify-between">
-        <span class=''>
+      <div class="px-4 py-3 flex">
+        <div>
           <h1 class='inline text-lg font-semibold leading-none text-gray-900'>Notifications</h1>
-        </span>
-        <span class='justify-end'>
-          <span class='text-sm text-red-400'>Clear</span>
-        </span>
+        </div>
+        <div class='justify-end'>
+          <span class='text-xs'>Mark As Read</span>
+        </div>
       </div>
     <?php 
       $add_notification = new Notify($con, $userLoggedIn);
       $add_notification->getNotifications();
     ?>
-      <li><center class='bg-slate-100'>View All Notifications</center></li>
     </ul>
   </div>
     <div class="dropdown dropdown-end">
