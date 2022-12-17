@@ -16,10 +16,10 @@ else {
 }
 
 $auth_query = mysqli_query($con, "SELECT * FROM authentifications WHERE requester='$userLoggedIn'");
-$event_query = mysqli_query($con, "SELECT * FROM teacher_events WHERE user_deleted='no'");
-
 $auth = mysqli_fetch_assoc($auth_query);
-$event = mysqli_fetch_assoc($event_query);
+
+$select_events = mysqli_query($con, "SELECT * FROM teacher_events WHERE user_deleted='no'");
+$event = mysqli_fetch_assoc($select_events);
 
 $check_event_rows_query = mysqli_query($con,"SELECT COUNT(*) as num_event_rows FROM teacher_events");
 

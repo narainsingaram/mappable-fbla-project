@@ -16,10 +16,10 @@ else {
 }
 
 $auth_query = mysqli_query($con, "SELECT * FROM authentifications WHERE requester='$userLoggedIn'");
-$event_query = mysqli_query($con, "SELECT * FROM teacher_events WHERE user_deleted='no'");
-
 $auth = mysqli_fetch_assoc($auth_query);
-$event = mysqli_fetch_assoc($event_query);
+
+$select_events = mysqli_query($con, "SELECT * FROM teacher_events WHERE user_deleted='no'");
+$event = mysqli_fetch_assoc($select_events);
 
 $check_event_rows_query = mysqli_query($con,"SELECT COUNT(*) as num_event_rows FROM teacher_events");
 
@@ -42,8 +42,8 @@ $grade = $user['grade'];
 $school = $user['school'];
 
 
-$profile_symbol = substr($first_name, 0, 1). substr($last_name, 0, 1);
-$full_name = "$first_name $last_name";
+$profile_symbol = $first_name[0]. "" . $last_name[0];
+$full_name = $first_name. " " . $last_name;
 
 $color_array = array("red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose");
 

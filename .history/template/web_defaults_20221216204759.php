@@ -21,11 +21,7 @@ $event_query = mysqli_query($con, "SELECT * FROM teacher_events WHERE user_delet
 $auth = mysqli_fetch_assoc($auth_query);
 $event = mysqli_fetch_assoc($event_query);
 
-$check_event_rows_query = mysqli_query($con,"SELECT COUNT(*) as num_event_rows FROM teacher_events");
-
-$fetch_event_rows = mysqli_fetch_assoc($check_event_rows_query);
-
-if($fetch_event_rows['num_event_rows'] > 0) {
+if(mysqli_fetch_assoc(mysqli_query($con,"SELECT COUNT(*) as num_event_rows FROM teacher_events"))['num_event_rows'] > 0) {
     $event_id = $event['event_id'];
 }
 

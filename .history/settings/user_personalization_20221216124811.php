@@ -104,7 +104,7 @@ body, html {
     </ul>
 </div>
 
-</div>
+    </div>
     
     <div class="flex flex-wrap lg:w-4/5 sm:mx-auto sm:mb-2 -mx-2">
       <div class="p-2 sm:w-1/2 w-full">

@@ -16,10 +16,10 @@ else {
 }
 
 $auth_query = mysqli_query($con, "SELECT * FROM authentifications WHERE requester='$userLoggedIn'");
-$event_query = mysqli_query($con, "SELECT * FROM teacher_events WHERE user_deleted='no'");
-
 $auth = mysqli_fetch_assoc($auth_query);
-$event = mysqli_fetch_assoc($event_query);
+
+$select_events = mysqli_query($con, "SELECT * FROM teacher_events WHERE user_deleted='no'");
+$event = mysqli_fetch_assoc($select_events);
 
 $check_event_rows_query = mysqli_query($con,"SELECT COUNT(*) as num_event_rows FROM teacher_events");
 
@@ -30,20 +30,24 @@ if($fetch_event_rows['num_event_rows'] > 0) {
 }
 
 
-$id = $user['id'];
-$first_name = $user['first_name'];
-$last_name = $user['last_name'];
-$username = $user['username'];
-$points = $user['points'];
-$gems = $user['gems'];
-$experience = $user['experience'];
-$levels = $user['levels'];
-$grade = $user['grade'];
-$school = $user['school'];
+$userData = [
+    'id' => $id,
+    'first_name' => $first_name,
+    'last_name' => $last_name,
+    'username' => $username,
+    'points' => $points,
+    'gems' => $gems,
+    'school' => $school,
+    'position' => $position
+];
+
+$userData = $user;
+
+echo $userData[0] + "water";
 
 
-$profile_symbol = substr($first_name, 0, 1). substr($last_name, 0, 1);
-$full_name = "$first_name $last_name";
+$profile_symbol = $first_name[0]. "" . $last_name[0];
+$full_name = $first_name. " " . $last_name;
 
 $color_array = array("red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose");
 
