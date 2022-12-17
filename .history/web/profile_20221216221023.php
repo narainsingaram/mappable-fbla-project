@@ -15,6 +15,8 @@ if(isset($_GET['profile_username'])) {
 }
 ?>
 
+
+
       <section class="relative block" style="height: 500px;">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"

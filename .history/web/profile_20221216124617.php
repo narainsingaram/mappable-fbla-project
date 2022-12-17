@@ -3,10 +3,29 @@ include("../template/web_defaults.php");
 include("../template/navbar.php");
 
 
+$userData = [
+  'id' => $id,
+  'first_name' => $first_name,
+  'last_name' => $last_name,
+  'username' => $username,
+  'points' => $points,
+  'gems' => $gems,
+  'school' => $school,
+  'position' => $position
+];
+
+$userData = $user;
+
+
 $profile_symbol = substr($first_name, 0, 1) . substr($last_name, 0, 1);
 $full_name = "$first_name $last_name";
 
-$id = (isset($_GET['id'])) ? $_GET['id'] : 0;
+if(isset($_GET['id'])) {
+    $id = $_GET['id'];
+}
+else {
+    $id = 0;
+}
 
 if(isset($_GET['profile_username'])) {
     $username = $_GET['profile_username'];
@@ -14,6 +33,8 @@ if(isset($_GET['profile_username'])) {
     $profile_list = mysqli_fetch_array($profile_details_query);
 }
 ?>
+
+
 
       <section class="relative block" style="height: 500px;">
         <div

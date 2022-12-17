@@ -8,10 +8,7 @@ include("../includes/operators/settings_operator.php");
 $change_user_info_query = mysqli_query($con, "SELECT first_name, last_name, email, school FROM users WHERE username='$userLoggedIn'");
 $change_user_info_row = mysqli_fetch_array($change_user_info_query);
 
-$first_name = $change_user_info_row['first_name'];
-$last_name = $change_user_info_row['last_name'];
-$email = $change_user_info_row['email'];
-$school = $change_user_info_row['school'];
+list($first_name, $last_name, $email, $school) = array_values($change_user_info_row);
 ?>
 </head>
 
