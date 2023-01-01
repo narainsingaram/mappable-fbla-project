@@ -299,11 +299,6 @@ public function load_regular_feed() {
               if($int_current_time > $int_start_time && $int_current_time < $int_end_time) {
                 $add_live_events = mysqli_query($this->con, "UPDATE teacher_events SET live='yes' WHERE event_id='$id' AND added_by='$added_by'");
                 $live_event_content .="
-                    <div class='relative'>
-    <div class='rounded-full' src='/docs/images/people/profile-picture-5.jpg'>fasdfsa</div>
-</div>
-
-
 <div class='p-6 relative rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] hover:-translate-y-1 transition ease-in'>
     <header class='mb-2'>
         <h5 class='inline text-2xl font-bold tracking-tight text-gray-900'>
@@ -322,8 +317,6 @@ public function load_regular_feed() {
     </a>
     <span class='-top-0 -right-0 absolute w-3 h-3 bg-green-400 border-2 border-white rounded-full animate-ping opacity-75'></span>
 </div>
-
-                    
                 "; 
               }
               else if($int_current_time < $int_start_time || $int_current_time > $int_end_time) {
