@@ -37,39 +37,6 @@ class Notify {
             $user_info_query = mysqli_query($this->con,"SELECT * FROM users WHERE username='$userLoggedIn'");
             $user_data = mysqli_fetch_array($user_info_query);
 
-        switch($row['viewed']) {
-            case $row['viewed'] == 'no':
-            $return_string .= "
-            <li>
-                    <a class='flex bg-blue-100 m-1' href='index.php'>
-                        <span class='indicator bg-blue-400 p-1.5 w-10 h-10 text-xl font-semibold text-gray-100 rounded-full flex items-center justify-center'>
-                        $pfp_name
-                        </span>
-                        <span>
-                            {$row['message']}
-                        </span> 
-                        <button class='badge badge-info'></button>
-                    </a>
-            </li>
-            ";
-            break;
-            case $row['viewed'] == 'yes':
-            $return_string .= "
-            <div id='noti_card' class='mb-3 grid rounded-2xl bg-slate-200/80 text-black border-0 backdrop-blur-xl'>
-            <div class='card-body'>
-                <h2 class='card-title'>" . $row['message'] . "</h2> 
-                <p>You have 3 unread messages. Tap here to see.</p>
-                <div class='-top-0 -right-0 absolute dropdown dropdown-end'>
-                    <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
-                    <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
-                    <li><a>Delete</a></li>
-                    </ul>
-                </div>
-            </div>
-            </div> 
-            ";
-            break;
-        }
     }
         echo $return_string;
     }

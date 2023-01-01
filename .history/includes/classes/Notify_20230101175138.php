@@ -41,16 +41,22 @@ class Notify {
             case $row['viewed'] == 'no':
             $return_string .= "
             <li>
-                    <a class='flex bg-blue-100 m-1' href='index.php'>
-                        <span class='indicator bg-blue-400 p-1.5 w-10 h-10 text-xl font-semibold text-gray-100 rounded-full flex items-center justify-center'>
-                        $pfp_name
-                        </span>
+                    <a class='flex bg-slate-100 m-1' href='index.php'>
+                        <span class='bg-slate-200 p-1 w-10 h-10 text-xl font-semibold text-gray-700 rounded-full flex items-center justify-center'>$pfp_name</span>
                         <span>
                             {$row['message']}
                         </span> 
-                        <button class='badge badge-info'></button>
                     </a>
+                    <div class='indicator'>
+                    <span class='indicator-item indicator-middle indicator-end badge badge-secondary'>middle+end</span>
+                </div>
             </li>
+
+        <div class='indicator'>
+            <span class='indicator-item indicator-bottom indicator-center badge badge-secondary'></span>
+            <div class='grid w-32 h-32 bg-base-300 place-items-center">content</div>
+          </div>
+
             ";
             break;
             case $row['viewed'] == 'yes':

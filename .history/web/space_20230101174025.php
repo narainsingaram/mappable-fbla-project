@@ -56,7 +56,7 @@ $current_space = mysqli_fetch_array($get_space_info);
     </button>
     <button class="btn btn-ghost btn-circle">
       <div class="indicator">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" /></svg>
+
         <span class="badge badge-xs badge-primary indicator-item"></span>
       </div>
     </button>
@@ -74,14 +74,23 @@ $current_space = mysqli_fetch_array($get_space_info);
           </main>
 
             <form method='POST' id='chat_input' style='position:fixed; bottom:0px;' class='inline bg-slate-100 flex items-center justify-between w-full p-3' action="space.php?space=<?php echo $space_id; ?>">
-                <div class="dropdown flex dropdown-top mr-3">
+                <div class="dropdown flex dropdown-top">
                   <label tabindex="0" class="px-1 rounded-xl mr-3 cursor-pointer">
                     <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path opacity=".4" d="M16.19 2H7.81C4.17 2 2 4.17 2 7.81v8.37C2 19.83 4.17 22 7.81 22h8.37c3.64 0 5.81-2.17 5.81-5.81V7.81C22 4.17 19.83 2 16.19 2Z" fill="#3b82f6"></path><path d="M16 11.25h-3.25V8c0-.41-.34-.75-.75-.75s-.75.34-.75.75v3.25H8c-.41 0-.75.34-.75.75s.34.75.75.75h3.25V16c0 .41.34.75.75.75s.75-.34.75-.75v-3.25H16c.41 0 .75-.34.75-.75s-.34-.75-.75-.75Z" fill="#3b82f6"></path></svg>
                   </label>
                   <ul tabindex="0" class="dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52">
                     <li><a>Announcement</a></li>
                     <li><a>Shoutout</a></li>
+                  </ul>
+                </div>
+                <div class="dropdown flex dropdown-top">
+                  <label tabindex="0" class="pr-1.5 rounded-xl mr-3 cursor-pointer">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none"><path opacity=".4" d="m4.17 15.3 4.53 4.53a4.78 4.78 0 0 0 6.75 0l4.39-4.39a4.78 4.78 0 0 0 0-6.75L15.3 4.17a4.75 4.75 0 0 0-3.6-1.39l-5 .24c-2 .09-3.59 1.68-3.69 3.67l-.24 5c-.06 1.35.45 2.66 1.4 3.61Z" fill="#3b82f6"></path><path d="M9.501 12.381a2.88 2.88 0 1 0 0-5.76 2.88 2.88 0 0 0 0 5.76ZM13.001 17.751c-.19 0-.38-.07-.53-.22a.754.754 0 0 1 0-1.06l4-4c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-4 4c-.15.15-.34.22-.53.22Z" fill="#3b82f6"></path></svg>
+                  </label>
+                  <ul tabindex="0" class="dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52">
                     <li><a>Question</a></li>
+                    <li><a>Answer</a></li>
+                    <li><a>Ideas</a></li>
                   </ul>
                 </div>
                 <input type="text" placeholder="Send a message"
