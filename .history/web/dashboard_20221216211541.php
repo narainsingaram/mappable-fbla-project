@@ -1,52 +1,34 @@
 <?php
-include "../template/web_defaults.php";
-include "../template/navbar.php";
+include("../template/web_defaults.php");
+include("../template/navbar.php");
 
 //get number of global users
-$number_of_global_users = mysqli_query(
-    $con,
-    "SELECT count( * ) as id FROM users",
-);
+$number_of_global_users = mysqli_query($con, "SELECT count( * ) as id FROM users");
 
 //get user list ordered by points and gems
-$user_list_points_query = mysqli_query(
-    $con,
-    "SELECT * FROM users ORDER BY points DESC LIMIT 10",
-);
-$user_list_gems_query = mysqli_query(
-    $con,
-    "SELECT * FROM users ORDER BY gems DESC LIMIT 10",
-);
+$user_list_points_query = mysqli_query($con,"SELECT * FROM users ORDER BY points DESC LIMIT 10");
+$user_list_gems_query = mysqli_query($con,"SELECT * FROM users ORDER BY gems DESC LIMIT 10");
 
 //get sum of all gems, points and experience in users table
-$total_gems = mysqli_query(
-    $con,
-    "SELECT SUM(gems) as gem_sum
-FROM users;",
-);
-$total_points = mysqli_query(
-    $con,
-    "SELECT SUM(points) as point_sum  FROM users;",
-);
-$total_experience = mysqli_query(
-    $con,
-    "SELECT SUM(experience) as experience_sum FROM users;",
-);
+$total_gems = mysqli_query($con, "SELECT SUM(gems) as gem_sum
+FROM users;");
+$total_points = mysqli_query($con, "SELECT SUM(points) as point_sum  FROM users;");
+$total_experience = mysqli_query($con, "SELECT SUM(experience) as experience_sum FROM users;");
 
 $gem_rows = mysqli_fetch_assoc($total_gems);
 $point_rows = mysqli_fetch_assoc($total_points);
 $experience_rows = mysqli_fetch_assoc($total_experience);
 
-$total_sum_gems = $gem_rows["gem_sum"];
-$total_sum_points = $point_rows["point_sum"];
-$experience_sum_points = $experience_rows["experience_sum"];
+$total_sum_gems = $gem_rows['gem_sum'];
+$total_sum_points = $point_rows['point_sum']; 
+$experience_sum_points = $experience_rows['experience_sum'];
 ?>
 
 <!-- NAVBAR -->
 <section id="content" class="bg-gray-100">
 <!-- MAIN -->
 <main>
-<h1 class="text-3xl font-semibold">Welcome to the Dashboard, <?php echo " <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-600'>$full_name</a>"; ?></h1>
+<h1 class="text-3xl font-semibold">Welcome to the Dashboard, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-600'>$full_name</a>";?></h1>
 
 <div class="flex flex-wrap mt-6 -mx-3">
 <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 rounded-2xl">
@@ -99,11 +81,9 @@ Read More
 	<i class="uil uil-user text-3xl px-1 text-black"></i>
 </div>
 <div class="flex flex-col justify-center align-middle">
-	<p class="text-3xl font-semibold leading-none"> <?php while (
-     $row = $number_of_global_users->fetch_assoc()
- ) {
-     echo $row["id"] . "<br>";
- } ?></p>
+	<p class="text-3xl font-semibold leading-none"> <?php
+	while ($row = $number_of_global_users->fetch_assoc()) {
+echo $row['id']."<br>"; } ?></p>
 	<p class="capitalize">Users</p>
 </div>
 </div>
@@ -162,18 +142,19 @@ Read More
 </thead>
 <tbody>
 <?php
+
 $leaderboard_i = 0;
 
 foreach ($user_list_points_query as $row) {
-    $leaderboard_i = $leaderboard_i + 1;
-    $_SESSION["leaderboard"] = $leaderboard_i;
-    $user_list_points_first_name = $row["first_name"];
-    $user_list_points_last_name = $row["last_name"];
-    $user_list_points_school = $row["school"];
-    $grade = $row["grade"];
-    $user_list_points = $row["points"];
+$leaderboard_i  = $leaderboard_i + 1;
+$_SESSION['leaderboard'] = $leaderboard_i;
+$user_list_points_first_name = $row['first_name'];
+$user_list_points_last_name = $row['last_name'];
+$user_list_points_school = $row['school'];
+$grade = $row['grade'];
+$user_list_points = $row['points'];
 
-    echo "
+echo "
 <tr class='bg-white'>
 <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap'>
 	$leaderboard_i
@@ -192,8 +173,7 @@ foreach ($user_list_points_query as $row) {
 </td>
 </tr>
 ";
-}
-?>
+} ?>
         </tbody>
     </table>
 </div>
@@ -233,18 +213,19 @@ foreach ($user_list_points_query as $row) {
 <tbody>
 
 <?php
+
 $leaderboard_i = 0;
 
 foreach ($user_list_gems_query as $row) {
-    $leaderboard_i = $leaderboard_i + 1;
-    $_SESSION["leaderboard"] = $leaderboard_i;
-    $user_list_gems_first_name = $row["first_name"];
-    $user_list_gems_last_name = $row["last_name"];
-    $user_list_gems_school = $row["school"];
-    $grade = $row["grade"];
-    $user_list_gems = $row["gems"];
+$leaderboard_i  = $leaderboard_i + 1;
+$_SESSION['leaderboard'] = $leaderboard_i;
+$user_list_gems_first_name = $row['first_name'];
+$user_list_gems_last_name = $row['last_name'];
+$user_list_gems_school = $row['school'];
+$grade = $row['grade'];
+$user_list_gems = $row['gems'];
 
-    echo "
+echo "
 <tr class='bg-white'>
 <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap'>
 	$leaderboard_i
@@ -263,8 +244,7 @@ foreach ($user_list_gems_query as $row) {
 </td>
 </tr>
 ";
-}
-?>
+} ?>
         </tbody>
     </table>
 </div>

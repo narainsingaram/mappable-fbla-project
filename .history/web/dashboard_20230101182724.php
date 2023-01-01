@@ -1,46 +1,43 @@
 <?php
+// Include required files
 include "../template/web_defaults.php";
 include "../template/navbar.php";
 
-//get number of global users
-$number_of_global_users = mysqli_query(
-    $con,
-    "SELECT count( * ) as id FROM users",
-);
+// Connect to database
+$con = mysqli_connect("localhost", "username", "password", "database_name");
 
-//get user list ordered by points and gems
-$user_list_points_query = mysqli_query(
-    $con,
-    "SELECT * FROM users ORDER BY points DESC LIMIT 10",
-);
-$user_list_gems_query = mysqli_query(
-    $con,
-    "SELECT * FROM users ORDER BY gems DESC LIMIT 10",
-);
+// Get number of global users
+$number_of_global_users_query = "SELECT COUNT(*) AS id FROM users";
+$number_of_global_users_result = mysqli_query($con, $number_of_global_users_query);
+$number_of_global_users_row = mysqli_fetch_assoc($number_of_global_users_result);
+$number_of_global_users = $number_of_global_users_row['id'];
 
-//get sum of all gems, points and experience in users table
-$total_gems = mysqli_query(
-    $con,
-    "SELECT SUM(gems) as gem_sum
-FROM users;",
-);
-$total_points = mysqli_query(
-    $con,
-    "SELECT SUM(points) as point_sum  FROM users;",
-);
-$total_experience = mysqli_query(
-    $con,
-    "SELECT SUM(experience) as experience_sum FROM users;",
-);
+// Get user list ordered by points and gems
+$user_list_points_query = "SELECT * FROM users ORDER BY points DESC LIMIT 10";
+$user_list_points_result = mysqli_query($con, $user_list_points_query);
 
-$gem_rows = mysqli_fetch_assoc($total_gems);
-$point_rows = mysqli_fetch_assoc($total_points);
-$experience_rows = mysqli_fetch_assoc($total_experience);
+$user_list_gems_query = "SELECT * FROM users ORDER BY gems DESC LIMIT 10";
+$user_list_gems_result = mysqli_query($con, $user_list_gems_query);
 
-$total_sum_gems = $gem_rows["gem_sum"];
-$total_sum_points = $point_rows["point_sum"];
-$experience_sum_points = $experience_rows["experience_sum"];
+// Get sum of all gems, points and experience in users table
+$total_gems_query = "SELECT SUM(gems) AS gem_sum FROM users";
+$total_gems_result = mysqli_query($con, $total_gems_query);
+$total_gems_row = mysqli_fetch_assoc($total_gems_result);
+$total_sum_gems = $total_gems_row['gem_sum'];
+
+$total_points_query = "SELECT SUM(points) AS point_sum FROM users";
+$total_points_result = mysqli_query($con, $total_points_query);
+$total_points_row = mysqli_fetch_assoc($total_points_result);
+$total_sum_points = $total_points_row['point_sum'];
+
+$total_experience_query = "SELECT SUM(experience) AS experience_sum FROM users";
+$total_experience_result = mysqli_query($con, $total_experience_query);
+$total_experience_row = mysqli_fetch_assoc($total_experience_result);
+$total_sum_experience = $total_experience_row['experience_sum'];
 ?>
+
+<!-- HTML and PHP code for displaying the data on a web page -->
+
 
 <!-- NAVBAR -->
 <section id="content" class="bg-gray-100">

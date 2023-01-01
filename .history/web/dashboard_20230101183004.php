@@ -2,17 +2,20 @@
 include "../template/web_defaults.php";
 include "../template/navbar.php";
 
-//get number of global users
+// get number of global users
 $number_of_global_users = mysqli_query(
     $con,
     "SELECT count( * ) as id FROM users",
 );
+$number_of_global_users_row = mysqli_fetch_assoc($number_of_global_users);
+$number_of_global_users = $number_of_global_users_row["id"];
 
 //get user list ordered by points and gems
 $user_list_points_query = mysqli_query(
     $con,
     "SELECT * FROM users ORDER BY points DESC LIMIT 10",
 );
+
 $user_list_gems_query = mysqli_query(
     $con,
     "SELECT * FROM users ORDER BY gems DESC LIMIT 10",
@@ -40,7 +43,30 @@ $experience_rows = mysqli_fetch_assoc($total_experience);
 $total_sum_gems = $gem_rows["gem_sum"];
 $total_sum_points = $point_rows["point_sum"];
 $experience_sum_points = $experience_rows["experience_sum"];
-?>
+
+// get user list ordered by points and gems as arrays
+$user_list_points = [];
+while ($row = mysqli_fetch_assoc($user_list_points_query)) {
+    $user_list_points[] = $row;
+}
+
+$user_list_gems = [];
+while ($row = mysqli_fetch_assoc($user_list_gems_query)) {
+    $user_list_gems[] = $row;
+}
+
+// compute average gem and point values for all users
+$average_gems_per_user = $total_sum_gems / $number_of_global_users;
+$average_points_per_user = $total_sum_points / $number_of_global_users;
+
+// compute standard deviation for gem and point values for all users
+$gem_deviation_sum = 0;
+$point_deviation_sum = 0;
+foreach ($user_list_points as $user) {
+    $gem_deviation_sum += pow($user["gems"] - $average_gems_per_user, 2);
+    $point_deviation_sum += pow($user["points"] - $average_points_per_user, 2);
+
+	?>
 
 <!-- NAVBAR -->
 <section id="content" class="bg-gray-100">

@@ -464,9 +464,9 @@ public function load_regular_feed() {
                 </div>
           <form action='index.php' method='POST' enctype='multipart/form-data' class='inline'>
           <input type='hidden' name='event_id' value='{$profile['event_id']}'>
-          <input type='hidden' name='authentifier' value='{$profile['added_by']}'>    
-          <input type='hidden' name='auth_title' value='{$profile['added_by']}>
-          <input type='hidden' name='auth_image' value='{$profile['image']}>
+          <input type='hidden' name='authentifier' value='{$profile['added_by]}'>    
+          <input type='hidden' name='auth_title' value='$title'>
+          <input type='hidden' name='auth_image' value='$image'>
             <button name='auth_submit' type='submit' class='active:scale-105 inline px-1 py-2 rounded-full text-xl'> 
             <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
             <path opacity='0.4' d='M18.8088 9.021C18.3573 9.021 17.7592 9.011 17.0146 9.011C15.1987 9.011 13.7055 7.508 13.7055 5.675V2.459C13.7055 2.206 13.5026 2 13.253 2H7.96363C5.49517 2 3.5 4.026 3.5 6.509V17.284C3.5 19.889 5.59022 22 8.16958 22H16.0453C18.5058 22 20.5 19.987 20.5 17.502V9.471C20.5 9.217 20.298 9.012 20.0465 9.013C19.6247 9.016 19.1168 9.021 18.8088 9.021Z' fill='#10b981'></path>
