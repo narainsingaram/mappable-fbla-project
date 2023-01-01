@@ -135,6 +135,7 @@ Spaces
 
 
 <div class="gradient-wrap">
+  <img alt="An image" class="ambient__visible" src="https://images.unsplash.com/photo-1466854076813-4aa9ac0fc347" data-ambient>
 </div>
 
 <?php

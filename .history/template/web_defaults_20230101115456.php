@@ -16,10 +16,10 @@ else {
 }
 
 $auth_query = mysqli_query($con, "SELECT * FROM authentifications WHERE requester='$userLoggedIn'");
-$auth = mysqli_fetch_assoc($auth_query);
+$event_query = mysqli_query($con, "SELECT * FROM teacher_events WHERE user_deleted='no'");
 
-$select_events = mysqli_query($con, "SELECT * FROM teacher_events WHERE user_deleted='no'");
-$event = mysqli_fetch_assoc($select_events);
+$auth = mysqli_fetch_assoc($auth_query);
+$event = mysqli_fetch_assoc($event_query);
 
 $check_event_rows_query = mysqli_query($con,"SELECT COUNT(*) as num_event_rows FROM teacher_events");
 
@@ -42,8 +42,8 @@ $grade = $user['grade'];
 $school = $user['school'];
 
 
-$profile_symbol = $first_name[0]. "" . $last_name[0];
-$full_name = $first_name. " " . $last_name;
+$profile_symbol = substr($first_name, 0, 1). substr($last_name, 0, 1);
+$full_name = "$first_name $last_name";
 
 $color_array = array("red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose");
 
@@ -57,6 +57,7 @@ $color_array = array("red", "orange", "amber", "yellow", "lime", "green", "emera
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mappable</title>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="../assets/css/font.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/dashboard.css">
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.41.0/dist/full.css" rel="stylesheet" type="text/css" />

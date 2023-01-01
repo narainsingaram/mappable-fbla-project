@@ -133,9 +133,7 @@ Spaces
 
 <div class="w-1/2 p-5">
 
-
-<div class="gradient-wrap">
-</div>
+<img alt="An image" src="https://images.unsplash.com/photo-1466854076813-4aa9ac0fc347" data-ambient>
 
 <?php
   if($fetch_event_rows['num_event_rows'] > 0) {

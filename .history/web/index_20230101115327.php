@@ -129,14 +129,11 @@ Spaces
   ?>
 </div>
 
+<img alt="An image" width="600px" height="600px" src="https://images.unsplash.com/photo-1466854076813-4aa9ac0fc347" data-ambient>
+
 
 
 <div class="w-1/2 p-5">
-
-
-<div class="gradient-wrap">
-</div>
-
 <?php
   if($fetch_event_rows['num_event_rows'] > 0) {
     $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
