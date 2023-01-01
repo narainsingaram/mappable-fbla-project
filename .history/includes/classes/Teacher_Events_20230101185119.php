@@ -1,31 +1,3 @@
-<?php
-class Teacher_Events {
-    private $user_object;
-    private $con;
-
-    public function __construct($con, $user) {
-        $this->con = $con;
-        $this->user_object = new User_Info($con, $user);
-    }
-
-    public function event_feed($title, $type, $date, $start_time, $end_time, $description, $image, $user_to) {
-        $title = strip_tags($title);
-        $description = strip_tags($description);
-    
-        if(preg_replace('/\s+/', '', $description) != ""){
-            $date_added = date('Y-m-d H:i:s');
-            $added_by = $this->user_object->gettingUsername();
-    
-            if($user_to == $added_by) {
-                $user_to = "none";
-            }
-    
-            $push_event_submit_query = mysqli_query($this->con, "INSERT INTO teacher_events VALUES(NULL, '$title', '$type', '$date', '$start_time', '$end_time', '$description', '$image', '$added_by', '$user_to', '$date_added', '', 'no')");
-            $id_return = mysqli_insert_id($this->con);
-        }
-    }
-    
-
 public function load_requested_feed() {
     $userLoggedIn = $this->user_object->gettingUsername();
     $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
