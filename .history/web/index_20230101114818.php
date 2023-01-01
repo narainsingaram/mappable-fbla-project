@@ -3,8 +3,12 @@ include("../template/web_defaults.php");
 include("../template/navbar.php");
 
 if(isset($_POST['user_submit'])) {
+  $filename = rand(999, 99999)."-".$_FILES["image"]["name"];
+  $temp_name = $_FILES['image']['tmp_name'];
+echo $filename;
   $post = new Teacher_Events($con, $userLoggedIn);
   $post->event_feed($_POST['user_title'],$_POST['user_type'], $_POST['user_date'], $_POST['user_start'], $_POST['user_end'], $_POST['user_desc'], $filename, 'none'); //do submitEvent function in Post_Events.php
+
 header("Location: index.php");
 }
 ?>
