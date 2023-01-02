@@ -129,6 +129,7 @@ if(isset($_POST['auth_submit'])) {
         $username = $row['username'];
         $position = $row['position'];
         $level = $row['levels'];
+        $created_account_date = $row['date'];
 
         $fn_i = $first_name[0];
         $ln_i = $last_name[0];
