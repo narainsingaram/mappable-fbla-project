@@ -1,5 +1,7 @@
 <?php 
 
+$date = date("Y-m-d");
+
 $variables = array("first_name", "last_name", "email", "password", "confirmation_password", "date", "position", "date_of_birth", "gender", "school", "grade", "profile_picture");
 
 foreach ($variables as $variable) {
@@ -13,45 +15,14 @@ $error_array = array();
 // (i.e. the form has been submitted)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // code to handle form submission
-    $first_name = strip_tags($_POST['register_first_name']);
-    $first_name = str_replace(' ', '', $first_name);
-    $first_name = ucfirst(strtolower($first_name));
-    $_SESSION['register_first_name'] = $first_name;
+    $fields = array("first_name", "last_name", "email", "password", "confirmation_password", "date", "position", "date_of_birth", "gender", "school", "grade", "profile_picture");
 
-    $last_name = strip_tags($_POST['register_last_name']);
-    $last_name = str_replace(' ', '', $last_name);
-    $last_name = ucfirst(strtolower($last_name));
-    $_SESSION['register_last_name'] = $last_name;
-
-    $email = strip_tags($_POST['register_email']);
-    $email = str_replace(' ', '', $email);
-    $_SESSION['register_email'] = $email;
-
-    $password = strip_tags($_POST['register_password']);
-    $confirmation_password = strip_tags($_POST['register_confirmation_password']);
-
-    $date = date("Y-m-d");
-
-    // $position = strip_tags($_POST['register_position']);
-    // $_SESSION['register_position'] = $position;
-
-    $position = strip_tags($_POST['register_position']);
-    $_SESSION['register_position'] = $position;
-
-    $date_of_birth = strip_tags($_POST['register_date_of_birth']);
-    $_SESSION['register_date_of_birth'] = $date_of_birth;
-
-    $school = strip_tags($_POST['register_school']);
-    $_SESSION['register_school'] = $school;
-
-    $grade = strip_tags($_POST['register_grade']);
-    $_SESSION['register_grade'] = $grade;
-
-    $gender = strip_tags($_POST['register_gender']);
-    $_SESSION['register_gender'] = $gender;
-
-    $position = $_POST['register_position'];
-    $_SESSION['register_position'] = $position;
+    foreach ($fields as $field) {
+        $value = strip_tags($_POST['register_'.$field]);
+        $value = str_replace(' ', '', $value);
+        $value = ucfirst(strtolower($value));
+        $_SESSION['register_'.$field] = $value;
+    }
     
     //Seeing if user input follows register rules (ex. password and emails are matching, first name is longer than 2 letters)
     if($email) {
@@ -74,7 +45,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (strlen($first_name) > 30 || strlen($first_name) < 2 || strlen($last_name) > 30 || strlen($last_name) < 2) {
-        array_push($error_array, "There must be between 2-30 characters in your first & last name");
+        array_push($error_array, "There mu
+        st be between 2-30 characters in your first & last name");
     }
 
     else if($confirmation_password != $password) {

@@ -1,5 +1,7 @@
 <?php 
 
+$date = date("Y-m-d");
+
 $variables = array("first_name", "last_name", "email", "password", "confirmation_password", "date", "position", "date_of_birth", "gender", "school", "grade", "profile_picture");
 
 foreach ($variables as $variable) {
@@ -29,8 +31,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $password = strip_tags($_POST['register_password']);
     $confirmation_password = strip_tags($_POST['register_confirmation_password']);
-
-    $date = date("Y-m-d");
 
     // $position = strip_tags($_POST['register_position']);
     // $_SESSION['register_position'] = $position;
