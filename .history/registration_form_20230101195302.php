@@ -39,11 +39,10 @@ require 'includes/operators/login_operator.php';
 
     if(in_array("Email already in use", $error_array)) echo <<<EOT
     <center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
-    <span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-envelope"></i></span>
-    <span class="font-semibold mr-2 text-left flex-auto">Someone is already using this email!</span>
-    </div></center>
-    EOT; 
-
+<span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-envelope"></i></span>
+<span class="font-semibold mr-2 text-left flex-auto">Someone is already using this email!</span>
+</div></center>
+EOT; 
     if(in_array("Invalid email format", $error_array)) echo <<<EOT 
     <center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
     <span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-envelope"></i></span>
@@ -64,7 +63,7 @@ require 'includes/operators/login_operator.php';
     <span class="font-semibold mr-2 text-left flex-auto">Make sure your passwords match together!</span>
     </div></center>
     EOT;
-
+    
     if(in_array("Your password must be between 8-255 characters", $error_array)) echo <<<EOT
     <center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
     <span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-lock-alt"></i></span>

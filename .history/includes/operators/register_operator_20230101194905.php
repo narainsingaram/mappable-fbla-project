@@ -68,7 +68,7 @@ if(isset($_POST['register_btn'])) {
         }
     }
     else {
-        array_push($error_array, "Emails don't match");
+        array_push($error_array, "Emails don't match</span>");
     }
 
     if (strlen($first_name) > 30 || strlen($first_name) < 2 || strlen($last_name) > 30 || strlen($last_name) < 2) {
@@ -76,11 +76,11 @@ if(isset($_POST['register_btn'])) {
     }
 
     else if($confirmation_password != $password) {
-        array_push($error_array, "Your passwords do not match");
+        array_push($error_array, "<span class='form_error'>Your passwords do not match</span>");
     }
 
     else if(strlen($password) < 8 || strlen($password) > 255) {
-        array_push($error_array, "Your password must be between 8-255 characters");
+        array_push($error_array, "<span class='form_error'>Your password must be between 8 and 255 characters</span>");
     }
 
     //if $error_array does not have a value

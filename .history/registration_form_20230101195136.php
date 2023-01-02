@@ -39,38 +39,27 @@ require 'includes/operators/login_operator.php';
 
     if(in_array("Email already in use", $error_array)) echo <<<EOT
     <center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
-    <span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-envelope"></i></span>
-    <span class="font-semibold mr-2 text-left flex-auto">Someone is already using this email!</span>
-    </div></center>
-    EOT; 
-
-    if(in_array("Invalid email format", $error_array)) echo <<<EOT 
-    <center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+<span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-envelope"></i></span>
+<span class="font-semibold mr-2 text-left flex-auto">Someone is already using this email!</span>
+</div></center>
+EOT; 
+    if(in_array("Invalid email format", $error_array)) echo '<center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
     <span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-envelope"></i></span>
     <span class="font-semibold mr-2 text-left flex-auto">Wrong Email Format! Please try again.</span>
-    </div></center>
-    EOT;
-
-    if(in_array("Emails don't match", $error_array)) echo <<<EOT 
-    <center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+    </div></center>';
+    if(in_array("Emails don't match", $error_array)) echo '<center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
     <span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-envelope"></i></span>
     <span class="font-semibold mr-2 text-left flex-auto">Your emails are not the same! Make sure they are!</span>
-    </div></center>
-    EOT;
+    </div></center>';
 
-    if(in_array("Your passwords do not match", $error_array)) echo <<<EOT
-    <center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+    if(in_array("Your passwords do not match", $error_array)) echo '<center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
     <span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-lock-alt"></i></span>
     <span class="font-semibold mr-2 text-left flex-auto">Make sure your passwords match together!</span>
-    </div></center>
-    EOT;
-
-    if(in_array("Your password must be between 8-255 characters", $error_array)) echo <<<EOT
-    <center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
+    </div></center>'; 
+    if(in_array("Your password must be between 8-255 characters", $error_array)) echo '<center><div class="my-2 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
     <span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-lock-alt"></i></span>
     <span class="font-semibold mr-2 text-left flex-auto">Your password must be between 8-255 characters</span>
-    </div></center>
-    EOT;
+    </div></center>';
 
     if(in_array('You are set to login!', $error_array)) echo '
 <div class="p-2 bg-green-300 items-center text-green-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">

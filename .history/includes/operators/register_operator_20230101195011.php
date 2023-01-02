@@ -80,7 +80,7 @@ if(isset($_POST['register_btn'])) {
     }
 
     else if(strlen($password) < 8 || strlen($password) > 255) {
-        array_push($error_array, "Your password must be between 8-255 characters");
+        array_push($error_array, "Your password must be between 8 and 255 characters</span>");
     }
 
     //if $error_array does not have a value

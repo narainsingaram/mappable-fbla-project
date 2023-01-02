@@ -60,27 +60,38 @@ if(isset($_POST['register_btn'])) {
         $num_rows_from_email_inquiry = mysqli_num_rows($email_inquiry);
 
         if($num_rows_from_email_inquiry > 0) {
-            array_push($error_array, "Email already in use");
+            array_push($error_array, "<span class='form_error'>Email already in use</span>");
         }
     }
         else {
-            array_push($error_array, "Invalid email format");
+            array_push($error_array, "<span class='form_error'>Invalid email format</span>");
         }
     }
     else {
-        array_push($error_array, "Emails don't match");
+        array_push($error_array, "<span class='form_error'>Emails don't match</span>");
     }
 
-    if (strlen($first_name) > 30 || strlen($first_name) < 2 || strlen($last_name) > 30 || strlen($last_name) < 2) {
-        array_push($error_array, "There must be between 2-30 characters in your first & last name");
+    if(strlen($first_name) > 30 || strlen($first_name) < 2) {
+        array_push($error_array, "<span class='form_error'>There must be between 2 and 30 characters in your first name</span>");
     }
+    
+    else if(strlen($last_name) > 30 || strlen($last_name) < 2) {
+        array_push($error_array, "<span class='form_error'>There must be between 2 and 30 characters in your last name</span>");
+    }
+
+    
+
 
     else if($confirmation_password != $password) {
-        array_push($error_array, "Your passwords do not match");
+        array_push($error_array, "<span class='form_error'>Your passwords do not match</span>");
     }
 
-    else if(strlen($password) < 8 || strlen($password) > 255) {
-        array_push($error_array, "Your password must be between 8-255 characters");
+    else if(strlen($password) < 8) {
+        array_push($error_array, "<span class='form_error'>Your password needs to include more than 8 characters</span>");
+    }
+
+    else if(strlen($password) > 255) {
+        array_push($error_array, "<span class='form_error'>Your password must be less than 255 characters long.</span>");
     }
 
     //if $error_array does not have a value
