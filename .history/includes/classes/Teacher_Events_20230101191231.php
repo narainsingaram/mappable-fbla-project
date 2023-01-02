@@ -238,7 +238,7 @@ if(isset($_POST['auth_submit'])) {
             $image = $live['image'];
             $added_by = $live['added_by'];
             $date_added = $live['date_added'];
-
+        
             //Today's date
             $current_date = date('Y-m-d');
             //time without PM or AM
@@ -249,10 +249,10 @@ if(isset($_POST['auth_submit'])) {
             //change all time variables into integers to verify which time is bigger
             $array_current_time = explode(":", $current_time);
             $int_current_time = $array_current_time[0] . $array_current_time[1];
-
+        
             $array_start_time = explode(":", $start_time);
             $int_start_time = $array_start_time[0] . $array_start_time[1];
-
+        
             $array_end_time = explode(":", $end_time);
             $int_end_time = $array_end_time[0] . $array_end_time[1];
 
@@ -260,7 +260,7 @@ if(isset($_POST['auth_submit'])) {
             if($current_time . 'PM' == $current_time_w_a ) {
                 $int_current_time = $int_current_time + 1200;
             }
-
+            
             if($current_date == $date) {
             /* integer version of current time - integer version start time must be above 0 for it to be live
                 integer version of current time - integer version end time must be less than 0 for it to be live
@@ -268,9 +268,6 @@ if(isset($_POST['auth_submit'])) {
               if($int_current_time > $int_start_time && $int_current_time < $int_end_time) {
                 $add_live_events = mysqli_query($this->con, "UPDATE teacher_events SET live='yes' WHERE event_id='$id' AND added_by='$added_by'");
                 $live_event_content .="
-                    <div class='relative'>
-    <div class='rounded-full' src='/docs/images/people/profile-picture-5.jpg'>fasdfsa</div>
-</div>
 <div class='p-6 relative rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] hover:-translate-y-1 transition ease-in'>
     <header class='mb-2'>
         <h5 class='inline text-2xl font-bold tracking-tight text-gray-900'>
@@ -289,7 +286,6 @@ if(isset($_POST['auth_submit'])) {
     </a>
     <span class='-top-0 -right-0 absolute w-3 h-3 bg-green-400 border-2 border-white rounded-full animate-ping opacity-75'></span>
 </div>
-                    
                 "; 
               }
               else if($int_current_time < $int_start_time || $int_current_time > $int_end_time) {

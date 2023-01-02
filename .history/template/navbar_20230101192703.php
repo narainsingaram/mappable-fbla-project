@@ -40,11 +40,7 @@
       $add_notification = new Notify($con, $userLoggedIn);
       $add_notification->getNotifications();
     ?>
-          <div class="tooltip tooltip-bottom tooltip-error py-4" data-tip="Clear All Notifications">
-            <span class='text-red-400 text-xl rounded-full'>
-              <i class="uil uil-trash-alt"></i>
-            </span>
-          </div>
+      <li><center class='bg-slate-100'>View All Notifications</center></li>
     </ul>
   </div>
     <div class="dropdown dropdown-end">

@@ -48,9 +48,7 @@ class Notify {
                         <span>
                             {$row['message']}
                         </span> 
-                        <div class="tooltip tooltip-right tooltip-accent" data-tip="Mark As Read">
-                            <button class='bg-emerald-200 badge w-3 text-black border-none'><i class="uil uil-check"></i></button>                        
-                        </div>
+                        <button class='bg-emerald-200 badge p-5 text-black border-none'><i class="uil uil-envelope-check"></i></button>
                     </a>
             </li>
             EOT;
@@ -86,10 +84,10 @@ class Notify {
             $notify_message = $full_name . "accepted your authentification";
         }
         else if($noti_type == 'request_received') {
-            $notify_message = $full_name . " " . "sent event request";
+            $notify_message = $full_name . " " . "requested to join your event";
         }
         else if($noti_type == 'live_request_received') {
-            $notify_message = $full_name . "sent <b>live</b> event request";
+            $notify_message = $full_name . "wants to join your live event";
         }
 
         $push_notification_query = mysqli_query($this->con,"INSERT INTO notifications VALUES(NULL, '$user_to', '$userLoggedIn',  '$noti_type', '$notify_message', '$current_date', 'no')");

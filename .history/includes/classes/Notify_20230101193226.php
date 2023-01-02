@@ -89,7 +89,7 @@ class Notify {
             $notify_message = $full_name . " " . "sent event request";
         }
         else if($noti_type == 'live_request_received') {
-            $notify_message = $full_name . "sent <b>live</b> event request";
+            $notify_message = $full_name . "sent live request";
         }
 
         $push_notification_query = mysqli_query($this->con,"INSERT INTO notifications VALUES(NULL, '$user_to', '$userLoggedIn',  '$noti_type', '$notify_message', '$current_date', 'no')");

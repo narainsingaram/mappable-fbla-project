@@ -34,17 +34,16 @@
           <h1 class='inline text-lg font-semibold leading-none text-gray-900'>Notifications</h1>
         </span>
         <span class='justify-end'>
+          <span class='text-red-400 rounded-full'>
+            <i class="uil uil-trash-alt"></i>
+          </span>
         </span>
       </div>
     <?php 
       $add_notification = new Notify($con, $userLoggedIn);
       $add_notification->getNotifications();
     ?>
-          <div class="tooltip tooltip-bottom tooltip-error py-4" data-tip="Clear All Notifications">
-            <span class='text-red-400 text-xl rounded-full'>
-              <i class="uil uil-trash-alt"></i>
-            </span>
-          </div>
+      <li><center class='bg-slate-100'>View All Notifications</center></li>
     </ul>
   </div>
     <div class="dropdown dropdown-end">

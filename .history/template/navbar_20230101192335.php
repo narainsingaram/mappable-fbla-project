@@ -19,10 +19,33 @@
   </div>
   </div>
   <div class="flex-1">
-    <a href="index.php" class="btn btn-ghost normal-case text-xl">
+    <a href="index.php" class="btn btn-ghost text-2xl">
       <img class='w-7 pb-0.5 mr-2' src="../assets/images/mappable_logo.png" alt="logo" />
       Mappable
     </a>
+  </div>
+  <div class="dropdown dropdown-end">
+    <label tabindex="0" class="btn btn-square btn-ghost m-1 focus:outline-none focus:ring focus:ring-slate-300">
+      <i class="text-2xl uil uil-bell"></i>
+    </label>
+    <ul tabindex="0" class="dropdown-content menu p-2 bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] rounded-2xl w-80">
+      <div class="px-5 pt-5 pb-2 flex justify-between">
+        <span class=''>
+          <h1 class='inline text-lg font-semibold leading-none text-gray-900'>Notifications</h1>
+        </span>
+        <span class='justify-end'>
+        <div class="tooltip tooltip-right tooltip-accent" data-tip="Mark As Read">
+          <span class='text-red-400 rounded-full'>
+            <i class="uil uil-trash-alt"></i>
+          </span>
+        </span>
+      </div>
+    <?php 
+      $add_notification = new Notify($con, $userLoggedIn);
+      $add_notification->getNotifications();
+    ?>
+      <li><center class='bg-slate-100'>View All Notifications</center></li>
+    </ul>
   </div>
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn normal-case border-none inline-flex mx-2 items-center text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl">Create</label>
