@@ -135,6 +135,7 @@ require 'includes/operators/login_operator.php';
     ?>" >
     <option value="">School</option>
      <option value="West Forsyth Highschool">West Forsyth Highschool</option>
+    <option value="Other">Other</option>
   </select>
     </div>
     <div class="mt-4">
