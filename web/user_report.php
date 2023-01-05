@@ -105,7 +105,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
 
       </a>
       </li>
-
       <li class="relative flex items-center pr-2">
       <p class="hidden transform-dropdown-show"></p>
       <a href="javascript:;" class="block p-0 transition-all text-size-sm ease-nav-brand text-slate-500" dropdown-trigger="" aria-expanded="false">
