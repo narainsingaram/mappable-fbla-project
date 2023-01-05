@@ -87,17 +87,25 @@ require 'includes/operators/login_operator.php';
 
 <div class="mb-4">
     <ul class="flex mb-2 text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
+
+    <?php 
+    $is_selected = ($element['aria-selected'] === true); 
+    ?>
+
+
         <li class="mr-2" role="presentation">
-            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="profile-tab" data-tabs-target="#profile" role="tab" aria-controls="profile">  Full Name</button>
+            <button style="<?php $border_style = ($is_selected) ? 'border: 1px solid black' : "";
+?>" class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200 border-none normal-case" id="profile-tab" data-tabs-target="#profile" role="tab" aria-controls="profile" aria-selected="
+            ">Full Name</button>
         </li>
         <li class="mr-2" role="presentation">
-            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="dashboard-tab" data-tabs-target="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false">User Information</button>
+            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200 border-none normal-case" id="dashboard-tab" data-tabs-target="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false">User Information</button>
         </li>
         <li class="mr-2" role="presentation">
-            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="settings-tab" data-tabs-target="#settings" role="tab" aria-controls="settings" aria-selected="false">Credentials</button>
+            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200 border-none normal-case" id="settings-tab" data-tabs-target="#settings" role="tab" aria-controls="settings" aria-selected="false"><img class='mb-1 w-7 inline' src='assets/images/lock.png'> Credentials</button>
         </li>
         <li role="presentation">
-            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="contacts-tab" data-tabs-target="#contacts" role="tab" aria-controls="contacts" aria-selected="false">Submit</button>
+            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200 border-none normal-case" id="contacts-tab" data-tabs-target="#contacts" role="tab" aria-controls="contacts" aria-selected="false"><img class='mb-1 w-7 inline' src='assets/images/submit.png'> Submit</button>
         </li>
     </ul>
 </div>
@@ -226,9 +234,16 @@ require 'includes/operators/login_operator.php';
 </div>
     </div>
 <div id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
+    <label for="my-modal-4" class="inline-flex items-center py-3 px-4 text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl">
+    <svg class='mx-1' xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none"><path opacity=".4" d="M18.328 5.67 6.588 17.41c-.44.44-1.18.38-1.54-.14-1.24-1.81-1.97-3.95-1.97-6.15V6.73c0-.82.62-1.75 1.38-2.06l5.57-2.28a5.12 5.12 0 0 1 3.92 0l4.04 1.65c.67.27.84 1.13.34 1.63Z" fill="#2563eb"></path><path d="M19.27 7.042c.65-.55 1.64-.08 1.64.77v3.31c0 4.89-3.55 9.47-8.4 10.81-.33.09-.69.09-1.03 0a11.3 11.3 0 0 1-3.87-1.95c-.48-.37-.53-1.07-.11-1.5 2.18-2.23 8.56-8.73 11.77-11.44Z" fill="#2563eb"></path></svg>
+        I'm Not A Robot</label>
 
     <div class="button">
-        <button class="btn normal-case w-full border-none px-8 py-4 font-medium text-white rounded-2xl bg-blue-500 hover:bg-blue-600" type="submit" name="register_btn">Create Account
+        <button class="flex items-center justify-center w-full px-8 py-4 text-base font-medium text-center text-white transition duration-500 ease-in-out transform bg-blue-500 rounded-2xl hover:bg-blue-600" type="submit" name="register_btn">Create Account
+        <svg class='ml-2' width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path opacity="0.4" d="M7.91588 22.0001H16.0839C19.6229 22.0001 21.9999 19.7241 21.9999 16.3351V7.6651C21.9999 4.2761 19.6229 2.0001 16.0839 2.0001H7.91588C4.37788 2.0001 1.99988 4.2771 1.99988 7.6661L1.99988 16.3351C1.99988 19.7241 4.37788 22.0001 7.91588 22.0001Z" fill="#93c5fd"></path>
+<path d="M12.8553 16.2794L16.6203 12.5314C16.9033 12.2494 16.9033 11.7504 16.6203 11.4674L12.8553 7.7194C12.5613 7.4274 12.0863 7.4284 11.7943 7.7224C11.5023 8.0164 11.5023 8.4904 11.7963 8.7834L14.2733 11.2504H7.91833C7.50333 11.2504 7.16833 11.5864 7.16833 12.0004C7.16833 12.4144 7.50333 12.7504 7.91833 12.7504H14.2733L11.7963 15.2164C11.6493 15.3634 11.5763 15.5554 11.5763 15.7484C11.5763 15.9394 11.6493 16.1314 11.7943 16.2774C12.0863 16.5704 12.5613 16.5714 12.8553 16.2794Z" fill="#93c5fd"></path>
+</svg>
         </button>
     </div>
 </div>
