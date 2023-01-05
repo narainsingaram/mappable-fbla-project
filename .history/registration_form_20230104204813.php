@@ -228,7 +228,7 @@ require 'includes/operators/login_operator.php';
 <div id="contacts" role="tabpanel" aria-labelledby="contacts-tab">
 
     <div class="button">
-        <button class="btn normal-case w-full border-none px-8 py-4 font-medium text-slate-600 rounded-2xl bg-slate-200 hover:bg-slate-300" type="submit" name="register_btn">Create Account
+        <button class="btn normal-case w-full border-none px-8 py-4 font-medium text-gray-200 rounded-2xl bg-slate-100 hover:bg-slate-200" type="submit" name="register_btn">Create Account
         </button>
     </div>
 </div>
