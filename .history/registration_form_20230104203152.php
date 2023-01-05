@@ -97,7 +97,7 @@ require 'includes/operators/login_operator.php';
             <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200 border-none normal-case" id="settings-tab" data-tabs-target="#settings" role="tab" aria-controls="settings" aria-selected="false"><img class='mb-1 w-7 inline' src='assets/images/lock.png'> Credentials</button>
         </li>
         <li role="presentation">
-            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200 border-none normal-case" id="contacts-tab" data-tabs-target="#contacts" role="tab" aria-controls="contacts" aria-selected="false"><img class='mb-1 w-7 inline' src='assets/images/submit.png'> Submit</button>
+            <button class="bg-slate-100 px-4 py-1 my-2 rounded-xl text-slate-600 text-base" id="contacts-tab" data-tabs-target="#contacts" role="tab" aria-controls="contacts" aria-selected="false"><img class='mb-1 w-7 inline' src='assets/images/submit.png'> Submit</button>
         </li>
     </ul>
 </div>
