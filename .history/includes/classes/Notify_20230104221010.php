@@ -19,9 +19,10 @@ class Notify {
         $userLoggedIn = $this->user_object->gettingUsername();
         $get_notifications_query = mysqli_query($this->con,"SELECT * FROM notifications WHERE user_from='$userLoggedIn' OR user_to='$userLoggedIn' ORDER BY id DESC LIMIT 5");
 
-        if(isset["{$id}-{$username}-mark-as-read"]) {
-            
+        if (isset("$id-$username-mark-as-read")) {
+            echo "water";
         }
+
 
         if(mysqli_num_rows($get_notifications_query) == 0) {
             echo "
@@ -82,6 +83,7 @@ class Notify {
         }
     }
         echo $return_string;
+        
     }
 
     public function pushNewNotification($user_to, $noti_type) {

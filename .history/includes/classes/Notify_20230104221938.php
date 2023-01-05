@@ -19,10 +19,6 @@ class Notify {
         $userLoggedIn = $this->user_object->gettingUsername();
         $get_notifications_query = mysqli_query($this->con,"SELECT * FROM notifications WHERE user_from='$userLoggedIn' OR user_to='$userLoggedIn' ORDER BY id DESC LIMIT 5");
 
-        if(isset["{$id}-{$username}-mark-as-read"]) {
-            
-        }
-
         if(mysqli_num_rows($get_notifications_query) == 0) {
             echo "
             <div id='noti_card' class='mb-3 rounded-2xl bg-white text-black  shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px]'>
@@ -54,7 +50,7 @@ class Notify {
                         </span> 
                         <div class="tooltip tooltip-right" data-tip="Mark As Read">
                             <form class="inline" action="index.php">
-                                <button name='$id-$username-mark-as-read' class='bg-emerald-200 badge w-3 text-black border-none'>
+                                <button type='submit' name='-$username-mark-as-read' class='bg-emerald-200 badge w-3 text-black border-none'>
                                     <i class="uil uil-check"></i>
                                 </button>     
                             </form>                   
@@ -82,6 +78,7 @@ class Notify {
         }
     }
         echo $return_string;
+        
     }
 
     public function pushNewNotification($user_to, $noti_type) {

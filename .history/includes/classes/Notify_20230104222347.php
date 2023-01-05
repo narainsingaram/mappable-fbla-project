@@ -19,10 +19,6 @@ class Notify {
         $userLoggedIn = $this->user_object->gettingUsername();
         $get_notifications_query = mysqli_query($this->con,"SELECT * FROM notifications WHERE user_from='$userLoggedIn' OR user_to='$userLoggedIn' ORDER BY id DESC LIMIT 5");
 
-        if(isset["{$id}-{$username}-mark-as-read"]) {
-            
-        }
-
         if(mysqli_num_rows($get_notifications_query) == 0) {
             echo "
             <div id='noti_card' class='mb-3 rounded-2xl bg-white text-black  shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px]'>
@@ -41,6 +37,21 @@ class Notify {
             $user_info_query = mysqli_query($this->con,"SELECT * FROM users WHERE username='$userLoggedIn'");
             $user_data = mysqli_fetch_array($user_info_query);
 
+            $username = $user_data['username'];
+
+            This error message indicates that there is a syntax error in the PHP code on line 42 of the file /Applications/XAMPP/xamppfiles/htdocs/mappable-fbla-project/includes/classes/Notify.php. The error is caused by a problem with the string being passed as an argument to the isset function.
+
+            The string in question is "$userdata['username']-$userdata['id']-mark-as-read", which is being used as the name of a variable in the $_POST array. However, this string is not a valid PHP variable name because it contains characters that are not allowed in variable names. Specifically, the hyphens (-) are causing the syntax error.
+            
+            To fix this error, you can use a different naming convention for the variable in the $_POST array. For example, you could use underscores (_) instead of hyphens:
+            
+            Copy code
+            if (isset($_POST["{$userdata['username']}_{$userdata['id']}_mark_as_read"])) {
+                echo "water";
+            }
+            
+
+
         switch($row['viewed']) {
             case $row['viewed'] == 'no':
             $return_string .= <<<EOT
@@ -53,8 +64,8 @@ class Notify {
                             {$row['message']}
                         </span> 
                         <div class="tooltip tooltip-right" data-tip="Mark As Read">
-                            <form class="inline" action="index.php">
-                                <button name='$id-$username-mark-as-read' class='bg-emerald-200 badge w-3 text-black border-none'>
+                            <form class="inline" method="POST" action="index.php">
+                                <button type='submit' name='{$userdata["username"]}-{$userdata["id"]}-mark-as-read' class='bg-emerald-200 badge w-3 text-black border-none'>
                                     <i class="uil uil-check"></i>
                                 </button>     
                             </form>                   
@@ -82,6 +93,7 @@ class Notify {
         }
     }
         echo $return_string;
+        
     }
 
     public function pushNewNotification($user_to, $noti_type) {
