@@ -94,15 +94,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="flex flex-wrap mt-6 -mx-3 p-4">
       <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 rounded-2xl">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-      <li class="flex items-center pl-4 xl:hidden">
-        <a href="javascript:;" class="block p-0 transition-all ease-nav-brand text-size-sm text-slate-500" sidenav-trigger="">
-          <div class="w-4.5 overflow-hidden">
-            <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-            <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-            <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-          </div>
-        </a>
-      </li>
       <li class="flex items-center px-4">
         <a href="javascript:;" class="p-0 transition-all text-size-sm ease-nav-brand text-slate-500">
           <i fixed-plugin-button-nav="" class="cursor-pointer fa fa-cog" aria-hidden="true"></i>
@@ -299,12 +290,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
 </div>
 </div>
 
- 
-
-
-
-
-
       </h5>
       </div>
       </div>
@@ -324,9 +309,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="border-black/12.5 shadow-soft-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
       <div class="flex-auto p-4">
       <div class="py-4 pr-1 mb-4 bg-gradient-dark-gray rounded-xl">
-      <div>
-      <canvas id="chart-bars" height="170" style="display: block; box-sizing: border-box; height: 170px; width: 580px;" width="580"></canvas>
-      </div>
       </div>
       <h6 class="mt-6 mb-0 ml-2">Active Users</h6>
       <p class="ml-2 leading-normal text-size-sm">(<span class="font-bold">+23%</span>) than last week
