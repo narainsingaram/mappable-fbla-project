@@ -45,7 +45,7 @@ include("../template/navbar.php");
         <span class='flex absolute -left-5 justify-center items-center w-10 h-10 bg-$color_array[0]-200 rounded-full'>
             <div class='rounded-full text-xl font-bold font-mono shadow-lg'>$requester_first_name[0]$requester_last_name[0]</div>
         </span>
-        <div class='p-4 ml-4 bg-white rounded-lg border-none shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px]'>
+        <div class='p-4 ml-4 bg-white rounded-lg border border-gray-200 shadow-sm'>
             <div class='justify-between items-center mb-3 sm:flex'>
                 <time class='text-xs font-normal text-gray-500 sm:order-last sm:mb-0'>Time Sent</time>
                 <div class='text-sm font-normal text-gray-500'><a href='#' class='font-semibold text-gray-900 hover:underline'>$requester_first_name $requester_last_name</a> requested an authentification</div>
@@ -57,7 +57,7 @@ include("../template/navbar.php");
         <path d='M21 5.97686C21 5.56588 20.6761 5.24389 20.2871 5.24389H17.3714C16.7781 5.24389 16.2627 4.8219 16.1304 4.22692L15.967 3.49795C15.7385 2.61698 14.9498 2 14.0647 2H9.93624C9.0415 2 8.26054 2.61698 8.02323 3.54595L7.87054 4.22792C7.7373 4.8219 7.22185 5.24389 6.62957 5.24389H3.71385C3.32386 5.24389 3 5.56588 3 5.97686V6.35685C3 6.75783 3.32386 7.08982 3.71385 7.08982H20.2871C20.6761 7.08982 21 6.75783 21 6.35685V5.97686Z' fill='#ef4444'></path>
         </svg>
         </button>
-            <div class='px-3 py-5 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] flex items-center justify-between bg-slate-100 rounded-lg'>
+            <div class='p-3 flex items-center justify-between bg-gray-50 rounded-lg'>
             <blockquote class='flex items-center'>
             <img src='../assets/event_images/$image' class='object-cover w-16 h-10 rounded-lg shadow-md'>
                 <p class='ml-2 text-xl font-bold tracking-wide'>$title</p>

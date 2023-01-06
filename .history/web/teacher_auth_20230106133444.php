@@ -41,11 +41,11 @@ include("../template/navbar.php");
         }
 
         $authentifications_content .= "
-        <li class='mb-10 ml-6'>
+        <li class='mb-10 ml-6 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px]'>
         <span class='flex absolute -left-5 justify-center items-center w-10 h-10 bg-$color_array[0]-200 rounded-full'>
             <div class='rounded-full text-xl font-bold font-mono shadow-lg'>$requester_first_name[0]$requester_last_name[0]</div>
         </span>
-        <div class='p-4 ml-4 bg-white rounded-lg border-none shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px]'>
+        <div class='p-4 ml-4 bg-white rounded-lg border border-gray-200 shadow-sm'>
             <div class='justify-between items-center mb-3 sm:flex'>
                 <time class='text-xs font-normal text-gray-500 sm:order-last sm:mb-0'>Time Sent</time>
                 <div class='text-sm font-normal text-gray-500'><a href='#' class='font-semibold text-gray-900 hover:underline'>$requester_first_name $requester_last_name</a> requested an authentification</div>
