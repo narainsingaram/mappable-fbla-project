@@ -132,9 +132,6 @@ Spaces
 
 
 
-<div class="w-1/2 p-5">
-
-
 <div class="p-4 w-full shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] bg-white rounded-2xl sm:p-8">
     <div class="flex justify-between items-center mb-2">
         <h5 class="text-xl font-bold leading-none text-gray-900">Activity</h5>

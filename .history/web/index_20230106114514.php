@@ -134,6 +134,39 @@ Spaces
 
 <div class="w-1/2 p-5">
 
+<form id="form1">
+  Name: <input type="text" name="name"><br>
+  Email: <input type="text" name="email"><br>
+  <input type="button" value="Submit" onclick="submitForm()">
+</form>
+
+
+<script>
+  // Get the form element
+  var form = document.getElementById('section');
+  
+  // Add an event listener to the form
+  form.addEventListener('submit', function(event) {
+    // Prevent the form from submitting
+    event.preventDefault();
+    
+    // Get the form data
+    var data = new FormData(form);
+    
+    // Send an AJAX request to the server
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'insert.php');
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        // If the request is successful, update the page with the new information
+        document.getElementById('insert-results').innerHTML = xhr.responseText;
+      }
+    };
+    xhr.send(data);
+  });
+</script>
+
+
 
 <div class="p-4 w-full shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] bg-white rounded-2xl sm:p-8">
     <div class="flex justify-between items-center mb-2">

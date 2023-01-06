@@ -9,6 +9,7 @@ if(isset($_POST['user_submit'])) {
 header("Location: index.php");
 }
 ?>
+
 <section id='section' class="flex">
   <?php 
     if(isset($_POST['getting_points'])){
@@ -133,6 +134,15 @@ Spaces
 
 
 <div class="w-1/2 p-5">
+
+<form id="insert-form">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name">
+  <label for="description">Description:</label>
+  <textarea id="description" name="description"></textarea>
+  <input type="submit" value="Insert">
+</form>
+
 
 
 <div class="p-4 w-full shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] bg-white rounded-2xl sm:p-8">

@@ -134,6 +134,31 @@ Spaces
 
 <div class="w-1/2 p-5">
 
+<form id="form1">
+  Name: <input type="text" name="name"><br>
+  Email: <input type="text" name="email"><br>
+  <input type="button" value="Submit" onclick="submitForm()">
+</form>
+
+
+<script>
+function submitForm() {
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'submit.php', true);
+  xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+  xhr.onreadystatechange = function() {
+    if(xhr.readyState == 4 && xhr.status == 200) {
+      <?php echo $xhr.responseText; ?>
+    }
+  }
+  var name = document.forms['form1']['name'].value;
+  var email = document.forms['form1']['email'].value;
+  xhr.send('name='+name+'&email='+email);
+}
+
+</script>
+
+
 
 <div class="p-4 w-full shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] bg-white rounded-2xl sm:p-8">
     <div class="flex justify-between items-center mb-2">
