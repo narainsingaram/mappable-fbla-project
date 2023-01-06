@@ -1,7 +1,7 @@
 <?php
 include("../template/web_defaults.php");
 include("../template/navbar.php");
-include("insert.php");
+include("insert.php")
 
 if(isset($_POST['user_submit'])) {
   $post = new Teacher_Events($con, $userLoggedIn);
@@ -144,7 +144,7 @@ Spaces
 
 <script>
   // Get the form element
-  var form = document.getElementById('section');
+  var form = document.getElementById('insert-form');
   
   // Add an event listener to the form
   form.addEventListener('submit', function(event) {

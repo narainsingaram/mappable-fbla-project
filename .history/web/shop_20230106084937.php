@@ -116,3 +116,12 @@ include("../includes/operators/reward_operator.php");
     </div>
 </div>
 </div>
+
+<?php 
+  if (isset($variable) && preg_match('/^reward[1-8]$/', $variable)) {
+    // The variable is set and has a name in the correct format
+    echo "water";
+  } else {
+    // The variable is not set or has a name in the incorrect format
+  }
+?>

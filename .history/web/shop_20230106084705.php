@@ -89,7 +89,7 @@ include("../includes/operators/reward_operator.php");
       <h2 class="mb-2 font-semibold leading-5">Hershey Bars</h2>
       <h5 class="text-2xl text-green-500 font-semibold">75 GEMS</h5>
       <form class='inline' action="shop.php" method="POST">
-        <button name='reward6' type='submit' class="bg-blue-600 active:bg-blue-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 float-right" type="button" style="transition: all 0.15s ease 0s;">
+        <button name='reward6' class="bg-blue-600 active:bg-blue-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 float-right" type="button" style="transition: all 0.15s ease 0s;">
           BUY
         </button>
       </form>

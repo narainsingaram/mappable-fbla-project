@@ -134,7 +134,7 @@ Spaces
 
 <div class="w-1/2 p-5">
 
-<form id="insert-form">
+<form id="insert-form" action="index.php">
   <label for="name">Name:</label>
   <input type="text" id="name" name="name">
   <label for="description">Description:</label>
@@ -144,7 +144,7 @@ Spaces
 
 <script>
   // Get the form element
-  var form = document.getElementById('section');
+  var form = document.getElementById('insert-form');
   
   // Add an event listener to the form
   form.addEventListener('submit', function(event) {

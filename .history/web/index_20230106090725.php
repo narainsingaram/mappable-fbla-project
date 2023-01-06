@@ -144,7 +144,7 @@ Spaces
 
 <script>
   // Get the form element
-  var form = document.getElementById('section');
+  var form = document.getElementById('insert-form');
   
   // Add an event listener to the form
   form.addEventListener('submit', function(event) {
