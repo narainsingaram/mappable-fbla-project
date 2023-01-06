@@ -187,7 +187,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </nav>
       <div class="w-full px-6 py-6 mx-auto">
       <div wire:id="4ilqyNplThbbtlHVw3TJ">
-
+      <h3 class="text-4xl font-semibold text-black p-4">Overall Data</h3>
       <div class="flex flex-wrap -mx-3">
 
       <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
@@ -291,13 +291,20 @@ $experience_sum_points = $experience_rows["experience_sum"];
 <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-100">
 	<img class='w-12 inline -rotate-12' src='../assets/images/experience_points.png'>
 </div>
+
 <div class="flex flex-col justify-center align-middle">
 	<p class="text-3xl font-semibold leading-none"><?php echo $experience_sum_points; ?></p>
 	<p class="capitalize">Experience Points</p>
   <span class="leading-normal text-size-sm font-weight-extrabold text-lime-500">+13%</span>
 </div>
 </div>
-      
+
+ 
+
+
+
+
+
       </h5>
       </div>
       </div>
@@ -328,22 +335,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="flex flex-wrap mt-0 -mx-3">
       <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
       <div class="flex mb-2">
-      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-fuchsia text-neutral-900">
-      <svg width="10px" height="10px" viewBox="0 0 40 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <title>document</title>
-      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-      <g transform="translate(-1870.000000, -591.000000)" fill="#FFFFFF" fill-rule="nonzero">
-      <g transform="translate(1716.000000, 291.000000)">
-      <g transform="translate(154.000000, 300.000000)">
-      <path class="color-background" d="M40,40 L36.3636364,40 L36.3636364,3.63636364 L5.45454545,3.63636364 L5.45454545,0 L38.1818182,0 C39.1854545,0 40,0.814545455 40,1.81818182 L40,40 Z" opacity="0.603585379"></path>
-      <path class="color-background" d="M30.9090909,7.27272727 L1.81818182,7.27272727 C0.814545455,7.27272727 0,8.08727273 0,9.09090909 L0,41.8181818 C0,42.8218182 0.814545455,43.6363636 1.81818182,43.6363636 L30.9090909,43.6363636 C31.9127273,43.6363636 32.7272727,42.8218182 32.7272727,41.8181818 L32.7272727,9.09090909 C32.7272727,8.08727273 31.9127273,7.27272727 30.9090909,7.27272727 Z M18.1818182,34.5454545 L7.27272727,34.5454545 L7.27272727,30.9090909 L18.1818182,30.9090909 L18.1818182,34.5454545 Z M25.4545455,27.2727273 L7.27272727,27.2727273 L7.27272727,23.6363636 L25.4545455,23.6363636 L25.4545455,27.2727273 Z M25.4545455,20 L7.27272727,20 L7.27272727,16.3636364 L25.4545455,16.3636364 L25.4545455,20 Z">
-      </path>
-      </g>
-      </g>
-      </g>
-      </g>
-      </svg>
-      </div>
       <p class="mt-1 mb-0 font-semibold leading-tight text-size-xs">Users</p>
       </div>
       <h4 class="font-bold">36K</h4>
