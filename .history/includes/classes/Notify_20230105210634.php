@@ -17,10 +17,7 @@ class Notify {
     public function getNotifications() {
         $pfp_name = $this->user_object->getPfpName();
         $userLoggedIn = $this->user_object->gettingUsername();
-        $get_notifications_query = mysqli_query($this->con,"SELECT * FROM notifications
-        WHERE user_from='$userLoggedIn' OR user_to='$userLoggedIn'
-        ORDER BY viewed = 'no' DESC
-        LIMIT 5");
+        $get_notifications_query = mysqli_query($this->con,"SELECT * FROM notifications WHERE user_from='$userLoggedIn' OR user_to='$userLoggedIn' ORDER BY id DESC LIMIT 5");
 
         if(mysqli_num_rows($get_notifications_query) == 0) {
             echo "
@@ -47,7 +44,7 @@ class Notify {
 
 
             if (isset($_POST["{$user_data['username']}_{$row['id']}_mark_as_read"])) {
-                $mark_as_read_query = mysqli_query($this->con, "UPDATE notifications SET viewed='yes' WHERE id='$not_id'", MYSQLI_STORE_RESULT);
+                $mark_as_read_query = mysqli_query($this->con, "UPDATE notifications SET viewed=1 WHERE id='$not_id'", MYSQLI_STORE_RESULT);
             }
             
 
@@ -75,18 +72,20 @@ class Notify {
             EOT;
             break;
             case $row['viewed'] == 'yes':
-                $return_string .= <<<EOT
-                <li>
-                        <a class='flex m-1' href='index.php'>
-                            <span class='indicator bg-slate-200 p-1.5 w-10 h-10 text-xl font-semibold text-gray-700 rounded-full flex items-center justify-center'>
-                            $pfp_name
-                            </span>
-                            <span>
-                                {$row['not_message']}
-                            </span> 
-                        </a>
-                </li>
-                EOT;
+            $return_string .= "
+            <div id='noti_card' class='mb-3 grid rounded-2xl bg-slate-200/80 text-black border-0 backdrop-blur-xl'>
+            <div class='card-body'>
+                <h2 class='card-title'>" . $row['message'] . "</h2> 
+                <p>You have 3 unread messages. Tap here to see.</p>
+                <div class='-top-0 -right-0 absolute dropdown dropdown-end'>
+                    <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
+                    <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
+                    <li><a>Delete</a></li>
+                    </ul>
+                </div>
+            </div>
+            </div> 
+            ";
             break;
         }
     }

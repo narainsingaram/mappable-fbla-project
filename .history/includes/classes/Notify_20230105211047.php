@@ -77,13 +77,20 @@ class Notify {
             case $row['viewed'] == 'yes':
                 $return_string .= <<<EOT
                 <li>
-                        <a class='flex m-1' href='index.php'>
+                        <a class='flex bg-slate-100 m-1' href='index.php'>
                             <span class='indicator bg-slate-200 p-1.5 w-10 h-10 text-xl font-semibold text-gray-700 rounded-full flex items-center justify-center'>
                             $pfp_name
                             </span>
                             <span>
                                 {$row['not_message']}
                             </span> 
+                            <div class="tooltip tooltip-right" data-tip="Mark As Read">
+                                <form class="inline" method="POST" action="index.php">
+                                    <button type='submit' name='{$user_data['username']}_{$row['id']}_mark_as_read' class='bg-emerald-200 badge w-3 text-black border-none'>
+                                        <i class="uil uil-check"></i>
+                                    </button>     
+                                </form>                   
+                            </div>
                         </a>
                 </li>
                 EOT;

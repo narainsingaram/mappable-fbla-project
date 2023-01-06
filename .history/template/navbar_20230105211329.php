@@ -24,7 +24,7 @@
       Mappable
     </a>
   </div>
-  <div class="dropdown dropdown-end">
+  <div class="dropdown dropdown-end py-10">
     <label tabindex="0" class="btn btn-square btn-ghost m-1 focus:outline-none focus:ring focus:ring-slate-300">
       <i class="text-2xl uil uil-bell"></i>
     </label>
