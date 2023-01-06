@@ -87,24 +87,28 @@ $experience_sum_points = $experience_rows["experience_sum"];
             </a>
             </div>
             </div>
-          </div>S
+          </div>
         </div>
       </div>
+
+      <div class="flex flex-wrap mt-6 -mx-3 p-4">
+      <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 rounded-2xl">
+      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
       <li class="flex items-center pl-4 xl:hidden">
-      <a href="javascript:;" class="block p-0 transition-all ease-nav-brand text-size-sm text-slate-500" sidenav-trigger="">
-      <div class="w-4.5 overflow-hidden">
-      <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-      <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-      <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-      </div>
-      </a>
+        <a href="javascript:;" class="block p-0 transition-all ease-nav-brand text-size-sm text-slate-500" sidenav-trigger="">
+          <div class="w-4.5 overflow-hidden">
+            <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+            <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+            <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
+          </div>
+        </a>
       </li>
       <li class="flex items-center px-4">
-      <a href="javascript:;" class="p-0 transition-all text-size-sm ease-nav-brand text-slate-500">
-      <i fixed-plugin-button-nav="" class="cursor-pointer fa fa-cog" aria-hidden="true"></i>
-
-      </a>
+        <a href="javascript:;" class="p-0 transition-all text-size-sm ease-nav-brand text-slate-500">
+          <i fixed-plugin-button-nav="" class="cursor-pointer fa fa-cog" aria-hidden="true"></i>
+        </a>
       </li>
+
       <li class="relative flex items-center pr-2">
       <p class="hidden transform-dropdown-show"></p>
       <a href="javascript:;" class="block p-0 transition-all text-size-sm ease-nav-brand text-slate-500" dropdown-trigger="" aria-expanded="false">
@@ -192,10 +196,20 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="flex flex-row -mx-3">
       <div class="flex-none w-2/3 max-w-full px-3">
       <div>
-      <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Today's Money</p>
-      <h5 class="mb-0 font-bold">
-      $53,000
-      <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+55%</span>
+      <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
+      <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 bg-blue-100">
+	<i class="uil uil-user text-4xl px-1 text-black"></i>
+</div>
+<div class="flex flex-col justify-center align-middle">
+	<p class="text-3xl font-semibold leading-none"> <?php while (
+     $row = $number_of_global_users->fetch_assoc()
+ ) {
+     echo $row["id"] . "<br>";
+ } ?></p>
+	<p class="capitalize">Users</p>
+  <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+55%</span>
+</div>
+</div>
       </h5>
       </div>
       </div>
@@ -215,11 +229,16 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="flex flex-row -mx-3">
       <div class="flex-none w-2/3 max-w-full px-3">
       <div>
-      <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Today's Users
-      </p>
-      <h5 class="mb-0 font-bold">
-      2,300
-      <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+3%</span>
+      <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
+<div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-yellow-100">
+<img class='w-12 inline' src='../assets/images/points.png'>
+</div>
+<div class="flex flex-col justify-center align-middle">
+	<p class="text-3xl font-semibold leading-none"><?php echo $total_sum_points; ?></p>
+	<p class="capitalize">Overall Points</p>
+  <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+15%</span>
+</div>
+</div>
       </h5>
       </div>
       </div>
@@ -239,10 +258,16 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="flex flex-row -mx-3">
       <div class="flex-none w-2/3 max-w-full px-3">
       <div>
-      <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">New Clients</p>
-      <h5 class="mb-0 font-bold">
-      +3,462
-      <span class="leading-normal text-red-600 text-size-sm font-weight-bolder">-2%</span>
+      <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
+      <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 bg-green-100">
+<i class="bx bx-diamond text-4xl px-1 text-black"></i>
+</div>
+<div class="flex flex-col justify-center align-middle">
+	<p class="text-3xl font-semibold leading-none"><?php echo $total_sum_gems; ?></p>
+	<p class="capitalize">Overall Gems</p>
+  <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">-5%</span>
+</div>
+</div>
       </h5>
       </div>
       </div>
@@ -260,12 +285,19 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
       <div class="flex-auto p-4">
       <div class="flex flex-row -mx-3">
-      <div class="flex-none w-2/3 max-w-full px-3">
       <div>
-      <p class="mb-0 font-sans font-semibold leading-normal text-size-sm">Sales</p>
-      <h5 class="mb-0 font-bold">
-      $103,430
-      <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+5%</span>
+      <div class="flex flex-col justify-center align-middle">
+      <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
+<div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-100">
+	<img class='w-12 inline -rotate-12' src='../assets/images/experience_points.png'>
+</div>
+<div class="flex flex-col justify-center align-middle">
+	<p class="text-3xl font-semibold leading-none"><?php echo $experience_sum_points; ?></p>
+	<p class="capitalize">Experience Points</p>
+  <span class="leading-normal text-size-sm font-weight-extrabold text-lime-500">+13%</span>
+</div>
+</div>
+      
       </h5>
       </div>
       </div>
@@ -875,7 +907,9 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       <hr class="h-px mx-0 my-1 bg-transparent bg-gradient-horizontal-dark">
       <div class="flex-auto p-6 pt-0 sm:pt-4">
-
+      </div>
+</div>
+</div>
       </div>
       </div>
       </div>
