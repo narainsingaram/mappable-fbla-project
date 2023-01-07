@@ -31,6 +31,10 @@ public function load_requested_feed() {
     $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
     $requested_content = '';
 
+    if(isset($_POST['auth_delete_btn'])) {
+        $create_event_query = mysqli_query($this->con, "DELETE * FROM authentifications WHERE username='$event_row[added_by]'");
+    }
+
     while($event_row = mysqli_fetch_array($event_data_query)) {
         $create_event_query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$event_row[added_by]'");
         $row = mysqli_fetch_array($create_event_query);
@@ -57,7 +61,7 @@ public function load_requested_feed() {
                     </p>
                 </div>
                     <form action='index.php' method='POST'>
-                        <button name='auth_delete_btn_$event_row[event_id]' type='submit' class='inline-flex cursor-pointer active:scale-105 items-center text-xl text-red-400 px-2 py-1 rounded-xl text-gray-900'>
+                        <button name='auth_delete_btn' type='submit' class='inline-flex cursor-pointer active:scale-105 items-center text-xl text-red-400 px-2 py-1 rounded-xl text-gray-900'>
                             <i class="uil uil-trash-alt"></i>
                         </button>
                     </form>
@@ -66,12 +70,6 @@ public function load_requested_feed() {
     EOT;;
     ;
     }
-
-    if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
-        $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
-        header("Location: index.php");
-    }
-
             }
     echo $requested_content;
 }

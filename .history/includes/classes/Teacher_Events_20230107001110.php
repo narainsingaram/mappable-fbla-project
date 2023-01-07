@@ -56,22 +56,14 @@ public function load_requested_feed() {
                         $event_row[description]
                     </p>
                 </div>
-                    <form action='index.php' method='POST'>
-                        <button name='auth_delete_btn_$event_row[event_id]' type='submit' class='inline-flex cursor-pointer active:scale-105 items-center text-xl text-red-400 px-2 py-1 rounded-xl text-gray-900'>
-                            <i class="uil uil-trash-alt"></i>
-                        </button>
-                    </form>
+                <button class='inline-flex cursor-pointer active:scale-105 items-center text-xl text-red-500 px-2 py-1 rounded-xl text-gray-900'>
+                    <i class="uil uil-trash-alt"></i>
+                </button>
             </div>
         </li>
     EOT;;
     ;
     }
-
-    if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
-        $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
-        header("Location: index.php");
-    }
-
             }
     echo $requested_content;
 }

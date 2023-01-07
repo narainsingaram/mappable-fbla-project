@@ -67,9 +67,8 @@ public function load_requested_feed() {
     ;
     }
 
-    if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
-        $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
-        header("Location: index.php");
+    if(isset($_POST['auth_delete_btn_'])) {
+        $create_event_query = mysqli_query($this->con, "SELECT * FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
     }
 
             }

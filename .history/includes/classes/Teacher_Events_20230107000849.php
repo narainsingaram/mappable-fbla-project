@@ -38,7 +38,7 @@ public function load_requested_feed() {
         $match_request_rows = mysqli_num_rows($check_requests);
 
         if($match_request_rows == 1) {
-            $requested_content .= <<<EOT
+            $requested_content .="
         <li class='py-3 sm:py-4 mb-3 rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] px-2 py-1'>
             <div class='flex items-center space-x-4'>
                 <button class='absolute bg-slate-200 w-8 h-8 text-md text-gray-700 rounded-full font-semibold'>
@@ -56,22 +56,18 @@ public function load_requested_feed() {
                         $event_row[description]
                     </p>
                 </div>
-                    <form action='index.php' method='POST'>
-                        <button name='auth_delete_btn_$event_row[event_id]' type='submit' class='inline-flex cursor-pointer active:scale-105 items-center text-xl text-red-400 px-2 py-1 rounded-xl text-gray-900'>
-                            <i class="uil uil-trash-alt"></i>
-                        </button>
-                    </form>
+                <div class='inline-flex cursor-pointer active:scale-105 items-center text-sm text-yellow-500 bg-red-100 p-2 rounded-xl text-gray-900'>
+                    <svg width='20' height='20' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+                    <path opacity='0.4' d='M19.6433 9.48844C19.6433 9.55644 19.
+    1103 16.2972 18.8059 19.1341C18.6153 20.875 17.493 21.931 15.8095 21.961C14.516 21.99 13.2497 22 12.0039 22C10.6812 22 9.38772 21.99 8.13216 21.961C6.50508 21.922 5.38178 20.845 5.20089 19.1341C4.88772 16.2872 4.36449 9.55644 4.35477 9.48844C4.34504 9.28345 4.41117 9.08846 4.54539 8.93046C4.67765 8.78447 4.86827 8.69647 5.06862 8.69647H18.9392C19.1385 8.69647 19.3194 8.78447 19.4624 8.93046C19.5956 9.08846 19.6627 9.28345 19.6433 9.48844Z' fill='#ef4444'></path>
+                    <path opacity='0.4' d='M19.6433 9.48844C19.6433 9.55644 19.1103 16.2972 18.8059 19.1341C18.6153 20.875 17.493 21.931 15.8095 21.961C14.516 21.99 13.2497 22 12.0039 22C10.6812 22 9.38772 21.99 8.13216 21.961C6.50508 21.922 5.38178 20.845 5.20089 19.1341C4.88772 16.2872 4.36449 9.55644 4.35477 9.48844C4.34504 9.28345 4.41117 9.08846 4.54539 8.93046C4.67765 8.78447 4.86827 8.69647 5.06862 8.69647H18.9392C19.1385 8.69647 19.3194 8.78447 19.4624 8.93046C19.5956 9.08846 19.6627 9.28345 19.6433 9.48844Z' fill='#ef4444'></path>
+                    <path d='M21 5.97686C21 5.56588 20.6761 5.24389 20.2871 5.24389H17.3714C16.7781 5.24389 16.2627 4.8219 16.1304 4.22692L15.967 3.49795C15.7385 2.61698 14.9498 2 14.0647 2H9.93624C9.0415 2 8.26054 2.61698 8.02323 3.54595L7.87054 4.22792C7.7373 4.8219 7.22185 5.24389 6.62957 5.24389H3.71385C3.32386 5.24389 3 5.56588 3 5.97686V6.35685C3 6.75783 3.32386 7.08982 3.71385 7.08982H20.2871C20.6761 7.08982 21 6.75783 21 6.35685V5.97686Z' fill='#ef4444'></path>
+                    </svg>
+                </div>
             </div>
         </li>
-    EOT;;
-    ;
+    ";
     }
-
-    if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
-        $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
-        header("Location: index.php");
-    }
-
             }
     echo $requested_content;
 }

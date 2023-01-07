@@ -38,7 +38,7 @@ public function load_requested_feed() {
         $match_request_rows = mysqli_num_rows($check_requests);
 
         if($match_request_rows == 1) {
-            $requested_content .= <<<EOT
+            $requested_content .="
         <li class='py-3 sm:py-4 mb-3 rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] px-2 py-1'>
             <div class='flex items-center space-x-4'>
                 <button class='absolute bg-slate-200 w-8 h-8 text-md text-gray-700 rounded-full font-semibold'>
@@ -56,22 +56,13 @@ public function load_requested_feed() {
                         $event_row[description]
                     </p>
                 </div>
-                    <form action='index.php' method='POST'>
-                        <button name='auth_delete_btn_$event_row[event_id]' type='submit' class='inline-flex cursor-pointer active:scale-105 items-center text-xl text-red-400 px-2 py-1 rounded-xl text-gray-900'>
-                            <i class="uil uil-trash-alt"></i>
-                        </button>
-                    </form>
+                <button class='inline-flex cursor-pointer active:scale-105 items-center text-sm text-yellow-500 bg-red-100 p-2 rounded-xl text-gray-900'>
+                    
+                </button>
             </div>
         </li>
-    EOT;;
-    ;
+    ";
     }
-
-    if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
-        $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
-        header("Location: index.php");
-    }
-
             }
     echo $requested_content;
 }
