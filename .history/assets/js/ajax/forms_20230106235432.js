@@ -1,4 +1,32 @@
+function submitForm() {
+    // Get the form data
+    var name = $("#name").val();
+    var email = $("#email").val();
 
+    if (name === "" || email === "") {
+        alert("Please fill out all fields.");
+        return; // Return early to exit the function
+    }
+
+    // Make an AJAX request
+    $.ajax({
+        url: "index.php",
+        type: "POST",
+        data: { name: name, email: email },
+        success: function (response) {
+            console.log("Form submitted successfully!");
+        },
+        error: function (xhr, status, error) {
+            console.log("There was an error submitting the form.");
+        }
+    });
+}
+
+$("#myForm").submit(function (event) {
+    event.preventDefault(); // Prevent the form from resetting and the page from refreshing
+    event.returnValue = false; // Stop form from submitting when page 
+    submitForm(); // Call the function to submit the form
+});
 
 $(document).ready(function () {
     $('#event_form').submit(function (event) {
