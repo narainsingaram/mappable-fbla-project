@@ -1,6 +1,7 @@
 <?php
 include("../template/web_defaults.php");
 include("../template/navbar.php");
+include("insert.php");
 
 if(isset($_POST['user_submit'])) {
   $post = new Teacher_Events($con, $userLoggedIn);
@@ -140,7 +141,11 @@ Spaces
   <input type="text" id="email" name="email"><br><br>
   <input type="submit" value="Submit">
 </form>  -->
-<!-- 
+
+<?php 
+
+?>
+
 <script>
   function submitForm() {
   // Get the form data
@@ -174,7 +179,7 @@ $("#myForm").submit(function(event) {
 
 
 
-</script> -->
+</script>
 
 
 <div class="p-4 w-full shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] bg-white rounded-2xl sm:p-8">
