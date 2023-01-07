@@ -148,6 +148,14 @@ if(isset($_POST['submit'])) {
   header("Location: index.php");
 }
 
+$result = python_eval("
+def add(a, b):
+  return a + b
+
+print(add(1, 2))
+");
+
+echo $result; // prints "3"
 
 ?>
 
