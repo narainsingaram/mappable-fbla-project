@@ -134,7 +134,7 @@ Spaces
 
 <div class="w-1/2 p-5">
 
-<form id="myForm" method="POST">
+<form id="myForm">
   <label for="name">Name:</label><br>
   <input type="text" id="name" name="name"><br>
   <label for="email">Email:</label><br>
@@ -177,8 +177,9 @@ if(isset($_POST['submit'])) {
 
 $("#myForm").one("submit", function(event) {
   event.preventDefault(); // Prevent the form from resetting and the page from refreshing
-  event.returnValue = false; // Stop form from submitting when page r
   submitForm(); // Call the function to submit the form
+  event.returnValue = false; // Stop form  submitting when page freshly loads
+
 });
 
 

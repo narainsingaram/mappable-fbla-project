@@ -177,7 +177,6 @@ if(isset($_POST['submit'])) {
 
 $("#myForm").one("submit", function(event) {
   event.preventDefault(); // Prevent the form from resetting and the page from refreshing
-  event.returnValue = false; // Stop form from submitting when page r
   submitForm(); // Call the function to submit the form
 });
 

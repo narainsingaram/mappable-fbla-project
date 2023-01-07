@@ -144,9 +144,7 @@ Spaces
 
 <?php 
 
-if(isset($_POST['submit'])) {
-  header("Location: index.php");
-}
+if(isset($_POST['submit']))
 
 ?>
 
@@ -175,12 +173,10 @@ if(isset($_POST['submit'])) {
   });
 }
 
-$("#myForm").one("submit", function(event) {
+$("#myForm").submit(function(event) {
   event.preventDefault(); // Prevent the form from resetting and the page from refreshing
-  event.returnValue = false; // Stop form from submitting when page r
   submitForm(); // Call the function to submit the form
 });
-
 
 
 </script>
