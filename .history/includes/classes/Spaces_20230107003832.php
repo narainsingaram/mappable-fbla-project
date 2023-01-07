@@ -41,7 +41,7 @@ class Spaces {
             throw new Exception("Invalid date format. Date must be in YYYY-MM-DD format.");
         }
 
-        $stmt = $this->con->prepare("INSERT INTO teacher_events (authentifier, type, date, start_time, end_time, description, image, added_by, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")
+        $stmt = $this->con->prepare("INSERT INTO teacher_events (title, type, date, start_time, end_time, description, image, added_by, date_added) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")
         $stmt->bind_param("ssssss", )
     }
 
