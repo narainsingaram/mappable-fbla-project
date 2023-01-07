@@ -14,9 +14,10 @@ if($space_id == ''){
 
 
 if(isset($_POST['spc_msg_send'])) {
-    $post = new Spaces($con, $userLoggedIn);
-    $space_oop->event_feed($space_id, $userLoggedIn, $_POST['spc_msg_input'], $_POST['msg_type'], $date); //do submitEvent function in Post_Events.php
-    // $update_spc_mgs = mysqli_query($con, "INSERT INTO spc_msgs VALUES (NULL,'$space_id', '$userLoggedIn', '$content', '$type', '$date', 'no')");
+    $content = $_POST['spc_msg_input'];
+    $type = $_POST['msg_type'];
+    $space_oop->event_feed($space_id,$userLoggedIn, $_POST['spc_msg_input'], $_POST['msg_type'], $date); //do submitEvent function in Post_Events.php
+    $update_spc_mgs = mysqli_query($con, "INSERT INTO spc_msgs VALUES (NULL,'$space_id', '$userLoggedIn', '$content', '$type', '$date', 'no')");
     header("Location: space.php?space=$space_id");
 }
 

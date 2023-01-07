@@ -40,9 +40,6 @@ class Spaces {
         if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
             throw new Exception("Invalid date format. Date must be in YYYY-MM-DD format.");
         }
-
-        $stmt = $this->con->prepare("INSERT INTO spaces (")
-        $stmt->bind_param("ssssss", )
     }
 
     public function load_current_space($space_id) {

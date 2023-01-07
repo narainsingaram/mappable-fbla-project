@@ -21,28 +21,35 @@ class Spaces {
             throw new Exception("All fields are required.");
         }
 
-        if (!preg_match('/^[\w\s\d]+$/', $space_id)) {
-            throw new Exception("Title must be alphanumeric.");
-        }
-    
-        if (!preg_match('/^[\w\s\d]+$/', $crt_user)) {
-            throw new Exception("Type must be alphanumeric.");
-        }
+        Sure! Here is an example of how you might rewrite the event_feed() function using different techniques and algorithms:
 
-        if (!preg_match('/^[\w\s\d]+$/', $content)) {
-            throw new Exception("Type must be alphanumeric.");
-        }
-
-        if (!preg_match('/^[\w\s\d]+$/', $type)) {
-            throw new Exception("Type must be alphanumeric.");
-        }
-    
-        if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
-            throw new Exception("Invalid date format. Date must be in YYYY-MM-DD format.");
-        }
-
-        $stmt = $this->con->prepare("INSERT INTO spaces (")
-        $stmt->bind_param("ssssss", )
+            Copy code
+            public function createEvent($title, $type, $date, $start_time, $end_time, $description, $image) {
+                // Sanitize input
+                $title = filter_var($title, FILTER_SANITIZE_STRING);
+                $type = filter_var($type, FILTER_SANITIZE_STRING);
+                $date = filter_var($date, FILTER_SANITIZE_STRING);
+                $start_time = filter_var($start_time, FILTER_SANITIZE_STRING);
+                $end_time = filter_var($end_time, FILTER_SANITIZE_STRING);
+                $description = filter_var($description, FILTER_SANITIZE_STRING);
+                $image = filter_var($image, FILTER_SANITIZE_URL);
+            
+                // Validate input
+                if (empty($title) || empty($type) || empty($date) || empty($start_time) || empty($end_time)) {
+                    throw new Exception("All fields are required.");
+                }
+            
+                if (!preg_match('/^[\w\s\d]+$/', $title)) {
+                    throw new Exception("Title must be alphanumeric.");
+                }
+            
+                if (!preg_match('/^[\w\s\d]+$/', $type)) {
+                    throw new Exception("Type must be alphanumeric.");
+                }
+            
+                if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $date)) {
+                    throw new Exception("Invalid date format. Date must be in YYYY-MM-DD format.");
+                }
     }
 
     public function load_current_space($space_id) {

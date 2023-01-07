@@ -41,7 +41,7 @@ class Spaces {
             throw new Exception("Invalid date format. Date must be in YYYY-MM-DD format.");
         }
 
-        $stmt = $this->con->prepare("INSERT INTO spaces (")
+        $stmt = $this->con->prepare("INSERT INTO spaces ")
         $stmt->bind_param("ssssss", )
     }
 
