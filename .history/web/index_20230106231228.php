@@ -142,38 +142,6 @@ Spaces
   <input type="submit" value="Submit">
 </form> 
 
-<script>
-  function submitForm() {
-  // Get the form data
-  var name = $("#name").val();
-  var email = $("#email").val();
-
-  if (name === "" || email === "") {
-    alert("Please fill out all fields.");
-    return; // Return early to exit the function
-  }
-
-  // Make an AJAX request
-  $.ajax({
-    url: "index.php",
-    type: "POST",
-    data: { name: name, email: email },
-    success: function(response) {
-      console.log("Form submitted successfully!");
-    },
-    error: function(xhr, status, error) {
-      console.log("There was an error submitting the form.");
-    }
-  });
-}
-
-$("#myForm").submit(function(event) {
-  event.preventDefault(); // Prevent the form from resetting and the page from refreshing
-  submitForm(); // Call the function to submit the form
-});
-
-
-</script>
 
 
 <div class="p-4 w-full shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] bg-white rounded-2xl sm:p-8">

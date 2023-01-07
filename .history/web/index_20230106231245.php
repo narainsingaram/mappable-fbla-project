@@ -148,14 +148,9 @@ Spaces
   var name = $("#name").val();
   var email = $("#email").val();
 
-  if (name === "" || email === "") {
-    alert("Please fill out all fields.");
-    return; // Return early to exit the function
-  }
-
   // Make an AJAX request
   $.ajax({
-    url: "index.php",
+    url: "insert.php",
     type: "POST",
     data: { name: name, email: email },
     success: function(response) {
@@ -166,12 +161,6 @@ Spaces
     }
   });
 }
-
-$("#myForm").submit(function(event) {
-  event.preventDefault(); // Prevent the form from resetting and the page from refreshing
-  submitForm(); // Call the function to submit the form
-});
-
 
 </script>
 

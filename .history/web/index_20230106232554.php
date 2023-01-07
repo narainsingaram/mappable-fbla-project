@@ -148,11 +148,6 @@ Spaces
   var name = $("#name").val();
   var email = $("#email").val();
 
-  if (name === "" || email === "") {
-    alert("Please fill out all fields.");
-    return; // Return early to exit the function
-  }
-
   // Make an AJAX request
   $.ajax({
     url: "index.php",

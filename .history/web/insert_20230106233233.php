@@ -1,8 +1,6 @@
 <?php
 
-$name = '';
-$email = '';
-
+$email = ''
 
   // Get the form data
   if (isset($_POST["name"]) && isset($_POST["email"])) {
