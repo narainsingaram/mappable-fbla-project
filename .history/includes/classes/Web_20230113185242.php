@@ -2,7 +2,7 @@
 class Web {
     public function display_event_form() {
         $html = <<<EOT
-        <form action="{$_SERVER['PHP_SELF']}" method="POST" enctype="multipart/form-data">
+        <form action="index.php" method="POST" enctype="multipart/form-data">
         <input name="user_title" type="text" placeholder="Event Title" class="inline-flex items-center py-2 px-3 text-sm font-medium text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl">
         <select name="user_type" class="inline-flex items-center py-2 px-3 text-sm font-medium text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl">
         <option value="Choose Type of Event">Choose Type of Event</option>

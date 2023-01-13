@@ -150,6 +150,9 @@ Read More
 			Name
 		</th>
 		<th scope="col" class="py-3 px-6">
+			School
+		</th>
+		<th scope="col" class="py-3 px-6">
 			Grade
 		</th>
 		<th scope="col" class="py-3 px-6">

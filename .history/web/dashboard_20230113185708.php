@@ -150,6 +150,9 @@ Read More
 			Name
 		</th>
 		<th scope="col" class="py-3 px-6">
+			School
+		</th>
+		<th scope="col" class="py-3 px-6">
 			Grade
 		</th>
 		<th scope="col" class="py-3 px-6">
@@ -176,6 +179,9 @@ foreach ($user_list_points_query as $row) {
 </th>
 <td class='py-4 px-6'>
 	$user_list_points_first_name $user_list_points_last_name
+</td>
+<td class='py-4 px-6'>
+	$user_list_points_school
 </td>
 <td class='py-4 px-6'>
 	$grade
@@ -213,6 +219,9 @@ foreach ($user_list_points_query as $row) {
 			Name
 		</th>
 		<th scope="col" class="py-3 px-6">
+			School
+		</th>
+		<th scope="col" class="py-3 px-6">
 			Grade
 		</th>
 		<th scope="col" class="py-3 px-6">
@@ -230,6 +239,7 @@ foreach ($user_list_gems_query as $row) {
     $_SESSION["leaderboard"] = $leaderboard_i;
     $user_list_gems_first_name = $row["first_name"];
     $user_list_gems_last_name = $row["last_name"];
+    $user_list_gems_school = $row["school"];
     $grade = $row["grade"];
     $user_list_gems = $row["gems"];
 
@@ -240,6 +250,9 @@ foreach ($user_list_gems_query as $row) {
 </th>
 <td class='py-4 px-6'>
 	$user_list_gems_first_name $user_list_gems_last_name
+</td>
+<td class='py-4 px-6'>
+	$user_list_gems_school
 </td>
 <td class='py-4 px-6'>
 	$grade

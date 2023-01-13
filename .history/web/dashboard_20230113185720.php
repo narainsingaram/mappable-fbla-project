@@ -150,6 +150,9 @@ Read More
 			Name
 		</th>
 		<th scope="col" class="py-3 px-6">
+			School
+		</th>
+		<th scope="col" class="py-3 px-6">
 			Grade
 		</th>
 		<th scope="col" class="py-3 px-6">
@@ -240,6 +243,9 @@ foreach ($user_list_gems_query as $row) {
 </th>
 <td class='py-4 px-6'>
 	$user_list_gems_first_name $user_list_gems_last_name
+</td>
+<td class='py-4 px-6'>
+	$user_list_gems_school
 </td>
 <td class='py-4 px-6'>
 	$grade

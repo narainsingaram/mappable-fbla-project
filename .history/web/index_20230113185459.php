@@ -123,12 +123,12 @@ Spaces
   <input type="text" name="user_desc"  placeholder="Description of Your Event" class='inline-flex items-center py-2 px-3 text-sm font-medium text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl pt-12'>
   <button name="user_submit" class='align-middle inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl' type="submit">Submit</button>
 </form>
+
+$form = new Form();
+$form->display();
+
+
   <?php
-
-  $form = new Web();
-  $form->display_event_form();
-
-
       $post = new Teacher_Events($con, $userLoggedIn);
       $post->live_events();
       $post->load_regular_feed();

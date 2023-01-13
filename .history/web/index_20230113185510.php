@@ -126,7 +126,7 @@ Spaces
   <?php
 
   $form = new Web();
-  $form->display_event_form();
+  $form->display();
 
 
       $post = new Teacher_Events($con, $userLoggedIn);

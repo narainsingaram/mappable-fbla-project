@@ -4,7 +4,7 @@ include("../includes/classes/User_Info.php");
 include("../includes/classes/Teacher_Events.php");
 include("../includes/classes/Spaces.php");
 include("../includes/classes/Notify.php");
-include("../includes/classes/Web.php");
+include("../includes/classes/Notify.php");
 
 
 if(isset($_SESSION['username'])) {
