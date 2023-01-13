@@ -39,6 +39,75 @@ header("Location: index.php");
   </div>
 </div>
 
+<div>
+  <div class="xt-slider" data-xt-slider>
+    <div class="p-4 md:p-6 lg:p-8">
+      <div
+        class="xt-slides transition ease-out-expo duration-300 on:ease-out-quint on:duration-1000 xt-row xt-row-4"
+        data-xt-slider-dragger>
+        <div class="xt-slide w-6/12 sm:w-4/12 md:w-3/12 group" data-xt-slider-target>
+          <div
+            class="xt-card text-gray-900 xt-links-default rounded-md bg-gray-100 border-2 border-transparent transition group-in:border-gray-200 p-8 text-base text-center">
+            <div class="xt-h4">1</div>
+          </div>
+        </div>
+
+        <div class="xt-slide w-6/12 sm:w-4/12 md:w-3/12 group" data-xt-slider-target>
+          <div
+            class="xt-card text-gray-900 xt-links-default rounded-md bg-gray-100 border-2 border-transparent transition group-in:border-gray-200 p-8 text-base text-center">
+            <div class="xt-h4">2</div>
+          </div>
+        </div>
+
+        <div class="xt-slide w-8/12 sm:w-6/12 md:w-5/12 group" data-xt-slider-target>
+          <div
+            class="xt-card text-gray-900 xt-links-default rounded-md bg-gray-100 border-2 border-transparent transition group-in:border-gray-200 p-8 text-base text-center">
+            <div class="xt-h4">3</div>
+          </div>
+        </div>
+
+        <div class="xt-slide w-full group" data-xt-slider-target>
+          <div
+            class="xt-card text-gray-900 xt-links-default rounded-md bg-gray-100 border-2 border-transparent transition group-in:border-gray-200 p-8 text-base text-center">
+            <div class="xt-h4">4</div>
+          </div>
+        </div>
+
+        <div class="xt-slide w-8/12 sm:w-6/12 md:w-5/12 group" data-xt-slider-target>
+          <div
+            class="xt-card text-gray-900 xt-links-default rounded-md bg-gray-100 border-2 border-transparent transition group-in:border-gray-200 p-8 text-base text-center">
+            <div class="xt-h4">5</div>
+          </div>
+        </div>
+
+        <div class="xt-slide w-6/12 sm:w-4/12 md:w-3/12 group" data-xt-slider-target>
+          <div
+            class="xt-card text-gray-900 xt-links-default rounded-md bg-gray-100 border-2 border-transparent transition group-in:border-gray-200 p-8 text-base text-center">
+            <div class="xt-h4">6</div>
+          </div>
+        </div>
+
+        <div class="xt-slide w-6/12 sm:w-4/12 md:w-3/12 group" data-xt-slider-target>
+          <div
+            class="xt-card text-gray-900 xt-links-default rounded-md bg-gray-100 border-2 border-transparent transition group-in:border-gray-200 p-8 text-base text-center">
+            <div class="xt-h4">7</div>
+          </div>
+        </div>
+      </div>
+
+      <nav
+        aria-label="Slider Navigation"
+        class="w-full xt-list xt-list-2 pt-4 items-center justify-center"
+        data-xt-slider-pagination>
+        <button
+          type="button"
+          class="xt-button p-2 min-w-[1.25rem] h-5 rounded-full text-3xs text-gray-900 font-medium leading-snug tracking-wider uppercase bg-gray-100 hover:bg-gray-200 on:px-4 active:bg-gray-300 on:bg-gray-200 transition-all hidden"
+          data-xt-slider-element
+          title="Slide xt-num"></button>
+      </nav>
+    </div>
+  </div>
+</div>
 
 <h1 class='inline text-xl font-bold leading-none text-gray-900'>
   <svg class='inline' xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"><path opacity=".4" d="M2 9.75c-.41 0-.75-.34-.75-.75V6.5c0-2.9 2.36-5.25 5.25-5.25H9c.41 0 .75.34.75.75s-.34.75-.75.75H6.5c-2.07 0-3.75 1.68-3.75 3.75V9c0 .41-.34.75-.75.75Z" fill="#3b82f6"></path><path d="M22 9.75c-.41 0-.75-.34-.75-.75V6.5c0-2.07-1.68-3.75-3.75-3.75H15c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h2.5c2.89 0 5.25 2.35 5.25 5.25V9c0 .41-.34.75-.75.75Z" fill="#3b82f6"></path><path opacity=".4" d="M17.5 22.75H16c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h1.5c2.07 0 3.75-1.68 3.75-3.75V16c0-.41.34-.75.75-.75s.75.34.75.75v1.5c0 2.9-2.36 5.25-5.25 5.25Z" fill="#3b82f6"></path><path d="M9 22.75H6.5c-2.89 0-5.25-2.35-5.25-5.25V15c0-.41.34-.75.75-.75s.75.34.75.75v2.5c0 2.07 1.68 3.75 3.75 3.75H9c.41 0 .75.34.75.75s-.34.75-.75.75ZM8.501 11.381a2.88 2.88 0 1 0 0-5.76 2.88 2.88 0 0 0 0 5.76Z" fill="#3b82f6"></path><path opacity=".4" d="M7.501 18.381a1.88 1.88 0 1 0 0-3.76 1.88 1.88 0 0 0 0 3.76ZM16.501 9.381a1.88 1.88 0 1 0 0-3.76 1.88 1.88 0 0 0 0 3.76Z" fill="#3b82f6"></path><path d="M15.501 18.381a2.88 2.88 0 1 0 0-5.76 2.88 2.88 0 0 0 0 5.76Z" fill="#3b82f6"></path></svg>

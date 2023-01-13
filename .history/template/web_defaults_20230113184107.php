@@ -39,10 +39,13 @@ $gems = $user['gems'];
 $experience = $user['experience'];
 $levels = $user['levels'];
 $grade = $user['grade'];
+$school = $user['school'];
 
 
 $profile_symbol = substr($first_name, 0, 1). substr($last_name, 0, 1);
 $full_name = "$first_name $last_name";
+
+$color_array = array("red", "orange", "amber", "yellow", "lime", "green", "emerald", "teal", "cyan", "sky", "blue", "indigo", "violet", "purple", "fuchsia", "pink", "rose");
 
 ?>
 

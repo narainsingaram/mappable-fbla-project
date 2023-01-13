@@ -138,7 +138,7 @@ require 'includes/operators/login_operator.php';
     <option value="10">10</option>
     <option value="11">11</option>
     <option value="12">12</option>
-    <option value="1">I am a Teacher</option>
+    <option value="0">9</option>
 </select>
     </div>
     <div class="mt-4">

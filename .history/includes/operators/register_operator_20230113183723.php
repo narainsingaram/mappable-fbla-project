@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 			$username = $username . "_" . $i;
 			$check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
 		}
-        $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 'no')");
+        $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$school', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 'no')");
         
         array_push($error_array, "You are set to login!");
 

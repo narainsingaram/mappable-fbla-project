@@ -47,7 +47,7 @@
     </div>
     <div class="dropdown dropdown-end ">
       <label tabindex="0" class="btn btn-ghost p-0 hover:bg-slate-50">
-        <?php echo "<span class='bg-slate-200 w-12 h-12 text-xl font-bold text-gray-700  rounded-full flex items-center justify-center'> $profile_symbol </span>";?>
+        <?php echo "<span class='bg-$color_array[0]-100 w-12 h-12 text-xl font-bold text-gray-700  rounded-full flex items-center justify-center'> $profile_symbol </span>";?>
       </label>
       <blockquote tabindex="0" class="dropdown-content rounded-2xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px]">
         <div class="card w-96 bg-white">
