@@ -19,7 +19,7 @@ require 'includes/operators/login_operator.php';
 <body>
 
 <div class="flex items-center justify-center min-h-screen bg-gray-100">
-<div class="px-6 py-8 w-1/3 mx-4 mt-4 text-left rounded-2xl bg-white">
+<div class="px-6 py-8 w-1/4 mx-4 mt-4 text-left rounded-2xl bg-white">
 <?php if(in_array("<span class='form_error'>Your email or password is incorrect</span>", $error_array)) echo '<center><div class="mb-4 p-2 bg-slate-300 items-center text-slate-800 leading-none lg:rounded-full flex lg:inline-flex" role="alert">
 <span class="flex rounded-full bg-slate-200 uppercase px-2 py-1 text-lg font-bold mr-3"><i class="bx bx-error"></i></span>
 <span class="font-semibold mr-2 text-left flex-auto">Your email or password is incorrect</span>
