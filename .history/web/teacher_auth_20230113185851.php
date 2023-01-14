@@ -5,7 +5,7 @@ include("../template/navbar.php");
     $select_events_query = mysqli_query($con, "SELECT * from authentifications WHERE authentifier='$userLoggedIn' AND accepted='no' ORDER BY id");
 
     $authentifications_content = "";
-?>
+?>fdsafas
 <main class=''>  
 <ol class='relative border-l mx-5 border-gray-200'> 
 <?php
@@ -24,6 +24,9 @@ include("../template/navbar.php");
         $requester_first_name = $select_request_details['first_name'];
         $requester_last_name = $select_request_details['last_name'];
     
+        //shuffling $color_array from web_defaults.php in while loop
+        shuffle($color_array);
+
         if(isset($_POST["auth_verify$id-$requester"])) {
             $point_value = $_POST['add_points'];
             $gem_value = $_POST['add_gems'];
@@ -39,7 +42,7 @@ include("../template/navbar.php");
 
         $authentifications_content .= "
         <li class='mb-10 ml-6'>
-        <span class='flex absolute -left-5 justify-center items-center w-10 h-10 bg-slate-200 rounded-full'>
+        <span class='flex absolute -left-5 justify-center items-center w-10 h-10 bg-$color_array[0]-200 rounded-full'>
             <div class='rounded-full text-xl font-bold font-mono shadow-lg'>$requester_first_name[0]$requester_last_name[0]</div>
         </span>
         <div class='p-4 ml-4 bg-white rounded-lg border-none shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px]'>
