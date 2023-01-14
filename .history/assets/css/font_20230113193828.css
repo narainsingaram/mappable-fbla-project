@@ -10,6 +10,6 @@
 }
 
 ::selection {
+    padding: 10px;
     background: #eee;
-    color: rgb(106, 106, 106);
   }

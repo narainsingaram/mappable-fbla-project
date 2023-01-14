@@ -10,6 +10,10 @@
 }
 
 ::selection {
+    padding: 10px;
+    display: inline;
+font-size: 15px;
+line-height: 3em;
+padding: 10px;
     background: #eee;
-    color: rgb(106, 106, 106);
   }

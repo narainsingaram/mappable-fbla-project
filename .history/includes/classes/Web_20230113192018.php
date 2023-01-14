@@ -1,6 +1,6 @@
 <?php 
 class Web {
-    public function disp_evt_mo() {
+    public function display_event_modal() {
         $html = <<<EOT
     <input type="checkbox" id="create_event" class="modal-toggle" />
         <div class="modal">

@@ -10,6 +10,5 @@
 }
 
 ::selection {
-    background: #eee;
-    color: rgb(106, 106, 106);
+    background: red;
   }
