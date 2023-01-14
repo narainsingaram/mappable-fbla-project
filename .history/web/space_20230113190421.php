@@ -8,10 +8,6 @@ $date = date('Y-m-d');
 
 $space_id = (isset($_GET['space']) ? $_GET['space'] : '');
 
-if($space_id == ''){
-  header("Location: space_explore.php ");
-}
-
 
 if(isset($_POST['spc_msg_send'])) {
     $content = $_POST['spc_msg_input'];

@@ -41,8 +41,8 @@
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn normal-case border-none inline-flex mx-2 items-center text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl">Create</label>
       <ul tabindex="0" class="dropdown-content menu p-2 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] bg-white rounded-2xl text-black w-52">
-        <li><label for="create_space">Create Space</label></li>
-        <li><label for="create_event">Create Event</label></li>
+      <li><label for="my-modal-5">Create Space</label></li>
+        <li><label for="my-modal-5">Create Space</label></li>
       </ul>
     </div>
     <div class="dropdown dropdown-end ">

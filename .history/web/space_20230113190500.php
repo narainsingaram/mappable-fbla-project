@@ -9,7 +9,7 @@ $date = date('Y-m-d');
 $space_id = (isset($_GET['space']) ? $_GET['space'] : '');
 
 if($space_id == ''){
-  header("Location: space_explore.php ");
+  header("Location: ../space.php ");
 }
 
 

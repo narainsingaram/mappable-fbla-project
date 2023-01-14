@@ -41,12 +41,12 @@
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn normal-case border-none inline-flex mx-2 items-center text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl">Create</label>
       <ul tabindex="0" class="dropdown-content menu p-2 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] bg-white rounded-2xl text-black w-52">
-        <li><label for="create_space">Create Space</label></li>
         <li><label for="create_event">Create Event</label></li>
+        <li><label for="create_space">Create Space</label></li>
       </ul>
     </div>
     <div class="dropdown dropdown-end ">
-      <label tabindex="0" class="btn btn-ghost p-0 hover:bg-slate-50">
+      <label name="create_space" tabindex="0" class="btn btn-ghost p-0 hover:bg-slate-50">
         <?php echo "<span class='bg-slate-200 w-12 h-12 text-xl font-bold text-gray-700  rounded-full flex items-center justify-center'> $profile_symbol </span>";?>
       </label>
       <blockquote tabindex="0" class="dropdown-content rounded-2xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px]">
