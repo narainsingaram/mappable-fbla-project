@@ -149,7 +149,7 @@ if(isset($_POST['auth_submit'])) {
             <div>
                 <div>
                     <div class='flex align-center'> 
-                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
+                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mr-2 text-xl bg-slate-300/30 rounded-full'>
     <span class='font-semibold text-gray-600'>$first_name[0]$last_name[0]</span>
 </div>
                         <ul class='mt-2'>
@@ -164,13 +164,13 @@ if(isset($_POST['auth_submit'])) {
                         </ul>
                     </div>
             <div>
-                <h1 class='rounded-2xl bg-slate-300/30 my-3 px-6 py-3 text-2xl font-bold text-black'>$title</h1>
+                <h1 class='rounded-2xl bg-slate-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>$title</h1>
             </div>
-                <div class='post-images'>
+                    <div class='post-images'>
                     <div class='grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl'>
-	
+		
                     <!-- Tile 1 -->
-                    <div class='p-5 bg-white rounded flex items-center'>
+                    <div class='p-4 bg-white rounded flex items-center'>
                         <div class='bg-green-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
                             <i class='text-3xl uil uil-calender'></i>
                         </div>
@@ -183,7 +183,7 @@ if(isset($_POST['auth_submit'])) {
                     </div>
                     
                     <!-- Tile 2 -->
-                    <div class='p-5 bg-white rounded flex items-center'>
+                    <div class='p-4 bg-white rounded flex items-center'>
                         <div class='bg-red-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
                             <i class='text-3xl uil uil-signin'></i>
                         </div>
@@ -196,22 +196,25 @@ if(isset($_POST['auth_submit'])) {
                     </div>
                     
                     <!-- Tile 3 -->
-                    <div class='p-5 bg-white rounded flex items-center'>
+                    <div class='p-4 bg-white rounded flex items-center'>
                         <div class='bg-red-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
-                            <i class='text-3xl uil uil-signout'></i>
+                            <i class='text-3xl uil uil-signin'></i>
                         </div>
                         <div class='flex-grow flex flex-col ml-4'>
                             <span class='text-xl font-bold'>$end_time</span>
                             <div class='flex justify-between items-center'>
-                                <span class='text-gray-500'>End Time</span>
+                                <span class='text-gray-500'>Start Time</span>
                             </div>
                         </div>
                     </div>
             
             
                     </div>
-                        <p class='px-5 py-3 break-all'>$description</p>
-                    </div>
+                <div>
+                    $reformated_date <br>
+                    $start_time $end_time
+                </div>
+                    <p class='break-all'>$description</p>
                 </div>
         <form action='index.php' method='POST' enctype='multipart/form-data' class='inline'>
         <input type='hidden' name='event_id' value='$id'>

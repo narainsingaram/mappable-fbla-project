@@ -149,7 +149,7 @@ if(isset($_POST['auth_submit'])) {
             <div>
                 <div>
                     <div class='flex align-center'> 
-                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
+                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-2 mr-2 text-xl bg-slate-300/30 rounded-full'>
     <span class='font-semibold text-gray-600'>$first_name[0]$last_name[0]</span>
 </div>
                         <ul class='mt-2'>

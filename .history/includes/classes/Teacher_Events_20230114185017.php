@@ -149,7 +149,7 @@ if(isset($_POST['auth_submit'])) {
             <div>
                 <div>
                     <div class='flex align-center'> 
-                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
+                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mr-2 text-xl bg-slate-300/30 rounded-full'>
     <span class='font-semibold text-gray-600'>$first_name[0]$last_name[0]</span>
 </div>
                         <ul class='mt-2'>
@@ -164,7 +164,7 @@ if(isset($_POST['auth_submit'])) {
                         </ul>
                     </div>
             <div>
-                <h1 class='rounded-2xl bg-slate-300/30 my-3 px-6 py-3 text-2xl font-bold text-black'>$title</h1>
+                <h1 class='rounded-2xl my-3 px-6 text-2xl font-bold text-black'>$title</h1>
             </div>
                 <div class='post-images'>
                     <div class='grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl'>
