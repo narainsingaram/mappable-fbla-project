@@ -7,11 +7,12 @@
     border: none !important;
     border-radius: 20px !important;
     text-transform: capitalize !important;
+    text-shadow: 1px 1px 5px slategray;
+
 }
 
 ::selection {
     background: #eee;
     color: rgb(106, 106, 106);
     text-decoration: underline dotted;
-    text-shadow: 1px 1px 5px slategray;
 }

@@ -45,7 +45,6 @@ public function load_requested_feed() {
                 <span class=''> {$row['first_name'][0]}{$row['last_name'][0]} </span>
                 </button>
             <div class='flex-shrink-0'>
-                <img class='object-cover w-16 h-10 rounded-lg shadow-md' src='../assets/event_images/$event_row[image]'>
             </div>
 
         <div class='flex-1 min-w-0'>
@@ -144,7 +143,8 @@ if(isset($_POST['auth_submit'])) {
         
 
         if($match_request_rows == 0) {
-            $event_content .= "             
+    
+            $event_content .="                     
         <div class='bg-white relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
             <div>
                 <div>
@@ -167,10 +167,12 @@ if(isset($_POST['auth_submit'])) {
                 <h1 class='rounded-2xl bg-slate-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>$title</h1>
             </div>
                     <div class='post-images'>
+                        <img class='mb-3 rounded-2xl overflow-hidden w-max h-max' src='../assets/event_images/$image'> 
                     </div>
                 <div>
-                    $reformated_date <br>
-                    $start_time $end_time
+                $reformated_date <br>
+                $start_time $end_time
+
                 </div>
                     <p class='break-all'>$description</p>
                 </div>
@@ -207,7 +209,8 @@ if(isset($_POST['auth_submit'])) {
         </ul>
         </div>
     </div>
-";
+    
+    ";
 }
         //Today's date
         $current_date = date('Y-m-d');

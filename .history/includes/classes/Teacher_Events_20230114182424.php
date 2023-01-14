@@ -144,7 +144,9 @@ if(isset($_POST['auth_submit'])) {
         
 
         if($match_request_rows == 0) {
-            $event_content .= "             
+    
+            $event_content .=
+            <<<EOT                    
         <div class='bg-white relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
             <div>
                 <div>
@@ -169,8 +171,11 @@ if(isset($_POST['auth_submit'])) {
                     <div class='post-images'>
                     </div>
                 <div>
-                    $reformated_date <br>
-                    $start_time $end_time
+                $reformated_date <br>
+                $start_time $end_time
+
+                
+
                 </div>
                     <p class='break-all'>$description</p>
                 </div>
@@ -207,7 +212,8 @@ if(isset($_POST['auth_submit'])) {
         </ul>
         </div>
     </div>
-";
+    EOT;
+    ";
 }
         //Today's date
         $current_date = date('Y-m-d');
