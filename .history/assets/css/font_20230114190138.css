@@ -10,8 +10,7 @@
 }
 
 .action_btn:hover {
-    background: #e7ecf3 !important;
-    transition: .15s;
+    background: #e2e8f0 !important;
 }
 
 ::selection {

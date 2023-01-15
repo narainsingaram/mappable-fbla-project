@@ -210,16 +210,16 @@ if(isset($_POST['auth_submit'])) {
             
             
                     </div>
-                        <p class='px-5 py-3 break-all'><b>Description: </b> $description</p>
+                        <p class='px-5 py-3 break-all'>$description</p>
                     </div>
                 </div>
-            <form action='index.php' method='POST' enctype='multipart/form-data' class=''>
+            <form action='index.php' method='POST' enctype='multipart/form-data' class='inline'>
                 <input type='hidden' name='event_id' value='$id'>
                 <input type='hidden' name='authentifier' value='$added_by'>
                 <input type='hidden' name='auth_title' value='$title'>
                 <input type='hidden' name='auth_image' value='$image'>
-                    <button name='auth_submit' type='submit' class='action_btn m-1 btn bottom-2 right-1 absolute active:scale-105 rounded-full'> 
-                        <i class='text-xl mr-2 uil uil-comment-add'></i> Request Authentification
+                    <button name='auth_submit' type='submit' class='btn z-auto active:scale-105 rounded-full text-lg'> 
+                        <i class='text-2xl uil uil-comment-add'></i> Request Authentification
                     </button>
             </form>  
     </main>

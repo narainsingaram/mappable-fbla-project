@@ -145,7 +145,7 @@ if(isset($_POST['auth_submit'])) {
 
         if($match_request_rows == 0) {
             $event_content .= "             
-        <div class='bg-white z-10 relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
+        <div class='bg-white relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
             <div>
                 <div>
                     <div class='flex align-center'> 
@@ -210,18 +210,29 @@ if(isset($_POST['auth_submit'])) {
             
             
                     </div>
-                        <p class='px-5 py-3 break-all'><b>Description: </b> $description</p>
+                        <p class='px-5 py-3 break-all'>$description</p>
                     </div>
                 </div>
-            <form action='index.php' method='POST' enctype='multipart/form-data' class=''>
-                <input type='hidden' name='event_id' value='$id'>
-                <input type='hidden' name='authentifier' value='$added_by'>
-                <input type='hidden' name='auth_title' value='$title'>
-                <input type='hidden' name='auth_image' value='$image'>
-                    <button name='auth_submit' type='submit' class='action_btn m-1 btn bottom-2 right-1 absolute active:scale-105 rounded-full'> 
-                        <i class='text-xl mr-2 uil uil-comment-add'></i> Request Authentification
-                    </button>
-            </form>  
+        <form action='index.php' method='POST' enctype='multipart/form-data' class='inline'>
+        <input type='hidden' name='event_id' value='$id'>
+        <input type='hidden' name='authentifier' value='$added_by'>
+        <input type='hidden' name='auth_title' value='$title'>
+        <input type='hidden' name='auth_image' value='$image'>
+            <button name='auth_submit' type='submit' class='active:scale-105 inline px-1 py-2 rounded-full text-xl'> 
+                <i class='text-2xl uil uil-comment-add'></i>
+            </button>
+        </form>  
+
+        <button class='active:scale-105 inline px-1 py-2 rounded-full text-xl'>
+            <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path opacity='0.4' d='M12.02 2C6.21 2 2 6.74 2 12C2 13.68 2.49 15.41 3.35 16.99C3.51 17.25 3.53 17.58 3.42 17.89L2.75 20.13C2.6 20.67 3.06 21.07 3.57 20.91L5.59 20.31C6.14 20.13 6.57 20.36 7.081 20.67C8.541 21.53 10.36 21.97 12 21.97C16.96 21.97 22 18.14 22 11.97C22 6.65 17.7 2 12.02 2Z' fill='#6366f1'></path>
+            <path opacity='0.4' d='M11.9805 13.2901C11.2705 13.2801 10.7005 12.7101 10.7005 12.0001C10.7005 11.3001 11.2805 10.7201 11.9805 10.7301C12.6905 10.7301 13.2605 11.3001 13.2605 12.0101C13.2605 12.7101 12.6905 13.2901 11.9805 13.2901ZM7.37009 13.2901C6.67009 13.2901 6.09009 12.7101 6.09009 12.0101C6.09009 11.3001 6.66009 10.7301 7.37009 10.7301C8.08009 10.7301 8.65009 11.3001 8.65009 12.0101C8.65009 12.7101 8.08009 13.2801 7.37009 13.2901ZM15.3103 12.0101C15.3103 12.7101 15.8803 13.2901 16.5903 13.2901C17.3003 13.2901 17.8703 12.7101 17.8703 12.0101C17.8703 11.3001 17.3003 10.7301 16.5903 10.7301C15.8803 10.7301 15.3103 11.3001 15.3103 12.0101Z' fill='#6366f1'></path>
+            </svg>
+        </button>
+
+        <button class='active:scale-105 inline px-0.5 py-2 rounded-full text-xl'>
+        <svg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 24 24' fill='none'><path opacity='.4' d='m7.11 5.961 9.02-3.01c4.05-1.35 6.25.86 4.91 4.91l-3.01 9.02c-2.02 6.07-5.34 6.07-7.36 0l-.89-2.68-2.68-.89c-6.06-2.01-6.06-5.32.01-7.35Z' fill='#22d3ee'></path><path d='m12.12 11.629 3.81-3.82ZM12.12 12.38c-.19 0-.38-.07-.53-.22a.754.754 0 0 1 0-1.06l3.8-3.82c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-3.8 3.82c-.15.14-.34.22-.53.22Z' fill='#22d3ee'></path></svg>
+        </button>
     </main>
     </div>
     <div class='-top-0 -right-0 absolute dropdown'>
