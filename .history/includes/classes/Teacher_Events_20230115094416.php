@@ -209,7 +209,14 @@ if(isset($_POST['auth_submit'])) {
                     </div>
                     </div>
 
-                        <p class='bg-slate-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
+                <div class='inline-flex items-center justify-center w-full'>
+                    <hr class='w-64 h-1 my-8 bg-gray-200 border-0 rounded dark:bg-gray-700'>
+                        <div class='absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900'>
+                            <i class='text-4xl uil uil-angle-down'></i>
+                        </div>
+                </div>
+
+                        <p class='bg-slate-300/30 mt-6 w-1/2 mx-2 rounded-xl px-5 py-4 break-word'>
                             <b class='text-lg'>
                                 <i class='uil uil-info-circle'></i> Description: 
                             </b>
@@ -217,16 +224,14 @@ if(isset($_POST['auth_submit'])) {
                             <span class='px-2'>$description </span></p>
                     </div>
                 </div>
-            <form action='index.php' method='POST' enctype='multipart/form-data'>
+            <form action='index.php' method='POST' enctype='multipart/form-data' class=''>
                 <input type='hidden' name='event_id' value='$id'>
                 <input type='hidden' name='authentifier' value='$added_by'>
                 <input type='hidden' name='auth_title' value='$title'>
                 <input type='hidden' name='auth_image' value='$image'>
-                <div class='tooltip tooltip-right' data-tip='fdsafsafas'>
-                    <button name='auth_submit' type='submit' class='bg-emerald-100 text-black hover:bg-emerald-200 border-none capitalize m-1 btn-circle absolute top-0.5 -left-2 bottom-0 active:scale-105 rounded-full'> 
-                        <i class='text-2xl uil uil-comment-add'></i>
+                    <button name='auth_submit' type='submit' class='bg-emerald-100 text-black hover:bg-emerald-200 border-none rounded-xl capitalize font- m-1 btn bottom-2 right-1 absolute active:scale-105 rounded-full'> 
+                        <i class='text-xl mr-2 uil uil-comment-add'></i> Request Authentification
                     </button>
-                </div>
             </form>  
     </main>
     </div>

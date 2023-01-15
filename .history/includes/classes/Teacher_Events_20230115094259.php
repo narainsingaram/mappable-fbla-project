@@ -209,7 +209,14 @@ if(isset($_POST['auth_submit'])) {
                     </div>
                     </div>
 
-                        <p class='bg-slate-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
+                    <div class='inline-flex items-center justify-center w-full'>
+                    <hr class='w-64 h-1 my-8 bg-gray-200 border-0 rounded dark:bg-gray-700'>
+                    <div class='absolute px-4 -translate-x-1/2 bg-white left-1/2 dark:bg-gray-900'>
+                        <svg aria-hidden='true' class='w-5 h-5 text-gray-700 dark:text-gray-300' viewBox='0 0 24 27' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z' fill='currentColor'/></svg>
+                    </div>
+                </div>
+
+                        <p class='bg-slate-300/30 mt-6 w-1/2 mx-2 rounded-xl px-5 py-4 break-word'>
                             <b class='text-lg'>
                                 <i class='uil uil-info-circle'></i> Description: 
                             </b>
@@ -217,16 +224,14 @@ if(isset($_POST['auth_submit'])) {
                             <span class='px-2'>$description </span></p>
                     </div>
                 </div>
-            <form action='index.php' method='POST' enctype='multipart/form-data'>
+            <form action='index.php' method='POST' enctype='multipart/form-data' class=''>
                 <input type='hidden' name='event_id' value='$id'>
                 <input type='hidden' name='authentifier' value='$added_by'>
                 <input type='hidden' name='auth_title' value='$title'>
                 <input type='hidden' name='auth_image' value='$image'>
-                <div class='tooltip tooltip-right' data-tip='fdsafsafas'>
-                    <button name='auth_submit' type='submit' class='bg-emerald-100 text-black hover:bg-emerald-200 border-none capitalize m-1 btn-circle absolute top-0.5 -left-2 bottom-0 active:scale-105 rounded-full'> 
-                        <i class='text-2xl uil uil-comment-add'></i>
+                    <button name='auth_submit' type='submit' class='bg-emerald-100 text-black hover:bg-emerald-200 border-none rounded-xl capitalize font- m-1 btn bottom-2 right-1 absolute active:scale-105 rounded-full'> 
+                        <i class='text-xl mr-2 uil uil-comment-add'></i> Request Authentification
                     </button>
-                </div>
             </form>  
     </main>
     </div>

@@ -223,7 +223,7 @@ if(isset($_POST['auth_submit'])) {
                 <input type='hidden' name='auth_title' value='$title'>
                 <input type='hidden' name='auth_image' value='$image'>
                 <div class='tooltip tooltip-right' data-tip='fdsafsafas'>
-                    <button name='auth_submit' type='submit' class='bg-emerald-100 text-black hover:bg-emerald-200 border-none capitalize m-1 btn-circle absolute top-0.5 -left-2 bottom-0 active:scale-105 rounded-full'> 
+                    <button name='auth_submit' type='submit' class='bg-emerald-100 text-black hover:bg-emerald-200 border-none capitalize m-1 btn-circle absolute -right-0 bottom-0 active:scale-105 rounded-full'> 
                         <i class='text-2xl uil uil-comment-add'></i>
                     </button>
                 </div>
