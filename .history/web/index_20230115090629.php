@@ -58,7 +58,7 @@ Spaces
       $web = new Web();
       $web->disp_evt_mo();
 
-      $space = new Spaces($con, $userLoggedIn);
+      $space = new Space();
       $space->load_space_div();
 
       $post = new Teacher_Events($con, $userLoggedIn);

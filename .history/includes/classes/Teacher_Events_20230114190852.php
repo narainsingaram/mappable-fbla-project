@@ -184,7 +184,7 @@ if(isset($_POST['auth_submit'])) {
                     
                     <!-- Tile 2 -->
                     <div class='p-5 bg-white rounded flex items-center'>
-                        <div class='bg-red-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                        <div class='bg-slate-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
                             <i class='text-3xl uil uil-signin'></i>
                         </div>
                         <div class='flex-grow flex flex-col ml-4'>
@@ -197,7 +197,7 @@ if(isset($_POST['auth_submit'])) {
                     
                     <!-- Tile 3 -->
                     <div class='p-5 bg-white rounded flex items-center'>
-                        <div class='bg-red-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                        <div class='bg-slate-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
                             <i class='text-3xl uil uil-signout'></i>
                         </div>
                         <div class='flex-grow flex flex-col ml-4'>
@@ -210,7 +210,7 @@ if(isset($_POST['auth_submit'])) {
             
             
                     </div>
-                        <p class='bg-slate-300/30 w-1/2 mx-2 rounded-xl px-5 py-4 break-word'>
+                        <p class='bg-slate-300/30 w-1/2 mx-2 rounded-xl px-5 py-4 break-all'>
                             <b class='text-lg'>
                                 <i class='uil uil-info-circle'></i> Description: 
                             </b>

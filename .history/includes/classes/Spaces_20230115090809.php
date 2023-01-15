@@ -143,7 +143,7 @@ class Spaces {
     public function load_space_div() {
         $userLoggedIn = $this->user_object->gettingUsername();
         $spcs_list = '';
-        $all_spcs_query = mysqli_query($this->con, "SELECT * FROM spaces");
+        $all_spcs_query = mysqli_query($con, "SELECT * FROM spaces");
       
           while($space = mysqli_fetch_array($all_spcs_query)) {
             $id = $space['space_id'];
