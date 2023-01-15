@@ -210,7 +210,7 @@ if(isset($_POST['auth_submit'])) {
             
             
                     </div>
-                        <p class='bg-slate-300/30 w-1/2 mx-2 rounded-xl px-5 py-4 break-all'>
+                        <p class='bg-slate-300/30 w-1/2 mx-2 rounded-xl px-5 py-4 break-word'>
                             <b class='text-lg'>
                                 <i class='uil uil-info-circle'></i> Description: 
                             </b>

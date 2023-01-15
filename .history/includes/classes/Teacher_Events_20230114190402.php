@@ -210,12 +210,7 @@ if(isset($_POST['auth_submit'])) {
             
             
                     </div>
-                        <p class='bg-slate-300/30 w-1/2 mx-2 rounded-xl px-5 py-4 break-all'>
-                            <b class='text-lg'>
-                                <i class='uil uil-info-circle'></i> Description: 
-                            </b>
-                            <br> 
-                            <span class='px-2'>$description </span></p>
+                        <p class='bg-slate-100 w-1/2 px-7 py-3 break-all'><b>Description: </b> $description</p>
                     </div>
                 </div>
             <form action='index.php' method='POST' enctype='multipart/form-data' class=''>
