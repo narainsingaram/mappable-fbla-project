@@ -9,21 +9,22 @@ header("Location: index.php");
 }
 ?>
 <section id='section' class="flex">
-<?php
-if(isset($_POST['getting_points'])){
-  $new_points = $points + 20;
-  $new_gems = $gems + 5;
-  $experience_growth = $experience * 1.1; 
-  $levels = floor($experience_growth / 100); 
-  $percentage_growth = $experience_growth - ($levels * 100); 
-  mysqli_query($con,"UPDATE users SET points = '$new_points', gems = '$new_gems', experience = '$experience_growth', levels = '$levels', percentage_growth = '$percentage_growth' WHERE id = '$id'"); 
-  header("Location: index.php");
-}
- if(isset($_POST['create_space'])) {
-  mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
-  header("Location: index.php");
-}
-?>
+  <?php 
+    if(isset($_POST['getting_points'])){
+      $new_points = $points + 20;
+      $new_gems = $gems + 5
+      $experience_growth = $experience * 1.1; 
+      $levels = floor($experience_growth / 100); 
+      $percentage_growth = $experience_growth - ($levels * 100); 
+        $points_query = mysqli_query($con,"UPDATE users SET points = '$new_points', gems = '', experience = '$experience_growth', levels = '$levels', percentage_growth = '$percentage_growth' WHERE id = '$id'"); 
+      header("Location: index.php");
+      }
+
+    if(isset($_POST['create_space'])) {
+      $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
+      header("Location: index.php");
+    }
+  ?>
 
 <div class="w-1/2 p-5">
   <form action="index.php" method='POST'>

@@ -9,21 +9,17 @@ header("Location: index.php");
 }
 ?>
 <section id='section' class="flex">
-<?php
-if(isset($_POST['getting_points'])){
-  $new_points = $points + 20;
-  $new_gems = $gems + 5;
-  $experience_growth = $experience * 1.1; 
-  $levels = floor($experience_growth / 100); 
-  $percentage_growth = $experience_growth - ($levels * 100); 
-  mysqli_query($con,"UPDATE users SET points = '$new_points', gems = '$new_gems', experience = '$experience_growth', levels = '$levels', percentage_growth = '$percentage_growth' WHERE id = '$id'"); 
-  header("Location: index.php");
-}
- if(isset($_POST['create_space'])) {
-  mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
-  header("Location: index.php");
-}
-?>
+  <?php 
+    if(isset($_POST['getting_points'])){
+        $points_query = mysqli_query($con,"UPDATE users SET points = '$points', gems = '$gems', experience = '$experience * 1.1', levels = 'floor($experience * 1.1 / 100)', percentage_growth = '$experience * 1.1 - (floor($experience * 1.1 / 100) * 100)' WHERE id = '$id'");
+        header("Location: index.php");
+      }
+
+    if(isset($_POST['create_space'])) {
+      $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
+      header("Location: index.php");
+    }
+  ?>
 
 <div class="w-1/2 p-5">
   <form action="index.php" method='POST'>
@@ -48,7 +44,7 @@ if(isset($_POST['getting_points'])){
 
 <h1 class='inline text-xl font-bold leading-none text-gray-900'>
   <svg class='inline' xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"><path opacity=".4" d="M2 9.75c-.41 0-.75-.34-.75-.75V6.5c0-2.9 2.36-5.25 5.25-5.25H9c.41 0 .75.34.75.75s-.34.75-.75.75H6.5c-2.07 0-3.75 1.68-3.75 3.75V9c0 .41-.34.75-.75.75Z" fill="#3b82f6"></path><path d="M22 9.75c-.41 0-.75-.34-.75-.75V6.5c0-2.07-1.68-3.75-3.75-3.75H15c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h2.5c2.89 0 5.25 2.35 5.25 5.25V9c0 .41-.34.75-.75.75Z" fill="#3b82f6"></path><path opacity=".4" d="M17.5 22.75H16c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h1.5c2.07 0 3.75-1.68 3.75-3.75V16c0-.41.34-.75.75-.75s.75.34.75.75v1.5c0 2.9-2.36 5.25-5.25 5.25Z" fill="#3b82f6"></path><path d="M9 22.75H6.5c-2.89 0-5.25-2.35-5.25-5.25V15c0-.41.34-.75.75-.75s.75.34.75.75v2.5c0 2.07 1.68 3.75 3.75 3.75H9c.41 0 .75.34.75.75s-.34.75-.75.75ZM8.501 11.381a2.88 2.88 0 1 0 0-5.76 2.88 2.88 0 0 0 0 5.76Z" fill="#3b82f6"></path><path opacity=".4" d="M7.501 18.381a1.88 1.88 0 1 0 0-3.76 1.88 1.88 0 0 0 0 3.76ZM16.501 9.381a1.88 1.88 0 1 0 0-3.76 1.88 1.88 0 0 0 0 3.76Z" fill="#3b82f6"></path><path d="M15.501 18.381a2.88 2.88 0 1 0 0-5.76 2.88 2.88 0 0 0 0 5.76Z" fill="#3b82f6"></path></svg>
-Spaces
+Events
 </h1>
 <?php
 

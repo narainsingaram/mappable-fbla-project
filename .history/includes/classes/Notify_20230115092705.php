@@ -17,9 +17,10 @@ class Notify {
     public function getNotifications() {
         $pfp_name = $this->user_object->getPfpName();
         $userLoggedIn = $this->user_object->gettingUsername();
-        $get_notifications_query = mysqli_query($this->con,"SELECT * FROM notifications
+        $get_notifications_query = mysqli_query($this->con,"SELECT TOP 5 * FROM notifications
         WHERE user_from='$userLoggedIn' OR user_to='$userLoggedIn'
-        ORDER BY viewed = 'no' DESC");
+        ORDER BY viewed = 'no' DESC
+        LIMIT 5");
 
         if(mysqli_num_rows($get_notifications_query) == 0) {
             echo "

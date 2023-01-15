@@ -130,9 +130,9 @@ class Spaces {
             $participant_arr = explode(',', $space['participants']);
     
             if (in_array($userLoggedIn, $participant_arr)) {
-                if ($space_name != "") {
+                if (!$space_name) {
                     $links_menu .= "
-                        <a class='grid-rows-2 bg-slate-200/60 hover:text-slate-600 rounded-xl m-2 px-3 py-2' href='space.php?space=$id'>$space_name</a>
+                        <a class='bg-slate-200/60 hover:text-slate-600 rounded-xl m-2 px-3 py-2 block' href='space.php?space=$id'>$space_name</a>
                     ";
                 }
             }

@@ -24,7 +24,7 @@
     <label tabindex="0" class="btn btn-square btn-ghost m-1 focus:outline-none focus:ring focus:ring-slate-300">
       <i class="text-2xl uil uil-bell"></i>
     </label>
-    <ul tabindex="0" class="grid dropdown-content menu p-2 bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] rounded-2xl w-80 overflow-y-auto h-80">
+    <ul tabindex="0" class="dropdown-content menu p-2 bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] rounded-2xl w-80 overflow-y-auto h-32">
       <div class="px-5 pt-5 pb-2 flex justify-between">
         <span class=''>
           <h1 class='inline text-lg font-semibold leading-none text-gray-900'>Notifications</h1>
