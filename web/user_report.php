@@ -899,53 +899,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       </div>
 
-      <script src="/livewire/livewire.js?id=c69d0f2801c01fcf8166" data-turbo-eval="false" data-turbolinks-eval="false"></script>
-      <script data-turbo-eval="false" data-turbolinks-eval="false">
-          if (window.livewire) {
-            console.warn('Livewire: It looks like Livewire\'s @livewireScripts JavaScript assets have already been loaded. Make sure you aren\'t loading them twice.')
-        }
-
-          window.livewire = new Livewire();
-          window.livewire.devTools(true);
-          window.Livewire = window.livewire;
-          window.livewire_app_url = '';
-          window.livewire_token = '5uHrHHN2mM8BsPTvCRnM8dyE2bsqN6a0kouYardQ';
-
-        /* Make sure Livewire loads first. */
-        if (window.Alpine) {
-            /* Defer showing the warning so it doesn't get buried under downstream errors. */
-            document.addEventListener("DOMContentLoaded", function () {
-                setTimeout(function() {
-                    console.warn("Livewire: It looks like AlpineJS has already been loaded. Make sure Livewire\'s scripts are loaded before Alpine.\\n\\n Reference docs for more info: http://laravel-livewire.com/docs/alpine-js")
-                })
-            });
-        }
-
-        /* Make Alpine wait until Livewire is finished rendering to do its thing. */
-          window.deferLoadingAlpine = function (callback) {
-              window.addEventListener('livewire:load', function () {
-                  callback();
-              });
-          };
-
-          let started = false;
-
-          window.addEventListener('alpine:initializing', function () {
-              if (! started) {
-                  window.livewire.start();
-
-                  started = true;
-              }
-          });
-
-          document.addEventListener("DOMContentLoaded", function () {
-              if (! started) {
-                  window.livewire.start();
-
-                  started = true;
-              }
-          });
-      </script>
       <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;7848fc3098eb1833&quot;,&quot;version&quot;:&quot;2022.11.3&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;1b7cbb72744b40c580f8633c6b62637e&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
 
 
