@@ -14,7 +14,7 @@ $error_array = array();
 
 // Check if the request method is a POST request
 // (i.e. the form has been submitted)
-if (isset($_POST['register_btn'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {register_btn
     // code to handle form submission
     $first_name = strip_tags($_POST['register_first_name']);
     $first_name = str_replace(' ', '', $first_name);

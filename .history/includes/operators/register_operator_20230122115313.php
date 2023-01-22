@@ -1,7 +1,4 @@
 <?php 
-// Import the necessary libraries and classes
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 
 $variables = array("first_name", "last_name", "email", "password", "confirmation_password", "date", "position", "date_of_birth", "gender", "grade", "profile_picture");
 
@@ -14,7 +11,7 @@ $error_array = array();
 
 // Check if the request method is a POST request
 // (i.e. the form has been submitted)
-if (isset($_POST['register_btn'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // code to handle form submission
     $first_name = strip_tags($_POST['register_first_name']);
     $first_name = str_replace(' ', '', $first_name);
@@ -87,7 +84,6 @@ if (isset($_POST['register_btn'])) {
 
     //if $error_array does not have a value
     if(empty($error_array)) {
-
         $password = md5($password);
 
         $username = strtolower($first_name . "_" . $last_name);

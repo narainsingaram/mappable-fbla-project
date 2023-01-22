@@ -14,11 +14,11 @@ $error_array = array();
 
 // Check if the request method is a POST request
 // (i.e. the form has been submitted)
-if (isset($_POST['register_btn'])) {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // code to handle form submission
     $first_name = strip_tags($_POST['register_first_name']);
     $first_name = str_replace(' ', '', $first_name);
-    $first_name = ucfirst(strtolower($first_name));
+    $first_name = ucfirst(sftrtolower($first_name));
     $_SESSION['register_first_name'] = $first_name;
 
     $last_name = strip_tags($_POST['register_last_name']);
