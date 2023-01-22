@@ -3,10 +3,6 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'vendor/Exception.php';
-require 'vendor/PHPMailer.php';
-require 'vendor/SMTP.php';
-
 $variables = array("first_name", "last_name", "email", "password", "confirmation_password", "date", "position", "date_of_birth", "gender", "grade", "profile_picture");
 
 foreach ($variables as $variable) {
@@ -92,18 +88,16 @@ if (isset($_POST['register_btn'])) {
     //if $error_array does not have a value
     if(empty($error_array)) {
 
-        $confirmationCode = rand(10000, 99999);
-
         $mail = new PHPMailer;
         $mail->isSMTP();
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = 'ssl';
         $mail->Host = 'smtp.gmail.com';
         $mail->Port = 465;
-        $mail->Username = 'mailquarkmailer@gmail.com';
-        $mail->Password = 'odylipqitbuoebnk';
-        $mail->setFrom('mailquarkmailer@gmail.com', 'Mappable');
-        $mail->addAddress($email, $first_name);
+        $mail->Username = 'your-email@example.com';
+        $mail->Password = 'your-password';
+        $mail->setFrom('your-email@example.com', 'Your Name');
+        $mail->addAddress($_POST['email'], $_POST['name']);
         $mail->Subject = 'Mappable Confirmation Code';
         $mail->Body = 'Your confirmation code is: ' . $confirmationCode;
 
