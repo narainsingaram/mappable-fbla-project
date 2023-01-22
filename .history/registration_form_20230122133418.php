@@ -227,7 +227,7 @@ require 'includes/operators/login_operator.php';
 <?php
 
     if $confirmation_code {
-        header("Location: auth/confirmation_password.php")
+        $confirmation_code;
     }
 ?>
 

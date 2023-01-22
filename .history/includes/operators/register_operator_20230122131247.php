@@ -93,7 +93,6 @@ if (isset($_POST['register_btn'])) {
     if(empty($error_array)) {
 
         $confirmation_code = rand(10000, 99999);
-        $_SESSION['confirmation_code'] = $confirmation_code;
 
         $mail = new PHPMailer;
         $mail->isSMTP();
@@ -124,23 +123,25 @@ if (isset($_POST['register_btn'])) {
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            $i = 0; 
-            //if username exists add number to username
-            while(mysqli_num_rows($check_username_query) != 0) {
-                $i++; //Add 1 to i
-                $username = $username . "_" . $i;
-                $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
-            }
-            $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 0, 'no')");
+            $GLOBALS['em_cf_cd'] = $confirmation_code;
+            header("Location: ")
+            // $i = 0; 
+            // //if username exists add number to username
+            // while(mysqli_num_rows($check_username_query) != 0) {
+            //     $i++; //Add 1 to i
+            //     $username = $username . "_" . $i;
+            //     $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+            // }
+            // $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', '', 'no')");
             
-            array_push($error_array, "You are set to login!");
+            // array_push($error_array, "You are set to login!");
 
-            //Set Email Confirmation Session Variable
+            // //Set Email Confirmation Session Variable
     
-            //Clear session variables
-            $_SESSION['register_first_name'] = " ";
-            $_SESSION['register_last_name'] = " ";
-            $_SESSION['register_email'] = " ";
+            // //Clear session variables
+            // $_SESSION['register_first_name'] = " ";
+            // $_SESSION['register_last_name'] = " ";
+            // $_SESSION['register_email'] = " ";
         }
     }
 }

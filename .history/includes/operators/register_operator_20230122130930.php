@@ -93,7 +93,6 @@ if (isset($_POST['register_btn'])) {
     if(empty($error_array)) {
 
         $confirmation_code = rand(10000, 99999);
-        $_SESSION['confirmation_code'] = $confirmation_code;
 
         $mail = new PHPMailer;
         $mail->isSMTP();
@@ -124,6 +123,12 @@ if (isset($_POST['register_btn'])) {
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
+            $confirmation_code
+
+            function global_conf_code() {
+                global $confirmation_code'
+            }
+
             $i = 0; 
             //if username exists add number to username
             while(mysqli_num_rows($check_username_query) != 0) {
@@ -131,7 +136,7 @@ if (isset($_POST['register_btn'])) {
                 $username = $username . "_" . $i;
                 $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
             }
-            $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 0, 'no')");
+            $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', '', 'no')");
             
             array_push($error_array, "You are set to login!");
 
