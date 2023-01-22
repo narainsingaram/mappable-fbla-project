@@ -1,6 +1,7 @@
 <?php 
     $user_email = (isset($_GET['email']) ? $_GET['email'] : '');
 
+    echo $user_email;
     
 ?>
 
@@ -17,11 +18,8 @@
         <p class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-3 dark:text-gray-200">
           Small business solutions
         </p>
-        <h1 class="text-xl text-gray-800 font-bold sm:text-5xl dark:text-gray-200">
-          We sent a verification to 
-          <span class="text-blue-500"><?php
-                echo $user_email;
-          ?></span>
+        <h1 class="text-3xl text-gray-800 font-bold sm:text-5xl lg:text-6xl lg:leading-tight dark:text-gray-200">
+          Turn online shoppers into <span class="text-blue-500">lifetime customers</span>
         </h1>
       </div>
 
@@ -31,8 +29,8 @@
           <div class="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
             <label for="hs-hero-name-1" class="block text-sm font-medium dark:text-white"><span class="sr-only">Your name</span></label>
             <input class='register_confirmation_password" placeholder="Confirm Password" class="block w-full px-5 py-10 text-8xl text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="number" name='ver_email' value=''>
-            <button type='submit' name='ver_submit' class="">
-                Submit
+            <button type='submit' name='ver_submit' class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm sm:p-4 dark:focus:ring-offset-gray-800" href="#">
+              Get started
             </button>
           </div>
         </div>

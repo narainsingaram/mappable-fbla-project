@@ -31,7 +31,7 @@
           <div class="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
             <label for="hs-hero-name-1" class="block text-sm font-medium dark:text-white"><span class="sr-only">Your name</span></label>
             <input class='register_confirmation_password" placeholder="Confirm Password" class="block w-full px-5 py-10 text-8xl text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="number" name='ver_email' value=''>
-            <button type='submit' name='ver_submit' class="">
+            <button type='submit' name='ver_submit' class="m-auto" href="#">
                 Submit
             </button>
           </div>

@@ -1,6 +1,7 @@
 <?php 
     $user_email = (isset($_GET['email']) ? $_GET['email'] : '');
 
+    echo $user_email;
     
 ?>
 
@@ -17,23 +18,47 @@
         <p class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-3 dark:text-gray-200">
           Small business solutions
         </p>
-        <h1 class="text-xl text-gray-800 font-bold sm:text-5xl dark:text-gray-200">
-          We sent a verification to 
-          <span class="text-blue-500"><?php
-                echo $user_email;
-          ?></span>
+        <h1 class="text-3xl text-gray-800 font-bold sm:text-5xl lg:text-6xl lg:leading-tight dark:text-gray-200">
+          Turn online shoppers into <span class="text-blue-500">lifetime customers</span>
         </h1>
       </div>
+      <!-- End Title -->
+
+      <!-- Avatar Group -->
+      <div class="sm:flex sm:justify-center sm:items-center text-center sm:text-left">
+        <div class="flex-shrink-0 pb-5 sm:flex sm:pb-0 sm:pr-5">
+          <!-- Avatar Group -->
+          <div class="flex justify-center -space-x-3">
+            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-800" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Image Description">
+            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-800" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Image Description">
+            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-800" src="https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80" alt="Image Description">
+            <img class="inline-block h-8 w-8 rounded-full ring-2 ring-white dark:ring-gray-800" src="https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Image Description">
+            <span class="inline-flex items-center justify-center h-8 w-8 rounded-full ring-2 ring-white bg-gray-800 dark:bg-gray-900 dark:ring-gray-800">
+              <span class="text-xs font-medium leading-none text-white uppercase">7k+</span>
+            </span>
+          </div>
+          <!-- End Avatar Group -->
+        </div>
+
+        <div class="border-t sm:border-t-0 sm:border-l border-gray-200 w-32 h-px sm:w-auto sm:h-full mx-auto sm:mx-0"></div>
+
+        <div class="pt-5 sm:pt-0 sm:pl-5">
+          <div class="text-lg font-semibold text-gray-800 dark:text-gray-200">Trust pilot</div>
+          <div class="text-sm text-gray-500">Rated best over 37k reviews</div>
+        </div>
+      </div>
+      <!-- End Avatar Group -->
 
       <!-- Form -->
       <form method="POST">
-        <div class="mx-auto max-w-2xl sm:flex sm:space-x-3 p-3">
+        <div class="mx-auto max-w-2xl sm:flex sm:space-x-3 p-3 bg-white border rounded-lg shadow-lg shadow-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:shadow-gray-900/[.2]">
           <div class="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
             <label for="hs-hero-name-1" class="block text-sm font-medium dark:text-white"><span class="sr-only">Your name</span></label>
             <input class='register_confirmation_password" placeholder="Confirm Password" class="block w-full px-5 py-10 text-8xl text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="number" name='ver_email' value=''>
-            <button type='submit' name='ver_submit' class="">
-                Submit
-            </button>
+          </div>
+            <a class="py-3 px-4 inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-semibold bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm sm:p-4 dark:focus:ring-offset-gray-800" href="#">
+              Get started
+            </a>
           </div>
         </div>
       </form>

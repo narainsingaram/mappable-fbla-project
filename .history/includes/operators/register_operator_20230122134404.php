@@ -126,7 +126,7 @@ if (isset($_POST['register_btn'])) {
         } else {
 
             if ($confirmation_code) {
-                header("Location: auth/confirmation_password.php?email={$email}");
+                header("Location: auth/confirmation_password.php?");
             }
 
             $i = 0; 
