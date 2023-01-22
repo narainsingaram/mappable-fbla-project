@@ -276,7 +276,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       </div>
       </div>
-      </div>
+      </div> 
       </div>
       </div>
 
