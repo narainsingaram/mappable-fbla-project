@@ -1,6 +1,7 @@
 <?php 
 include("../template/web_defaults.php");
 include("../template/navbar.php");
+include("../includes/operators/reward_operator.php");
 
 ?>
 
@@ -101,16 +102,17 @@ include("../template/navbar.php");
           BUY
         </button>
       </div>
-
-      <div class="p-5 duration-300 transform bg-white border rounded shadow-sm hover:-translate-y-2">
-        <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
-          <i class="uil uil-pen text-2xl"></i>
-        </div>
-        <h4 class="mb-2 font-semibold leading-5">Pencils</h4>
-        <h5 class="text-2xl text-green-500 font-semibold">75 GEMS</h5>
-        <button class="bg-blue-600 active:bg-blue-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 float-right" type="button" style="transition: all 0.15s ease 0s;">
+      <h2 class="mb-2 font-semibold leading-5">Hershey Bars</h2>
+      <h5 class="text-2xl text-green-500 font-semibold">75 GEMS</h5>
+      <form class='inline' action="shop.php" method="POST">
+        <button name='reward6' type='submit' class="bg-blue-600 active:bg-blue-700 uppercase text-white font-bold hover:shadow-md shadow text-xs px-4 py-2 rounded outline-none focus:outline-none sm:mr-2 mb-1 float-right" type="button" style="transition: all 0.15s ease 0s;">
           BUY
         </button>
+      </form>
+    </div>
+    <div class="p-5 duration-300 transform bg-white border rounded shadow-sm hover:-translate-y-2">
+      <div class="flex items-center justify-center w-12 h-12 mb-4 rounded-full bg-indigo-50">
+        <i class="uil uil-pen text-2xl"></i>
       </div>
 
       <div class="p-5 duration-300 transform bg-white border rounded shadow-sm hover:-translate-y-2">
