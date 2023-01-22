@@ -123,7 +123,7 @@ if (isset($_POST['register_btn'])) {
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            $_SESSION['confirmation_code'] = $confirmation_code;
+            $_SESSION['confirmation_code'] = confirmation_code;
             $i = 0; 
             //if username exists add number to username
             while(mysqli_num_rows($check_username_query) != 0) {

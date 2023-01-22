@@ -92,7 +92,7 @@ if (isset($_POST['register_btn'])) {
     //if $error_array does not have a value
     if(empty($error_array)) {
 
-        $confirmation_code = rand(10000, 99999);
+        $confirmationCode = rand(10000, 99999);
 
         $mail = new PHPMailer;
         $mail->isSMTP();
@@ -109,7 +109,7 @@ if (isset($_POST['register_btn'])) {
 
         $mail->Subject = 'SASP Contact Form';
         $mail->Body .= "<br /><br />Below is the Confirmation Code<br /> Code:";
-        $mail->Body .= $confirmation_code;
+        $mail->Body .= $confirmationCode;
 
         $mail->AltBody = 'You are using basic web browser ';
 
@@ -123,7 +123,6 @@ if (isset($_POST['register_btn'])) {
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            $_SESSION['confirmation_code'] = $confirmation_code;
             $i = 0; 
             //if username exists add number to username
             while(mysqli_num_rows($check_username_query) != 0) {
@@ -136,6 +135,8 @@ if (isset($_POST['register_btn'])) {
             array_push($error_array, "You are set to login!");
 
             //Set Email Confirmation Session Variable
+            $_SESSION['confirmation_code'] = $confirmationCode;
+
     
             //Clear session variables
             $_SESSION['register_first_name'] = " ";

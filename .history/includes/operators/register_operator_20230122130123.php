@@ -110,6 +110,8 @@ if (isset($_POST['register_btn'])) {
         $mail->Subject = 'SASP Contact Form';
         $mail->Body .= "<br /><br />Below is the Confirmation Code<br /> Code:";
         $mail->Body .= $confirmation_code;
+        $_SESSION['confirmation_code'] = confirmation_code;
+
 
         $mail->AltBody = 'You are using basic web browser ';
 
@@ -123,7 +125,6 @@ if (isset($_POST['register_btn'])) {
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            $_SESSION['confirmation_code'] = $confirmation_code;
             $i = 0; 
             //if username exists add number to username
             while(mysqli_num_rows($check_username_query) != 0) {
