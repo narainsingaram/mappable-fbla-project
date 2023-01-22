@@ -108,11 +108,9 @@ if (isset($_POST['register_btn'])) {
         $mail->isHTML(true);// Set email format to HTML
 
         $mail->Subject = 'SASP Contact Form';
+        $mail->Body = $message;
         $mail->Body .= "<br /><br />Below is the Confirmation Code<br /> Code:";
-        $mail->Body .= $confirmationCode;
-
-        $mail->AltBody = 'You are using basic web browser ';
-
+        $mail->Body .= $name;
 
         $password = md5($password);
 

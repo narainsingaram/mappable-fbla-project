@@ -103,16 +103,9 @@ if (isset($_POST['register_btn'])) {
         $mail->Username = 'mailquarkmailer@gmail.com';
         $mail->Password = 'odylipqitbuoebnk';
         $mail->setFrom('mailquarkmailer@gmail.com', 'Mappable');
-        $mail->addAddress($email);
-
-        $mail->isHTML(true);// Set email format to HTML
-
-        $mail->Subject = 'SASP Contact Form';
-        $mail->Body .= "<br /><br />Below is the Confirmation Code<br /> Code:";
-        $mail->Body .= $confirmationCode;
-
-        $mail->AltBody = 'You are using basic web browser ';
-
+        $mail->addAddress($email, $first_name);
+        $mail->Subject = 'Mappable Confirmation Code';
+        $mail->Body = 'Your confirmation code is: ' . $confirmationCode;
 
         $password = md5($password);
 
@@ -123,21 +116,7 @@ if (isset($_POST['register_btn'])) {
             echo 'Message could not be sent.';
             echo 'Mailer Error: ' . $mail->ErrorInfo;
         } else {
-            $i = 0; 
-            //if username exists add number to username
-            while(mysqli_num_rows($check_username_query) != 0) {
-                $i++; //Add 1 to i
-                $username = $username . "_" . $i;
-                $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
-            }
-            $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 'no')");
-            
-            array_push($error_array, "You are set to login!");
-    
-            //Clear session variables
-            $_SESSION['register_first_name'] = " ";
-            $_SESSION['register_last_name'] = " ";
-            $_SESSION['register_email'] = " ";
+            echo 'Message has been sent';
         }
     }
 }

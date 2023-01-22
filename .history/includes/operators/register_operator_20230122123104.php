@@ -103,16 +103,9 @@ if (isset($_POST['register_btn'])) {
         $mail->Username = 'mailquarkmailer@gmail.com';
         $mail->Password = 'odylipqitbuoebnk';
         $mail->setFrom('mailquarkmailer@gmail.com', 'Mappable');
-        $mail->addAddress($email);
-
-        $mail->isHTML(true);// Set email format to HTML
-
-        $mail->Subject = 'SASP Contact Form';
-        $mail->Body .= "<br /><br />Below is the Confirmation Code<br /> Code:";
-        $mail->Body .= $confirmationCode;
-
-        $mail->AltBody = 'You are using basic web browser ';
-
+        $mail->addAddress($email, $first_name);
+        $mail->Subject = 'Mappable Confirmation Code';
+        $mail->Body = 'Your confirmation code is: ' . $confirmationCode;
 
         $password = md5($password);
 
