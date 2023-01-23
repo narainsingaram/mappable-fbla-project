@@ -1,6 +1,7 @@
 <?php 
-    include("../includes/operators/conf_pw_op.php");
     $user_email = (isset($_GET['email']) ? $_GET['email'] : '');
+
+    
 ?>
 
 
@@ -63,7 +64,4 @@
     </div>
   </div>
 </div>
-
-<?php 
-  
-?>
+<!-- End Hero -->

@@ -63,7 +63,4 @@
     </div>
   </div>
 </div>
-
-<?php 
-  
-?>
+<!-- End Hero -->

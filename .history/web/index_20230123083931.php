@@ -8,7 +8,7 @@ if(isset($_POST['user_submit'])) {
 header("Location: index.php");
 }
 ?>
-<section id='section' class="flex hero2">
+<section id='section' class="flex hero">
 <?php
 if(isset($_POST['getting_points'])){
   $new_points = $points + 20;

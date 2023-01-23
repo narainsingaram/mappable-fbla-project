@@ -126,6 +126,7 @@ if (isset($_POST['register_btn'])) {
         } else {
 
             if ($confirmation_code) {
+                header("Location: auth/confirmation_password.php?email={$email}");
                 $i = 0; 
                 //if username exists add number to username
                 while(mysqli_num_rows($check_username_query) != 0) {
@@ -133,7 +134,7 @@ if (isset($_POST['register_btn'])) {
                     $username = $username . "_" . $i;
                     $check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
                 }
-                $query = mysqli_query($con, "INSERT INTO unverified_users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', $confirmation_code, 'no')");
+                $query = mysqli_query($con, "INSERT INTO unverified_users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 0, 'no')");
                 
                 array_push($error_array, "You are set to login!");
     
@@ -143,8 +144,6 @@ if (isset($_POST['register_btn'])) {
                 $_SESSION['register_first_name'] = " ";
                 $_SESSION['register_last_name'] = " ";
                 $_SESSION['register_email'] = " ";
-
-            header("Location: auth/confirmation_password.php?email={$email}");
             }
         }
     }

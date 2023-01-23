@@ -1,12 +1,12 @@
 <?php 
-    include("../includes/operators/conf_pw_op.php");
     $user_email = (isset($_GET['email']) ? $_GET['email'] : '');
+
+    
 ?>
 
 
 
 <script type="text/javascript" src="https://cdn.tailwindcss.com"></script>
-<link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
 
 <!-- Hero -->
 <div class="overflow-hidden">
@@ -32,8 +32,8 @@
             <label for="hs-hero-name-1" class="block text-sm font-medium dark:text-white"><span class="sr-only">Your name</span></label>
             <input class='register_confirmation_password" placeholder="Confirm Password" class="block w-full px-5 py-10 text-8xl text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="number" name='ver_email' value=''>
             <center>
-              <button type='submit' name='ver_submit' class="mt-4 btn normal-case w-full border-none px-8 py-4 font-medium text-slate-600 rounded-2xl bg-slate-200/80 hover:bg-slate-300">
-                Confirm
+              <button type='submit' name='ver_submit' class="action_btn">
+                Submit
               </button>
             </center>
           </div>
@@ -63,7 +63,4 @@
     </div>
   </div>
 </div>
-
-<?php 
-  
-?>
+<!-- End Hero -->

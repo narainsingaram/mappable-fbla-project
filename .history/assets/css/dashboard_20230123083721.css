@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserratwght@400;500;600;700&display=swap');
+
+
+html, body {
+  height: 100%
+}
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif
+  background: #212121
+  color: #fff
+}
+.hero
+  background: linear-gradient(rgba(#F9774C, .75), rgba(#802A0C, .85)), url("https://farm3.staticflickr.com/2862/10936924134_24ce77ae37_b.jpg")
+  min-height: 100%
+  background-size: cover
+  background-position: 50% 0
+  
+.hero__title
+  font-size: 40px
+  font-weight: 100
+  padding: 1.5em
+  text-align: center
