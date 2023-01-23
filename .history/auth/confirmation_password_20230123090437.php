@@ -30,7 +30,7 @@
         <div class="mx-auto max-w-2xl sm:flex sm:space-x-3 p-3">
           <div class="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
             <label for="hs-hero-name-1" class="block text-sm font-medium dark:text-white"><span class="sr-only">Your name</span></label>
-            <input class='register_confirmation_password' placeholder="Confirm Password" class="block w-full px-5 py-10 text-8xl text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="number" name='ver_code' value=''>
+            <input class='register_confirmation_password" placeholder="Confirm Password" class="block w-full px-5 py-10 text-8xl text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="number" name='ver_email' value=''>
             <center>
               <button type='submit' name='ver_submit' class="mt-4 btn normal-case w-full border-none px-8 py-4 font-medium text-slate-600 rounded-2xl bg-slate-200/80 hover:bg-slate-300">
                 Confirm
@@ -66,10 +66,6 @@
 
 <?php 
   if(isset($_POST['ver_submit'])) {
-    $unver_query = mysql_query($con, "SELECT * FROM users where email='$user_email'");
-    $unver_data_row = mysqli_fetch_array($unver_query);
-    if ($_POST['ver_code'] == $unver_data_row['conf_secret_code']) {
-      // $query = mysqli_query($con, "INSERT INTO unverified_users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', $confirmation_code, 'no')");
-    }
+    
   }
 ?>
