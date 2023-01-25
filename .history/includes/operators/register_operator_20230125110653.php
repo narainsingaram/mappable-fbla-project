@@ -114,6 +114,9 @@ if (isset($_POST['register_btn'])) {
 
         $mail->AltBody = 'You are using basic web browser ';
 
+
+        $password = md5($password);
+
         $username = strtolower($first_name . "_" . $last_name);
 		$check_username_query = mysqli_query($connection, "SELECT username FROM users WHERE username='$username'");
 

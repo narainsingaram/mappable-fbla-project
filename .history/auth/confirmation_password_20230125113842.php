@@ -70,7 +70,6 @@
     $unver_query = mysqli_query($connection, "SELECT * FROM users WHERE email='$user_email'");
     $unver_data_row = mysqli_fetch_array($unver_query);
     $ver_code = $_POST['ver_code'];
-    $sql_ver_code = '';
     if ($sql_ver_code != '') {
       $sql_ver_code = $unver_data_row['conf_secret_code'];
     }

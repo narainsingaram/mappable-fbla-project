@@ -77,8 +77,6 @@
     if ($ver_code == $sql_ver_code) {
       $insert_query = mysqli_query($connection, "INSERT INTO users (first_name, last_name, email, password, date, position, date_of_birth, gender, grade, profile_color, points, gems, experience, levels, percentage_growth, theme, font, user_deleted) SELECT first_name, last_name, email, password, date, position, date_of_birth, gender, grade, profile_color, points, gems, experience, levels, percentage_growth, theme, font, user_deleted FROM unverified_users WHERE email='$user_email' AND conf_secret_code='$ver_code'");
     }
-    echo $sql_ver_code;
-    echo $user_email;
     echo $ver_code;
   }
 ?>
