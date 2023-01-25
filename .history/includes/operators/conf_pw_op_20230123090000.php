@@ -1,3 +1,3 @@
 <?php 
-    echo $confirmation_password;
+    echo $connectionfirmation_password;
 ?>

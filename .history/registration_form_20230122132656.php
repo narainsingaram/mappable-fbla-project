@@ -225,7 +225,7 @@ require 'includes/operators/login_operator.php';
 </form>   
 
 <?php
-echo $confirmation_code
+echo $connectionfirmation_code
 ?>
 
     <a class="text-gray-500 text-sm text-center	"href="sign_in.php"><center>Already have a account? Log In</center></a>

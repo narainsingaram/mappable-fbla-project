@@ -31,7 +31,7 @@
     <ul tabindex="0" class="dropdown-content menu p-2 bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] rounded-2xl w-80">
     <h1 class='inline text-xl font-bold leading-none text-gray-900'>Notification Center</h1>
     <?php 
-      $add_notification = new Notify($con, $userLoggedIn);
+      $add_notification = new Notify($connection, $userLoggedIn);
       $add_notification->getNotifications();
     ?>
     </ul>

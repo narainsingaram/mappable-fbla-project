@@ -66,7 +66,7 @@
 
 <?php 
   if(isset($_POST['ver_submit'])) {
-    $unver_query = mysql_query($con, "SELECT * FROM users where email='$user_email'");
+    $unver_query = mysql_query($connection, "SELECT * FROM users where email='$user_email'");
     $unver_data_row = mysqli_fetch_array($unver_query);
     if ($_POST['ver_code'] == $unver_data_row['conf_secret_code']) {
       

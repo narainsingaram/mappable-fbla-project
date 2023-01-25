@@ -3,7 +3,7 @@ include("../template/web_defaults.php");
 include("../template/navbar.php");
 
 if(isset($_POST['user_submit'])) {
-  $post = new Teacher_Events($con, $userLoggedIn);
+  $post = new Teacher_Events($connection, $userLoggedIn);
   $post->event_feed($_POST['user_title'],$_POST['user_type'], $_POST['user_date'], $_POST['user_start'], $_POST['user_end'], $_POST['user_desc'], $filename, 'none'); //do submitEvent function in Post_Events.php
 header("Location: index.php");
 }
@@ -11,12 +11,12 @@ header("Location: index.php");
 <section id='section' class="flex">
   <?php 
     if(isset($_POST['getting_points'])){
-        $points_query = mysqli_query($con,"UPDATE users SET points = '$points', gems = '$gems', experience = '$experience * 1.1', levels = 'floor($experience * 1.1 / 100)', percentage_growth = '$experience * 1.1 - (floor($experience * 1.1 / 100) * 100)' WHERE id = '$id'");
+        $points_query = mysqli_query($connection,"UPDATE users SET points = '$points', gems = '$gems', experience = '$experience * 1.1', levels = 'floor($experience * 1.1 / 100)', percentage_growth = '$experience * 1.1 - (floor($experience * 1.1 / 100) * 100)' WHERE id = '$id'");
         header("Location: index.php");
       }
 
     if(isset($_POST['create_space'])) {
-      $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
+      $create_spc_query = mysqli_query($connection, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
       header("Location: index.php");
     }
   ?>
@@ -55,8 +55,8 @@ Spaces
 <p>Explore your school & community's events created by your teachers and administrators.</p>
 <?php
   $web = new Web();
-  $space = new Spaces($con, $userLoggedIn);
-  $post = new Teacher_Events($con, $userLoggedIn);
+  $space = new Spaces($connection, $userLoggedIn);
+  $post = new Teacher_Events($connection, $userLoggedIn);
    $web->disp_evt_mo();
   $space->load_space_div();
   $post->live_events();

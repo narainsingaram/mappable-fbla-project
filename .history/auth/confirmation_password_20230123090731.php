@@ -66,7 +66,7 @@
 
 <?php 
   if(isset($_POST['ver_submit'])) {
-    $unver_query = mysql_query($con, "SELECT * FROM ")
+    $unver_query = mysql_query($connection, "SELECT * FROM ")
     if ($_POST['ver_email'] == )
   }
 ?>

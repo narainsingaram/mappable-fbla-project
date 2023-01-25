@@ -1,3 +1,3 @@
 <?php 
-    $confirmation_code
+    $connectionfirmation_code
 ?>

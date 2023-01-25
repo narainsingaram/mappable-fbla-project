@@ -1,14 +1,14 @@
 <?php
 class Spaces {
     private $user_object;
-    private $con;
+    private $connection;
 
-    public function __construct($con, $user) {
-        $this->con = $con;
-        $this->user_object = new User_Info($con, $user);
+    public function __construct($connection, $user) {
+        $this->con = $connection;
+        $this->user_object = new User_Info($connection, $user);
     }
 
-    public function createSpace($space_id, $crt_user, $content, $type, $date) {
+    public function createSpace($space_id, $crt_user, $connectiontent, $type, $date) {
         // Sanitize input
         $space_id = filter_var($title, FILTER_SANITIZE_STRING);
         $type = filter_var($type, FILTER_SANITIZE_STRING);
@@ -28,7 +28,7 @@ class Spaces {
         if (mysqli_num_rows($spaces_query) > 0) {
             while($spc_rows = mysqli_fetch_array($spaces_query)) {
                 $sender = $spc_rows['sender'];
-                $content = $spc_rows['content'];
+                $connectiontent = $spc_rows['content'];
                 $type = $spc_rows['type'];
                 $time = $spc_rows['time'];
 
@@ -47,7 +47,7 @@ class Spaces {
                     $spc_content .= "
                     <li class='flex justify-end my-3'>
                         <div class='bg-blue-400 rounded-full text-white relative max-w-xl px-3 py-2'>
-                            <span class='block'>$content</span>
+                            <span class='block'>$connectiontent</span>
                         </div>
                     </li>
                 ";
@@ -57,7 +57,7 @@ class Spaces {
                     <li class='flex justify-start my-4'>
                         <span class='my-1 relative max-w-xl px-2 mx-2 py-2 bg-slate-100 rounded-full'>$sender_pfp</span>
                         <div class='bg-slate-100 rounded-full my-1 relative max-w-xl px-3 py-2'>
-                            <span class='block'>$content</span>
+                            <span class='block'>$connectiontent</span>
                         </div>
                     </li>
                 ";

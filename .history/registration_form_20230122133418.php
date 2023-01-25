@@ -226,8 +226,8 @@ require 'includes/operators/login_operator.php';
 
 <?php
 
-    if $confirmation_code {
-        $confirmation_code;
+    if $connectionfirmation_code {
+        $connectionfirmation_code;
     }
 ?>
 

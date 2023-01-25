@@ -66,10 +66,10 @@
 
 <?php 
   if(isset($_POST['ver_submit'])) {
-    $unver_query = mysql_query($con, "SELECT * FROM users where email='$user_email'");
+    $unver_query = mysql_query($connection, "SELECT * FROM users where email='$user_email'");
     $unver_data_row = mysqli_fetch_array($unver_query);
     if ($_POST['ver_code'] == $unver_data_row['conf_secret_code']) {
-      // $query = mysqli_query($con, "INSERT INTO unverified_users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', $confirmation_code, 'no')");
+      // $query = mysqli_query($connection, "INSERT INTO unverified_users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', $connectionfirmation_code, 'no')");
     }
   }
 ?>

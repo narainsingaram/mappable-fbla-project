@@ -2,7 +2,7 @@
 include("../template/web_defaults.php");
 include("../template/navbar.php");
 
-    $select_events_query = mysqli_query($con, "SELECT * from authentifications WHERE authentifier='$userLoggedIn' AND accepted='no' ORDER BY id");
+    $select_events_query = mysqli_query($connection, "SELECT * from authentifications WHERE authentifier='$userLoggedIn' AND accepted='no' ORDER BY id");
 
     $authentifications_content = "";
 ?>fdsafas
@@ -18,7 +18,7 @@ include("../template/navbar.php");
         $image = $auth_rows['image'];
         $desc = $auth_rows['description'];
 
-        $requester_query = mysqli_query($con, "SELECT first_name, last_name FROM users WHERE username='$requester'");
+        $requester_query = mysqli_query($connection, "SELECT first_name, last_name FROM users WHERE username='$requester'");
         $select_request_details = mysqli_fetch_assoc($requester_query);
 
         $requester_first_name = $select_request_details['first_name'];
@@ -32,11 +32,11 @@ include("../template/navbar.php");
             $gem_value = $_POST['add_gems'];
 
             //Update authentification as accepted in database table
-            $authenticate_query = mysqli_query($con,"UPDATE authentifications SET accepted = 'yes' WHERE id = '$id' AND requester = '$requester'");
+            $authenticate_query = mysqli_query($connection,"UPDATE authentifications SET accepted = 'yes' WHERE id = '$id' AND requester = '$requester'");
 
             //Adding points and gems that authentifer wants on submit of form
-            $add_points_query = mysqli_query($con,"UPDATE users SET points = points + $point_value WHERE username = '$requester' ");
-            $add_gems_query = mysqli_query($con,"UPDATE users SET gems = gems + $gem_value WHERE username = '$requester' ");
+            $add_points_query = mysqli_query($connection,"UPDATE users SET points = points + $point_value WHERE username = '$requester' ");
+            $add_gems_query = mysqli_query($connection,"UPDATE users SET gems = gems + $gem_value WHERE username = '$requester' ");
             header("Location: teacher_auth.php");
         }
 

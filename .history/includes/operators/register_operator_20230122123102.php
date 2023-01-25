@@ -35,7 +35,7 @@ if (isset($_POST['register_btn'])) {
     $_SESSION['register_email'] = $email;
 
     $password = strip_tags($_POST['register_password']);
-    $confirmation_password = strip_tags($_POST['register_confirmation_password']);
+    $connectionfirmation_password = strip_tags($_POST['register_confirmation_password']);
 
     $date = date("Y-m-d");
 
@@ -62,7 +62,7 @@ if (isset($_POST['register_btn'])) {
         if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
-        $email_inquiry = mysqli_query($con, "SELECT email FROM users WHERE email='$email'");
+        $email_inquiry = mysqli_query($connection, "SELECT email FROM users WHERE email='$email'");
         $num_rows_from_email_inquiry = mysqli_num_rows($email_inquiry);
 
         if($num_rows_from_email_inquiry > 0) {
@@ -81,7 +81,7 @@ if (isset($_POST['register_btn'])) {
         array_push($error_array, "There must be between 2-30 characters in your first & last name");
     }
 
-    else if($confirmation_password != $password) {
+    else if($connectionfirmation_password != $password) {
         array_push($error_array, "Your passwords do not match");
     }
 
@@ -92,7 +92,7 @@ if (isset($_POST['register_btn'])) {
     //if $error_array does not have a value
     if(empty($error_array)) {
 
-        $confirmationCode = rand(10000, 99999);
+        $connectionfirmationCode = rand(10000, 99999);
 
         $mail = new PHPMailer;
         $mail->isSMTP();
@@ -105,12 +105,12 @@ if (isset($_POST['register_btn'])) {
         $mail->setFrom('mailquarkmailer@gmail.com', 'Mappable');
         $mail->addAddress($email, $first_name);
         $mail->Subject = 'Mappable Confirmation Code';
-        $mail->Body = 'Your confirmation code is: ' . $confirmationCode;
+        $mail->Body = 'Your confirmation code is: ' . $connectionfirmationCode;
 
         $password = md5($password);
 
         $username = strtolower($first_name . "_" . $last_name);
-		$check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+		$check_username_query = mysqli_query($connection, "SELECT username FROM users WHERE username='$username'");
 
         if (!$mail->send()) {
             echo 'Message could not be sent.';
