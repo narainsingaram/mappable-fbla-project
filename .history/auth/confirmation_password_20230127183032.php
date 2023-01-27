@@ -69,14 +69,10 @@
     $unver_query = mysqli_query($connection, "SELECT * FROM unverified_users WHERE email='$user_email'");
     $unver_data_row = mysqli_fetch_array($unver_query);
     $ver_code = $_POST['ver_code'];
-    if ($unver_data_row['conf_secret_code'] != "") {
-      if ($ver_code == $unver_data_row['conf_secret_code']) {
-        $insert_query = mysqli_query($connection, "INSERT INTO users (first_name, last_name, username, email, password, date, position, date_of_birth, gender, grade, profile_color, points, gems, experience, levels, percentage_growth, theme, font, conf_secret_code, user_deleted) SELECT first_name, last_name, username, email, password, date, position, date_of_birth, gender, grade, profile_color, points, gems, experience, levels, percentage_growth, theme, font, conf_secret_code, user_deleted FROM unverified_users");
-
-        $delete_unverified_user_query = mysqli_query($connection, "DELETE FROM unverified_users WHERE email='$user_email'");
-        echo $user_email;
-        echo $unver_data_row['conf_secret_code'];
-      }
+    if ($ver_code == $unver_data_row['conf_secret_code']) {
+      $insert_query = mysqli_query($connection, "INSERT INTO users (first_name, last_name, username, email, password, date, position, date_of_birth, gender, grade, profile_color, points, gems, experience, levels, percentage_growth, theme, font, conf_secret_code, user_deleted) SELECT first_name, last_name, username, email, password, date, position, date_of_birth, gender, grade, profile_color, points, gems, experience, levels, percentage_growth, theme, font, conf_secret_code, user_deleted FROM unverified_users");
+      echo $user_email;
+      echo $unver_data_row['conf_secret_code'];
     }
   }
 ?>

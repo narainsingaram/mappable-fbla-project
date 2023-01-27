@@ -26,7 +26,7 @@
       </div>
 
       <!-- Form -->
-    <form method="POST" action="confirmation_password.php?email=<?php echo $user_email; ?>">
+    <form method="POST" action="confirmation_password.php">
       <div class="mx-auto max-w-2xl sm:flex sm:space-x-3 p-3">
         <div class="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
           <label for="hs-hero-name-1" class="block text-sm font-medium dark:text-white"><span class="sr-only">Your name</span></label>
@@ -69,14 +69,14 @@
     $unver_query = mysqli_query($connection, "SELECT * FROM unverified_users WHERE email='$user_email'");
     $unver_data_row = mysqli_fetch_array($unver_query);
     $ver_code = $_POST['ver_code'];
-    if ($unver_data_row['conf_secret_code'] != "") {
-      if ($ver_code == $unver_data_row['conf_secret_code']) {
-        $insert_query = mysqli_query($connection, "INSERT INTO users (first_name, last_name, username, email, password, date, position, date_of_birth, gender, grade, profile_color, points, gems, experience, levels, percentage_growth, theme, font, conf_secret_code, user_deleted) SELECT first_name, last_name, username, email, password, date, position, date_of_birth, gender, grade, profile_color, points, gems, experience, levels, percentage_growth, theme, font, conf_secret_code, user_deleted FROM unverified_users");
-
-        $delete_unverified_user_query = mysqli_query($connection, "DELETE FROM unverified_users WHERE email='$user_email'");
-        echo $user_email;
-        echo $unver_data_row['conf_secret_code'];
-      }
+    $sql_ver_code = '';
+    if ($sql_ver_code != '') {
+      $sql_ver_code = $unver_data_row['conf_secret_code'];
     }
+    if ($ver_code == $sql_ver_code) {
+      $insert_query = mysqli_query($connection, "INSERT INTO users (first_name, last_name, email, password, date, position, date_of_birth, gender, grade, profile_color, points, gems, experience, levels, percentage_growth, theme, font, user_deleted) SELECT first_name, last_name, email, password, date, position, date_of_birth, gender, grade, profile_color, points, gems, experience, levels, percentage_growth, theme, font, user_deleted FROM unverified_users WHERE email='$user_email' AND conf_secret_code='$ver_code'");
+    }
+    echo $user_email;
+    echo $ver_code;
   }
 ?>
