@@ -27,7 +27,7 @@ if(isset($_GET['profile_username'])) {
       <section class="relative py-16 bg-gray-300">
         <div class="container mx-auto px-4">
           <div
-            class="relative flex flex-col bg-white w-full shadow-[rgba(7,_65,_50,_0.1) rounded-2xl -mt-64"
+            class="relative flex flex-col min-w-0 break-words bg-white w-full shadow-[rgba(7,_65,_50,_0.1) rounded-lg -mt-64"
           >
             <div class="px-6">
               <div class="flex flex-wrap justify-center">
@@ -62,9 +62,17 @@ if(isset($_GET['profile_username'])) {
                 </div>
               </div>
               <div >
+                <h3
+                  class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2 text-center">
+                  <?php echo "{$profile_list['first_name']}  {$profile_list['last_name']}" ; ?>
+                </h3>
+                <div
+                  class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase text-center"
+                >
+                </div>
 
               </div>
-              <div class="mt-0 py-10">
+              <div class="mt-10 py-10 border-t-4 border-gray-300">
                 <div class="flex flex-wrap justify-center ">
                   <div class="w-full lg:w-9/12 px-4 ">
                     <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2 text-center">
