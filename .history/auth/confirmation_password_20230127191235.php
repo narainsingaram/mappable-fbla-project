@@ -26,11 +26,19 @@
         </h1>
       </div>
 
+      <style>
+        input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+      </style>
+
       <!-- Form -->
     <form method="POST" action="confirmation_password.php?email=<?php echo $user_email; ?>">
       <div class="mx-auto max-w-2xl sm:flex sm:space-x-3 p-3">
         <div class="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
-          <input class="block w-full px-5 py-10 text-8xl text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-200 focus:outline-none focus:ring focus:ring-blue-300"  name='ver_code'>
+          <input class="block w-full px-5 py-10 text-8xl text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-200 focus:outline-none focus:ring focus:ring-blue-300" type="number" name='ver_code'>
           <center>
             <button type='submit' name='ver_submit' class="mt-4 btn normal-case w-full border-none px-8 py-4 font-medium text-slate-600 rounded-2xl bg-slate-200/80 hover:bg-slate-300">
               Confirm

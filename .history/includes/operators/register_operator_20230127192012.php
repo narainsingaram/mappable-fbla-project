@@ -91,6 +91,10 @@ if (isset($_POST['register_btn'])) {
 
     //if $error_array does not have a value
     if(empty($error_array)) {
+
+        $connect_confirmation_code = rand(10000, 99999);
+        $_SESSION['confirmation_code'] = $connect_confirmation_code;
+
         function createRandomizedVerCode($len) {
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=';
             $ver_code_randomized = substr(str_shuffle($characters), 0, $len);

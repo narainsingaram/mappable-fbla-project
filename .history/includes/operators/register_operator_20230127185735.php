@@ -91,14 +91,9 @@ if (isset($_POST['register_btn'])) {
 
     //if $error_array does not have a value
     if(empty($error_array)) {
-        function createRandomizedVerCode($len) {
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=';
-            $ver_code_randomized = substr(str_shuffle($characters), 0, $len);
-            return $ver_code_randomized;
-        }
 
-        $connect_confirmation_code = createRandomizedVerCode(8)
-        
+        $connect_confirmation_code = rand(10000, 99999);
+        $_SESSION['confirmation_code'] = $connect_confirmation_code;
 
         $mail = new PHPMailer;
         $mail->isSMTP();
@@ -113,34 +108,16 @@ if (isset($_POST['register_btn'])) {
 
         $mail->isHTML(true);// Set email format to HTML
 
-        $mail->Subject = "Welcome to Mappable, {$first_name}! Confirm your registration";
-        $mail->Body = <<<EOT
-        <html>
-        <head>
-          <style>
-            body {
-                font-family: Arial, sans-serif;
-            }
-            h1 {
-                color: #0077C9;
-            }
-            .confirmation-code {
-                background-color: #0077C9;
-                color: #fff;
-                padding: 10px;
-                border-radius: 10px;
-            }
-          </style>
-        </head>
-        <body>
-            <h1>Welcome to Mappable, {$first_name}!</h1>
-            <p>Thank you for registering with Mappable. We're excited to have you on board!</p>
-            <p>Please use the confirmation code below to complete your registration:</p>
-            <p class="confirmation-code">{$connect_confirmation_code}</p>
-        </body>
-        </html>
-        EOT;
-        
+        $mail->Subject = "Welcome to Mappable, ". $first_name ."! Confirm your registration";
+        $mail->Body .= <<<EOT
+            Dear {$first_name},
+
+            Thank you for registering with Mappable. We're excited to have you on board!
+            
+            Please use the confirmation code below to complete your registration:
+            [$connect_confirmation_code]
+        EOT;;
+        $mail->Body .= $connect_confirmation_code;
 
         $mail->AltBody = 'You are using basic web browser ';
 
@@ -160,7 +137,7 @@ if (isset($_POST['register_btn'])) {
                     $username = $username . "_" . $i;
                     $check_username_query = mysqli_query($connection, "SELECT username FROM users WHERE username='$username'");
                 }
-                $query = mysqli_query($connection, "INSERT INTO unverified_users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', $connect_confirmation_code, 'no')");
+                $query = mysqli_query($connection, "INSERT INTO unverified_users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', $connectionfirmation_code, 'no')");
                 
                 array_push($error_array, "You are set to login!");
     

@@ -110,6 +110,9 @@ class Notify {
         $push_notification_query = mysqli_query($this->con,"INSERT INTO notifications VALUES(NULL, '$user_to', '$userLoggedIn',  '$noti_type', '$notify_message', '$current_date', 'no')");
     }
 
+    public function display_general_success_noti() {
+        
+    }
 }
 
 ?>

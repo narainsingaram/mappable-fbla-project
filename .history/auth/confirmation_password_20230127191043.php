@@ -30,9 +30,10 @@
     <form method="POST" action="confirmation_password.php?email=<?php echo $user_email; ?>">
       <div class="mx-auto max-w-2xl sm:flex sm:space-x-3 p-3">
         <div class="pb-2 sm:pb-0 sm:flex-[1_0_0%]">
-          <input class="block w-full px-5 py-10 text-8xl text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-200 focus:outline-none focus:ring focus:ring-blue-300"  name='ver_code'>
+          <label for="hs-hero-name-1" class="block text-sm font-medium dark:text-white"><span class="sr-only">Your name</span></label>
+          <input class='register_confirmation_password' class="block w-full px-5 py-10 text-8xl text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-red-200 focus:outline-none focus:ring focus:ring-blue-300" placeholder="Confirm Password" type="number" name='ver_code'>
           <center>
-            <button type='submit' name='ver_submit' class="mt-4 btn normal-case w-full border-none px-8 py-4 font-medium text-slate-600 rounded-2xl bg-slate-200/80 hover:bg-slate-300">
+            <button type='submit' name='ver_submit' class="mt-4 btn normal-case w-full border-none px-8 py-4 font-medium text-red-600 rounded-2xl bg-slate-200/80 hover:bg-slate-300">
               Confirm
             </button>
           </center>

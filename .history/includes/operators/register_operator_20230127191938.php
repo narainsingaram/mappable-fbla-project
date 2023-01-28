@@ -91,13 +91,15 @@ if (isset($_POST['register_btn'])) {
 
     //if $error_array does not have a value
     if(empty($error_array)) {
-        function createRandomizedVerCode($len) {
+
+        $connect_confirmation_code = rand(10000, 99999);
+        $_SESSION['confirmation_code'] = $connect_confirmation_code;
+
+        function generateCode($len) {
             $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=';
             $ver_code_randomized = substr(str_shuffle($characters), 0, $len);
             return $ver_code_randomized;
         }
-
-        $connect_confirmation_code = createRandomizedVerCode(8)
         
 
         $mail = new PHPMailer;
