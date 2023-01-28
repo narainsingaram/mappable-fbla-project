@@ -150,12 +150,12 @@ if(isset($_POST['auth_submit'])) {
                 <div>
                     <div class='flex align-center'> 
                     <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
-    <a href='profile.php?profile_username=$username' class='font-semibold text-gray-600'>$first_name[0]$last_name[0]</a>
+    <span class='font-semibold text-gray-600'>$first_name[0]$last_name[0]</span>
 </div>
                         <ul class='mt-2'>
                             <li>
-                                <h3'>
-                                    <a href='profile.php?profile_username=$username'>$first_name $last_name </a>
+                                <h3>
+                                $first_name $last_name 
                                 <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
                                 </h3>
                             </li>
@@ -222,12 +222,10 @@ if(isset($_POST['auth_submit'])) {
                 <input type='hidden' name='authentifier' value='$added_by'>
                 <input type='hidden' name='auth_title' value='$title'>
                 <input type='hidden' name='auth_image' value='$image'>
-                <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
-                    <center>
-                        <button name='auth_submit' type='submit' class='bg-emerald-100 text-black hover:bg-emerald-200 border-none capitalize mx-2 my-4 btn rounded-full'> 
-                            <i class='text-2xl mr-2 uil uil-comment-add'></i> Add Auth
-                        </button>
-                    </center>
+                <div class='tooltip tooltip-right' data-tip='fdsafsafas'>
+                    <button name='auth_submit' type='submit' class='bg-emerald-100 text-black hover:bg-emerald-200 border-none capitalize mx-2 my-4 btn top-0.5 left-2 bottom-0 rounded-full'> 
+                        <i class='text-2xl mr-2 uil uil-comment-add'></i> Add Authentification
+                    </button>
                 </div>
             </form>  
     </main>
@@ -235,7 +233,7 @@ if(isset($_POST['auth_submit'])) {
     <div class='-top-0 -right-0 absolute dropdown'>
         <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
         <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
-            <li><a href='profile.php?profile_username=$username'>View Profile</a></li>
+            <li><a href=''>View Profile</a></li>
         </ul>
         </div>
     </div>

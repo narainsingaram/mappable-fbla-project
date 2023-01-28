@@ -150,12 +150,12 @@ if(isset($_POST['auth_submit'])) {
                 <div>
                     <div class='flex align-center'> 
                     <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
-    <a href='profile.php?profile_username=$username' class='font-semibold text-gray-600'>$first_name[0]$last_name[0]</a>
+    <a href='profile.php?profile_username=$username' class='font-semibold text-gray-600'>$first_name[0]$last_name[0] fdasfa</a>
 </div>
                         <ul class='mt-2'>
                             <li>
-                                <h3'>
-                                    <a href='profile.php?profile_username=$username'>$first_name $last_name </a>
+                                <h3>
+                                $first_name $last_name 
                                 <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
                                 </h3>
                             </li>

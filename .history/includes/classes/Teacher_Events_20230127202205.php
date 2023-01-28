@@ -154,8 +154,8 @@ if(isset($_POST['auth_submit'])) {
 </div>
                         <ul class='mt-2'>
                             <li>
-                                <h3'>
-                                    <a href='profile.php?profile_username=$username'>$first_name $last_name </a>
+                                <h3 href='profile.php?profile_username=$username'>
+                                $first_name $last_name 
                                 <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
                                 </h3>
                             </li>
