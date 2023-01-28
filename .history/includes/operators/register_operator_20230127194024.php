@@ -141,6 +141,20 @@ if (isset($_POST['register_btn'])) {
                 align-items: center;
                 justify-content: space-between;
             }
+            #verification-code {
+                width: 70%;
+                padding: 10px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+            }
+            .btn {
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
             </style>
             </head>
             <body>
@@ -151,8 +165,19 @@ if (isset($_POST['register_btn'])) {
                         <div class="card-body">
                             <p>Please use the verification code:</p>
                             <input type="text" id="verification-code" value="{$connect_confirmation_code}" readonly>
+                            <button class="btn" onclick="copyCode()">Copy</button>
                         </div>
                     </div>
+
+                    <script>
+                    function copyCode() {
+                        var code = document.getElementById("verification-code");
+                        code.select();
+                        document.execCommand("copy");
+                        alert("Verification code copied to clipboard!");
+                    }
+                </script>
+
             </body>
         </html>
         EOT;

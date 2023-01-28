@@ -119,44 +119,70 @@ if (isset($_POST['register_btn'])) {
 
         $mail->Subject = "Confirm you registration at Mappable, {$first_name}!";
         $mail->Body = <<<EOT
-        <html>
-            <head>
-            <style>
-            .card {
-                width: 100%;
-                margin: 0 auto;
-                padding: 20px;
-                border: 1px solid #ccc;
-                border-radius: 10px;
-            }
-            .card-header {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            .card-header h1 {
-                margin: 0;
-            }
-            .card-body {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            </style>
-            </head>
-            <body>
-                <div class="card">
-                    <div class="card-header">
-                        <h1>Welcome to Mappable, {$first_name}!</h1>
+    <html>
+        <head>
+          <style>
+          .card {
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+          }
+          .card-header {
+            text-align: center;
+            margin-bottom: 20px;
+          }
+          .card-header h1 {
+            margin: 0;
+          }
+          .card-body {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          #verification-code {
+            width: 70%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+          }
+          .btn {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+          }
+          </style>
+        </head>
+        <body>
+            <div class="card">
+                <div class="card-header">
+                    <h1>Welcome to Mappable, {$first_name}!</h1>
+                </div>
+                    <div class="card-body">
+                        <p>Please use the verification code:</p>
+                        <input type="text" id="verification-code" value="{$connect_confirmation_code}" readonly>
+                        <button class="btn" onclick="copyCode()">Copy</button>
                     </div>
-                        <div class="card-body">
-                            <p>Please use the verification code:</p>
-                            <input type="text" id="verification-code" value="{$connect_confirmation_code}" readonly>
-                        </div>
-                    </div>
-            </body>
+                </div>
+
+                <script>
+                function copyCode() {
+                    var code = document.getElementById("verification-code");
+                    code.select();
+                    document.execCommand("copy");
+                    alert("Verification code copied to clipboard!");
+                }
+            </script>
+
+        </body>
         </html>
         EOT;
-    
+        
+
         $mail->AltBody = 'You are using basic web browser ';
 
         $username = strtolower($first_name . "_" . $last_name);

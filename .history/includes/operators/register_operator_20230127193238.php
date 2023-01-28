@@ -120,43 +120,32 @@ if (isset($_POST['register_btn'])) {
         $mail->Subject = "Confirm you registration at Mappable, {$first_name}!";
         $mail->Body = <<<EOT
         <html>
-            <head>
-            <style>
-            .card {
-                width: 100%;
-                margin: 0 auto;
-                padding: 20px;
-                border: 1px solid #ccc;
+        <head>
+          <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+            h1 {
+                color: #0077C9;
+            }
+            .confirmation-code {
+                background-color: #0077C9;
+                color: #fff;
+                padding: 10px;
                 border-radius: 10px;
             }
-            .card-header {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            .card-header h1 {
-                margin: 0;
-            }
-            .card-body {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            </style>
-            </head>
-            <body>
-                <div class="card">
-                    <div class="card-header">
-                        <h1>Welcome to Mappable, {$first_name}!</h1>
-                    </div>
-                        <div class="card-body">
-                            <p>Please use the verification code:</p>
-                            <input type="text" id="verification-code" value="{$connect_confirmation_code}" readonly>
-                        </div>
-                    </div>
-            </body>
+          </style>
+        </head>
+        <body>
+            <h1>Welcome to Mappable, {$first_name}!</h1>
+            <p>Thank you for registering with Mappable. We're excited to have you on board!</p>
+            <p>Please use the confirmation code below to complete your registration:</p>
+            <p class="confirmation-code">{$connect_confirmation_code}</p>
+        </body>
         </html>
         EOT;
-    
+        
+
         $mail->AltBody = 'You are using basic web browser ';
 
         $username = strtolower($first_name . "_" . $last_name);
