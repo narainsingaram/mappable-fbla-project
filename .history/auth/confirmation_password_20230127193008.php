@@ -77,11 +77,11 @@
 
         $delete_unverified_user_query = mysqli_query($connection, "DELETE FROM unverified_users WHERE email='$user_email'");
 
-        $alerts->displayFundamentalSuccessAlert();
+        $alerts->display_general_success_noti();
         header("Location: sign_in.php");
       }
-      else if($ver_code != $unver_data_row['conf_secret_code']) {
-        $alerts->displayFundamentalInvalidAlert();
+      else {
+        $alerts->display_general_success_noti()
       }
     }
   }

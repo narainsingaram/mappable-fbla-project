@@ -101,7 +101,7 @@ if (isset($_POST['register_btn'])) {
             return $ver_code_randomized;
         }
 
-        $connect_confirmation_code = createRandomizedVerCode(8);
+        $connect_confirmation_code = createRandomizedVerCode(8)
         
 
         $mail = new PHPMailer;
@@ -164,7 +164,7 @@ if (isset($_POST['register_btn'])) {
                     $username = $username . "_" . $i;
                     $check_username_query = mysqli_query($connection, "SELECT username FROM users WHERE username='$username'");
                 }
-                $query = mysqli_query($connection, "INSERT INTO unverified_users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', '$connect_confirmation_code', 'no')");
+                $query = mysqli_query($connection, "INSERT INTO unverified_users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', $connect_confirmation_code, 'no')");
                 
                 array_push($error_array, "You are set to login!");
     

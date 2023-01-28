@@ -80,8 +80,8 @@
         $alerts->displayFundamentalSuccessAlert();
         header("Location: sign_in.php");
       }
-      else if($ver_code != $unver_data_row['conf_secret_code']) {
-        $alerts->displayFundamentalInvalidAlert();
+      else {
+        $alerts->displayFundamentalInvalidAlert()
       }
     }
   }
