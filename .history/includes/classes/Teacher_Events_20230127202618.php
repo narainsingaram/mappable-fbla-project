@@ -233,7 +233,7 @@ if(isset($_POST['auth_submit'])) {
     </main>
     </div>
     <div class='-top-0 -right-0 absolute dropdown'>
-        <label tabindex='0' class='btn bg-white border-none text-black hover:bg-slate-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
+        <label tabindex='0' class='btn bg-transparent border-none text-black hover:bg-red-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
         <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
             <li><a href='profile.php?profile_username=$username'>View Profile</a></li>
         </ul>
