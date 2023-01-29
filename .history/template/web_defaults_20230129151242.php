@@ -49,7 +49,7 @@ $full_name = "$first_name $last_name";
 ?>
 
 <!DOCTYPE html>
-<html data-theme="winter">
+<html data-theme="retro">
 
 <head>
     <meta charset="UTF-8">

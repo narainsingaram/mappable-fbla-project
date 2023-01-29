@@ -223,11 +223,9 @@ if(isset($_POST['auth_submit'])) {
                 <input type='hidden' name='auth_title' value='$title'>
                 <input type='hidden' name='auth_image' value='$image'>
                 <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
-                    <center>
-                        <button name='auth_submit' type='submit' class='btn bg-slate-200/70 hover:text-white text-black border-none capitalize mx-2 my-4 rounded-full'> 
+                        <button name='auth_submit' type='submit' class='btn capitalize mx-2 my-4'> 
                             <i class='text-2xl mr-2 uil uil-comment-add'></i> Add Auth
                         </button>
-                    </center>
                 </div>
             </form>  
     </main>

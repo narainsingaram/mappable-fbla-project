@@ -24,7 +24,6 @@ $get_space_info = mysqli_query($connection,"SELECT * FROM spaces WHERE space_id=
 $current_space = mysqli_fetch_array($get_space_info);
 
 ?>
-
 <section id='section' class="flex">
 
 <input type="checkbox" id="my-modal-4" class="modal-toggle" />

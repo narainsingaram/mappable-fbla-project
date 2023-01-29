@@ -49,8 +49,7 @@ $full_name = "$first_name $last_name";
 ?>
 
 <!DOCTYPE html>
-<html data-theme="winter">
-
+<html lang="en" theme='light'>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,4 +80,3 @@ $full_name = "$first_name $last_name";
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
-</html>

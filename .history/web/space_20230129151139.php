@@ -24,6 +24,7 @@ $get_space_info = mysqli_query($connection,"SELECT * FROM spaces WHERE space_id=
 $current_space = mysqli_fetch_array($get_space_info);
 
 ?>
+<html data-theme="cupcake"></html>
 
 <section id='section' class="flex">
 

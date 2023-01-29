@@ -49,8 +49,7 @@ $full_name = "$first_name $last_name";
 ?>
 
 <!DOCTYPE html>
-<html data-theme="winter">
-
+<html lang="en" theme='light'>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

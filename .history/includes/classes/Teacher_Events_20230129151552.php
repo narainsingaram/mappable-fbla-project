@@ -224,7 +224,7 @@ if(isset($_POST['auth_submit'])) {
                 <input type='hidden' name='auth_image' value='$image'>
                 <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
                     <center>
-                        <button name='auth_submit' type='submit' class='btn bg-slate-200/70 hover:text-white text-black border-none capitalize mx-2 my-4 rounded-full'> 
+                        <button name='auth_submit' type='submit' class='bg-emerald-100 text-black hover:bg-emerald-200 border-none capitalize mx-2 my-4 btn rounded-full'> 
                             <i class='text-2xl mr-2 uil uil-comment-add'></i> Add Auth
                         </button>
                     </center>
@@ -310,11 +310,6 @@ if(isset($_POST['auth_submit'])) {
     </header>
     <p class='mb-3 font-normal text-gray-700'>$description</p>
     <a class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl'>
-        <svg class='mr-1' width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
-        <path d='M21.101 9.58786H19.8979V8.41162C19.8979 7.90945 19.4952 7.5 18.999 7.5C18.5038 7.5 18.1 7.90945 18.1 8.41162V9.58786H16.899C16.4027 9.58786 16 9.99731 16 10.4995C16 11.0016 16.4027 11.4111 16.899 11.4111H18.1V12.5884C18.1 13.0906 18.5038 13.5 18.999 13.5C19.4952 13.5 19.8979 13.0906 19.8979 12.5884V11.4111H21.101C21.5962 11.4111 22 11.0016 22 10.4995C22 9.99731 21.5962 9.58786 21.101 9.58786Z' fill='#3b82f6'></path>
-        <path d='M9.5 15.0155C5.45422 15.0155 2 15.6623 2 18.2466C2 20.8299 5.4332 21.5 9.5 21.5C13.5448 21.5 17 20.8532 17 18.2689C17 15.6846 13.5668 15.0155 9.5 15.0155Z' fill='#3b82f6'></path>
-        <path opacity='0.4' d='M9.49999 12.5542C12.2546 12.5542 14.4626 10.3177 14.4626 7.52761C14.4626 4.73754 12.2546 2.5 9.49999 2.5C6.74541 2.5 4.53735 4.73754 4.53735 7.52761C4.53735 10.3177 6.74541 12.5542 9.49999 12.5542Z' fill='#3b82f6'></path>
-        </svg>
     Join Event
     </a>
     <span class='-top-0 -right-0 absolute w-3 h-3 bg-green-400 border-2 border-white rounded-full animate-ping opacity-75'></span>
