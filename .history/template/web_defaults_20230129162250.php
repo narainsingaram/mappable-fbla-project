@@ -58,7 +58,7 @@ $full_name = "$first_name $last_name";
 
 $current_page = $_SERVER['REQUEST_URI'];
 
-if ($current_page == "/mappable-fbla-project/settings/index.php") {
+if ($current_page == "/mappable-fbla-project/settings/user_settings.php") {
     header("Location: /mappable-fbla-project/web/index.php");
 }
 
