@@ -38,6 +38,9 @@ header("Location: index.php");
 ?>
 
 <div class="w-1/2 p-5">
+  <form action="index.php" method='POST'>
+    <button name='getting_points' class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-500 cursor-pointer rounded-xl' type="submit">Get Points</button>
+  </form>
 
 <input type="checkbox" id="create_space" class="modal-toggle" />
 <div class="modal">
@@ -73,14 +76,12 @@ header("Location: index.php");
         <ul role="list" class="divide-y divide-gray-200">
             <?php
             $post->load_requested_feed();
+            echo "<h1> Spaces </h1>";
+            $space->load_space_div();
           ?>
         </ul>
    </div>
   </div>
-  <?php 
-    echo "<h1 class='font-bold text-gray-900 text-2xl mb-2 mt-8 mx-4'> Spaces </h1>";
-    $space->load_space_div();
-  ?>
 </div>
   </main>
     </section>

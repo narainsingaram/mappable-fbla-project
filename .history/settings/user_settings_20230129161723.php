@@ -46,18 +46,7 @@ $email = $change_user_info_row['email'];
 </main>
 
 <script>
-const passwordInput = document.getElementById("change_password");
-const passwordToggle = passwordInput.nextElementSibling;
 
-passwordToggle.addEventListener("click", function () {
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    passwordToggle.innerHTML = '<i class="text-2xl mx-2 uil uil-eye-slash"></i>';
-  } else {
-    passwordInput.type = "password";
-    passwordToggle.innerHTML = '<i class="text-2xl mx-2 uil uil-eye"></i>';
-  }
-});
 </script>
 
 

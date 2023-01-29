@@ -37,7 +37,7 @@ $email = $change_user_info_row['email'];
   <div class="relative">
     <input class='block w-full px-3 py-3 text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="password" name="change_password" id="change_password">
     <span class="absolute right-0 top-0 mt-2 mr-2 cursor-pointer">
-      <i class="text-2xl mx-2 uil uil-eye"></i>
+      <i class="uil uil-eye"></i>
     </span>
   </div>
   </div>
@@ -52,7 +52,7 @@ const passwordToggle = passwordInput.nextElementSibling;
 passwordToggle.addEventListener("click", function () {
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
-    passwordToggle.innerHTML = '<i class="text-2xl mx-2 uil uil-eye-slash"></i>';
+    passwordToggle.innerHTML = '<i class="text-2xl mx-2 il uil-eye-slash"></i>';
   } else {
     passwordInput.type = "password";
     passwordToggle.innerHTML = '<i class="text-2xl mx-2 uil uil-eye"></i>';

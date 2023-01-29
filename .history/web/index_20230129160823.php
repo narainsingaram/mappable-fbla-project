@@ -73,13 +73,14 @@ header("Location: index.php");
         <ul role="list" class="divide-y divide-gray-200">
             <?php
             $post->load_requested_feed();
+            echo "<h1> Spaces </h1>";
           ?>
         </ul>
    </div>
   </div>
   <?php 
-    echo "<h1 class='font-bold text-gray-900 text-2xl mb-2 mt-8 mx-4'> Spaces </h1>";
-    $space->load_space_div();
+                $space->load_space_div();
+
   ?>
 </div>
   </main>

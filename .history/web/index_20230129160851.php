@@ -78,7 +78,7 @@ header("Location: index.php");
    </div>
   </div>
   <?php 
-    echo "<h1 class='font-bold text-gray-900 text-2xl mb-2 mt-8 mx-4'> Spaces </h1>";
+    echo "<h1 class='font-bold text-gray-900 text-4xl my-3'> Spaces </h1>";
     $space->load_space_div();
   ?>
 </div>

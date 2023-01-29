@@ -28,6 +28,9 @@ header("Location: index.php");
 
 <section id='section' class="flex mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-4">
 <?php
+if(isset($_POST['getting_points'])){
+  increaseUserPointsGems($connection, $id, $points, $gems, $experience);
+}
  if(isset($_POST['create_space'])) {
   mysqli_query($connection, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
   increaseUserPointsGems($connection, $id, $points, $gems, $experience);
@@ -38,6 +41,9 @@ header("Location: index.php");
 ?>
 
 <div class="w-1/2 p-5">
+  <form action="index.php" method='POST'>
+    <button name='getting_points' class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-500 cursor-pointer rounded-xl' type="submit">Get Points</button>
+  </form>
 
 <input type="checkbox" id="create_space" class="modal-toggle" />
 <div class="modal">
@@ -73,14 +79,12 @@ header("Location: index.php");
         <ul role="list" class="divide-y divide-gray-200">
             <?php
             $post->load_requested_feed();
+            $space->load_space_div();
+
           ?>
         </ul>
    </div>
   </div>
-  <?php 
-    echo "<h1 class='font-bold text-gray-900 text-2xl mb-2 mt-8 mx-4'> Spaces </h1>";
-    $space->load_space_div();
-  ?>
 </div>
   </main>
     </section>

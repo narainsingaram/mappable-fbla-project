@@ -34,31 +34,19 @@ $email = $change_user_info_row['email'];
   </div>
   <div class="mb-6">
   <label for="change_password" class="block text-sm font-medium text-gray-400 mx-2 my-1">Change Password</label>
-  <div class="relative">
-    <input class='block w-full px-3 py-3 text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="password" name="change_password" id="change_password">
-    <span class="absolute right-0 top-0 mt-2 mr-2 cursor-pointer">
-      <i class="text-2xl mx-2 uil uil-eye"></i>
-    </span>
-  </div>
+<div class="relative">
+  <input class='block w-full px-3 py-3 text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="password" name="change_password" id="change_password">
+  <span class="absolute right-0 top-0 mt-2 mr-2 cursor-pointer">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+      <circle cx="12" cy="12" r="3"></circle>
+    </svg>
+  </span>
+</div>
   </div>
   <button type="submit" name="alter_user_info"class="btn normal-case w-full border-none px-8 py-4 font-medium text-slate-600 rounded-2xl bg-slate-200 hover:bg-slate-300"">Submit</button>
 </form>
 </main>
-
-<script>
-const passwordInput = document.getElementById("change_password");
-const passwordToggle = passwordInput.nextElementSibling;
-
-passwordToggle.addEventListener("click", function () {
-  if (passwordInput.type === "password") {
-    passwordInput.type = "text";
-    passwordToggle.innerHTML = '<i class="text-2xl mx-2 uil uil-eye-slash"></i>';
-  } else {
-    passwordInput.type = "password";
-    passwordToggle.innerHTML = '<i class="text-2xl mx-2 uil uil-eye"></i>';
-  }
-});
-</script>
 
 
 

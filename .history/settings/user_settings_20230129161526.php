@@ -37,7 +37,7 @@ $email = $change_user_info_row['email'];
   <div class="relative">
     <input class='block w-full px-3 py-3 text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-slate-100 focus:outline-none focus:ring focus:ring-blue-300' type="password" name="change_password" id="change_password">
     <span class="absolute right-0 top-0 mt-2 mr-2 cursor-pointer">
-      <i class="text-2xl mx-2 uil uil-eye"></i>
+        
     </span>
   </div>
   </div>
@@ -52,10 +52,10 @@ const passwordToggle = passwordInput.nextElementSibling;
 passwordToggle.addEventListener("click", function () {
   if (passwordInput.type === "password") {
     passwordInput.type = "text";
-    passwordToggle.innerHTML = '<i class="text-2xl mx-2 uil uil-eye-slash"></i>';
+    passwordToggle.innerHTML = "<svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M23.954 21.03L13.584 7.61a2 2 0 0 0-2.83 0L7.389 8.75a2 2 0 0 1-2.83-2.83l9.91-13.6a2 2 0 0 0 0-2.83l1.879-1.879a2 2 0 0 1 2.83 2.83l-8.67 11.97z'></path><circle cx='12' cy='12' r='3'></circle></svg>";
   } else {
     passwordInput.type = "password";
-    passwordToggle.innerHTML = '<i class="text-2xl mx-2 uil uil-eye"></i>';
+    passwordToggle.innerHTML = "<svg class='w-6 h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z'></path><circle cx='12' cy='12' r='3'></circle></svg>";
   }
 });
 </script>
