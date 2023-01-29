@@ -17,7 +17,7 @@ else {
     header("Location: ../registration_form.php");
 }
 
-function increaseUserPointsGems($connection, $id, $points, $gems, $experience) {
+function updateUser($connection, $id, $points, $gems, $experience) {
     $new_points = $points + 20;
     $new_gems = $gems + 5;
     $experience_growth = $experience * 1.1; 
@@ -25,7 +25,7 @@ function increaseUserPointsGems($connection, $id, $points, $gems, $experience) {
     $percentage_growth = $experience_growth - ($levels * 100); 
     mysqli_query($connection,"UPDATE users SET points = '$new_points', gems = '$new_gems', experience = '$experience_growth', levels = '$levels', percentage_growth = '$percentage_growth' WHERE id = '$id'"); 
     header("Location: index.php");
-}
+  }
 
 $auth_query = mysqli_query($connection, "SELECT * FROM authentifications WHERE requester='$userLoggedIn'");
 $event_query = mysqli_query($connection, "SELECT * FROM teacher_events WHERE user_deleted='no'");

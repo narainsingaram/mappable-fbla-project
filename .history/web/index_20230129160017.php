@@ -29,11 +29,10 @@ header("Location: index.php");
 <section id='section' class="flex mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-4">
 <?php
 if(isset($_POST['getting_points'])){
-  increaseUserPointsGems($connection, $id, $points, $gems, $experience);
+  updateUser($connection, $id, $points, $gems, $experience);
 }
  if(isset($_POST['create_space'])) {
   mysqli_query($connection, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
-  increaseUserPointsGems($connection, $id, $points, $gems, $experience);
   header("Location: index.php");
 }
 

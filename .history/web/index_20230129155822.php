@@ -2,7 +2,6 @@
 include("../template/web_defaults.php");
 include("../template/navbar.php");
 
-
 if(isset($_POST['user_submit'])) {
   $post = new Teacher_Events($connection, $userLoggedIn);
   $post->event_feed($_POST['user_title'],$_POST['user_type'], $_POST['user_date'], $_POST['user_start'], $_POST['user_end'], $_POST['user_desc'], $filename, 'none'); //do submitEvent function in Post_Events.php
@@ -29,15 +28,18 @@ header("Location: index.php");
 <section id='section' class="flex mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-4">
 <?php
 if(isset($_POST['getting_points'])){
-  increaseUserPointsGems($connection, $id, $points, $gems, $experience);
+  $new_points = $points + 20;
+  $new_gems = $gems + 5;
+  $experience_growth = $experience * 1.1; 
+  $levels = floor($experience_growth / 100); 
+  $percentage_growth = $experience_growth - ($levels * 100); 
+  mysqli_query($connection,"UPDATE users SET points = '$new_points', gems = '$new_gems', experience = '$experience_growth', levels = '$levels', percentage_growth = '$percentage_growth' WHERE id = '$id'"); 
+  header("Location: index.php");
 }
  if(isset($_POST['create_space'])) {
   mysqli_query($connection, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
-  increaseUserPointsGems($connection, $id, $points, $gems, $experience);
   header("Location: index.php");
 }
-
-
 ?>
 
 <div class="w-1/2 p-5">

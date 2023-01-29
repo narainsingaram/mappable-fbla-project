@@ -34,7 +34,9 @@ if(isset($_POST['getting_points'])){
  if(isset($_POST['create_space'])) {
   mysqli_query($connection, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
   increaseUserPointsGems($connection, $id, $points, $gems, $experience);
+
   header("Location: index.php");
+
 }
 
 

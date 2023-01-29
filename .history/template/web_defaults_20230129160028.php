@@ -17,7 +17,7 @@ else {
     header("Location: ../registration_form.php");
 }
 
-function increaseUserPointsGems($connection, $id, $points, $gems, $experience) {
+function updateUser($connection, $id, $points, $gems, $experience) {
     $new_points = $points + 20;
     $new_gems = $gems + 5;
     $experience_growth = $experience * 1.1; 
