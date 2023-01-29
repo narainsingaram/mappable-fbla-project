@@ -20,8 +20,8 @@ header("Location: index.php");
 
 <header aria-label="Page Header" class="bg-slate-200 mx-8 rounded-xl">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-    <div class="my-6">
-      <h1 class="font-bold text-gray-900 text-4xl">
+    <div class="my-4">
+      <h1 class="text-2xl font-bold text-gray-900 sm:text-3xl">
         Welcome Back, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-600'>$first_name</a>";?>
       </h1>
 
