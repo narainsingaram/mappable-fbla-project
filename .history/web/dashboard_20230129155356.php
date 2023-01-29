@@ -124,7 +124,7 @@ Read More
 </div>
 <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
 <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-100">
-	<i class="bx bx-drink text-3xl px-1 text-black"></i>
+	<i class="bx bx-flask-potion text-3xl px-1 text-black"></i>
 </div>
 <div class="flex flex-col justify-center align-middle">
 	<p class="text-3xl font-semibold leading-none"><?php echo $experience_sum_points; ?></p>
@@ -136,11 +136,6 @@ Read More
 
 <div class="w-1/2 max-w-full px-3 lg:w-6/12 lg:flex-none display-inline box-sizing:border-box float-left pt-6">
 <div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-2">
-
-
-<h1 class='font-bold text-gray-900 text-2xl mx-4 my-3'>
-	Points Table
-</h1>
 
 <table class="w-full text-sm text-left text-gray-500">
 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -204,10 +199,6 @@ foreach ($user_list_points_query as $row) {
 
 <div class="w-1/2 max-w-full px-3 lg:w-6/12 lg:flex-none display-inline box-sizing:border-box float-left pt-6">
 <div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-2">
-
-<h1 class='font-bold text-gray-900 text-2xl mx-4 my-3'>
-	Gems Table
-</h1>
 
 <table class="w-full text-sm text-left text-gray-500">
 <thead class="text-xs text-gray-700 uppercase bg-gray-50">

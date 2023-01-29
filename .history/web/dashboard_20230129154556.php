@@ -72,17 +72,16 @@ Read More
 						</div>
 							</div>
 <div class="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
-<div class="relative h-full overflow-hidden bg-cover px-2 py-2 rounded-xl">
-<span class="absolute top-0 left-0 w-full h-full bg-slate-100"></span>
+<div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-4">
+<div class="relative h-full overflow-hidden bg-cover rounded-xl" style="background-image: url('../assets/img/ivancik.jpg')">
+<span class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-gray-900 to-slate-800 opacity-80"></span>
 <div class="relative z-10 flex flex-col flex-auto h-full p-4">
-<h5 class="pt-2 mb-3 text-2xl font-bold text-black">Join the Top of the Leaderboard</h5>
-<div class="">
-	<ul class='list-none'>
-	<li class='text-black bg-slate-200 px-4 py-3 rounded-xl'>By participating in a variety of events and activities in Mappable, you can accumulate points and gems, helping you rise to the top of the leaderboard.</li>
-	<br>
-	<li class='text-black bg-slate-200 px-4 py-3 rounded-xl'>Being in the top ranks of the leaderboard gives you the opportunity to buy rewards from the school store, and being in the top 3 for gems or points may lead to being selected for a prize.</li>
-</ul>
-</div>
+<h5 class="pt-2 mb-6 font-bold text-white">Join the Top of the Leaderboard</h5>
+<p class="text-white">By participating in a variety of events and activities in Mappable, you can accumulate points and gems, helping you rise to the top of the leaderboard.</p>
+<a class="mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="javascript:;">
+Read More
+<i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200" aria-hidden="true"></i>
+</a>
 </div>
 	</div>
 		</div>
@@ -115,7 +114,7 @@ Read More
 </div>
 <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
 <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 bg-yellow-200">
-	<i class="bx bx-star text-3xl px-1 text-black"></i>
+<img class='w-12 inline' src='../assets/images/points.png'>
 </div>
 <div class="flex flex-col justify-center align-middle">
 	<p class="text-3xl font-semibold leading-none"><?php echo $total_sum_points; ?></p>
@@ -124,7 +123,7 @@ Read More
 </div>
 <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
 <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-100">
-	<i class="bx bx-drink text-3xl px-1 text-black"></i>
+	<img class='w-12 inline -rotate-12' src='../assets/images/experience_points.png'>
 </div>
 <div class="flex flex-col justify-center align-middle">
 	<p class="text-3xl font-semibold leading-none"><?php echo $experience_sum_points; ?></p>
@@ -136,11 +135,6 @@ Read More
 
 <div class="w-1/2 max-w-full px-3 lg:w-6/12 lg:flex-none display-inline box-sizing:border-box float-left pt-6">
 <div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-2">
-
-
-<h1 class='font-bold text-gray-900 text-2xl mx-4 my-3'>
-	Points Table
-</h1>
 
 <table class="w-full text-sm text-left text-gray-500">
 <thead class="text-xs text-gray-700 uppercase bg-gray-50">
@@ -204,10 +198,6 @@ foreach ($user_list_points_query as $row) {
 
 <div class="w-1/2 max-w-full px-3 lg:w-6/12 lg:flex-none display-inline box-sizing:border-box float-left pt-6">
 <div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-2">
-
-<h1 class='font-bold text-gray-900 text-2xl mx-4 my-3'>
-	Gems Table
-</h1>
 
 <table class="w-full text-sm text-left text-gray-500">
 <thead class="text-xs text-gray-700 uppercase bg-gray-50">

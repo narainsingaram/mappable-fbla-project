@@ -138,8 +138,8 @@ Read More
 <div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-2">
 
 
-<h1 class='font-bold text-gray-900 text-2xl mx-4 my-3'>
-	Points Table
+<h1>
+	points table
 </h1>
 
 <table class="w-full text-sm text-left text-gray-500">

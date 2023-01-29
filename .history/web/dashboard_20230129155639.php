@@ -139,7 +139,7 @@ Read More
 
 
 <h1 class='font-bold text-gray-900 text-2xl mx-4 my-3'>
-	Points Table
+	Gems Table
 </h1>
 
 <table class="w-full text-sm text-left text-gray-500">
