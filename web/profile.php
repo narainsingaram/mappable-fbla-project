@@ -13,6 +13,12 @@ if(isset($_GET['profile_username'])) {
     $profile_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
     $profile_list = mysqli_fetch_array($profile_details_query);
 }
+
+// Getting events attended by user to display in indiviual data
+$events_attended = mysqli_query(
+  $con,
+  "SELECT * FROM authentifications WHERE requester = $userLoggedIn AND accepted = yes ORDER BY id"
+)
 ?>
       <section class="relative block" style="height: 500px;">
         <div

@@ -33,6 +33,13 @@ $total_experience = mysqli_query(
   "SELECT SUM(experience) as experience_sum FROM users;",
 );
 
+// Getting events attended by user to display in indiviual data
+$events_attended = mysqli_query(
+  $con,
+  "SELECT * FROM authentifications WHERE requester = $userLoggedIn AND accepted = yes ORDER BY id"
+)
+
+
 $gem_rows = mysqli_fetch_assoc($total_gems);
 $point_rows = mysqli_fetch_assoc($total_points);
 $experience_rows = mysqli_fetch_assoc($total_experience);
