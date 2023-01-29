@@ -51,8 +51,8 @@ $experience_sum_points = $experience_rows["experience_sum"];
         Your User Report, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-600'>$first_name</a>";?>
       </h1>
 
-      <p class="mt-3 text-gray-500">
-      With your user report, you have access to an in-depth analysis of your performance in school activities and events throughout the year. This report provides you with a comprehensive overview of your involvement in various school programs and initiatives, enabling you to track your progress and identify areas for improvement. 🚀
+      <p class="mt-1.5 text-sm text-gray-500">
+      With your user report you can see your individual statistics on how you performed in terms of school activities and events this year. 🚀
       </p>
     </div>
   </div>

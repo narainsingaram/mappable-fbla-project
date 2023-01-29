@@ -51,12 +51,28 @@ $experience_sum_points = $experience_rows["experience_sum"];
         Your User Report, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-600'>$first_name</a>";?>
       </h1>
 
-      <p class="mt-3 text-gray-500">
-      With your user report, you have access to an in-depth analysis of your performance in school activities and events throughout the year. This report provides you with a comprehensive overview of your involvement in various school programs and initiatives, enabling you to track your progress and identify areas for improvement. 🚀
+      <p class="mt-1.5 text-sm text-gray-500">
+      With your user report you can see your individual statistics on how you performed in terms of school activities and events this year. 🚀
       </p>
     </div>
   </div>
 </header>
+        <div class="rounded-lg overflow-hidden">
+        <body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-50 text-slate-500">
+        <div class="flex flex-wrap mt-6 -mx-3 p-4">
+          <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 rounded-2xl">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="flex flex-wrap mt-6 -mx-3 p-2">
       <div class="w-full px-3 mb-4 lg:mb-0 lg:w-7/12 rounded-2xl">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
