@@ -201,7 +201,7 @@ public function loadAttendanceTable() {
                     <span
                         class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600"
                     >
-                        From: $authentifier
+                        Snippet
                     </span>
 
                     <span

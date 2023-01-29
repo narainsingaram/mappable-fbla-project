@@ -69,7 +69,7 @@ if ($current_page == "/mappable-fbla-project/settings/index.php") {
 ?>
 
 <!DOCTYPE html>
-<html data-theme="winter">
+<html data-theme="synthwave">
 
 <head>
     <meta charset="UTF-8">

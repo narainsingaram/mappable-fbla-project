@@ -106,7 +106,7 @@ public function loadAuthentifications() {
 
             //Adding points and gems that authentifer wants on submit of form
             $add_points_query = mysqli_query($this->con,"UPDATE users SET points = points + $point_value WHERE username = '$requester' ");
-            $add_gems_query = mysqli_query($this->con,"UPDATE users SET gems = gems + $gem_value WHERE username = '$requester' ");
+            $add_gems_query = mysqli_query($connection,"UPDATE users SET gems = gems + $gem_value WHERE username = '$requester' ");
             header("Location: teacher_auth.php");
         }
 
@@ -161,62 +161,6 @@ public function loadAuthentifications() {
     echo $authentifications_content;
 
 }
-
-public function loadAttendanceTable() {
-    $userLoggedIn = $this->user_object->gettingUsername();
-    $select_events_query = mysqli_query($this->con, "SELECT * from authentifications WHERE authentifier='$userLoggedIn' ORDER BY id");
-
-    $authentifications_content = "";
-
-    while ($auth_rows = mysqli_fetch_array($select_events_query)) {
-        $id = $auth_rows['id'];
-        $authentifier = $auth_rows['authentifier'];
-        $requester = $auth_rows['requester'];
-        $title = $auth_rows['title'];
-        $image = $auth_rows['image'];
-        $desc = $auth_rows['description'];
-
-        $requester_query = mysqli_query($this->con, "SELECT first_name, last_name FROM users WHERE username='$requester'");
-        $select_request_details = mysqli_fetch_assoc($requester_query);
-
-        $requester_first_name = $select_request_details['first_name'];
-        $requester_last_name = $select_request_details['last_name'];
-
-        $authentifications_content .= <<<EOT
-        <article
-            class="rounded-xl bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 p-0.5 shadow-xl transition hover:shadow-sm"
-        >
-            <div class="rounded-[10px] bg-white p-4 !pt-20 sm:p-6">
-                <time datetime="2022-10-10" class="block text-xs text-gray-500">
-                    10th Oct 2022
-                </time>
-
-                <a href="#">
-                    <h3 class="mt-0.5 text-lg font-medium text-gray-900">
-                        $title
-                    </h3>
-                </a>
-
-                <div class="mt-4 flex flex-wrap gap-1">
-                    <span
-                        class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600"
-                    >
-                        From: $authentifier
-                    </span>
-
-                    <span
-                        class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600"
-                    >
-                        JavaScript
-                    </span>
-                </div>
-            </div>
-        </article>
-EOT;
-    }
-    echo $authentifications_content;
-}
-
 
 
 public function load_regular_feed() {
