@@ -44,19 +44,53 @@ $experience_sum_points = $experience_rows["experience_sum"];
 
 <div id="content" class='flex mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-4'>
 	<main>
-  <header aria-label="Page Header" class="bg-slate-200 mx-8 rounded-xl">
-  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-    <div class="my-6">
-      <h1 class="font-bold text-gray-900 text-4xl">
-        Your User Report, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-600'>$first_name</a>";?>
-      </h1>
-
-      <p class="mt-3 text-gray-500">
-      With your user report, you have access to an in-depth analysis of your performance in school activities and events throughout the year. This report provides you with a comprehensive overview of your involvement in various school programs and initiatives, enabling you to track your progress and identify areas for improvement. 🚀
-      </p>
-    </div>
-  </div>
-</header>
+        <h1 class="text-4xl font-semibold text-black py-4 pr-4">Welcome to Your User Report, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-600'>$full_name</a>";?></h1>
+        <div class="shadow-lg rounded-lg overflow-hidden">
+        <body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-50 text-slate-500">
+        <div class="flex flex-wrap mt-6 -mx-3 p-4">
+          <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 rounded-2xl">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-wrap -mx-3">
+                  <div class="max-w-full px-3 lg:w-1/2 lg:flex-none">
+                    <div class="flex flex-col h-full">
+                      <p class="text-xs w-max text-neutral-500">Built by developers</p>
+                      <h5 class="text-3xl my-2 font-bold">Mappable</h5>
+                      <p class="pb-4 text-mg text-neutral-500">Constructed by student developers in West Forsyth High School to improve student engagement and commitment all throughout school. </p>
+                      <a class="font-semibold leading-normal text-sm text-slate-500">
+                      Read More
+                        <i class="uil uil-angle-right-b"></i>
+                      </a>
+                      </div>
+                      </div>
+                      <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
+                      <div class="h-full bg-slate-200 rounded-2xl p-3">
+                      <div class="relative flex items-center justify-center h-full">
+                    <img class="relative z-20 w-full w-44" src="../assets/images/your_developers.png" alt="rocket">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
+        <div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-4">
+          <div class="relative h-full overflow-hidden bg-cover rounded-xl" style="background-image: url('../assets/img/ivancik.jpg')">
+          <span class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-gray-900 to-slate-800 opacity-80"></span>
+          <div class="relative z-10 flex flex-col flex-auto h-full p-4">
+            <h5 class="pt-2 mb-6 font-bold text-white">Work with the rockets</h5>
+            <p class="text-white">Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
+            <a class="mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="javascript:;">
+            Read More
+            <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200" aria-hidden="true"></i>
+            </a>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+          
       <div class="flex flex-wrap mt-6 -mx-3 p-2">
       <div class="w-full px-3 mb-4 lg:mb-0 lg:w-7/12 rounded-2xl">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
@@ -865,7 +899,11 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       </div>
 
-      <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;7848fc3098eb1833&quot;,&quot;version&quot;:&quot;2022.11.3&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;1b7cbb72744b40c580f8633c6b62637e&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+      <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA
+                                                                                                                                           
+                                                                                                                                           
+                                                                                                                                           
+                                                                                                                                           " data-cf-beacon="{&quot;rayId&quot;:&quot;7848fc3098eb1833&quot;,&quot;version&quot;:&quot;2022.11.3&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;1b7cbb72744b40c580f8633c6b62637e&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
 
 
       <script src="https://soft-ui-dashboard-tall.creative-tim.com/assets/js/plugins/chartjs.min.js" async=""></script>
