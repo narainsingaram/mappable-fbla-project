@@ -61,12 +61,12 @@
               <span class="text-sm px-2 text-slate-600">3</span>
               <span class="text-sm float-right px-2 text-slate-600">4</span>
             </div>
-            <div class="w-full bg-slate-300 rounded-full">
+            <div class="btn w-full bg-slate-300 rounded-full">
               <div class="bg-blue-600 text-xs text-gray-900/60 text-center p-0.5 leading-none rounded-full" style="width: <?php echo $user['percentage_growth']; ?>%"> <?php echo $user['percentage_growth'] . '%'; ?>
               </div>
             </div>
           </div>
-            <a href='profile.php?profile_username=<?php echo $userLoggedIn; ?>' class="btn rounded-xl py-4 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] block m-auto text-center mt-4">
+            <a href='' class="btn action_btn rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] px-2 py-3 capitalize text-center">
                 View Profile
             </a>
           </div>

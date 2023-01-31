@@ -66,7 +66,7 @@
               </div>
             </div>
           </div>
-            <a href='profile.php?profile_username=<?php echo $userLoggedIn; ?>' class="btn rounded-xl py-4 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] block m-auto text-center mt-4">
+            <a href='' class="btn active_btn rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] px-2 py-3 block m-auto text-center mt-4">
                 View Profile
             </a>
           </div>
