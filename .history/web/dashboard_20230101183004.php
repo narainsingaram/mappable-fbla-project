@@ -4,7 +4,7 @@ include "../template/navbar.php";
 
 // get number of global users
 $number_of_global_users = mysqli_query(
-    $con,
+    $connection,
     "SELECT count( * ) as id FROM users",
 );
 $number_of_global_users_row = mysqli_fetch_assoc($number_of_global_users);
@@ -12,27 +12,27 @@ $number_of_global_users = $number_of_global_users_row["id"];
 
 //get user list ordered by points and gems
 $user_list_points_query = mysqli_query(
-    $con,
+    $connection,
     "SELECT * FROM users ORDER BY points DESC LIMIT 10",
 );
 
 $user_list_gems_query = mysqli_query(
-    $con,
+    $connection,
     "SELECT * FROM users ORDER BY gems DESC LIMIT 10",
 );
 
 //get sum of all gems, points and experience in users table
 $total_gems = mysqli_query(
-    $con,
+    $connection,
     "SELECT SUM(gems) as gem_sum
 FROM users;",
 );
 $total_points = mysqli_query(
-    $con,
+    $connection,
     "SELECT SUM(points) as point_sum  FROM users;",
 );
 $total_experience = mysqli_query(
-    $con,
+    $connection,
     "SELECT SUM(experience) as experience_sum FROM users;",
 );
 

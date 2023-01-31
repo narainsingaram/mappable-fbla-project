@@ -14,14 +14,14 @@ if($space_id == ''){
 
 
 if(isset($_POST['spc_msg_send'])) {
-    $content = $_POST['spc_msg_input'];
+    $connectiontent = $_POST['spc_msg_input'];
     $type = $_POST['msg_type'];
     $post->event_feed($space_id,$userLoggedIn, $_POST['spc_msg_input'], $_POST['msg_type'], $date); //do submitEvent function in Post_Events.php
-    $update_spc_mgs = mysqli_query($con, "INSERT INTO spc_msgs VALUES (NULL,'$space_id', '$userLoggedIn', '$content', '$type', '$date', 'no')");
+    $update_spc_mgs = mysqli_query($connection, "INSERT INTO spc_msgs VALUES (NULL,'$space_id', '$userLoggedIn', '$connectiontent', '$type', '$date', 'no')");
     header("Location: space.php?space=$space_id");
 }
 
-$get_space_info = mysqli_query($con,"SELECT * FROM spaces WHERE space_id='$space_id'");
+$get_space_info = mysqli_query($connection,"SELECT * FROM spaces WHERE space_id='$space_id'");
 $current_space = mysqli_fetch_array($get_space_info);
 
 ?>
@@ -32,7 +32,7 @@ $current_space = mysqli_fetch_array($get_space_info);
   <label class="modal-box bg-white relative" for="">
     <h3 class="text-lg font-bold">Travel To A Space</h3>
     <?php
-      $Space = new Spaces($con, $userLoggedIn);
+      $Space = new Spaces($connection, $userLoggedIn);
       $Space->load_space_menu_links();
     ?>
   </label>

@@ -3,18 +3,18 @@ $name = $_POST['name'];
 $email = $_POST['email'];
 
 // Connect to the database
-$conn = new mysqli('localhost', 'username', 'password', 'database');
+$connectionn = new mysqli('localhost', 'username', 'password', 'database');
 
 // Check connection
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
+if ($connectionn->connect_error) {
+  die("Connection failed: " . $connectionn->connect_error);
 }
 
 $sql = "INSERT INTO table (name, email) VALUES ('$name', '$email')";
 
-if ($conn->query($sql) === TRUE) {
+if ($connectionn->query($sql) === TRUE) {
   echo "New record created successfully";
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "Error: " . $sql . "<br>" . $connectionn->error;
 }
 ?>

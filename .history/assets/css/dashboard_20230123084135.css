@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserratwght@400;500;600;700&display=swap');
+
+
+html, body {
+height: 100%;
+}
+
+.hero2 {
+    background: linear-gradient(rgba(#F9774C, .75), rgba(#802A0C, .85)), url("https://farm3.staticflickr.com/2862/10936924134_24ce77ae37_b.jpg") !important;
+    min-height: 100% !important;
+    background-size: cover !important;
+    background-position: 50% 0 !important;
+}
+.hero__title {
+    font-size: 40px
+    font-weight: 100
+    padding: 1.5em
+    text-align: center
+}

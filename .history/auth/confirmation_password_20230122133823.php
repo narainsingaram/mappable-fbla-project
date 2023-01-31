@@ -1,0 +1,3 @@
+<?php 
+    $connectionfirmation_
+?>

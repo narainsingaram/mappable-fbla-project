@@ -37,7 +37,7 @@
 </div>
       </div>
     <?php 
-      $add_notification = new Notify($con, $userLoggedIn);
+      $add_notification = new Notify($connection, $userLoggedIn);
       $add_notification->getNotifications();
     ?>
     </ul>

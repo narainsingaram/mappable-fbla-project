@@ -1,11 +1,11 @@
 <?php
 class Notify {
     private $user_object;
-    private $con; 
+    private $connection; 
 
-    public function __construct($con, $user) {
-        $this->con = $con;
-        $this->user_object = new User_Info($con, $user);
+    public function __construct($connection, $user) {
+        $this->con = $connection;
+        $this->user_object = new User_Info($connection, $user);
     }
 
     public function unreadNotifications() {
@@ -41,7 +41,7 @@ class Notify {
 
             if (isset($_POST["{$user_data['username']}_{$row['id']}_mark_as_read"])) {
                 $sql = "DELETE FROM notifications WHERE id="$row['id']" AND message="$row['message']"";
-$stmt = mysqli_prepare($conn, $sql);
+$stmt = mysqli_prepare($connectionn, $sql);
 mysqli_stmt_bind_param($stmt, "is", , );
 mysqli_stmt_execute($stmt);
 
