@@ -1,11 +1,11 @@
 <?php
 class Teacher_Events {
     private $user_object;
-    private $con;
+    private $connection;
 
-    public function __construct($con, $user) {
-        $this->con = $con;
-        $this->user_object = new User_Info($con, $user);
+    public function __construct($connection, $user) {
+        $this->con = $connection;
+        $this->user_object = new User_Info($connection, $user);
     }
 
     public function event_feed($title, $type, $date, $start_time, $end_time, $description, $image, $user_to) {

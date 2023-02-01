@@ -6,7 +6,7 @@ $description = trim(filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRI
 
 // Insert the information into the database
 $sql = "INSERT INTO notifications (user_to, user_from, type, datetime, not_message, viewed) VALUES ('$name','$name', '$name', '2022-10-21 22:37:34', '$description', 'no')";
-mysqli_query($con, $sql);
+mysqli_query($connection, $sql);
 
 
 

@@ -7,11 +7,11 @@
   $sql = "UPDATE users SET name='$name', email='$email' WHERE username='$username'";
 
   
-  if ($conn->query($sql) === TRUE) {
+  if ($connectionn->query($sql) === TRUE) {
     echo "New record created successfully";
   } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $connectionn->error;
   }
 
-  $conn->close();
+  $connectionn->close();
 ?>

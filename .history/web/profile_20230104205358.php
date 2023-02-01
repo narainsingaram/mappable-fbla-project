@@ -10,7 +10,7 @@ $id = (isset($_GET['id'])) ? $_GET['id'] : 0;
 
 if(isset($_GET['profile_username'])) {
     $username = $_GET['profile_username'];
-    $profile_details_query = mysqli_query($con, "SELECT * FROM users WHERE username='$username'");
+    $profile_details_query = mysqli_query($connection, "SELECT * FROM users WHERE username='$username'");
     $profile_list = mysqli_fetch_array($profile_details_query);
 }
 ?>

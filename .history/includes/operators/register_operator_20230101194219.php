@@ -26,7 +26,7 @@ if(isset($_POST['register_btn'])) {
     $_SESSION['register_email'] = $email;
 
     $password = strip_tags($_POST['register_password']);
-    $confirmation_password = strip_tags($_POST['register_confirmation_password']);
+    $connectionfirmation_password = strip_tags($_POST['register_confirmation_password']);
 
     $date = date("Y-m-d");
 
@@ -56,7 +56,7 @@ if(isset($_POST['register_btn'])) {
         if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $email = filter_var($email, FILTER_VALIDATE_EMAIL);
 
-        $email_inquiry = mysqli_query($con, "SELECT email FROM users WHERE email='$email'");
+        $email_inquiry = mysqli_query($connection, "SELECT email FROM users WHERE email='$email'");
         $num_rows_from_email_inquiry = mysqli_num_rows($email_inquiry);
 
         if($num_rows_from_email_inquiry > 0) {
@@ -76,7 +76,7 @@ if(isset($_POST['register_btn'])) {
     }
 
 
-    else if($confirmation_password != $password) {
+    else if($connectionfirmation_password != $password) {
         array_push($error_array, "<span class='form_error'>Your passwords do not match</span>");
     }
 
@@ -93,7 +93,7 @@ if(isset($_POST['register_btn'])) {
         $password = md5($password);
 
         $username = strtolower($first_name . "_" . $last_name);
-		$check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+		$check_username_query = mysqli_query($connection, "SELECT username FROM users WHERE username='$username'");
 
 
 		$i = 0; 
@@ -101,9 +101,9 @@ if(isset($_POST['register_btn'])) {
 		while(mysqli_num_rows($check_username_query) != 0) {
 			$i++; //Add 1 to i
 			$username = $username . "_" . $i;
-			$check_username_query = mysqli_query($con, "SELECT username FROM users WHERE username='$username'");
+			$check_username_query = mysqli_query($connection, "SELECT username FROM users WHERE username='$username'");
 		}
-        $query = mysqli_query($con, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$school', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 'no')");
+        $query = mysqli_query($connection, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$school', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 'no')");
         
         array_push($error_array, "You are set to login!");
 

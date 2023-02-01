@@ -6,11 +6,11 @@
   $dbname = "myDB";
 
   // Create connection
-  $conn = new mysqli($servername, $username, $password, $dbname);
+  $connectionn = new mysqli($servername, $username, $password, $dbname);
 
   // Check connection
-  if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+  if ($connectionn->connect_error) {
+    die("Connection failed: " . $connectionn->connect_error);
   }
 
   // Get the form data
@@ -20,11 +20,11 @@
   // Insert the data into the database
   $sql = "INSERT INTO users (name, email) VALUES ('$name', '$email')";
 
-  if ($conn->query($sql) === TRUE) {
+  if ($connectionn->query($sql) === TRUE) {
     echo "New record created successfully";
   } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $connectionn->error;
   }
 
-  $conn->close();
+  $connectionn->close();
 ?>

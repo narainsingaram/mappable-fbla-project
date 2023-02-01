@@ -3,7 +3,7 @@ include("../template/web_defaults.php");
 include("../template/navbar.php");
 
 if(isset($_POST['user_submit'])) {
-  $post = new Teacher_Events($con, $userLoggedIn);
+  $post = new Teacher_Events($connection, $userLoggedIn);
   $post->event_feed($_POST['user_title'],$_POST['user_type'], $_POST['user_date'], $_POST['user_start'], $_POST['user_end'], $_POST['user_desc'], $filename, 'none'); //do submitEvent function in Post_Events.php
 }
 header("Location: index.php");
@@ -11,12 +11,12 @@ header("Location: index.php");
 <section id='section' class="flex">
   <?php 
     if(isset($_POST['getting_points'])){
-        $points_query = mysqli_query($con,"UPDATE users SET points = '$points', gems = '$gems', experience = '$experience * 1.1', levels = 'floor($experience * 1.1 / 100)', percentage_growth = '$experience * 1.1 - (floor($experience * 1.1 / 100) * 100)' WHERE id = '$id'");
+        $points_query = mysqli_query($connection,"UPDATE users SET points = '$points', gems = '$gems', experience = '$experience * 1.1', levels = 'floor($experience * 1.1 / 100)', percentage_growth = '$experience * 1.1 - (floor($experience * 1.1 / 100) * 100)' WHERE id = '$id'");
         header("Location: index.php");
       }
 
     if(isset($_POST['create_space'])) {
-      $create_spc_query = mysqli_query($con, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
+      $create_spc_query = mysqli_query($connection, "INSERT INTO spaces VALUES(NULL, '{$_POST['space_name']}', '{$_POST['space_bio']}', '$userLoggedIn', ',', ',', 'no')");
       header("Location: index.php");
     }
   ?>
@@ -45,7 +45,7 @@ Spaces
 </h1>
 <?php
   $spcs_list = '';
-  $all_spcs_query = mysqli_query($con, "SELECT * FROM spaces");
+  $all_spcs_query = mysqli_query($connection, "SELECT * FROM spaces");
 
     while($space = mysqli_fetch_array($all_spcs_query)) {
       $id = $space['space_id'];
@@ -56,8 +56,8 @@ Spaces
       $participant_arr = explode(',', $space['participants']);
 
       if(isset($_POST["$id-spaces-request"])) {
-        $join_spc = mysqli_query($con, "UPDATE spaces SET participants=CONCAT(participants, '$userLoggedIn,') WHERE space_id='$id' AND founder='$founder'");
-        $insert_spc_new_mem_msg = mysqli_query($con, "INSERT INTO spc_msgs VALUES (NULL,'$id', '$userLoggedIn', '', 'new_member', '$date', 'no')");
+        $join_spc = mysqli_query($connection, "UPDATE spaces SET participants=CONCAT(participants, '$userLoggedIn,') WHERE space_id='$id' AND founder='$founder'");
+        $insert_spc_new_mem_msg = mysqli_query($connection, "INSERT INTO spc_msgs VALUES (NULL,'$id', '$userLoggedIn', '', 'new_member', '$date', 'no')");
         header("Location: space.php?space=$id ");
       }
           if (in_array($userLoggedIn, $participant_arr))
@@ -124,7 +124,7 @@ Spaces
   <button name="user_submit" class='align-middle inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl' type="submit">Submit</button>
 </form>
   <?php
-      $post = new Teacher_Events($con, $userLoggedIn);
+      $post = new Teacher_Events($connection, $userLoggedIn);
       $post->live_events();
       $post->load_regular_feed();
   ?>
@@ -134,7 +134,7 @@ Spaces
 <div class="w-1/2 p-5">
 <?php
   if($fetch_event_rows['num_event_rows'] > 0) {
-    $check_requests = mysqli_query($con,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
+    $check_requests = mysqli_query($connection,"SELECT * FROM authentifications WHERE id='$event_id' AND requester='david_lastt'");
     $match_request_rows = mysqli_num_rows($check_requests);
   }
   ?>

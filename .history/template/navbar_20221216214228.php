@@ -33,7 +33,7 @@
         <h1 class='inline text-xl font-bold leading-none text-gray-900'>Notification Center</h1>
       </div>
     <?php 
-      $add_notification = new Notify($con, $userLoggedIn);
+      $add_notification = new Notify($connection, $userLoggedIn);
       $add_notification->getNotifications();
     ?>
     </ul>

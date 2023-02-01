@@ -4,32 +4,32 @@ include("../template/navbar.php");
 
 //get number of global users
 $number_of_global_users = mysqli_query(
-  $con,
+  $connection,
   "SELECT count( * ) as id FROM users",
 );
 
 //get user list ordered by points and gems
 $user_list_points_query = mysqli_query(
-  $con,
+  $connection,
   "SELECT * FROM users ORDER BY points DESC LIMIT 10",
 );
 $user_list_gems_query = mysqli_query(
-  $con,
+  $connection,
   "SELECT * FROM users ORDER BY gems DESC LIMIT 10",
 );
 
 //get sum of all gems, points and experience in users table
 $total_gems = mysqli_query(
-  $con,
+  $connection,
   "SELECT SUM(gems) as gem_sum
 FROM users;",
 );
 $total_points = mysqli_query(
-  $con,
+  $connection,
   "SELECT SUM(points) as point_sum  FROM users;",
 );
 $total_experience = mysqli_query(
-  $con,
+  $connection,
   "SELECT SUM(experience) as experience_sum FROM users;",
 );
 
@@ -45,7 +45,7 @@ $total_sum_points = $point_rows["point_sum"];
 $experience_sum_points = $experience_rows["experience_sum"];
 ?>
 
-<div id="content">
+<div id="content" class='flex mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-4'>
 	<main>
         <h1 class="text-4xl font-semibold text-black py-4 pr-4">Welcome to Your User Report, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-600'>$full_name</a>";?></h1>
         <div class="shadow-lg rounded-lg overflow-hidden">
@@ -93,7 +93,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
           </div>
         </div>
       </div>
-
+          
       <div class="flex flex-wrap mt-6 -mx-3 p-2">
       <div class="w-full px-3 mb-4 lg:mb-0 lg:w-7/12 rounded-2xl">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
@@ -478,7 +478,11 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       </div>
 
-      <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA==" data-cf-beacon="{&quot;rayId&quot;:&quot;7848fc3098eb1833&quot;,&quot;version&quot;:&quot;2022.11.3&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;1b7cbb72744b40c580f8633c6b62637e&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
+      <script defer="" src="https://static.cloudflareinsights.com/beacon.min.js/vaafb692b2aea4879b33c060e79fe94621666317369993" integrity="sha512-0ahDYl866UMhKuYcW078ScMalXqtFJggm7TmlUtp0UlD4eQk0Ixfnm5ykXKvGJNFjLMoortdseTfsRT8oCfgGA
+                                                                                                                                           
+                                                                                                                                           
+                                                                                                                                           
+                                                                                                                                           " data-cf-beacon="{&quot;rayId&quot;:&quot;7848fc3098eb1833&quot;,&quot;version&quot;:&quot;2022.11.3&quot;,&quot;r&quot;:1,&quot;token&quot;:&quot;1b7cbb72744b40c580f8633c6b62637e&quot;,&quot;si&quot;:100}" crossorigin="anonymous"></script>
 
 
       <script src="https://soft-ui-dashboard-tall.creative-tim.com/assets/js/plugins/chartjs.min.js" async=""></script>

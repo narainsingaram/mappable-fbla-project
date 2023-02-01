@@ -5,7 +5,7 @@ include("../template/navbar.php");
 include("../includes/operators/settings_operator.php");
 
 
-$change_user_info_query = mysqli_query($con, "SELECT first_name, last_name, email, school FROM users WHERE username='$userLoggedIn'");
+$change_user_info_query = mysqli_query($connection, "SELECT first_name, last_name, email, school FROM users WHERE username='$userLoggedIn'");
 $change_user_info_row = mysqli_fetch_array($change_user_info_query);
 
 $first_name = $change_user_info_row['first_name'];

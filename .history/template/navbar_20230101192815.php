@@ -37,7 +37,7 @@
         </span>
       </div>
     <?php 
-      $add_notification = new Notify($con, $userLoggedIn);
+      $add_notification = new Notify($connection, $userLoggedIn);
       $add_notification->getNotifications();
     ?>
           <div class="tooltip tooltip-right tooltip-error" data-tip="Clear All Notifications">

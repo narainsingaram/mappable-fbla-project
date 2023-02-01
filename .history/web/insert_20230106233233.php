@@ -14,9 +14,9 @@ $email = ''
   $sql = "UPDATE users SET first_name='$name', last_name='$email' WHERE username='$username'";
 
 
-  if ($con->query($sql) === TRUE) {
+  if ($connection->query($sql) === TRUE) {
     echo "New record created successfully";
   } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . "<br>" . $connectionn->error;
   }
 ?>
