@@ -45,7 +45,7 @@ $total_sum_points = $point_rows["point_sum"];
 $experience_sum_points = $experience_rows["experience_sum"];
 ?>
 
-<div id="content" class='flex mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-4'>
+<div id="content" class='mx-auto px-4 py-8 sm:px-6 lg:px-4'>
 	<main>
         <h1 class="text-4xl font-semibold text-black py-4 pr-4">Welcome to Your User Report, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-600'>$full_name</a>";?></h1>
         <div class="shadow-lg rounded-lg overflow-hidden">
@@ -429,17 +429,67 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       <div class="w-full max-w-full px-3 mt-0 lg:w-7/12 lg:flex-none">
       <div class="border-black/12.5 shadow-soft-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
-      <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
-      <h6>Sales overview</h6>
-      <p class="leading-normal text-size-sm">
-      <i class="fa fa-arrow-up text-lime-500" aria-hidden="true"></i>
-      <span class="font-semibold">4% more</span> in 2021
-      </p>
+      <div class="w-full max-w-full px-3 lg:w-6/12 lg:flex-none display-inline box-sizing:border-box float-left pt-6">
+      <div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-2">
+
+
+      <h1 class='font-bold text-gray-900 text-2xl mx-4 my-3'>
+        Leaderboard
+      </h1>
+
+      <table class="text-sm text-left text-gray-500">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+        <tr>
+          <th scope="col" class="py-3 px-6">
+            Ranking
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Name
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Points
+          </th>
+          <th scope="col" class="py-3 px-6">
+            Gems
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+      <?php
+      $leaderboard_i = 0;
+
+      foreach ($user_list_points_query as $row) {
+          $leaderboard_i = $leaderboard_i + 1;
+          $_SESSION["leaderboard"] = $leaderboard_i;
+          $user_list_points_first_name = $row["first_name"];
+          $user_list_points_last_name = $row["last_name"];
+          $user_list_gems = $row["gems"];
+          $user_list_points = $row["points"];
+
+
+          echo "
+      <tr class='bg-white'>
+      <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap'>
+        $leaderboard_i
+      </th>
+      <td class='py-4 px-6'>
+        $user_list_points_first_name $user_list_points_last_name
+      </td>
+      <td class='py-4 px-6'>
+        $user_list_points
+      </td>
+      <td class='py-4 px-6'>
+        $user_list_gems
+      </td>
+      </tr>
+      ";
+      }
+      ?>
+              </tbody>
+          </table>
       </div>
-      <div class="flex-auto p-4">
-      <div>
-      <canvas id="chart-line" height="300" style="display: block; box-sizing: border-box; height: 300px; width: 584px;" width="584"></canvas>
-      </div>
+        </div>
+          </div>
       </div>
       </div>
       </div>

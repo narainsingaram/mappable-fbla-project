@@ -14,7 +14,7 @@ if(isset($_GET['profile_username'])) {
 
 // Getting events attended by user to display in indiviual data
 $events_attended = mysqli_query(
-  $con,
+  $connection,
   "SELECT * FROM authentifications
   WHERE accepted = 'yes'"
   )
