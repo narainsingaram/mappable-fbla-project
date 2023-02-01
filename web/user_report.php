@@ -190,7 +190,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </nav>
       <div class="w-full px-6 py-2 mx-auto">
       <div wire:id="4ilqyNplThbbtlHVw3TJ">
-      <h3 class="text-4xl font-semibold text-black p-2">Overall Data</h3>
       <div class="flex flex-wrap -mx-3">
 
       <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
@@ -314,7 +313,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       </div>
       </div>
-      <h3 class="text-4xl font-semibold text-black p-6">Indivual Data</h3>
       <div class="flex flex-wrap mt-6 -mx-3">
       <div class="w-full max-w-full px-3 mt-0 mb-6 lg:mb-0 lg:w-5/12 lg:flex-none">
       <div class="border-black/12.5 shadow-soft-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
@@ -427,9 +425,9 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       </div>
       </div>
-      <div class="w-full max-w-full px-3 mt-0 lg:w-7/12 lg:flex-none">
-      <div class="border-black/12.5 shadow-soft-xl relative z-20 flex min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
-      <div class="w-full max-w-full px-3 lg:w-6/12 lg:flex-none display-inline box-sizing:border-box float-left pt-6">
+      <div class="px-3 mt-0 lg:flex-none">
+      <div class="border-black/12.5 shadow-soft-xl relative z-20 flex flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border">
+      <div class="px-3 lg:w-6/12 lg:flex-none display-inline box-sizing:border-box float-left pt-6">
       <div class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-white bg-clip-border p-2">
 
 
@@ -438,18 +436,18 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </h1>
 
       <table class="text-sm text-left text-gray-500">
-      <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+      <thead class="text-xs text-gray-700 uppercase bg-gray-50 rounded-2xl border-0 border-solid">
         <tr>
-          <th scope="col" class="py-3 px-6">
+          <th scope="col" class="py-3 px-36">
             Ranking
           </th>
-          <th scope="col" class="py-3 px-6">
+          <th scope="col" class="py-3 px-36">
             Name
           </th>
-          <th scope="col" class="py-3 px-6">
+          <th scope="col" class="py-3 px-36">
             Points
           </th>
-          <th scope="col" class="py-3 px-6">
+          <th scope="col" class="py-3 px-36">
             Gems
           </th>
         </tr>
@@ -469,16 +467,16 @@ $experience_sum_points = $experience_rows["experience_sum"];
 
           echo "
       <tr class='bg-white'>
-      <th scope='row' class='py-4 px-6 font-medium text-gray-900 whitespace-nowrap'>
+      <th scope='row' class='py-2 px-40 font-medium text-gray-900 whitespace-nowrap'>
         $leaderboard_i
       </th>
-      <td class='py-4 px-6'>
+      <td class='py-2 px-20'>
         $user_list_points_first_name $user_list_points_last_name
       </td>
-      <td class='py-4 px-6'>
+      <td class='py-2 px-36'>
         $user_list_points
       </td>
-      <td class='py-4 px-6'>
+      <td class='py-2 px-36'>
         $user_list_gems
       </td>
       </tr>
