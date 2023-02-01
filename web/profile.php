@@ -17,8 +17,9 @@ if(isset($_GET['profile_username'])) {
 // Getting events attended by user to display in indiviual data
 $events_attended = mysqli_query(
   $con,
-  "SELECT * FROM authentifications WHERE requester = $userLoggedIn AND accepted = yes ORDER BY id"
-)
+  "SELECT * FROM authentifications
+  WHERE accepted = 'yes'"
+  )
 ?>
       <section class="relative block" style="height: 500px;">
         <div
