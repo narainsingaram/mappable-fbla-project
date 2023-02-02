@@ -342,10 +342,10 @@ $experience_sum_points = $experience_rows["experience_sum"];
         <div class="text-lg font-extrabold">Total Number of Points:</div> <div class="text-yellow-600 font-extrabold"> <?php echo $points ?> </div>
         <div class="text-lg font-extrabold">Total Number of Gems: </div><div class="text-green-600 font-extrabold"> <?php echo $gems ?> </div> 
         <div class="text-lg font-extrabold">Total Number of Experience Points: </div><div class="text-purple-600 font-extrabold"> <?php echo $experience ?> </div>
-        <div class="text-lg font-extrabold">Number of Events Attended: </div><div class=""> <?php echo $events_attended ?> </div>
-        <div class="text-lg font-extrabold">Sports Events Attended:</div>
-        <div class="text-lg font-extrabold">Extracurricular Events Atended:</div>
-        <div class="text-lg font-extrabold">Academic Events Attended: <?php echo $academic_attended ?> </div>
+        <div class="text-lg font-extrabold">Number of Events Attended: </div><div class="text-orange-600 font-extrabold"> <?php echo $events_attended ?> </div>
+        <div class="text-lg font-extrabold">Sports Events Attended:</div><div class="text-blue-600 font-extrabold"><?php echo $sports_attended ?></div>
+        <div class="text-lg font-extrabold">Extracurricular Events Atended:</div><div class="text-red-600 font-extrabold"><?php echo $extra_attended?> </div> 
+        <div class="text-lg font-extrabold">Academic Events Attended: </div><div class="text-purple-600 font-extrabold"><?php echo $academic_attended?></div>
       </p>
       <div class="w-full px-6 mx-auto max-w-screen-2xl rounded-xl">
       <div class="flex flex-wrap mt-0 -mx-3">
@@ -481,82 +481,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="border-black/12.5 mb-0 rounded-t-2xl border-b-0 border-solid bg-white p-6 pb-0">
       <div class="flex flex-wrap mt-0 -mx-3">
       <div class="flex-none w-7/12 max-w-full px-3 mt-0 lg:w-full lg:flex-none">
-      <?php
-
-/* Include the `fusioncharts.php` file that contains functions  to embed the charts. */
-
-   include("includes/fusioncharts.php");
-
-/* The following 4 code lines contain the database connection information. Alternatively, you can move these code lines to a separate file and include the file here. You can also modify this code based on your database connection. */
-
-   $hostdb = "localhost";  // MySQl host
-   $userdb = "root";  // MySQL username
-   $passdb = "";  // MySQL password
-   $namedb = "fusioncharts_phpsample";  // MySQL database name
-
-   // Establish a connection to the database
-   $dbhandle = new mysqli($hostdb, $userdb, $passdb, $namedb);
-
-   /*Render an error message, to avoid abrupt failure, if the database connection parameters are incorrect */
-   if ($dbhandle->connect_error) {
-    exit("There was an error with your connection: ".$dbhandle->connect_error);
-   }
-?>
-
-<html>
-  <head>
-    <title>FusionCharts XT - Column 2D Chart - Data from a database</title>
-    <link  rel="stylesheet" type="text/css" href="css/style.css" />
-    <!-- You need to include the following JS file to render the chart.
-    When you make your own charts, make sure that the path to this JS file is correct.
-    Else, you will get JavaScript errors. -->
-    <script src=" https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
-    <script src=" https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
-  </head>
-   <body>
-    <?php
-      // Form the SQL query that returns the top 10 most populous countries
-      $strQuery = "SELECT Name, Population FROM Country ORDER BY Population DESC LIMIT 10";
-
-      // Execute the query, or else return the error message.
-      $result = $dbhandle->query($strQuery) or exit("Error code ({$dbhandle->errno}): {$dbhandle->error}");
-
-      // If the query returns a valid response, prepare the JSON string
-      if ($result) {
-          // The `$arrData` array holds the chart attributes and data
-          $arrData = array(
-              "chart" => array(
-                  "caption" => "Countires With Most Oil Reserves [2018-2019]",
-                  "showValues" => "0",
-                  "theme" => "fusion"
-                )
-            );
-
-          $arrData["data"] = array();
-
-          while($row = mysqli_fetch_array($result)) {
-            array_push($arrData["data"], array(
-                "label" => $row["Name"],
-                "value" => $row["oil_reserves"]
-                )
-            );
-          }
-
-          /*JSON Encode the data to retrieve the string containing the JSON representation of the data in the array. */
-
-          $jsonEncodedData = json_encode($arrData);
-
-  /*Create an object for the column chart using the FusionCharts PHP class constructor. Syntax for the constructor is ` FusionCharts("type of chart", "unique chart id", width of the chart, height of the chart, "div id to render the chart", "data format", "data source")`. Because we are using JSON data to render the chart, the data format will be `json`. The variable `$jsonEncodeData` holds all the JSON data for the chart, and will be passed as the value for the data source parameter of the constructor.*/
-
-          $columnChart = new FusionCharts("column2D", "myFirstChart" , 700, 400, "chart-1", "json", $jsonEncodedData);
-
-          // Render the chart
-          $columnChart->render();
-
-          // Close the database connection
-          $dbhandle->close();
-      }
-    ?>
+      
     <div id="chart-1"><!-- Fusion Charts will render here--></div>\
    </body>
 </html>
