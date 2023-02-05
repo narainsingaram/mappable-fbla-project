@@ -65,7 +65,7 @@
 
                 <div class="hs-dropdown relative inline-block [--placement:bottom-right]" data-hs-dropdown-auto-close="inside">
                   <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden mt-2 divide-y divide-gray-200 min-w-[12rem] z-10 bg-white shadow-md rounded-lg mt-2" aria-labelledby="hs-as-table-table-filter-dropdown">
-                    <div class="divide-y divide-gray-200">
+                    <div class="divide-y divide-gray-200 dark:divide-gray-700">
                       <label for="hs-as-filters-dropdown-all" class="flex py-2.5 px-3">
                         <input type="checkbox" class="shrink-0 mt-0.5 border-gray-200 rounded text-blue-600 pointer-events-none focus:ring-blue-500 dark:bg-gray-800 dark:border-gray-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" id="hs-as-filters-dropdown-all" checked>
                         <span class="ml-3 text-sm text-gray-800 dark:text-gray-200">All</span>
