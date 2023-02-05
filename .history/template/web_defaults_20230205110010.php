@@ -63,8 +63,6 @@ $academic_count = 0;
 $extracurricular_count = 0;
 $sports_count = 0;
 
-$sports_count= $extracurricular_count= $academic_count = 0;
-
 
 $academic = "SELECT COUNT(*) AS count FROM teacher_events WHERE type = 'Academic'";
 $academic_query = $connection->query($academic);
@@ -86,12 +84,6 @@ if ($sports_q->num_rows > 0) {
     $row = $sports_q->fetch_assoc();
     $sports_count = $row["count"];
 }
-
-echo $extracurricular_count;
-echo "<br>";
-echo $academic_count;
-echo "<br>";
-echo $sports_count;
 
 
 $profile_symbol = substr($first_name, 0, 1). substr($last_name, 0, 1);
