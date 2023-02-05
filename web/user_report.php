@@ -318,7 +318,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       <div class="px-3 text-right">
       <div class="inline-block text-center rounded-lg bg-gradient-fuchsia">
-      
       </div>
       </div>
       </div>
