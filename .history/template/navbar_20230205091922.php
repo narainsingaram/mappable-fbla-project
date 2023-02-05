@@ -1,7 +1,3 @@
-<?php 
-  shuffle($color_array);
-?>
-
 <div class="navbar">
   <div class="flex-none">
     <div class="dropdown">
@@ -13,27 +9,48 @@
       <li><a href="dashboard.php">Dashboard</a></li>
       <li><a href="user_report.php">User Report</a></li>
       <li><a href="shop.php">Rewards</a></li>
-      <li><a href="teacher_auth.php">Authentications</a></li>
+      <?php 
+        if ()
+        echo "<li><a href='teacher_auth.php'>Authentications</a></li>"
+      ?>
       <li><a href="../settings/user_settings.php">Settings</a></li>
     </ul>
   </div>
   </div>
   <div class="flex-1">
-    <a href="index.php" class="btn btn-ghost normal-case text-xl">
+    <a href="index.php" class="btn btn-ghost text-2xl">
       <img class='w-7 pb-0.5 mr-2' src="../assets/images/mappable_logo.png" alt="logo" />
       Mappable
     </a>
   </div>
+  <div class="dropdown dropdown-end">
+    <label tabindex="0" class="btn btn-square btn-ghost m-1 focus:outline-none focus:ring focus:ring-slate-300">
+      <i class="text-2xl uil uil-bell"></i>
+    </label>
+    <ul tabindex="0" class="grid dropdown-content menu p-2 bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] rounded-2xl w-80 overflow-y-auto h-80">
+      <div class="px-5 pt-5 pb-2 flex justify-between">
+        <span class=''>
+          <h1 class='inline text-lg font-semibold leading-none text-gray-900'>Notifications</h1>
+        </span>
+        <span class='justify-end'>
+        </span>
+      </div>
+    <?php 
+      $add_notification = new Notify($connection, $userLoggedIn);
+      $add_notification->getNotifications();
+    ?>
+    </ul>
+  </div>
     <div class="dropdown dropdown-end">
       <label tabindex="0" class="btn normal-case border-none inline-flex mx-2 items-center text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl">Create</label>
       <ul tabindex="0" class="dropdown-content menu p-2 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] bg-white rounded-2xl text-black w-52">
-        <li><a>Create Event</a></li>
-        <li><label for="my-modal-5">Create Space</label></li>
+        <li><label for="create_space">Create Space</label></li>
+        <li><label for="create_event">Create Event</label></li>
       </ul>
     </div>
     <div class="dropdown dropdown-end ">
       <label tabindex="0" class="btn btn-ghost p-0 hover:bg-slate-50">
-        <?php echo "<span class='bg-$color_array[0]-100 w-12 h-12 text-xl font-bold text-gray-700  rounded-full flex items-center justify-center'> $profile_symbol </span>";?>
+        <?php echo "<span class='bg-slate-200 w-12 h-12 text-xl font-bold text-gray-700  rounded-full flex items-center justify-center'> $profile_symbol </span>";?>
       </label>
       <blockquote tabindex="0" class="dropdown-content rounded-2xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px]">
         <div class="card w-96 bg-white">
@@ -52,6 +69,9 @@
               </div>
             </div>
           </div>
+            <a href='profile.php?profile_username=<?php echo $userLoggedIn; ?>' class="btn rounded-xl py-4 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] block m-auto text-center mt-4">
+                View Profile
+            </a>
           </div>
         </div>
       </div>

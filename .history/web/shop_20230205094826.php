@@ -68,7 +68,7 @@ if($rank == 1) {
                 </div>
 
                 <div class="mt-5 sm:flex sm:items-center sm:justify-between">
-                    <p class="text-sm">1st Place</p>
+                    <a href="#" class="text-sm text-blue-500 hover:underline"></a>
 
                     <div class="sm:flex sm:items-center ">
                         <button @click="isOpen = false" class="w-full px-4 py-2 mt-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:mt-0 sm:w-auto sm:mx-2 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
