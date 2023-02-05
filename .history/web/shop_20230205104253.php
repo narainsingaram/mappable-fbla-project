@@ -2,6 +2,7 @@
 include("../template/web_defaults.php");
 include("../template/navbar.php");
 include("../includes/operators/reward_operator.php");
+include("../includes/operators/register_operator.php");
 
 
 $sql = "SELECT username, points
@@ -118,6 +119,10 @@ EOT;;
 echo $rank_content;
 
 if(isset($_POST['reward_submit'])) {
-  $random_number = rand(10,25);
-  $insert_reward_query = mysqli_query($connection, "INSERT INTO claimed_reward VALUES (NULL, '$userLoggedIn', '{$_POST['reward_value']}', '$random_number')");
+
+
+  $insert_reward_query = mysqli_query($connection, "INSERT INTO claimed_reward VALUES(NULL, $userLoggedin, '{$_POST['reward_value']}', ");
 }
+
+
+
