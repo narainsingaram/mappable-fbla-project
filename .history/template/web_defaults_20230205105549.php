@@ -68,6 +68,9 @@ $extracurricular_q = $connection->query($extracurricular);
 $sports = "SELECT COUNT(*) AS count FROM teacher_events WHERE type = 'Sports'";
 $sports_q = $connection->query($sports);
 
+
+$events_attended = $sports_attended + $extra_attended + $academic_attended;
+
 $profile_symbol = substr($first_name, 0, 1). substr($last_name, 0, 1);
 $full_name = "$first_name $last_name";
 

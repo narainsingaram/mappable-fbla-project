@@ -59,14 +59,14 @@ $grade = $user['grade'];
 $experience = $user['experience'];
 $position = $user['position'];
 
-$academic = "SELECT COUNT(*) AS count FROM teacher_events WHERE type = 'Academic'";
+$academic = "SELECT COUNT(*) AS count FROM teacher_events WHERE type = 'academic'";
 $academic_query = $connection->query($academic);
 
-$extracurricular = "SELECT COUNT(*) AS count FROM teacher_events WHERE type = 'Extracurricular'";
-$extracurricular_q = $connection->query($extracurricular);
+$extracurricular = "SELECT COUNT(*) AS count FROM teacher_events WHERE type = 'academic'";
+$academic_query = $connection->query($academic);
 
-$sports = "SELECT COUNT(*) AS count FROM teacher_events WHERE type = 'Sports'";
-$sports_q = $connection->query($sports);
+$academic_attended = intval(mysqli_query($connection, "SELECT COUNT(*) FROM teacher_events WHERE 'type' = 'Academic'"));
+$events_attended = $sports_attended + $extra_attended + $academic_attended;
 
 $profile_symbol = substr($first_name, 0, 1). substr($last_name, 0, 1);
 $full_name = "$first_name $last_name";
