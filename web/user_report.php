@@ -316,7 +316,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </h5>
       </div>
       </div>
-      <div class="px-3 text-right">
+      <div class="px-2 text-right">
       <div class="inline-block text-center rounded-lg bg-gradient-fuchsia">
       </div>
       </div>
@@ -328,7 +328,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="flex flex-wrap mt-6 -mx-3">
       <div class="lg:mb-0 lg:w-4/12">
       <div class="border-black/12.5 flex-col break-words rounded-2xl border-0 border-solid bg-white">
-      <div class="p-4">
       <div class="py-4 pr-1 bg-gradient-dark-gray rounded-xl">
       <div>
       <h1 class='font-bold text-gray-900 text-3xl pb-4 px-1'>
@@ -342,9 +341,9 @@ $experience_sum_points = $experience_rows["experience_sum"];
         <div class="text-lg font-extrabold">Total Number of Gems: </div><div class="text-green-600 font-extrabold"> <?php echo $gems ?> </div> 
         <div class="text-lg font-extrabold">Total Number of Experience Points: </div><div class="text-purple-600 font-extrabold"> <?php echo $experience ?> </div>
         <div class="text-lg font-extrabold">Number of Events Attended: </div><div class="text-orange-600 font-extrabold"> <?php echo $events_attended ?> </div>
-        <div class="text-lg font-extrabold">Sports Events Attended:</div><div class="text-blue-600 font-extrabold"><?php echo $sports_attended ?></div>
-        <div class="text-lg font-extrabold">Extracurricular Events Atended:</div><div class="text-red-600 font-extrabold"><?php echo $extra_attended?> </div> 
-        <div class="text-lg font-extrabold">Academic Events Attended: </div><div class="text-purple-600 font-extrabold"><?php echo $academic_attended?></div>
+        <div class="text-lg font-extrabold">Sports Events Attended:</div><div class="text-blue-600 font-extrabold"><?php echo $sports_count ?></div>
+        <div class="text-lg font-extrabold">Extracurricular Events Atended:</div><div class="text-red-600 font-extrabold"><?php echo $extracurricular_count?> </div> 
+        <div class="text-lg font-extrabold">Academic Events Attended: </div><div class="text-purple-600 font-extrabold"><?php echo $academic_count?></div>
       </p>
       <div class="w-full px-6 mx-auto max-w-screen-2xl rounded-xl">
       <div class="flex flex-wrap mt-0 -mx-3">
@@ -484,9 +483,9 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <?php
  
       $dataPoints = array( 
-        array("y" => $sports_attended,"label" => "Sports Events Attended" ),
-        array("y" => $extra_attended,"label" => "Extracurricular Events Attended" ),
-        array("y" => $academic_attended,"label" => "Academic Events Attended" ),
+        array("y" => $sports_count,"label" => "Sports Events Attended" ),
+        array("y" => $extracurricular_count,"label" => "Extracurricular Events Attended" ),
+        array("y" => $academic_count,"label" => "Academic Events Attended" ),
       );
         
       ?>
