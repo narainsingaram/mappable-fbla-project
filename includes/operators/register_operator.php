@@ -117,7 +117,7 @@ if (isset($_POST['register_btn'])) {
 
         $mail->isHTML(true);// Set email format to HTML
 
-        $mail->Subject = "Confirm you registration at Mappable, {$first_name}!";
+        $mail->Subject = "Confirm your registration at Mappable, {$first_name}!";
         $mail->Body = <<<EOT
         <html>
             <head>
