@@ -182,7 +182,7 @@ public function loadAttendanceTable() {
         }
 
         else if ($accepted == 'no') {
-            $accepted .= "In Review";
+            $new_accepted .= "In Review";
         }
 
         if ($desc == '') {

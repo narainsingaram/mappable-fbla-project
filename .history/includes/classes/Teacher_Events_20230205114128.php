@@ -178,11 +178,11 @@ public function loadAttendanceTable() {
         $accepted = $auth_rows['accepted'];
 
         if ($accepted == 'yes') {
-            $accepted .= "Completed";
+            $accepted == "Completed";
         }
 
         else if ($accepted == 'no') {
-            $accepted .= "In Review";
+            $accepted == "In Review";
         }
 
         if ($desc == '') {
@@ -202,7 +202,7 @@ public function loadAttendanceTable() {
         <td class="h-px w-px whitespace-nowrap">
           <a class="block h-full p-6" href="#">
             <div class="flex items-center gap-x-4">
-                <i class="uil uil-text-size bg-slate-200 p-2 rounded-xl text-black"></i>
+                <i class="uil uil-font bg-blue-600 py-4 px-3 rounded-xl text-white"></i>
               <div>
                 <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">$title</span>
               </div>
@@ -222,12 +222,29 @@ public function loadAttendanceTable() {
         </td>
         <td class="h-px w-72 min-w-[18rem]">
           <a class="block h-full p-6" href="#">
+            <div class="flex gap-x-1 mb-2">
+              <svg class="w-3 h-3 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
+              <svg class="w-3 h-3 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
+              <svg class="w-3 h-3 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
+              <svg class="w-3 h-3 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
+              <svg class="w-3 h-3 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
+            </div>
             <span class="block text-sm text-gray-500">$desc</span>
           </a>
         </td>
         <td class="h-px w-px whitespace-nowrap">
           <a class="block h-full p-6" href="#">
-            <span class="text-sm text-gray-600 dark:text-gray-400"># $id</span>
+            <span class="text-sm text-gray-600 dark:text-gray-400">10 Jan 2022</span>
           </a>
         </td>
         <td class="h-px w-px whitespace-nowrap">

@@ -175,19 +175,6 @@ public function loadAttendanceTable() {
         $title = $auth_rows['title'];
         $image = $auth_rows['image'];
         $desc = $auth_rows['description'];
-        $accepted = $auth_rows['accepted'];
-
-        if ($accepted == 'yes') {
-            $accepted .= "Completed";
-        }
-
-        else if ($accepted == 'no') {
-            $accepted .= "In Review";
-        }
-
-        if ($desc == '') {
-            $desc .= 'No description provided by you';
-        }
 
         $requester_query = mysqli_query($this->con, "SELECT first_name, last_name FROM users WHERE username='$requester'");
         $select_request_details = mysqli_fetch_assoc($requester_query);
@@ -197,14 +184,56 @@ public function loadAttendanceTable() {
 
         $authentifications_content .= <<<EOT
         <tr>
+        <th scope="col" class="px-6 py-3 text-left">
+          <div class="flex items-center gap-x-2">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+              Product
+            </span>
+          </div>
+        </th>
+
+        <th scope="col" class="px-6 py-3 text-left">
+          <div class="flex items-center gap-x-2">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+              Reviewer
+            </span>
+          </div>
+        </th>
+
+        <th scope="col" class="px-6 py-3 text-left">
+          <div class="flex items-center gap-x-2">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+              Review
+            </span>
+          </div>
+        </th>
+
+        <th scope="col" class="px-6 py-3 text-left">
+          <div class="flex items-center gap-x-2">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+              Date
+            </span>
+          </div>
+        </th>
+
+        <th scope="col" class="px-6 py-3 text-left">
+          <div class="flex items-center gap-x-2">
+            <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+              Status
+            </span>
+          </div>
+        </th>
+      </tr>
+    </thead>
+
     <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
       <tr class="bg-white hover:bg-gray-50 dark:bg-slate-900 dark:hover:bg-slate-800">
         <td class="h-px w-px whitespace-nowrap">
           <a class="block h-full p-6" href="#">
             <div class="flex items-center gap-x-4">
-                <i class="uil uil-text-size bg-slate-200 p-2 rounded-xl text-black"></i>
+              <img class="flex-shrink-0 h-[2.375rem] w-[2.375rem] rounded-md" src="https://images.unsplash.com/photo-1572307480813-ceb0e59d8325?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=320&q=80" alt="Image Description">
               <div>
-                <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">$title</span>
+                <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">Brown Hat</span>
               </div>
             </div>
           </a>
@@ -214,29 +243,47 @@ public function loadAttendanceTable() {
             <div class="flex items-center gap-x-3">
               <img class="inline-block h-[2.375rem] w-[2.375rem] rounded-full" src="https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80" alt="Image Description">
               <div class="grow">
-                <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">$authentifier</span>
-                <span class="block text-sm text-gray-500">Event Owner</span>
+                <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">Christina Bersh</span>
+                <span class="block text-sm text-gray-500">christina@site.com</span>
               </div>
             </div>
           </a>
         </td>
         <td class="h-px w-72 min-w-[18rem]">
           <a class="block h-full p-6" href="#">
-            <span class="block text-sm text-gray-500">$desc</span>
+            <div class="flex gap-x-1 mb-2">
+              <svg class="w-3 h-3 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
+              <svg class="w-3 h-3 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
+              <svg class="w-3 h-3 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
+              <svg class="w-3 h-3 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
+              <svg class="w-3 h-3 text-gray-800 dark:text-gray-200" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+              </svg>
+            </div>
+            <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">I just love it!</span>
+            <span class="block text-sm text-gray-500">I bought this hat for my boyfriend, but then i found out he cheated on me so I kept it and I love it!! I wear it all the time and there is no problem with the fit even though its a mens" hat.</span>
           </a>
         </td>
         <td class="h-px w-px whitespace-nowrap">
           <a class="block h-full p-6" href="#">
-            <span class="text-sm text-gray-600 dark:text-gray-400"># $id</span>
+            <span class="text-sm text-gray-600 dark:text-gray-400">10 Jan 2022</span>
           </a>
         </td>
         <td class="h-px w-px whitespace-nowrap">
           <a class="block h-full p-6" href="#">
-            <span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-slate-100 text-slate-800">
+            <span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200">
               <svg class="w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
               </svg>
-                $accepted
+              Published
             </span>
           </a>
         </td>

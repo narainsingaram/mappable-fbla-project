@@ -178,11 +178,11 @@ public function loadAttendanceTable() {
         $accepted = $auth_rows['accepted'];
 
         if ($accepted == 'yes') {
-            $accepted .= "Completed";
+            $new_accepted == "Completed";
         }
 
         else if ($accepted == 'no') {
-            $accepted .= "In Review";
+            $new_accepted == "In Review";
         }
 
         if ($desc == '') {

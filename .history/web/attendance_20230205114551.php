@@ -121,6 +121,14 @@
           <table class="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
           <thead class="bg-gray-50 dark:bg-slate-800">
               <tr>
+              <th scope="col" class="px-6 py-3 text-left">
+                  <div class="flex items-center gap-x-2">
+                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
+                      ID
+                    </span>
+                  </div>
+                </th>
+                
                 <th scope="col" class="px-6 py-3 text-left">
                   <div class="flex items-center gap-x-2">
                     <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
@@ -141,14 +149,6 @@
                   <div class="flex items-center gap-x-2">
                     <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
                       Your Description
-                    </span>
-                  </div>
-                </th>
-
-                <th scope="col" class="px-6 py-3 text-left">
-                  <div class="flex items-center gap-x-2">
-                    <span class="text-xs font-semibold uppercase tracking-wide text-gray-800 dark:text-gray-200">
-                      ID
                     </span>
                   </div>
                 </th>
