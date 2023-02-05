@@ -87,12 +87,6 @@ if ($sports_q->num_rows > 0) {
     $sports_count = $row["count"];
 }
 
-echo $extracurricular_count;
-echo "<br>";
-echo $academic_count;
-echo "<br>";
-echo $sports_count;
-
 
 $profile_symbol = substr($first_name, 0, 1). substr($last_name, 0, 1);
 $full_name = "$first_name $last_name";
