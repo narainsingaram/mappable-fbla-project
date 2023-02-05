@@ -3,7 +3,6 @@ include("../template/web_defaults.php");
 include("../template/navbar.php");
 include("../includes/operators/reward_operator.php");
 
-
 $sql = "SELECT username, points
         FROM users
         ORDER BY points DESC
@@ -30,7 +29,7 @@ if($rank == 1) {
             Claim Your T-Shirt Reward
           </h1>
             <form class='inline' method='POST' action='shop.php'>
-              <input name='reward_value' type='hidden' value='1st_place'></input>
+              <input type='hidden' value='1st_place'></input>
               <button name='reward_submit' type='submit' class='btn bg-blue-300 border-none text-black hover:text-white capitalize float-right'>Claim</button>
             </form>
           <p class="mt-1.5 text-sm text-gray-500">
@@ -51,10 +50,7 @@ else if ($rank == 2) {
           <h1 class="font-bold text-gray-900 text-4xl">
             Claim Your Slushie Reward
           </h1>
-            <form class='inline' method='POST' action='shop.php'>
-              <input name='reward_value' type='hidden' value='1st_place'></input>
-              <button name='reward_submit' type='submit' class='btn bg-blue-300 border-none text-black hover:text-white capitalize float-right'>Claim</button>
-            </form>
+            <button class='btn capitalize float-right'>Claim</button>
           <p class="mt-1.5 text-sm text-gray-500">
             Because you are second place in the points leaderboard for you school, you have the ability to claim a Slushie prize.
           </p>
@@ -73,10 +69,7 @@ else if ($rank == 3) {
           <h1 class="font-bold text-gray-900 text-4xl">
             Claim Your Notebook Reward
           </h1>
-            <form class='inline' method='POST' action='shop.php'>
-              <input name='reward_value' type='hidden' value='1st_place'></input>
-              <button name='reward_submit' type='submit' class='btn bg-blue-300 border-none text-black hover:text-white capitalize float-right'>Claim</button>
-            </form>
+            <button class='btn capitalize float-right'>Claim</button>
           <p class="mt-1.5 text-sm text-gray-500">
             Because you are second place in the points leaderboard for you school, you have the ability to claim a Notebook prize.
           </p>
@@ -118,9 +111,28 @@ EOT;;
 echo $rank_content;
 
 if(isset($_POST['reward_submit'])) {
-  $random_number = rand(10,25);
-  $insert_reward_query = mysqli_query($connection, "INSERT INTO claimed_reward VALUES (NULL, '$userLoggedIn', '{$_POST['reward_value']}', '$random_number')");
+  
 }
 
+
+if (isset($_POST['download'])) {
+    $var1 = 'some value';
+    $var2 = 'some other value';
+
+    // generate the PDF content with the variables
+    $pdf_content = '<html><body><h1>PDF with PHP Variables</h1><p>Variable 1: ' . $var1 . '</p><p>Variable 2: ' . $var2 . '</p></body></html>';
+
+    // set the content-type header
+    header('Content-Type: application/pdf');
+
+    // force a download prompt with the PDF file name
+    header('Content-Disposition: attachment; filename="variables.pdf"');
+
+    // output the PDF content
+    echo $pdf_content;
+    exit;
+}
+
+?>
 
 

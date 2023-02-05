@@ -119,7 +119,8 @@ echo $rank_content;
 
 if(isset($_POST['reward_submit'])) {
   $random_number = rand(10,25);
-  $insert_reward_query = mysqli_query($connection, "INSERT INTO claimed_reward VALUES (NULL, '$userLoggedIn', '{$_POST['reward_value']}', '$random_number')");
+  $insert_reward_query = mysqli_query($connection, "INSERT INTO claimed_reward VALUES (NULL, $userLoggedIn, '{$_POST['reward_value']}', '$random_number')");
+
 }
 
 
