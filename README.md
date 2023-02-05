@@ -23,3 +23,4 @@ and error messages including the use of required fields.
 ## 🤝 Team
 - Abdul-Rafay Ahmed - Front-End Development & Design
 - Narainkarthigeyan Singaram Balamurugan - Full-End Development of Mappable (Including Back-End & Front-End Dev)
+- Nithin Venkatesh - Project Management & Administration
