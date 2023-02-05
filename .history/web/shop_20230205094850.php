@@ -231,7 +231,7 @@ echo $rank_content;
       </div>
       <h6 class="mb-2 font-semibold leading-5">First Place Prize</h6>
       <p class="text-sm text-gray-900">
-        The First Place Prize is a West Forsyth T-Shirt. The person from your school with the most points will be awarded this prize. 
+        The First Place Prize is a <?php echo $school ?> T-Shirt. The person from your school with the most points will be awarded this prize. 
       </p>
     </div>
     <div class="p-5 duration-300 transform bg-white border rounded shadow-sm hover:-translate-y-2">

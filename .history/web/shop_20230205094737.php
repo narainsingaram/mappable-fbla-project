@@ -49,7 +49,7 @@ if($rank == 1) {
         <div class="flex items-end justify-center min-h-screen px-4 pt-4 pb-20 text-center sm:block sm:p-0">
             <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
 
-            <div class="relative inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl rtl:text-right dark:bg-gray-900 sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6">
+            <div class="relative inline-block px-4 pt-5 pb-4 overflow-hidden text-left align-bottom transition-all transform bg-white rounded-lg shadow-xl rtl:text-right dark:bg-gray-900">
                 <div>
                     <div class="flex items-center justify-center">
                         <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-gray-700 dark:text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -68,7 +68,7 @@ if($rank == 1) {
                 </div>
 
                 <div class="mt-5 sm:flex sm:items-center sm:justify-between">
-                    <p class="text-sm">1st Place</p>
+                    <a href="#" class="text-sm text-blue-500 hover:underline">Learn more</a>
 
                     <div class="sm:flex sm:items-center ">
                         <button @click="isOpen = false" class="w-full px-4 py-2 mt-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:mt-0 sm:w-auto sm:mx-2 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
@@ -231,7 +231,7 @@ echo $rank_content;
       </div>
       <h6 class="mb-2 font-semibold leading-5">First Place Prize</h6>
       <p class="text-sm text-gray-900">
-        The First Place Prize is a West Forsyth T-Shirt. The person from your school with the most points will be awarded this prize. 
+        The First Place Prize is a <?php echo $school ?> T-Shirt. The person from your school with the most points will be awarded this prize. 
       </p>
     </div>
     <div class="p-5 duration-300 transform bg-white border rounded shadow-sm hover:-translate-y-2">

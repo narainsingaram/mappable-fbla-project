@@ -10,12 +10,10 @@
       <li><a href="user_report.php">User Report</a></li>
       <li><a href="shop.php">Rewards</a></li>
       <?php 
-        if ($position == "Teacher") {
-        echo "<li><a href='teacher_auth.php'>Authentications</a></li>";
-        }
+        if ($position == "Teacher")
+        echo "<li><a href='teacher_auth.php'>Authentications</a></li>"
       ?>
-      <li><a href="../web/user_settings.php">Settings</a></li>
-      <li><a href="user_settings.php">Settings</a></li>
+      <li><a href="../settings/user_settings.php">Settings</a></li>
     </ul>
   </div>
   </div>

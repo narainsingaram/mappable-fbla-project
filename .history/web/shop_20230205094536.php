@@ -30,11 +30,12 @@ if ($rank > 0) {
   echo "The user is not in the top 3.";
 }
 
-$rank_content = '';
-
 if($rank == 1) {
   $rank_content .=<<<EOT
   <div x-data="{ isOpen: true }" class="relative flex justify-center">
+    <button @click="isOpen = true" class="px-6 py-2 mx-auto tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-600 rounded-md hover:bg-blue-500 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-80">
+        Open Modal
+    </button>
 
     <div x-show="isOpen" 
         x-transition:enter="transition duration-300 ease-out"
@@ -68,7 +69,7 @@ if($rank == 1) {
                 </div>
 
                 <div class="mt-5 sm:flex sm:items-center sm:justify-between">
-                    <p class="text-sm">1st Place</p>
+                    <a href="#" class="text-sm text-blue-500 hover:underline">Learn more</a>
 
                     <div class="sm:flex sm:items-center ">
                         <button @click="isOpen = false" class="w-full px-4 py-2 mt-2 text-sm font-medium tracking-wide text-gray-700 capitalize transition-colors duration-300 transform border border-gray-200 rounded-md sm:mt-0 sm:w-auto sm:mx-2 dark:text-gray-200 dark:border-gray-700 dark:hover:bg-gray-800 hover:bg-gray-100 focus:outline-none focus:ring focus:ring-gray-300 focus:ring-opacity-40">
@@ -86,8 +87,6 @@ if($rank == 1) {
   </div>
   EOT;;
 }
-
-echo $rank_content;
 
 ?>
 
@@ -231,7 +230,7 @@ echo $rank_content;
       </div>
       <h6 class="mb-2 font-semibold leading-5">First Place Prize</h6>
       <p class="text-sm text-gray-900">
-        The First Place Prize is a West Forsyth T-Shirt. The person from your school with the most points will be awarded this prize. 
+        The First Place Prize is a <?php echo $school ?> T-Shirt. The person from your school with the most points will be awarded this prize. 
       </p>
     </div>
     <div class="p-5 duration-300 transform bg-white border rounded shadow-sm hover:-translate-y-2">
