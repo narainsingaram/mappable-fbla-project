@@ -89,21 +89,6 @@ $events_attended = mysqli_query(
                   </div>
                 </div>
               </div>
-              <div class="mt-10 py-10 border-t border-gray-200">
-                <div class="flex flex-wrap justify-center">
-                  <div class="w-full lg:w-9/12 px-4">
-                    <h3 class="text-4xl font-semibold leading-normal mb-2 text-gray-800 mb-2 text-center">
-                      Events Attended
-                    </h3>
-                    <?php
-                      $post = new Teacher_Events($connection, $userLoggedIn);
-                      $post->attended_events();
-                    ?>
-                    <div class="text-center">
-                    <a href="#pablo" class="font-normal text-blue-600 "
-                      >View All</a
-                    >
-                  </div> 
                   </div>
                 </div>
               </div>
