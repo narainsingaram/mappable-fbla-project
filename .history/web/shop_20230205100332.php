@@ -20,7 +20,7 @@ while($row = mysqli_fetch_assoc($result)) {
 
 $rank_content = '';
 
-if($rank == 1) {
+else {
   $rank_content .=<<<EOT
       <header aria-label="Page Header" class="my-10 bg-slate-200 mx-8 rounded-xl">
       <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
@@ -103,10 +103,6 @@ else if ($rank > 3) {
       </div>
   </section>
 EOT;;
-}
-
-else {
-  echo "user is not in the top 3";
 }
 
 echo $rank_content;

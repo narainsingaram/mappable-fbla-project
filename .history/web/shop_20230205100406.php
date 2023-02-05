@@ -105,10 +105,6 @@ else if ($rank > 3) {
 EOT;;
 }
 
-else {
-  echo "user is not in the top 3";
-}
-
 echo $rank_content;
 
 ?>

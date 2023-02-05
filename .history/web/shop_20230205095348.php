@@ -18,95 +18,37 @@ while($row = mysqli_fetch_assoc($result)) {
   }
 }
 
+if ($rank > 0) {
+  if ($rank == 1) {
+      echo "The user is in the top 3 and is in first place.";
+  } elseif ($rank == 2) {
+      echo "The user is in the top 3 and is in second place.";
+  } elseif ($rank == 3) {
+      echo "The user is in the top 3 and is in third place.";
+  }
+} else {
+  echo "The user is not in the top 3.";
+}
+
 $rank_content = '';
 
 if($rank == 1) {
   $rank_content .=<<<EOT
-      <header aria-label="Page Header" class="my-10 bg-slate-200 mx-8 rounded-xl">
+      <header aria-label="Page Header" class="bg-slate-200 mx-8 rounded-xl">
       <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
         <div class="my-6">
           <h1 class="font-bold text-gray-900 text-4xl">
             Claim Your T-Shirt Reward
           </h1>
-            <button class='btn capitalize float-right'>Claim</button>
+
           <p class="mt-1.5 text-sm text-gray-500">
-            Because you are first place in the points leaderboard for you school, you have the ability to claim a T-Shirt prize.
+          Explore your school & community's events created by your teachers and administrators. 🚀
           </p>
+          <div class='float-right'>fdasfa</div>
         </div>
       </div>
-
     </header>
   EOT;;
-}
-
-else if ($rank == 2) {
-  $rank_content .=<<<EOT
-      <header aria-label="Page Header" class="my-10 bg-slate-200 mx-8 rounded-xl">
-      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-        <div class="my-6">
-          <h1 class="font-bold text-gray-900 text-4xl">
-            Claim Your Slushie Reward
-          </h1>
-            <button class='btn capitalize float-right'>Claim</button>
-          <p class="mt-1.5 text-sm text-gray-500">
-            Because you are second place in the points leaderboard for you school, you have the ability to claim a Slushie prize.
-          </p>
-        </div>
-      </div>
-
-    </header>
-  EOT;;
-}
-
-else if ($rank == 3) {
-  $rank_content .=<<<EOT
-      <header aria-label="Page Header" class="my-10 bg-slate-200 mx-8 rounded-xl">
-      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-        <div class="my-6">
-          <h1 class="font-bold text-gray-900 text-4xl">
-            Claim Your Notebook Reward
-          </h1>
-            <button class='btn capitalize float-right'>Claim</button>
-          <p class="mt-1.5 text-sm text-gray-500">
-            Because you are second place in the points leaderboard for you school, you have the ability to claim a Notebook prize.
-          </p>
-        </div>
-      </div>
-
-    </header>
-  EOT;;
-}
-
-else if ($rank > 3) {
-    $rank_content .= <<<EOT
-    <section class="bg-white dark:bg-gray-900 ">
-      <div class="container flex items-center min-h-screen px-6 py-12 mx-auto">
-          <div>
-              <p class="text-sm font-medium text-blue-500 dark:text-blue-400">404 error</p>
-              <h1 class="mt-3 text-2xl font-semibold text-gray-800 dark:text-white md:text-3xl">We can’t find that page</h1>
-              <p class="mt-4 text-gray-500 dark:text-gray-400">Sorry, the page you are looking for doesn't exist or has been moved.</p>
-
-              <div class="flex items-center mt-6 gap-x-3">
-                  <button class="flex items-center justify-center w-1/2 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 bg-white border rounded-lg gap-x-2 sm:w-auto dark:hover:bg-gray-800 dark:bg-gray-900 hover:bg-gray-100 dark:text-gray-200 dark:border-gray-700">
-                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 rtl:rotate-180">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
-                      </svg>
-
-                      <span>Go back</span>
-                  </button>
-
-                  <button class="w-1/2 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 bg-blue-500 rounded-lg shrink-0 sm:w-auto hover:bg-blue-600 dark:hover:bg-blue-500 dark:bg-blue-600">
-                      Take me home
-                  </button>
-              </div>
-          </div>
-      </div>
-  </section>
-EOT;;
-}
-
-else {
-  echo "user is not in the top 3";
 }
 
 echo $rank_content;
@@ -117,6 +59,125 @@ echo $rank_content;
 
 
 <div id="content" class='bg-gray-50'>
+
+<section class="bg-gray-900 text-white">
+  <div class="max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+    <div class="max-w-xl">
+      <h2 class="text-3xl font-bold sm:text-4xl">Claim Your Rewards Here</h2>
+
+      <p class="mt-4 text-gray-300">
+        If you are in the Top 3 for having the most points within West Forsyth High School. You can claim your rewards here.
+      </p>
+    </div>
+
+    <div
+      class="mt-8 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 md:gap-12 lg:grid-cols-3"
+    >
+    <div class="flex items-start">
+        <span class="flex-shrink-0 rounded-lg bg-gray-800 p-4">
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+            <path
+              d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+            ></path>
+          </svg>
+        </span>
+
+        <div class="ml-4">
+          <h2 class="text-lg font-bold">T-Shirt</h2>
+
+          <p class="mt-1 text-sm text-gray-300">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+            cumque tempore est ab possimus quisquam reiciendis tempora animi!
+            Quaerat, saepe?
+          </p>
+          <button class='bg-white text-black px-4 py-2 rounded-xl my-2'>Claim</button>
+        </div>
+      </div>
+
+      <div class="flex items-start">
+        <span class="flex-shrink-0 rounded-lg bg-gray-800 p-4">
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+            <path
+              d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+            ></path>
+          </svg>
+        </span>
+
+        <div class="ml-4">
+          <h2 class="text-lg font-bold">Lorem, ipsum dolor.</h2>
+
+          <p class="mt-1 text-sm text-gray-300">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+            cumque tempore est ab possimus quisquam reiciendis tempora animi!
+            Quaerat, saepe?
+          </p>
+          <button class='bg-white text-black px-4 py-2 rounded-xl my-2'>Claim</button>
+        </div>
+      </div>
+
+      <div class="flex items-start">
+        <span class="flex-shrink-0 rounded-lg bg-gray-800 p-4">
+          <svg
+            class="h-5 w-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+            <path
+              d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
+            ></path>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
+            ></path>
+          </svg>
+        </span>
+
+        <div class="ml-4">
+          <h2 class="text-lg font-bold">Lorem, ipsum dolor.</h2>
+
+          <p class="mt-1 text-sm text-gray-300">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Error
+            cumque tempore est ab possimus quisquam reiciendis tempora animi!
+            Quaerat, saepe?
+          </p>
+          <button class='bg-white text-black px-4 py-2 rounded-xl my-2'>Claim</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <div class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
   <div class="max-w-xl mb-10 md:mx-auto sm:text-center lg:max-w-2xl md:mb-12">

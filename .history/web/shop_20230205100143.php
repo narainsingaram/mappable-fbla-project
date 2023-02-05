@@ -77,7 +77,7 @@ else if ($rank == 3) {
   EOT;;
 }
 
-else if ($rank > 3) {
+else {
     $rank_content .= <<<EOT
     <section class="bg-white dark:bg-gray-900 ">
       <div class="container flex items-center min-h-screen px-6 py-12 mx-auto">
@@ -103,10 +103,6 @@ else if ($rank > 3) {
       </div>
   </section>
 EOT;;
-}
-
-else {
-  echo "user is not in the top 3";
 }
 
 echo $rank_content;

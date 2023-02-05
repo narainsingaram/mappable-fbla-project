@@ -106,7 +106,9 @@ EOT;;
 }
 
 else {
-  echo "user is not in the top 3";
+  $rank_content .= <<<EOT
+    s
+  EOT;;
 }
 
 echo $rank_content;

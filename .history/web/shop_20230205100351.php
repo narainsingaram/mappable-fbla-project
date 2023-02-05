@@ -20,25 +20,6 @@ while($row = mysqli_fetch_assoc($result)) {
 
 $rank_content = '';
 
-if($rank == 1) {
-  $rank_content .=<<<EOT
-      <header aria-label="Page Header" class="my-10 bg-slate-200 mx-8 rounded-xl">
-      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-        <div class="my-6">
-          <h1 class="font-bold text-gray-900 text-4xl">
-            Claim Your T-Shirt Reward
-          </h1>
-            <button class='btn capitalize float-right'>Claim</button>
-          <p class="mt-1.5 text-sm text-gray-500">
-            Because you are first place in the points leaderboard for you school, you have the ability to claim a T-Shirt prize.
-          </p>
-        </div>
-      </div>
-
-    </header>
-  EOT;;
-}
-
 else if ($rank == 2) {
   $rank_content .=<<<EOT
       <header aria-label="Page Header" class="my-10 bg-slate-200 mx-8 rounded-xl">
@@ -103,10 +84,26 @@ else if ($rank > 3) {
       </div>
   </section>
 EOT;;
+
 }
 
 else {
-  echo "user is not in the top 3";
+  $rank_content .=<<<EOT
+      <header aria-label="Page Header" class="my-10 bg-slate-200 mx-8 rounded-xl">
+      <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+        <div class="my-6">
+          <h1 class="font-bold text-gray-900 text-4xl">
+            Claim Your T-Shirt Reward
+          </h1>
+            <button class='btn capitalize float-right'>Claim</button>
+          <p class="mt-1.5 text-sm text-gray-500">
+            Because you are first place in the points leaderboard for you school, you have the ability to claim a T-Shirt prize.
+          </p>
+        </div>
+      </div>
+
+    </header>
+  EOT;;
 }
 
 echo $rank_content;
