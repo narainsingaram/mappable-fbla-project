@@ -28,10 +28,8 @@ if($rank == 1) {
           <h1 class="font-bold text-gray-900 text-4xl">
             Claim Your T-Shirt Reward
           </h1>
-            <form class='inline' method='POST' action='shop.php'>
-              <input type='hidden' value='1st_place'></input>
-              <button name='reward_submit' type='submit' class='btn bg-blue-300 border-none text-black hover:text-white capitalize float-right'>Claim</button>
-            </form>
+            <form class='inline' method='POST'
+            <button class='btn capitalize float-right'>Claim</button>
           <p class="mt-1.5 text-sm text-gray-500">
             Because you are first place in the points leaderboard for you school, you have the ability to claim a T-Shirt prize.
           </p>
@@ -109,9 +107,5 @@ EOT;;
 }
 
 echo $rank_content;
-
-if(isset($_POST['reward_submit'])) {
-  
-}
 
 ?>

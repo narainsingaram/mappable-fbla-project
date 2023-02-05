@@ -111,7 +111,7 @@ EOT;;
 echo $rank_content;
 
 if(isset($_POST['reward_submit'])) {
-  
+  echo "water";
 }
 
 ?>
