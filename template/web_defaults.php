@@ -55,7 +55,13 @@ $gems = $user['gems'];
 $experience = $user['experience'];
 $levels = $user['levels'];
 $grade = $user['grade'];
+$experience = $user['experience'];
+$position = $user['position'];
 
+$sports_attended = intval(mysqli_query($connection, "SELECT * FROM teacher_events WHERE 'type' = 'Sports'"));
+$extra_attended = intval(mysqli_query($connection, "SELECT * FROM teacher_events WHERE 'type' = 'Extracurricular'"));
+$academic_attended = intval(mysqli_query($connection, "SELECT COUNT(*) FROM teacher_events WHERE 'type' = 'Academic'"));
+$events_attended = $sports_attended + $extra_attended + $academic_attended;
 
 $profile_symbol = substr($first_name, 0, 1). substr($last_name, 0, 1);
 $full_name = "$first_name $last_name";
