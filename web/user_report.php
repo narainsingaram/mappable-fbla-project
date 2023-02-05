@@ -490,7 +490,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
       );
         
       ?>
-
       <script>
       window.onload = function() {
       
