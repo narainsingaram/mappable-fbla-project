@@ -481,7 +481,43 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="flex flex-wrap mt-0 -mx-3">
       <div class="flex-none w-7/12 max-w-full px-3 mt-0 lg:w-full lg:flex-none">
       
-    <div id="chart-1"><!-- Fusion Charts will render here--></div>\
+      <?php
+ 
+      $dataPoints = array( 
+        array("y" => $sports_attended,"label" => "Sports Events Attended" ),
+        array("y" => $extra_attended,"label" => "Extracurricular Events Attended" ),
+        array("y" => $academic_attended,"label" => "Academic Events Attended" ),
+      );
+        
+      ?>
+
+      <script>
+      window.onload = function() {
+      
+      var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title:{
+          text: "Breakdown of Events Attended"
+        },
+        axisY: {
+          title: "# of Events Attended",
+          includeZero: true,
+        },
+        data: [{
+          type: "bar",
+          indexLabel: "{y}",
+          indexLabelPlacement: "inside",
+          indexLabelFontWeight: "bolder",
+          indexLabelFontColor: "white",
+          dataPoints: <?php echo json_encode($dataPoints, JSON_NUMERIC_CHECK); ?>
+        }]
+      });
+      chart.render();
+      
+      }
+      </script>
+      <body><div id="chartContainer" style="height: 370px; width: 100%;"></div>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> </body>
    </body>
 </html>
       </div>
