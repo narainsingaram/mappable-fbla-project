@@ -100,6 +100,7 @@ else if ($rank > 3) {
                   </a>
               </div>
           </div>
+          <span class='float-right'
       </div>
   </section>
 EOT;;
