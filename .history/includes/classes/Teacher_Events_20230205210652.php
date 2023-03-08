@@ -296,20 +296,7 @@ if(isset($_POST['auth_submit'])) {
             $user_to = '';
         }
 
-        $create_event_query = mysqli_query($this->con, "SELECT * FROM users");
-        $row = mysqli_fetch_array($create_event_query);
-        $first_name = $row['first_name'];
-        $last_name = $row['last_name'];
-        $username = $row['username'];
-        $position = $row['position'];
-        $level = $row['levels'];
 
-        $fn_i = $first_name[0];
-        $ln_i = $last_name[0];
-
-        $check_requests = mysqli_query($this->con,"SELECT * FROM authentifications WHERE id='$id' AND requester='$userLoggedIn'");
-
-        $match_request_rows = mysqli_num_rows($check_requests);
         
 
         if($match_request_rows == 0) {

@@ -155,7 +155,7 @@ class Spaces {
       
             if(isset($_POST["$id-spaces-request"])) {
               $join_spc = mysqli_query($this->con, "UPDATE spaces SET participants=CONCAT(participants, '$userLoggedIn,') WHERE space_id='$id' AND founder='$founder'");
-              $insert_spc_new_mem_msg = mysqli_query($this->con, "INSERT INTO spc_msgs VALUES (NULL,'$id', '$userLoggedIn', '', 'new_member', '$date', 'no')");
+              $insert_spc_new_mem_msg = mysqli_query($connection, "INSERT INTO spc_msgs VALUES (NULL,'$id', '$userLoggedIn', '', 'new_member', '$date', 'no')");
               header("Location: space.php?space=$id ");
             }
                 if (in_array($userLoggedIn, $participant_arr))
