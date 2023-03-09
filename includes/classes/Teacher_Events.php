@@ -297,7 +297,7 @@ if(isset($_POST['auth_submit'])) {
             $user_to = '';
         }
 
-        $create_event_query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$added_by'");
+        $create_event_query = mysqli_query($this->con, "SELECT * FROM users");
         $row = mysqli_fetch_array($create_event_query);
         $first_name = $row['first_name'];
         $last_name = $row['last_name'];

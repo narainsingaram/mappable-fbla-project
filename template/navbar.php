@@ -6,7 +6,7 @@
     </label>
     <ul tabindex="0" class="dropdown-content menu p-2 bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] rounded-2xl w-52">
       <li><a href="index.php">Home</a></li>
-      <li><a href="user_report.php">Attendance</a></li>
+      <li><a href="attendance.php">Attendance</a></li>
       <li><a href="user_report.php">User Report</a></li>
       <li><a href="shop.php">Rewards</a></li>
       <?php 
