@@ -700,6 +700,8 @@ if(isset($_POST['auth_submit'])) {
         </button>
     </main>
     </div>
+    <div class='-top-0 -right-0 absolute dropdown'>
+        </div>
     </div>";
         }
         

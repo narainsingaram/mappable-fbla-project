@@ -700,6 +700,9 @@ if(isset($_POST['auth_submit'])) {
         </button>
     </main>
     </div>
+    <div class='-top-0 -right-0 absolute dropdown'>
+        <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'></label>
+        </div>
     </div>";
         }
         
