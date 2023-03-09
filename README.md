@@ -6,21 +6,17 @@ Mappable is a web app that helps increase students' engagement in school communi
 ## 💭 Our Mission
 Mappable, the PHP Web App, was created to provide a way for students, teachers, and administrators to socially participate together in engaging ways to demonstrate school commitment and pride while being productive and entertaining. 
 
-## ✅ Checklist of Requirements
-- ✅ Assign a point value for participating in or attending events.
-- ⛔️ Must have at least five sporting events and five non-sports school events. (we can easily do this one)
-- ✅ Track students' names, grades, points.
-- ⛔️ Generate a report at the end of the quarter to show points per student in each grade.
-- ✅ Data must be stored persistently. Storage may be in a relational
-database, a document-oriented NoSQL database, flat text files, flat
-JSON, or XML files.
-- ✅ The user interface must be a GUI with a minimum of five different
-control types including such things as drop-down lists, text fields,
-checkboxes, date picker, or other relevant control types.
-- ✅ All data entry must be validated with appropriate user notification
-and error messages including the use of required fields.
-
 ## 🤝 Team
 - Abdul-Rafay Ahmed - Front-End Development & Design
-- Narainkarthigeyan Singaram Balamurugan - Full-End Development of Mappable (Including Back-End & Front-End Dev)
+- Narainkarthigeyan Singaram Balamurugan - Full-Stack Development of Mappable (Including Back-End & Front-End Dev)
 - Nithin Venkatesh - Project Management & Administration
+
+## Documentation
+- Tailwind Libraries:
+ - https://demos.creative-tim.com/soft-ui-dashboard-tailwind/pages/dashboard.html
+ - https://canvasjs.com/php-charts/bar-chart/ 
+ -
+ -
+- Images
+ - https://www.google.com/url?sa=i&url=https%3A%2F%2Fearthobservatory.nasa.gov%2Fimages%2F87843%2Fgrand-teton-national-park&psig=AOvVaw0OhSZ9ZRPBItiUoJTokTOJ&ust=1678479547577000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCNCJ39vVz_0CFQAAAAAdAAAAABAE
+ 
