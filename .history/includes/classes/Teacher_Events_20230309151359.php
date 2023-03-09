@@ -182,7 +182,7 @@ public function loadAuthentifications() {
                 No students or educators have requested any authentifications for you to verify.
             </div>
             <div class="mt-4">
-                <a href='index.php' type="button" class="btn capitalize inline-flex justify-center items-center gap-2 rounded-md border border-transparent bg-blue-200 text-blue-500">
+                <a href='index.php' type="button" class="inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-medium text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">
                     Go Back Home
                 </a>
                 </div>

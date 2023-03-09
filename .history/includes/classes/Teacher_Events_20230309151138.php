@@ -176,15 +176,19 @@ public function loadAuthentifications() {
             </div>
             <div class="ml-4">
             <h3 class="text-gray-800 font-semibold">
-                Seems like your Authentification Inbox is empty
+                Seems like your authentification inbox is empty
             </h3>
             <div class="mt-2 text-sm text-gray-600">
-                No students or educators have requested any authentifications for you to verify.
+                Notifications may include alerts, sounds and icon badges. These can be configured in Settings.
             </div>
             <div class="mt-4">
-                <a href='index.php' type="button" class="btn capitalize inline-flex justify-center items-center gap-2 rounded-md border border-transparent bg-blue-200 text-blue-500">
-                    Go Back Home
-                </a>
+                <div class="flex space-x-3">
+                <button type="button" class="inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-medium text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">
+                    Don't allow
+                </button>
+                <button type="button" class="inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-medium text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">
+                    Allow
+                </button>
                 </div>
             </div>
             </div>
