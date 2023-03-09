@@ -159,6 +159,7 @@ public function loadAuthentifications() {
         ";
 }
     echo $authentifications_content;
+    echo $select_events_query;
 
 }
 
