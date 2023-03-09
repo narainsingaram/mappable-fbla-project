@@ -176,15 +176,19 @@ public function loadAuthentifications() {
             </div>
             <div class="ml-4">
             <h3 class="text-gray-800 font-semibold">
-                Seems like your Authentification Inbox is empty
+                Seems like your authentification inbox is empty
             </h3>
             <div class="mt-2 text-sm text-gray-600">
-                No students or educators have requested any authentifications for you to verify.
+                Notifications may include alerts, sounds and icon badges. These can be configured in Settings.
             </div>
             <div class="mt-4">
-                <a href='index.php' type="button" class="btn capitalize inline-flex justify-center items-center gap-2 rounded-md border border-transparent bg-blue-200 text-blue-500">
-                    Go Back Home
-                </a>
+                <div class="flex space-x-3">
+                <button type="button" class="inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-medium text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">
+                    Don't allow
+                </button>
+                <button type="button" class="inline-flex justify-center items-center gap-2 rounded-md border border-transparent font-medium text-blue-600 hover:underline focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm">
+                    Allow
+                </button>
                 </div>
             </div>
             </div>
@@ -626,6 +630,7 @@ if(isset($_POST['auth_submit'])) {
         <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
             <li><a>View Profile</a></li>
             <li><a>Save to Bookmarks</a></li>
+            <li><a>Share</a></li>
             <li><a>Report</a></li>
         </ul>
         </div>
@@ -703,7 +708,9 @@ if(isset($_POST['auth_submit'])) {
     <div class='-top-0 -right-0 absolute dropdown'>
         <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
         <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
+            <li><a>View Profile</a></li>
             <li><a>Save to Bookmarks</a></li>
+            <li><a>Share</a></li>
             <li><a>Report</a></li>
         </ul>
         </div>

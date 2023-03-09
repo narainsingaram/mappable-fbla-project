@@ -703,7 +703,6 @@ if(isset($_POST['auth_submit'])) {
     <div class='-top-0 -right-0 absolute dropdown'>
         <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
         <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
-            <li><a>Save to Bookmarks</a></li>
             <li><a>Report</a></li>
         </ul>
         </div>

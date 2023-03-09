@@ -20,10 +20,10 @@ $events_attended = mysqli_query(
   )
 ?>
 
-      <section class="relative block"  style="height: 500px;">
+      <section class="relative block style="height: 500px;">
         <div
           class="absolute top-0 w-full h-full bg-center bg-cover"
-          style='background-image: url("https://eoimages.gsfc.nasa.gov/images/imagerecords/87000/87843/tetons_photo_2015_lrg.jpg"); '
+          style='background-image: url("https://eoimages.gsfc.nasa.gov/images/imagerecords/87000/87843/tetons_photo_2015_lrg.jpg");'
         >
         </div>
         <div
