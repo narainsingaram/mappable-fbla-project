@@ -94,7 +94,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
 </main>
 </div>
           
-    <div class="flex flex-wrap mt-6 -mx-3 p-2">
+      <div class="flex flex-wrap mt-6 -mx-3 p-2">
       <div class="w-full px-3 mb-4 lg:mb-0 lg:w-7/12 rounded-2xl">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
       <li class="flex items-center pl-4 xl:hidden">

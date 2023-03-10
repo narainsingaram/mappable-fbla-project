@@ -56,45 +56,42 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </h1>
 
       <p class="mt-1.5 text-sm text-gray-500">
-        See your overall and indiviual statistics in a cleanly laid out report! 
+      See your overall and indiviual statistics in a cleanly laid out report! 
       </p>
     </div>
   </div>
 </header>
-<div class="shadow-lg rounded-lg overflow-hidden">
-  <body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-50 text-slate-500">
-    <div class="flex flex-wrap mt-6 -mx-3 p-4">
-      <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 rounded-2xl">
-        <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-          <div class="flex-auto p-4">
-            <div class="flex flex-wrap -mx-3">
-              <div class="max-w-full px-3 lg:w-1/2 lg:flex-none">
-                <div class="flex flex-col h-full">
-                  <p class="text-xs w-max text-neutral-500">Built by developers</p>
-                  <h5 class="text-3xl my-2 font-bold">Mappable</h5>
-                  <p class="pb-4 text-mg text-neutral-500">Constructed by student developers in West Forsyth High School to improve student engagement and commitment all throughout school. </p>
-                  <a class="font-semibold leading-normal text-sm text-slate-500">
-                    Read More
-                    <i class="uil uil-angle-right-b"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
-                <div class="h-full bg-slate-200 rounded-2xl p-3">
-                  <div class="relative flex items-center justify-center h-full">
+        <div class="shadow-lg rounded-lg overflow-hidden">
+        <body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-50 text-slate-500">
+        <div class="flex flex-wrap mt-6 -mx-3 p-4">
+          <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 rounded-2xl">
+            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
+              <div class="flex-auto p-4">
+                <div class="flex flex-wrap -mx-3">
+                  <div class="max-w-full px-3 lg:w-1/2 lg:flex-none">
+                    <div class="flex flex-col h-full">
+                      <p class="text-xs w-max text-neutral-500">Built by developers</p>
+                      <h5 class="text-3xl my-2 font-bold">Mappable</h5>
+                      <p class="pb-4 text-mg text-neutral-500">Constructed by student developers in West Forsyth High School to improve student engagement and commitment all throughout school. </p>
+                      <a class="font-semibold leading-normal text-sm text-slate-500">
+                      Read More
+                        <i class="uil uil-angle-right-b"></i>
+                      </a>
+                      </div>
+                      </div>
+                      <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
+                      <div class="h-full bg-slate-200 rounded-2xl p-3">
+                      <div class="relative flex items-center justify-center h-full">
                     <img class="relative z-20 w-full w-44" src="../assets/images/your_developers.png" alt="rocket">
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-</main>
-</div>
           
-    <div class="flex flex-wrap mt-6 -mx-3 p-2">
+      <div class="flex flex-wrap mt-6 -mx-3 p-2">
       <div class="w-full px-3 mb-4 lg:mb-0 lg:w-7/12 rounded-2xl">
       <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
       <li class="flex items-center pl-4 xl:hidden">
@@ -299,7 +296,8 @@ $experience_sum_points = $experience_rows["experience_sum"];
   <span class="leading-normal text-size-sm font-weight-extrabold text-lime-500">+13%</span>
 </div>
 </div>
-  </h5>
+
+      </h5>
       </div>
       </div>
       <div class="px-2 text-right">
@@ -334,6 +332,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
 
       
       <div class="text-size-xs h-0.75 flex w-3/4 overflow-visible rounded-lg bg-gray-200">
+
       <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
       <div class="flex mb-2">
       <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-cyan text-neutral-900">
