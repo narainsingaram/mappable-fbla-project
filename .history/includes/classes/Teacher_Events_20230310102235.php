@@ -72,9 +72,7 @@ public function load_requested_feed() {
     }
 
     else {
-        $requested_content = <<<EOT
-            <span class='bg-blue-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
-        EOT;;
+        $requested_content = "Seems that you have not requested to attend any events yet!";
     }
 
     if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {

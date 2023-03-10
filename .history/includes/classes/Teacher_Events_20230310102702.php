@@ -73,7 +73,7 @@ public function load_requested_feed() {
 
     else {
         $requested_content = <<<EOT
-            <span class='bg-blue-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
+            <span class='bg'Seems that you have not requested to attend any events yet!"
         EOT;;
     }
 

@@ -66,8 +66,8 @@ header("Location: index.php");
     <div class="flex justify-between items-center mb-2">
         <h5 class="text-xl font-bold leading-none text-gray-900">Activity</h5>
    </div>
-   <div class="flow-root">
-        <ul role="list" class="my-2 divide-y divide-gray-200">
+   <div class="flow-root my-2">
+        <ul role="list" class="divide-y divide-gray-200">
             <?php
             $post->load_requested_feed();
           ?>
