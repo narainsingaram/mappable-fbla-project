@@ -161,17 +161,9 @@ class Spaces {
                 if (in_array($userLoggedIn, $participant_arr))
                   {
                     $spcs_list .= "
-                    <div class='bg-white card my-4 rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
+                    <div class='bg-white card rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
                       <div class='card-body'>
                         <h2 class='card-title'>$space_name</h2>
-
-                        <p class='bg-slate-300/30 my-2 rounded-xl px-4 py-3 break-word'>
-                            <b class='text-lg'>
-                                <i class='uil uil-info-circle'></i> Space Bio: 
-                            </b>
-                            <br> 
-                            <span class='px-2'>$space_bio </span>
-                        </p>
                         <div class='card-actions justify-end'>
                             <a href='space.php?space=$id' class='btn action_btn' name='$id-spaces-request'>Go To Space</a>
                       </div>

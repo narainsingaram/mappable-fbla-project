@@ -161,7 +161,7 @@ class Spaces {
                 if (in_array($userLoggedIn, $participant_arr))
                   {
                     $spcs_list .= "
-                    <div class='bg-white card my-4 rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
+                    <div class='bg-white my-4 rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
                       <div class='card-body'>
                         <h2 class='card-title'>$space_name</h2>
 

@@ -167,7 +167,7 @@ class Spaces {
 
                         <p class='bg-slate-300/30 my-2 rounded-xl px-4 py-3 break-word'>
                             <b class='text-lg'>
-                                <i class='uil uil-info-circle'></i> Space Bio: 
+                                <i class='uil uil-info-circle'></i> Description: 
                             </b>
                             <br> 
                             <span class='px-2'>$space_bio </span>
