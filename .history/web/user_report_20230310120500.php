@@ -322,6 +322,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       </div>
 
+      
       <p>
         <div class="text-lg font-extrabold"> Level and Role: </div><div class="text-blue-600 font-extrabold"> Lvl. <?php echo $levels ?> <?php echo $position ?> </div>
         <div class="text-lg font-extrabold">Total Number of Points:</div> <div class="text-yellow-600 font-extrabold"> <?php echo $points ?> </div>
@@ -498,7 +499,13 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
         </body>
 </html>
-      
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+      </div>
+
       <div class="ps__rail-x" style="left: 0px; bottom: 0px;"><div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div></div><div class="ps__rail-y" style="top: 0px; height: 969px; right: 0px;"><div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 589px;"></div></div></main>
       <div fixed-plugin="">
       <a fixed-plugin-button="" class="bottom-7.5  right-7.5 text-size-xl z-990 shadow-soft-lg rounded-circle fixed cursor-pointer bg-white px-4 py-2 text-slate-700">
