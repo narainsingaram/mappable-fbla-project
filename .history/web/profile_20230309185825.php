@@ -94,7 +94,7 @@ $events_attended = mysqli_query(
                     </h3>
                     <?php
                       $post = new Teacher_Events($connection, $userLoggedIn);
-                      $post->load_regular_feed("profile");
+                      $post->profile_events();
                     ?>
                   <div class="text-center">
                     <a href="#pablo" class="font-normal text-blue-600 "

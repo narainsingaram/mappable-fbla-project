@@ -71,12 +71,6 @@ public function load_requested_feed() {
     ;
     }
 
-    else {
-        $requested_content = <<<EOT
-            <span class='bg-blue-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
-        EOT;;
-    }
-
     if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
         $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
         header("Location: index.php");
@@ -291,15 +285,9 @@ EOT;
 
 
 
-public function load_regular_feed($type_feed) {
+public function load_regular_feed() {
     $userLoggedIn = $this->user_object->gettingUsername();
-
-    if ($type_feed == "home") {
-        $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
-    }
-    else if ($type_feed == "profile") {
-        $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE added_by ='$userLoggedIn' ORDER BY event_id DESC");
-    }
+    $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
     
     $event_content = '';
     
@@ -669,42 +657,7 @@ if(isset($_POST['auth_submit'])) {
             $create_event_query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$profile[added_by]'");
             $row = mysqli_fetch_array($create_event_query);
     
-            $profile_event_content .= "<div class='bg-white relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
-            <div>
-                <div>
-                    <div class='flex align-center'> 
-                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mr-2 text-xl bg-slate-300/30 rounded-full'>
-    <span class='font-semibold text-gray-600'>{$row['first_name'][0]}{$row['last_name'][0]}</span>
-    </div>
-                        <ul class='mt-2'>
-                            <li>
-                                <h3>
-                                {$row['first_name']} {$row['last_name']} 
-                                <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. {$row['levels']} {$row['position']}</span>
-                                </h3>
-                            </li>
-                            <li><span class='text-gray-400 text-sm'>{$row['date']}</span>
-                            </li>
-                        </ul>
-                    </div>
-            <div>
-                <h1 class='rounded-2xl bg-slate-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>{$profile['title']}</h1>
-            </div>
-                <div>
-                <br>
-                {$profile['start']} {$profile['end']}
-    
-                </div>
-                    <p class='break-all'>{$profile['description']}</p>
-                </div>
-        <form action='index.php' method='POST' enctype='multipart/form-data' class='inline'>
-        <input type='hidden' name='event_id' value='{$profile['event_id']}'>
-        <input type='hidden' name='authentifier' value='{$profile['added_by']}'>    
-        <input type='hidden' name='auth_title' value='{$profile['added_by']}>
-        <input type='hidden' name='auth_image' value='{$profile['image']}>
-    </main>
-    </div>
-</div>";
+            $profile_event_content .= "";
         }
         
         echo $profile_event_content;

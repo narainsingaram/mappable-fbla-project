@@ -71,12 +71,6 @@ public function load_requested_feed() {
     ;
     }
 
-    else {
-        $requested_content = <<<EOT
-            <span class='bg-blue-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
-        EOT;;
-    }
-
     if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
         $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
         header("Location: index.php");
@@ -291,15 +285,9 @@ EOT;
 
 
 
-public function load_regular_feed($type_feed) {
+public function load_regular_feed() {
     $userLoggedIn = $this->user_object->gettingUsername();
-
-    if ($type_feed == "home") {
-        $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
-    }
-    else if ($type_feed == "profile") {
-        $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE added_by ='$userLoggedIn' ORDER BY event_id DESC");
-    }
+    $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
     
     $event_content = '';
     

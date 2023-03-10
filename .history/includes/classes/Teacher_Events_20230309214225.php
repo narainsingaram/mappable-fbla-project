@@ -24,7 +24,6 @@ public function event_feed($title, $type, $date, $start_time, $end_time, $descri
         // Insert the event details into the database
         $push_event_submit_query = mysqli_query($this->con, "INSERT INTO teacher_events VALUES(NULL, '$title', '$type', '$date', '$start_time', '$end_time', '$description', '$image', '$added_by', '$user_to', '$date_added', '', 'no')");
         
-        // Get ID of the currently created event
         $id_return = mysqli_insert_id($this->con);
     }
 }
@@ -69,12 +68,6 @@ public function load_requested_feed() {
         </li>
     EOT;;
     ;
-    }
-
-    else {
-        $requested_content = <<<EOT
-            <span class='bg-blue-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
-        EOT;;
     }
 
     if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
@@ -291,15 +284,9 @@ EOT;
 
 
 
-public function load_regular_feed($type_feed) {
+public function load_regular_feed() {
     $userLoggedIn = $this->user_object->gettingUsername();
-
-    if ($type_feed == "home") {
-        $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
-    }
-    else if ($type_feed == "profile") {
-        $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE added_by ='$userLoggedIn' ORDER BY event_id DESC");
-    }
+    $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
     
     $event_content = '';
     
@@ -690,6 +677,9 @@ if(isset($_POST['auth_submit'])) {
             <div>
                 <h1 class='rounded-2xl bg-slate-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>{$profile['title']}</h1>
             </div>
+                    <div class='post-images'>
+                        <img class='mb-3 rounded-2xl overflow-hidden w-max h-max' src='../assets/event_images/{$profile['image']}'> 
+                    </div>
                 <div>
                 <br>
                 {$profile['start']} {$profile['end']}
@@ -702,9 +692,35 @@ if(isset($_POST['auth_submit'])) {
         <input type='hidden' name='authentifier' value='{$profile['added_by']}'>    
         <input type='hidden' name='auth_title' value='{$profile['added_by']}>
         <input type='hidden' name='auth_image' value='{$profile['image']}>
+            <button name='auth_submit' type='submit' class='active:scale-105 inline px-1 py-2 rounded-full text-xl'> 
+            <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path opacity='0.4' d='M18.8088 9.021C18.3573 9.021 17.7592 9.011 17.0146 9.011C15.1987 9.011 13.7055 7.508 13.7055 5.675V2.459C13.7055 2.206 13.5026 2 13.253 2H7.96363C5.49517 2 3.5 4.026 3.5 6.509V17.284C3.5 19.889 5.59022 22 8.16958 22H16.0453C18.5058 22 20.5 19.987 20.5 17.502V9.471C20.5 9.217 20.298 9.012 20.0465 9.013C19.6247 9.016 19.1168 9.021 18.8088 9.021Z' fill='#10b981'></path>
+            <path opacity='0.4' d='M16.0842 2.5673C15.7852 2.2563 15.2632 2.4703 15.2632 2.9013V5.5383C15.2632 6.6443 16.1742 7.5543 17.2792 7.5543C17.9772 7.5623 18.9452 7.5643 19.7672 7.5623C20.1882 7.5613 20.4022 7.0583 20.1102 6.7543C19.0552 5.6573 17.1662 3.6913 16.0842 2.5673Z' fill='#10b981'></path>
+            <path d='M15.1052 12.8837C14.8142 13.1727 14.3432 13.1747 14.0512 12.8817L12.4622 11.2847V16.1117C12.4622 16.5227 12.1282 16.8567 11.7172 16.8567C11.3062 16.8567 10.9732 16.5227 10.9732 16.1117V11.2847L9.38223 12.8817C9.09223 13.1747 8.62023 13.1727 8.32923 12.8837C8.03823 12.5947 8.03723 12.1227 8.32723 11.8307L11.1892 8.9557C11.1902 8.9547 11.1902 8.9547 11.1902 8.9547C11.2582 8.8867 11.3402 8.8317 11.4302 8.7947C11.5202 8.7567 11.6182 8.7367 11.7172 8.7367C11.8172 8.7367 11.9152 8.7567 12.0052 8.7947C12.0942 8.8317 12.1752 8.8867 12.2432 8.9537C12.2442 8.9547 12.2452 8.9547 12.2452 8.9557L15.1072 11.8307C15.3972 12.1227 15.3972 12.5947 15.1052 12.8837Z' fill='#10b981'></path>
+            </svg>
+            </button>
+        </form>  
+
+        <button class='active:scale-105 inline px-1 py-2 rounded-full text-xl'>
+            <svg width='35' height='35' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+            <path opacity='0.4' d='M12.02 2C6.21 2 2 6.74 2 12C2 13.68 2.49 15.41 3.35 16.99C3.51 17.25 3.53 17.58 3.42 17.89L2.75 20.13C2.6 20.67 3.06 21.07 3.57 20.91L5.59 20.31C6.14 20.13 6.57 20.36 7.081 20.67C8.541 21.53 10.36 21.97 12 21.97C16.96 21.97 22 18.14 22 11.97C22 6.65 17.7 2 12.02 2Z' fill='#6366f1'></path>
+            <path opacity='0.4' d='M11.9805 13.2901C11.2705 13.2801 10.7005 12.7101 10.7005 12.0001C10.7005 11.3001 11.2805 10.7201 11.9805 10.7301C12.6905 10.7301 13.2605 11.3001 13.2605 12.0101C13.2605 12.7101 12.6905 13.2901 11.9805 13.2901ZM7.37009 13.2901C6.67009 13.2901 6.09009 12.7101 6.09009 12.0101C6.09009 11.3001 6.66009 10.7301 7.37009 10.7301C8.08009 10.7301 8.65009 11.3001 8.65009 12.0101C8.65009 12.7101 8.08009 13.2801 7.37009 13.2901ZM15.3103 12.0101C15.3103 12.7101 15.8803 13.2901 16.5903 13.2901C17.3003 13.2901 17.8703 12.7101 17.8703 12.0101C17.8703 11.3001 17.3003 10.7301 16.5903 10.7301C15.8803 10.7301 15.3103 11.3001 15.3103 12.0101Z' fill='#6366f1'></path>
+            </svg>
+        </button>
+
+        <button class='active:scale-105 inline px-0.5 py-2 rounded-full text-xl'>
+        <svg xmlns='http://www.w3.org/2000/svg' width='35' height='35' viewBox='0 0 24 24' fill='none'><path opacity='.4' d='m7.11 5.961 9.02-3.01c4.05-1.35 6.25.86 4.91 4.91l-3.01 9.02c-2.02 6.07-5.34 6.07-7.36 0l-.89-2.68-2.68-.89c-6.06-2.01-6.06-5.32.01-7.35Z' fill='#22d3ee'></path><path d='m12.12 11.629 3.81-3.82ZM12.12 12.38c-.19 0-.38-.07-.53-.22a.754.754 0 0 1 0-1.06l3.8-3.82c.29-.29.77-.29 1.06 0 .29.29.29.77 0 1.06l-3.8 3.82c-.15.14-.34.22-.53.22Z' fill='#22d3ee'></path></svg>
+        </button>
     </main>
     </div>
-</div>";
+    <div class='-top-0 -right-0 absolute dropdown'>
+        <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
+        <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
+            <li><a>Save to Bookmarks</a></li>
+            <li><a>Report</a></li>
+        </ul>
+        </div>
+    </div>";
         }
         
         echo $profile_event_content;

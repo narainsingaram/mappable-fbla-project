@@ -244,6 +244,8 @@ public function loadAttendanceTable() {
 EOT;
     }
     echo $authentifications_content;
+    $match = mysqli_num_rows($select_events_query);
+    echo $match;
 }
 
 
