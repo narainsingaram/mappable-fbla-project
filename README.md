@@ -15,8 +15,11 @@ Mappable, the PHP Web App, was created to provide a way for students, teachers, 
 - Tailwind Libraries:
  - https://demos.creative-tim.com/soft-ui-dashboard-tailwind/pages/dashboard.html
  - https://canvasjs.com/php-charts/bar-chart/ 
- -
- -
+ - Preline - https://preline.co/
+ - Tailwind UI - https://tailwindui.com/
+ - Flowbite - https://flowbite.com/
+ - HyperUI - https://www.hyperui.dev/
+ - Meraki UI - https://merakiui.com/
 - Images
  - https://www.google.com/url?sa=i&url=https%3A%2F%2Fearthobservatory.nasa.gov%2Fimages%2F87843%2Fgrand-teton-national-park&psig=AOvVaw0OhSZ9ZRPBItiUoJTokTOJ&ust=1678479547577000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCNCJ39vVz_0CFQAAAAAdAAAAABAE
  
