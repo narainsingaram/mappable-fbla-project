@@ -34,7 +34,7 @@ $total_experience = mysqli_query(
 );
 
 
-
+// establish rows and totals of points, gems, and xp points
 
 $gem_rows = mysqli_fetch_assoc($total_gems);
 $point_rows = mysqli_fetch_assoc($total_points);
@@ -44,6 +44,7 @@ $total_sum_gems = $gem_rows["gem_sum"];
 $total_sum_points = $point_rows["point_sum"];
 $experience_sum_points = $experience_rows["experience_sum"];
 ?>
+
 
 
 <div id="content" class='px-4 sm:px-6 lg:px-4'>
@@ -61,35 +62,6 @@ $experience_sum_points = $experience_rows["experience_sum"];
     </div>
   </div>
 </header>
-        <div class="shadow-lg rounded-lg overflow-hidden">
-        <body class="m-0 font-sans antialiased font-normal text-size-base leading-default bg-gray-50 text-slate-500">
-        <div class="flex flex-wrap mt-6 -mx-3 p-4">
-          <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 rounded-2xl">
-            <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-              <div class="flex-auto p-4">
-                <div class="flex flex-wrap -mx-3">
-                  <div class="max-w-full px-3 lg:w-1/2 lg:flex-none">
-                    <div class="flex flex-col h-full">
-                      <p class="text-xs w-max text-neutral-500">Built by developers</p>
-                      <h5 class="text-3xl my-2 font-bold">Mappable</h5>
-                      <p class="pb-4 text-mg text-neutral-500">Constructed by student developers in West Forsyth High School to improve student engagement and commitment all throughout school. </p>
-                      <a class="font-semibold leading-normal text-sm text-slate-500">
-                      Read More
-                        <i class="uil uil-angle-right-b"></i>
-                      </a>
-                      </div>
-                      </div>
-                      <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
-                      <div class="h-full bg-slate-200 rounded-2xl p-3">
-                      <div class="relative flex items-center justify-center h-full">
-                    <img class="relative z-20 w-full w-44" src="../assets/images/your_developers.png" alt="rocket">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
           
       <div class="flex flex-wrap mt-6 -mx-3 p-2">
       <div class="w-full px-3 mb-4 lg:mb-0 lg:w-7/12 rounded-2xl">
@@ -230,7 +202,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div>
       <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
 <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-yellow-100">
-<img class='w-12 inline' src='../assets/images/points.png'>
+<i class="uil uil-star text-4xl px-1 text-black"></i>
 </div>
 <div class="flex flex-col justify-center align-middle">
 	<p class="text-3xl font-semibold leading-none"><?php echo $total_sum_points; ?></p>
@@ -256,8 +228,8 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="flex flex-row -mx-3">
       <div class="flex-none w-2/3 max-w-full px-3">
       <div>
-      <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
-      <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 bg-green-100">
+      <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-green">
+<div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-green-100">
 <i class="bx bx-diamond text-4xl px-1 text-black"></i>
 </div>
 <div class="flex flex-col justify-center align-middle">
@@ -287,7 +259,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="flex flex-col justify-center align-middle">
       <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
 <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-100">
-	<img class='w-12 inline -rotate-12' src='../assets/images/experience_points.png'>
+<i class="uil uil-user text-4xl px-1 text-black"></i>
 </div>
 
 <div class="flex flex-col justify-center align-middle">
