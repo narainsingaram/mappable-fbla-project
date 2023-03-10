@@ -291,9 +291,6 @@ public function load_regular_feed($type_feed) {
     if ($type_feed == "home") {
         $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
     }
-    else if ($type_feed == "profile") {
-        $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE added_by ='$userLoggedIn' ORDER BY event_id DESC");
-    }
     
     $event_content = '';
     

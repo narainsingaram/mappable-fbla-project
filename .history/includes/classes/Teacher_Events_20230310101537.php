@@ -285,15 +285,9 @@ EOT;
 
 
 
-public function load_regular_feed($type_feed) {
+public function load_regular_feed() {
     $userLoggedIn = $this->user_object->gettingUsername();
-
-    if ($type_feed == "home") {
-        $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
-    }
-    else if ($type_feed == "profile") {
-        $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE added_by ='$userLoggedIn' ORDER BY event_id DESC");
-    }
+    $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
     
     $event_content = '';
     
@@ -684,6 +678,9 @@ if(isset($_POST['auth_submit'])) {
             <div>
                 <h1 class='rounded-2xl bg-slate-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>{$profile['title']}</h1>
             </div>
+                    <div class='post-images'>
+                        <img class='mb-3 rounded-2xl overflow-hidden w-max h-max' src='../assets/event_images/{$profile['image']}'> 
+                    </div>
                 <div>
                 <br>
                 {$profile['start']} {$profile['end']}
@@ -698,7 +695,14 @@ if(isset($_POST['auth_submit'])) {
         <input type='hidden' name='auth_image' value='{$profile['image']}>
     </main>
     </div>
-</div>";
+    <div class='-top-0 -right-0 absolute dropdown'>
+        <label tabindex='0' class='px-3 py-2 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
+        <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
+            <li><a>Save to Bookmarks</a></li>
+            <li><a>Report</a></li>
+        </ul>
+        </div>
+    </div>";
         }
         
         echo $profile_event_content;

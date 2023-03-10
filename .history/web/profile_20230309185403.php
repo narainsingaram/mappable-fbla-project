@@ -15,8 +15,8 @@ if(isset($_GET['profile_username'])) {
 // Getting events attended by user to display in indiviual data
 $events_attended = mysqli_query(
   $connection,
-  "SELECT * FROM teacher_events
-  WHERE added_by = '$userLoggedIn'"
+  "SELECT * FROM authentifications
+  WHERE accepted = 'yes'"
   )
 ?>
 
@@ -44,7 +44,7 @@ $events_attended = mysqli_query(
                     <div class='relative z-10 font-semibold text-gray-600'>
                       
                     <?php 
-                      $name_parts = explode("_", $profile_list["username"]);
+                      $name_parts = explode("_", $profile_list["added_by"]);
 
                       // Get the first character of the first name and the last name
                       $first_initial = substr($name_parts[0], 0, 1);
@@ -54,7 +54,7 @@ $events_attended = mysqli_query(
                       $added_by_initials = $first_initial . $last_initial;
                       $cap_added_by_initials = strtoupper($added_by_initials);
 
-                      echo $cap_added_by_initials;
+                      echo $$cap_added_by_initials;
                      ?>
                   </div>
                     <sup class='absolute bottom-0 bg-blue-500 text-blue-100 text-xs px-3 py-2 rounded-full h-7'><?php echo $profile_list['position']; ?></sup>
@@ -94,7 +94,7 @@ $events_attended = mysqli_query(
                     </h3>
                     <?php
                       $post = new Teacher_Events($connection, $userLoggedIn);
-                      $post->load_regular_feed("profile");
+                      $post->profile_events();
                     ?>
                   <div class="text-center">
                     <a href="#pablo" class="font-normal text-blue-600 "
