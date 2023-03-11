@@ -71,6 +71,12 @@ public function load_requested_feed() {
     ;
     }
 
+    // else {
+    //     $requested_content = <<<EOT
+    //         <span class='bg-blue-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
+    //     EOT;;
+    // }
+
     if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
         $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
         header("Location: index.php");
@@ -200,7 +206,6 @@ public function loadAuthentifications() {
 
 }
 
-// attendance table in attendance.php
 public function loadAttendanceTable() {
     $userLoggedIn = $this->user_object->gettingUsername();
     $select_events_query = mysqli_query($this->con, "SELECT * from authentifications WHERE requester='$userLoggedIn' ORDER BY id");
@@ -656,7 +661,6 @@ if(isset($_POST['auth_submit'])) {
         $profile_event_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE added_by ='$userLoggedIn' ORDER BY event_id DESC");
         $profile_event_content = '';
     
-        // while loop to load from sql query
         while($profile = mysqli_fetch_array($profile_event_query)) {
             $create_event_query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$profile[added_by]'");
             $row = mysqli_fetch_array($create_event_query);

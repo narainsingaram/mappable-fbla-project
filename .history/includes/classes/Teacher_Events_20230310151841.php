@@ -71,6 +71,12 @@ public function load_requested_feed() {
     ;
     }
 
+    // else {
+    //     $requested_content = <<<EOT
+    //         <span class='bg-blue-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
+    //     EOT;;
+    // }
+
     if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
         $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
         header("Location: index.php");
@@ -200,7 +206,6 @@ public function loadAuthentifications() {
 
 }
 
-// attendance table in attendance.php
 public function loadAttendanceTable() {
     $userLoggedIn = $this->user_object->gettingUsername();
     $select_events_query = mysqli_query($this->con, "SELECT * from authentifications WHERE requester='$userLoggedIn' ORDER BY id");
@@ -286,11 +291,9 @@ EOT;
 
 
 
-// loading the main feed in index page with public function 
 public function load_regular_feed($type_feed) {
     $userLoggedIn = $this->user_object->gettingUsername();
 
-    // based on provided parameter change sql query
     if ($type_feed == "home") {
         $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
     }
@@ -299,9 +302,7 @@ public function load_regular_feed($type_feed) {
     }
     
     $event_content = '';
-
-
-    // if auth button submit
+    
 if(isset($_POST['auth_submit'])) {
     // Sanitize user input
     $event_id = mysqli_real_escape_string($this->con, $_POST['event_id']);
@@ -325,7 +326,7 @@ if(isset($_POST['auth_submit'])) {
     header('Location: index.php');
 }
 
-    // while loop to load column info from database
+    
     while($event_row = mysqli_fetch_array($event_data_query)) {
         $id = $event_row['event_id'];
         $title = $event_row['title'];
@@ -358,11 +359,11 @@ if(isset($_POST['auth_submit'])) {
 
         $name_parts = explode("_", $added_by);
 
-        // Get the first character of  first name/last name
+        // Get the first character of the first name and the last name
         $first_initial = substr($name_parts[0], 0, 1);
         $last_initial = substr($name_parts[1], 0, 1);
 
-        // Concatenate two initials
+        // Concatenate the two initials
         $added_by_initials = $first_initial . $last_initial;
         $cap_added_by_initials = strtoupper($added_by_initials);
 
@@ -371,7 +372,6 @@ if(isset($_POST['auth_submit'])) {
         $match_request_rows = mysqli_num_rows($check_requests);
         
 
-        // if mysqli num rows 
         if($match_request_rows == 0) {
             $event_content .= "             
         <div class='bg-white z-10 relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
@@ -528,6 +528,7 @@ if(isset($_POST['auth_submit'])) {
                 $add_live_events = mysqli_query($this->con, "UPDATE teacher_events SET live='yes' WHERE event_id='$id' AND added_by='$added_by'");
                 $live_event_content .="
                     <div class='relative'>
+    <div class='rounded-full' src='/docs/images/people/profile-picture-5.jpg'>fasdfsa</div>
 </div>
 <div class='p-6 relative rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] hover:-translate-y-1 transition ease-in'>
     <header class='mb-2'>
@@ -650,13 +651,11 @@ if(isset($_POST['auth_submit'])) {
         
         echo $profile_event_content;
     }
-    // load events for the profile.php page
     public function profile_events() {
         $userLoggedIn = $this->user_object->gettingUsername();
         $profile_event_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE added_by ='$userLoggedIn' ORDER BY event_id DESC");
         $profile_event_content = '';
     
-        // while loop to load from sql query
         while($profile = mysqli_fetch_array($profile_event_query)) {
             $create_event_query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$profile[added_by]'");
             $row = mysqli_fetch_array($create_event_query);

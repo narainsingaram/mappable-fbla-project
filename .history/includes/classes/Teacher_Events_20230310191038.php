@@ -71,6 +71,12 @@ public function load_requested_feed() {
     ;
     }
 
+    // else {
+    //     $requested_content = <<<EOT
+    //         <span class='bg-blue-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
+    //     EOT;;
+    // }
+
     if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
         $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
         header("Location: index.php");
@@ -200,7 +206,6 @@ public function loadAuthentifications() {
 
 }
 
-// attendance table in attendance.php
 public function loadAttendanceTable() {
     $userLoggedIn = $this->user_object->gettingUsername();
     $select_events_query = mysqli_query($this->con, "SELECT * from authentifications WHERE requester='$userLoggedIn' ORDER BY id");
