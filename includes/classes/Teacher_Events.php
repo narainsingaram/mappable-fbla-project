@@ -379,7 +379,7 @@ if(isset($_POST['auth_submit'])) {
                 <div>
                     <div class='flex align-center'> 
                     <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
-    <a href='profile.php?profile_username=$username' class='font-semibold text-gray-600'>$cap_added_by_initials</a>
+    <a href='profile.php?profile_username=$added_by' class='font-semibold text-gray-600'>$cap_added_by_initials</a>
 </div>
                         <ul class='mt-2'>
                             <li>
