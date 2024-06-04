@@ -29,7 +29,7 @@ error_reporting(E_ALL);
   <div class="flex-1">
     <a href="index.php" class="btn btn-ghost text-2xl">
       <img class='w-7 pb-0.5 mr-2' src="../assets/images/mappable_logo.png" alt="logo" />
-      Mappable
+        The Bridge Project
     </a>
   </div>
   <div class="dropdown dropdown-end">

@@ -315,8 +315,7 @@ if(isset($_POST['auth_submit'])) {
     $verifying_checkin = mysqli_query($this->con, "SELECT COUNT(*) AS checkin_crosscheck FROM authentifications WHERE id='$event_id'");
     $cross_check_result = mysqli_fetch_assoc($verifying_checkin);
     
-    // If the event id does not exist, insert new record into the authentifications table
-    if ($cross_check_result['checkin_crosscheck'] == 0) {
+    if ($cross_check_result['checkin_crosscheck']) {
         mysqli_query($this->con, "INSERT INTO authentifications VALUES($event_id, '$authentifier', '$userLoggedIn', '$title', '$image', '$comments', 'no', 'no') ORDER BY id DESC");
         // Create a new notification object and send a notification
         $add_notification = new Notify($this->con, $authentifier);
@@ -377,7 +376,7 @@ if(isset($_POST['auth_submit'])) {
         <div class='bg-white z-10 relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
             <div>
                 <div>
-                    <div class='flex align-center'> 
+                    <div class='flex align-center'>
                     <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
     <a href='profile.php?profile_username=$added_by' class='font-semibold text-gray-600'>$cap_added_by_initials</a>
 </div>
