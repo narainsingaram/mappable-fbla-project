@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 
 if(isset($_POST['user_submit'])) {
   $post = new Teacher_Events($connection, $userLoggedIn);
-  $post->event_feed($_POST['user_title'],$_POST['user_type'], $_POST['user_date'], $_POST['user_start'], $_POST['user_end'], $_POST['user_desc'], $filename, 'none'); //do submitEvent function in Post_Events.php
+  $post->event_feed($_POST['user_title'],$_POST['user_type'], $_POST['user_date'], $_POST['user_start'], $_POST['user_end'], $_POST['user_desc'], '', 'none'); //do submitEvent function in Post_Events.php
 header("Location: index.php");
 }
 
