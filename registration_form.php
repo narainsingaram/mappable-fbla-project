@@ -7,6 +7,8 @@
 require "includes/configs/configurations.php";
 require 'includes/operators/register_operator.php';
 require 'includes/operators/login_operator.php';
+error_reporting(E_ALL);
+
 ?>
 
 <!DOCTYPE html>

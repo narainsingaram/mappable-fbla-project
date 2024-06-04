@@ -6,6 +6,9 @@ include("../includes/classes/Spaces.php");
 include("../includes/classes/Notify.php");
 include("../includes/classes/Web.php");
 
+ini_set('display_errors', 1);
+
+
 
 if(isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];

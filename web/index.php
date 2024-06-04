@@ -1,6 +1,9 @@
 <?php
-include("../template/web_defaults.php");
 include("../template/navbar.php");
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 
 
 if(isset($_POST['user_submit'])) {
@@ -8,6 +11,8 @@ if(isset($_POST['user_submit'])) {
   $post->event_feed($_POST['user_title'],$_POST['user_type'], $_POST['user_date'], $_POST['user_start'], $_POST['user_end'], $_POST['user_desc'], $filename, 'none'); //do submitEvent function in Post_Events.php
 header("Location: index.php");
 }
+
+
 ?>
 
 
@@ -82,5 +87,4 @@ header("Location: index.php");
   </main>
     </section>
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>  
-
-
+</html>

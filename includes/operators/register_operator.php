@@ -1,46 +1,38 @@
-<?php 
-// Import the necessary libraries and classes
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+<?php
+session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-require 'vendor/Exception.php';
-require 'vendor/PHPMailer.php';
-require 'vendor/SMTP.php';
+// Declaring variables to prevent errors
+$first_name = ""; // First name
+$last_name = ""; // Last name
+$email = ""; // email
+$password = ""; // password
+$date = ""; // Sign up Date
+$error_array = array(); // Holds error messages
 
-$variables = array("first_name", "last_name", "email", "password", "confirmation_password", "date", "position", "date_of_birth", "gender", "grade", "profile_picture");
-
-foreach ($variables as $variable) {
-    ${$variable} = "";
-    $_SESSION['register_'.$variable] = "";
-}
-
-$error_array = array();
-
-// Check if the request method is a POST request
-// (i.e. the form has been submitted)
 if (isset($_POST['register_btn'])) {
-    // code to handle form submission
-    $first_name = strip_tags($_POST['register_first_name']);
-    $first_name = str_replace(' ', '', $first_name);
-    $first_name = ucfirst(strtolower($first_name));
-    $_SESSION['register_first_name'] = $first_name;
+    // Registration Form Values
+    $first_name = strip_tags($_POST['register_first_name']); // Remove html tags
+    $first_name = str_replace(' ', '', $first_name); // Remove Spaces
+    $first_name = ucfirst(strtolower($first_name)); // Uppercase first letter
+    $_SESSION['register_first_name'] = $first_name; // Stores first name into session variables
 
-    $last_name = strip_tags($_POST['register_last_name']);
-    $last_name = str_replace(' ', '', $last_name);
-    $last_name = ucfirst(strtolower($last_name));
-    $_SESSION['register_last_name'] = $last_name;
+    $last_name = strip_tags($_POST['register_last_name']); // Remove html tags
+    $last_name = str_replace(' ', '', $last_name); // Remove Spaces
+    $last_name = ucfirst(strtolower($last_name)); // Uppercase first letter
+    $_SESSION['register_last_name'] = $last_name; // Stores last name into session variables
 
-    $email = strip_tags($_POST['register_email']);
-    $email = str_replace(' ', '', $email);
-    $_SESSION['register_email'] = $email;
+    $email = strip_tags($_POST['register_email']); // Remove html tags
+    $email = str_replace(' ', '', $email); // Remove Spaces
+    $email = strtolower($email); // Convert to lowercase
+    $_SESSION['register_email'] = $email; // Stores email into session variables
+
+    $date = date("Y-m-d"); // Current Date
 
     $password = strip_tags($_POST['register_password']);
-    $connectionfirmation_password = strip_tags($_POST['register_confirmation_password']);
-
-    $date = date("Y-m-d");
-
-    // $position = strip_tags($_POST['register_position']);
-    // $_SESSION['register_position'] = $position;
+    $_SESSION['register_password'] = $password;
 
     $position = strip_tags($_POST['register_position']);
     $_SESSION['register_position'] = $position;
@@ -54,145 +46,69 @@ if (isset($_POST['register_btn'])) {
     $gender = strip_tags($_POST['register_gender']);
     $_SESSION['register_gender'] = $gender;
 
-    $position = $_POST['register_position'];
-    $_SESSION['register_position'] = $position;
-    
-    //Seeing if user input follows register rules (ex. password and emails are matching, first name is longer than 2 letters)
-    if($email) {
-        if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+    if ($email) {
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+            $e_check = mysqli_query($connection, "SELECT email FROM users WHERE email='$email'");
 
-        $email_inquiry = mysqli_query($connection, "SELECT email FROM users WHERE email='$email'");
-        $num_rows_from_email_inquiry = mysqli_num_rows($email_inquiry);
+            $num_rows = mysqli_num_rows($e_check);
 
-        if($num_rows_from_email_inquiry > 0) {
-            array_push($error_array, "Email already in use");
+            if ($num_rows > 0) {
+                array_push($error_array, "Email already in use<br>");
+            }
+        } else {
+            array_push($error_array, "Invalid Email Format<br>");
         }
-    }
-        else {
-            array_push($error_array, "Invalid email format");
-        }
-    }
-    else {
-        array_push($error_array, "Emails don't match");
+    } else {
+        array_push($error_array, "Emails don't match<br>");
     }
 
-    if (strlen($first_name) > 30 || strlen($first_name) < 2 || strlen($last_name) > 30 || strlen($last_name) < 2) {
-        array_push($error_array, "There must be between 2-30 characters in your first & last name");
+    if (strlen($first_name) > 25 || strlen($first_name) < 2) {
+        array_push($error_array, "Your first name must be between 1 and 25 Characters<br>");
     }
 
-    else if($connectionfirmation_password != $password) {
-        array_push($error_array, "Your passwords do not match");
+    if (strlen($last_name) > 25 || strlen($last_name) < 2) {
+        array_push($error_array, "Your last name must be between 1 and 25 Characters<br>");
     }
 
-    else if(strlen($password) < 8 || strlen($password) > 255) {
-        array_push($error_array, "Your password must be between 8-255 characters");
-    }
-
-    //if $error_array does not have a value
-    if(empty($error_array)) {
-
-        $connect_confirmation_code = rand(10000, 99999);
-        $_SESSION['confirmation_code'] = $connect_confirmation_code;
-
-        function createRandomizedVerCode($len) {
-            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!@#$%^&*()_+-=';
-            $ver_code_randomized = substr(str_shuffle($characters), 0, $len);
-            return $ver_code_randomized;
+        if (preg_match('/[^A-Za-z0-9]/', $password)) {
+            array_push($error_array, "Your password can only contain english characters or numbers<br>");
         }
 
-        $connect_confirmation_code = createRandomizedVerCode(8);
-        
-
-        $mail = new PHPMailer;
-        $mail->isSMTP();
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure = 'ssl';
-        $mail->Host = 'smtp.gmail.com';
-        $mail->Port = 465;
-        $mail->Username = 'mailquarkmailer@gmail.com';
-        $mail->Password = 'odylipqitbuoebnk';
-        $mail->setFrom('mailquarkmailer@gmail.com', 'Mappable');
-        $mail->addAddress($email);
-
-        $mail->isHTML(true);// Set email format to HTML
-
-        $mail->Subject = "Confirm your registration at Mappable, {$first_name}!";
-        $mail->Body = <<<EOT
-        <html>
-            <head>
-            <style>
-            .card {
-                width: 100%;
-                margin: 0 auto;
-                padding: 20px;
-                border: 1px solid #ccc;
-                border-radius: 10px;
-            }
-            .card-header {
-                text-align: center;
-                margin-bottom: 20px;
-            }
-            .card-header h1 {
-                margin: 0;
-            }
-            .card-body {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-            }
-            </style>
-            </head>
-            <body>
-                <div class="card">
-                    <div class="card-header">
-                        <h1>Welcome to Mappable, {$first_name}!</h1>
-                    </div>
-                        <div class="card-body">
-                            <p>Please use the verification code:</p>
-                            <input type="text" id="verification-code" value="{$connect_confirmation_code}" readonly>
-                        </div>
-                    </div>
-            </body>
-        </html>
-        EOT;
-    
-        $mail->AltBody = 'You are using basic web browser ';
+    if (empty($error_array)) {
+        $password = md5($password); // Encrypt Password for database
 
         $username = strtolower($first_name . "_" . $last_name);
-		$check_username_query = mysqli_query($connection, "SELECT username FROM users WHERE username='$username'");
+        $check_username_query = mysqli_query($connection, "SELECT username FROM users WHERE username='$username'");
 
-        if (!$mail->send()) {
-            echo 'Message could not be sent.';
-            echo 'Mailer Error: ' . $mail->ErrorInfo;
-        } else {
-
-            if ($connect_confirmation_code) {
-                $i = 0; 
-                //if username exists add number to username
-                while(mysqli_num_rows($check_username_query) != 0) {
-                    $i++; //Add 1 to i
-                    $username = $username . "_" . $i;
-                    $check_username_query = mysqli_query($connection, "SELECT username FROM users WHERE username='$username'");
-                }
-
-                $encrypted_password = md5($password);
-
-                $query = mysqli_query($connection, "INSERT INTO unverified_users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$encrypted_password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', '$connect_confirmation_code', 'no')");
-                
-                array_push($error_array, "You are set to login!");
-    
-                //Set Email Confirmation Session Variable
-        
-                //Clear session variables
-                $_SESSION['register_first_name'] = " ";
-                $_SESSION['register_last_name'] = " ";
-                $_SESSION['register_email'] = " ";
-
-            header("Location: auth/confirmation_password.php?email={$email}");
-            }
+        $i = 0;
+        while (mysqli_num_rows($check_username_query) != 0) {
+            $i++;
+            $username = $username . "_" . $i;
+            $check_username_query = mysqli_query($connection, "SELECT username FROM users WHERE username='$username'");
         }
+
+        $rand = rand(1, 2);
+        if ($rand == 1) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_deep_blue.png";
+        } else if ($rand == 2) {
+            $profile_pic = "assets/images/profile_pics/defaults/head_emerald.png";
+        }
+
+        $query = mysqli_query($connection, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 0, 'no')");
+
+        if (!$query) {
+            echo "Error: " . mysqli_error($connection);
+        } else {
+            array_push($error_array, "<span style='color: #14C800;'>You're all set! Go ahead and login!</span><br>");
+
+            $_SESSION['reg_first_name'] = "";
+            $_SESSION['reg_last_name'] = "";
+            $_SESSION['reg_email'] = "";
+            $_SESSION['reg_email2'] = "";
+        }
+    } else {
+        print_r($error_array);
     }
 }
-
 ?>
