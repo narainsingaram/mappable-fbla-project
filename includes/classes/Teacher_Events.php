@@ -526,21 +526,16 @@ if(isset($_POST['auth_submit'])) {
             */
             if($int_current_time > $int_start_time && $int_current_time < $int_end_time) {
                 $add_live_events = mysqli_query($this->con, "UPDATE teacher_events SET live='yes' WHERE event_id='$id' AND added_by='$added_by'");
-                $live_event_content .="
-                    <div class='relative'>
-</div>
-<div class='p-6 relative rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] hover:-translate-y-1 transition ease-in'>
-    <header class='mb-2'>
-        <h5 class='inline text-xl font-bold tracking-tight text-gray-900'>
-            $title
-        </h5>
-        <span class='text-xs tracking-normal uppercase font-semibold text-emerald-500 bg-emerald-200 px-2 py-1 active:scale-10 rounded-full'>Live</span>
-    </header>
-    <p class='mb-3 font-normal text-md text-gray-700'>$description</p>
-    <span class='-top-0 -right-0 absolute w-3 h-3 bg-green-400 border-2 border-white rounded-full animate-ping opacity-75'></span>
-</div>
-                    
-                "; 
+                $live_event_content .= <<<EOT
+            <div class="card p-4 bg-slate-200 rounded shadow hover:translate-y-1 transition ease-in">
+                <header class="mb-2 flex items-center">
+                  <h5 class="text-xl font-bold text-gray-900 mr-2">$title</h5>
+                  <span class="text-xs bg-emerald-200 text-emerald-500 px-2 py-1 rounded-full">Live</span>
+                </header>
+                <p class="text-md text-gray-700 mb-0">$description</p>
+              </div>
+              
+EOT;
             }
             else if($int_current_time < $int_start_time || $int_current_time > $int_end_time) {
                 $remove_live_events = mysqli_query($this->con, "UPDATE teacher_events SET live='no' WHERE event_id='$id' AND added_by='$added_by'");
