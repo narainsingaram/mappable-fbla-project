@@ -163,8 +163,10 @@ class Spaces {
                     $spcs_list .= "
                     <div class='bg-white card rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
                       <div class='card-body'>
-                        <h2 class='card-title'>Space $id</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <h2 class='card-title'>$space_name - #$id</h2>
+                        <p>$space_bio</p>
+                        <p>Created By:$founder</p>
+                        <p>Members: " . count($participant_arr) . "</p>
                         <div class='card-actions justify-end'>
                             <a href='space.php?space=$id' class='btn action_btn' name='$id-spaces-request'>Go To Space</a>
                       </div>
