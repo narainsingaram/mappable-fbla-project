@@ -453,7 +453,7 @@ if(isset($_POST['auth_submit'])) {
                 <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
                     <center>
                         <button name='auth_submit' type='submit' class='btn bg-slate-200/70 hover:text-white text-black border-none capitalize mx-2 my-4 rounded-full'> 
-                            <i class='text-2xl mr-2 uil uil-comment-add'></i> Add Auth
+                            <i class='text-2xl mr-2 uil uil-comment-add'></i> Request Auth
                         </button>
                     </center>
                 </div>

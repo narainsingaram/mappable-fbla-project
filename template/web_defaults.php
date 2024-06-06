@@ -104,7 +104,7 @@ if ($current_page == "/mappable-fbla-project/settings/index.php") {
 ?>
 
 <!DOCTYPE html>
-<html data-theme="winter">
+<html data-theme="<?php echo $user['theme']; ?>">
 
 <head>
     <meta charset="UTF-8">
@@ -134,6 +134,5 @@ if ($current_page == "/mappable-fbla-project/settings/index.php") {
     <script type='text/javascript' src='../assets/js/toggle_notification.js'></script>
     <script type='text/javascript' src='../assets/js/ajax/forms.js'></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

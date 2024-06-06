@@ -73,6 +73,7 @@ class Notify {
             break;
             case $row['viewed'] == 'yes':
                 $return_string .= <<<EOT
+
                 EOT;
             break;
         }
