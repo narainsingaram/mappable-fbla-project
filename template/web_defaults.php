@@ -8,7 +8,7 @@ include("../includes/classes/Web.php");
 
 ini_set('display_errors', 1);
 
-
+//check if user is logged in
 
 if(isset($_SESSION['username'])) {
     $userLoggedIn = $_SESSION['username'];
