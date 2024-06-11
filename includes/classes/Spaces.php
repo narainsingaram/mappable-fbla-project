@@ -144,57 +144,54 @@ class Spaces {
         $userLoggedIn = $this->user_object->gettingUsername();
         $spcs_list = '';
         $all_spcs_query = mysqli_query($this->con, "SELECT * FROM spaces");
-      
-          while($space = mysqli_fetch_array($all_spcs_query)) {
+    
+        while($space = mysqli_fetch_array($all_spcs_query)) {
             $id = $space['space_id'];
             $date = date("Y-m-d");
             $space_name = $space['name'];
             $space_bio = $space['bio'];
             $founder = $space['founder'];
-            $participant_arr = explode(',', $space['participants']);
-      
+            
+            // Removing empty strings from participants array
+            $participant_arr = array_filter(explode(',', $space['participants']), function($value) { return !empty($value); });
+            
             if(isset($_POST["$id-spaces-request"])) {
-              $join_spc = mysqli_query($this->con, "UPDATE spaces SET participants=CONCAT(participants, '$userLoggedIn,') WHERE space_id='$id' AND founder='$founder'");
-              $insert_spc_new_mem_msg = mysqli_query($this->con, "INSERT INTO spc_msgs VALUES (NULL,'$id', '$userLoggedIn', '', 'new_member', '$date', 'no')");
-              header("Location: space.php?space=$id ");
+                $join_spc = mysqli_query($this->con, "UPDATE spaces SET participants=CONCAT(participants, '$userLoggedIn,') WHERE space_id='$id' AND founder='$founder'");
+                $insert_spc_new_mem_msg = mysqli_query($this->con, "INSERT INTO spc_msgs VALUES (NULL, '$id', '$userLoggedIn', '', 'new_member', '$date', 'no')");
+                header("Location: space.php?space=$id");
             }
-                if (in_array($userLoggedIn, $participant_arr))
-                  {
-                    $spcs_list .= "
-                    <div class='bg-white card rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
-                      <div class='card-body'>
+    
+            if (in_array($userLoggedIn, $participant_arr)) {
+                $spcs_list .= "
+                <div class='bg-white card rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
+                    <div class='card-body'>
                         <h2 class='card-title'>$space_name - #$id</h2>
                         <p>$space_bio</p>
-                        <p>Created By:$founder</p>
+                        <p>Created By: $founder</p>
                         <p>Members: " . count($participant_arr) . "</p>
                         <div class='card-actions justify-end'>
                             <a href='space.php?space=$id' class='btn action_btn' name='$id-spaces-request'>Go To Space</a>
-                      </div>
+                        </div>
                     </div>
-                  </div>
-                    ";
-                  }
-                else
-                  {
-                    $spcs_list .= "
-                    <div id='spaces_div' class='my-3 card rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
-                      <div class='card-body'>
-                        <h2 class='card-title'>
-                        $space_name</h2>
+                </div>
+                ";
+            } else {
+                $spcs_list .= "
+                <div id='spaces_div' class='my-3 card rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
+                    <div class='card-body'>
+                        <h2 class='card-title'>$space_name</h2>
                         <p>$space_bio</p>
                         <div class='card-actions justify-end'>
-                          <form name='index.php' method='POST'>
-                            <button class='btn action_btn' name='$id-spaces-request'> 
-                                Join
-                            </button>
-                          </form>
-                      </div>
+                            <form name='index.php' method='POST'>
+                                <button class='btn action_btn' name='$id-spaces-request'>Join</button>
+                            </form>
+                        </div>
                     </div>
-                  </div>
-                    ";
-                  }
-             }
-          echo $spcs_list;
+                </div>
+                ";
+            }
+        }
+        echo $spcs_list;
     }
-}
+}    
 ?>
