@@ -130,7 +130,7 @@ if ($current_page == "/mappable-fbla-project/settings/index.php") {
 
 
 
-<body>
+<body class='bg-amber-100'>
     <script type='text/javascript' src='../assets/js/toggle_notification.js'></script>
     <script type='text/javascript' src='../assets/js/ajax/forms.js'></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>
