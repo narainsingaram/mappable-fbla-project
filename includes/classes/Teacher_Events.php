@@ -373,7 +373,7 @@ if(isset($_POST['auth_submit'])) {
 
         if($match_request_rows == 0) {
             $event_content .= "             
-        <div class='bg-white z-10 relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
+        <div class='bg-amber-50 z-10 relative border-4 border-amber-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
             <div>
                 <div>
                     <div class='flex align-center'> 
@@ -392,7 +392,7 @@ if(isset($_POST['auth_submit'])) {
                         </ul>
                     </div>
             <div>
-                <h1 class='rounded-2xl bg-slate-300/30 my-3 px-6 py-3 text-2xl font-bold text-black'>$title</h1>
+                <h1 class='rounded-2xl bg-amber-300/30 my-3 px-6 py-3 text-2xl font-bold text-amber-800'>$title</h1>
             </div>
                 <div class='post-images'>
                     <div class='grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl'>
@@ -437,12 +437,12 @@ if(isset($_POST['auth_submit'])) {
                     </div>
                     </div>
 
-                        <p class='bg-slate-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
-                            <b class='text-lg'>
+                        <p class='bg-amber-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
+                            <b class='text-lg text-amber-900'>
                                 <i class='uil uil-info-circle'></i> Description: 
                             </b>
                             <br> 
-                            <span class='px-2'>$description </span></p>
+                            <span class='mx-2 text-orange-800 bg-red-200'>$description </span></p>
                     </div>
                 </div>
             <form action='index.php' method='POST' enctype='multipart/form-data'>
@@ -452,8 +452,8 @@ if(isset($_POST['auth_submit'])) {
                 <input type='hidden' name='auth_image' value='$image'>
                 <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
                     <center>
-                        <button name='auth_submit' type='submit' class='btn bg-slate-200/70 hover:text-white text-black border-none capitalize mx-2 my-4 rounded-full'> 
-                            <i class='text-2xl mr-2 uil uil-comment-add'></i> Add Auth
+                        <button name='auth_submit' type='submit' class='btn bg-amber-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'> 
+                            <i class='text-2xl mr-2 uil uil-comment-add'></i> Ask to Join
                         </button>
                     </center>
                 </div>
@@ -461,7 +461,7 @@ if(isset($_POST['auth_submit'])) {
     </main>
     </div>
     <div class='-top-0 -right-0 absolute dropdown'>
-        <label tabindex='0' class='btn bg-white border-none text-black hover:bg-slate-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
+        <label tabindex='0' class='btn bg-amber-50 border-none text-black hover:bg-slate-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
         <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
             <li><a href='profile.php?profile_username=$username'>View Profile</a></li>
         </ul>
