@@ -306,7 +306,6 @@ public function load_regular_feed($type_feed) {
 if(isset($_POST['auth_submit'])) {
     // Sanitize user input
     $event_id = mysqli_real_escape_string($this->con, $_POST['event_id']);
-    $comments = mysqli_real_escape_string($this->con, $_POST['auth_comments']);
     $authentifier = mysqli_real_escape_string($this->con, $_POST['authentifier']);
     $title = mysqli_real_escape_string($this->con, $_POST['auth_title']);
     $image = mysqli_real_escape_string($this->con, $_POST['auth_image']);
@@ -315,8 +314,9 @@ if(isset($_POST['auth_submit'])) {
     $verifying_checkin = mysqli_query($this->con, "SELECT COUNT(*) AS checkin_crosscheck FROM authentifications WHERE id='$event_id'");
     $cross_check_result = mysqli_fetch_assoc($verifying_checkin);
     
-    if ($cross_check_result['checkin_crosscheck']) {
-        mysqli_query($this->con, "INSERT INTO authentifications VALUES($event_id, '$authentifier', '$userLoggedIn', '$title', '$image', '$comments', 'no', 'no') ORDER BY id DESC");
+    // If the event id does not exist, insert new record into the authentifications table
+    if ($cross_check_result['checkin_crosscheck'] == 0) {
+        mysqli_query($this->con, "INSERT INTO authentifications VALUES($event_id, '$authentifier', '$userLoggedIn', '$title', '$image', 'no', 'no') ORDER BY id DESC");
         // Create a new notification object and send a notification
         $add_notification = new Notify($this->con, $authentifier);
         $add_notification->pushNewNotification($authentifier, 'request_received');
@@ -376,9 +376,9 @@ if(isset($_POST['auth_submit'])) {
         <div class='bg-white z-10 relative shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
             <div>
                 <div>
-                    <div class='flex align-center'>
+                    <div class='flex align-center'> 
                     <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
-    <a href='profile.php?profile_username=$added_by' class='font-semibold text-gray-600'>$cap_added_by_initials</a>
+    <a href='profile.php?profile_username=$username' class='font-semibold text-gray-600'>$cap_added_by_initials</a>
 </div>
                         <ul class='mt-2'>
                             <li>
@@ -453,7 +453,7 @@ if(isset($_POST['auth_submit'])) {
                 <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
                     <center>
                         <button name='auth_submit' type='submit' class='btn bg-slate-200/70 hover:text-white text-black border-none capitalize mx-2 my-4 rounded-full'> 
-                            <i class='text-2xl mr-2 uil uil-comment-add'></i> Request Auth
+                            <i class='text-2xl mr-2 uil uil-comment-add'></i> Add Auth
                         </button>
                     </center>
                 </div>
@@ -525,16 +525,30 @@ if(isset($_POST['auth_submit'])) {
             */
             if($int_current_time > $int_start_time && $int_current_time < $int_end_time) {
                 $add_live_events = mysqli_query($this->con, "UPDATE teacher_events SET live='yes' WHERE event_id='$id' AND added_by='$added_by'");
-                $live_event_content .= <<<EOT
-            <div class="card p-4 bg-slate-200 rounded shadow hover:translate-y-1 transition ease-in">
-                <header class="mb-2 flex items-center">
-                  <h5 class="text-xl font-bold text-gray-900 mr-2">$title</h5>
-                  <span class="text-xs bg-emerald-200 text-emerald-500 px-2 py-1 rounded-full">Live</span>
-                </header>
-                <p class="text-md text-gray-700 mb-0">$description</p>
-              </div>
-              
-EOT;
+                $live_event_content .="
+                    <div class='relative'>
+    <div class='rounded-full' src='/docs/images/people/profile-picture-5.jpg'>fasdfsa</div>
+</div>
+<div class='p-6 relative rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] hover:-translate-y-1 transition ease-in'>
+    <header class='mb-2'>
+        <h5 class='inline text-2xl font-bold tracking-tight text-gray-900'>
+        $title
+        </h5>
+        <span class='text-xs tracking-normal uppercase font-semibold text-emerald-500 bg-emerald-200 px-2 py-1 active:scale-10 rounded-full'>Live</span>
+    </header>
+    <p class='mb-3 font-normal text-gray-700'>$description</p>
+    <a class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl'>
+        <svg class='mr-1' width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
+        <path d='M21.101 9.58786H19.8979V8.41162C19.8979 7.90945 19.4952 7.5 18.999 7.5C18.5038 7.5 18.1 7.90945 18.1 8.41162V9.58786H16.899C16.4027 9.58786 16 9.99731 16 10.4995C16 11.0016 16.4027 11.4111 16.899 11.4111H18.1V12.5884C18.1 13.0906 18.5038 13.5 18.999 13.5C19.4952 13.5 19.8979 13.0906 19.8979 12.5884V11.4111H21.101C21.5962 11.4111 22 11.0016 22 10.4995C22 9.99731 21.5962 9.58786 21.101 9.58786Z' fill='#3b82f6'></path>
+        <path d='M9.5 15.0155C5.45422 15.0155 2 15.6623 2 18.2466C2 20.8299 5.4332 21.5 9.5 21.5C13.5448 21.5 17 20.8532 17 18.2689C17 15.6846 13.5668 15.0155 9.5 15.0155Z' fill='#3b82f6'></path>
+        <path opacity='0.4' d='M9.49999 12.5542C12.2546 12.5542 14.4626 10.3177 14.4626 7.52761C14.4626 4.73754 12.2546 2.5 9.49999 2.5C6.74541 2.5 4.53735 4.73754 4.53735 7.52761C4.53735 10.3177 6.74541 12.5542 9.49999 12.5542Z' fill='#3b82f6'></path>
+        </svg>
+    Join Event
+    </a>
+    <span class='-top-0 -right-0 absolute w-3 h-3 bg-green-400 border-2 border-white rounded-full animate-ping opacity-75'></span>
+</div>
+                    
+                "; 
             }
             else if($int_current_time < $int_start_time || $int_current_time > $int_end_time) {
                 $remove_live_events = mysqli_query($this->con, "UPDATE teacher_events SET live='no' WHERE event_id='$id' AND added_by='$added_by'");
