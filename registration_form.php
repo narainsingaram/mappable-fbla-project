@@ -4,11 +4,13 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.31.0/dist/full.css" rel="stylesheet" type="text/css" />
 </head>
 <?php
-require "includes/configs/configurations.php";
-require 'includes/operators/register_operator.php';
-require 'includes/operators/login_operator.php';
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
+    require "includes/configs/configurations.php";
+    require 'includes/operators/register_operator.php';
+    require 'includes/operators/login_operator.php';
 ?>
 
 <!DOCTYPE html>
