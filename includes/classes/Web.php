@@ -2,25 +2,45 @@
 class Web {
     public function disp_evt_mo() {
         $html = <<<EOT
-    <input type="checkbox" id="create_event" class="modal-toggle" />
-        <div class="modal">
-        <div class="modal-box bg-white relative">
-            <label for="create_event" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-            <h3 class="text-lg font-bold">Create a Space</h3>
+        <input type="checkbox" id="create_event" class="modal-toggle hidden">
+        <div class="modal fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+            <div class="modal-box bg-white p-6 rounded-lg shadow-lg relative max-w-lg w-full">
+                <label for="create_event" class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer text-gray-500">✕</label>
+                <h3 class="text-xl font-semibold mb-4">Create a Space</h3>
                 <form action="{$_SERVER['PHP_SELF']}" method="POST" enctype="multipart/form-data">
-                    <input name="user_title" type="text" placeholder="Event Title" class="inline-flex items-center py-2 px-3 text-sm font-medium text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl">
-                    <select name="user_type" class="inline-flex items-center py-2 px-3 text-sm font-medium text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl">
-                    <option value="Choose Type of Event">Choose Type of Event</option>
-                    <option value="Academic">Academic</option>
-                    <option value="Extracurricular">Extracurricular</option>
-                    <option value="Sports">Sports</option>
-                    <option value="Other">Other</option>
-                    </select><br>
-                    <input type="date" name="user_date" id="" class="inline-flex items-center py-2 px-3 text-sm font-medium text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl">
-                    <input type="time" name="user_start" id="" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl">
-                    <input type="time" name="user_end" id="" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl"><br>
-                    <input type="text" name="user_desc" placeholder="Description of Your Event" class="inline-flex items-center py-2 px-3 text-sm font-medium text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl pt-12">
-                    <button name="user_submit" class="align-middle inline-flex items-center py-2 px-3 text-sm font-medium text-center text-gray-500 bg-blue-200/60 cursor-pointer rounded-xl" type="submit">Submit</button>
+                    <div class="mb-4">
+                        <label for="user_title" class="block text-sm font-medium text-gray-500">Event Title</label>
+                        <input name="user_title" type="text" placeholder="Event Title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_type" class="block text-sm font-medium text-gray-500">Type of Event</label>
+                        <select name="user_type" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                            <option value="" disabled selected>Choose Type of Event</option>
+                            <option value="Academic">Academic</option>
+                            <option value="Extracurricular">Extracurricular</option>
+                            <option value="Sports">Sports</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_date" class="block text-sm font-medium text-gray-500">Event Date</label>
+                        <input type="date" name="user_date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_start" class="block text-sm font-medium text-gray-500">Start Time</label>
+                        <input type="time" name="user_start" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_end" class="block text-sm font-medium text-gray-500">End Time</label>
+                        <input type="time" name="user_end" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_desc" class="block text-sm font-medium text-gray-500">Event Description</label>
+                        <textarea name="user_desc" placeholder="Description of Your Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" rows="4" required></textarea>
+                    </div>
+                    <div class="flex justify-end">
+                        <button name="user_submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" type="submit">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
@@ -70,4 +90,4 @@ EOT;
 
 
 
-?>
+
