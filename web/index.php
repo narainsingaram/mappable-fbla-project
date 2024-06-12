@@ -44,18 +44,26 @@ header("Location: index.php");
 
 <div class="w-1/2 p-5">
 
-<input type="checkbox" id="create_space" class="modal-toggle" />
-<div class="modal">
-  <div class="modal-box bg-white relative">
-    <label for="my-modal-5" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-    <h3 class="text-lg font-bold">Create a Space</h3>
-    <form class='inline' action="index.php" method='POST'>
-        <input type="text" name="space_name">
-        <input type="text" name="space_bio">
-        <button name='create_space' class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl' type="submit">Confirm</button>
-    </form>
-  </div>
-</div>
+<input type="checkbox" id="create_space" class="modal-toggle hidden">
+    <div class="modal fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
+        <div class="modal-box bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full">
+            <label for="create_space" class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer text-gray-500">✕</label>
+            <h3 class="text-xl font-semibold mb-4">Create a Space</h3>
+            <form action="index.php" method="POST">
+                <div class="mb-4">
+                    <label for="space_name" class="block text-sm font-medium text-gray-500">Space Name</label>
+                    <input type="text" id="space_name" name="space_name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" placeholder="Enter space name" required>
+                </div>
+                <div class="mb-4">
+                    <label for="space_bio" class="block text-sm font-medium text-gray-500">Space Bio</label>
+                    <input type="text" id="space_bio" name="space_bio" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" placeholder="Enter space bio" required>
+                </div>
+                <div class="flex justify-end">
+                  <button type="submit" name="create_space" class="inline-flex items-center py-2 px-4 text-sm font-medium text-blue-500 bg-blue-200/60 hover:bg-blue-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-200">Confirm</button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 <?php
   $web->disp_evt_mo();
