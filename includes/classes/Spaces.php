@@ -160,32 +160,42 @@ class Spaces {
                 $insert_spc_new_mem_msg = mysqli_query($this->con, "INSERT INTO spc_msgs VALUES (NULL, '$id', '$userLoggedIn', '', 'new_member', '$date', 'no')");
                 header("Location: space.php?space=$id");
             }
+
+            if(isset($_POST["$id-spaces-leave"])) {
+                $leave_spc = mysqli_query($this->con, "UPDATE spaces SET participants=REPLACE(participants, '$userLoggedIn,', '') WHERE space_id='$id'");
+                header("Location: index.php");
+            }
     
             if (in_array($userLoggedIn, $participant_arr)) {
                 $spcs_list .= "
-                <div class='bg-white card rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
-                    <div class='card-body'>
-                        <h2 class='card-title'>$space_name - #$id</h2>
-                        <p>$space_bio</p>
-                        <p>Created By: $founder</p>
-                        <p>Members: " . count($participant_arr) . "</p>
-                        <div class='card-actions justify-end'>
-                            <a href='space.php?space=$id' class='btn action_btn' name='$id-spaces-request'>Go To Space</a>
-                        </div>
+                <div class='bg-white rounded-xl shadow-lg p-6 mb-6'>
+                    <div class='mb-4'>
+                        <h2 class='text-2xl font-semibold'>$space_name - #$id</h2>
+                        <p class='text-gray-600'>$space_bio</p>
+                    </div>
+                    <div class='mb-4'>
+                        <p class='text-gray-800'><strong>Created By:</strong> $founder</p>
+                        <p class='text-gray-800'><strong>Members:</strong> " . count($participant_arr) . "</p>
+                    </div>
+                    <div class='flex justify-end'>
+                        <a href='space.php?space=$id' class='btn bg-amber-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>Go To Space</a>
+                        <form name='index.php' method='POST' class='inline'>
+                            <button class='btn bg-red-500 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full' name='$id-spaces-leave'>Leave</button>
+                        </form>
                     </div>
                 </div>
                 ";
             } else {
                 $spcs_list .= "
-                <div id='spaces_div' class='my-3 card rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] border-none'>
-                    <div class='card-body'>
-                        <h2 class='card-title'>$space_name</h2>
-                        <p>$space_bio</p>
-                        <div class='card-actions justify-end'>
-                            <form name='index.php' method='POST'>
-                                <button class='btn action_btn' name='$id-spaces-request'>Join</button>
-                            </form>
-                        </div>
+                <div class='bg-white rounded-xl shadow-lg p-6 mb-6'>
+                    <div class='mb-4'>
+                        <h2 class='text-2xl font-semibold'>$space_name</h2>
+                        <p class='text-gray-600'>$space_bio</p>
+                    </div>
+                    <div class='flex justify-end'>
+                        <form name='index.php' method='POST'>
+                            <button class='btn action_btn bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300' name='$id-spaces-request'>Join</button>
+                        </form>
                     </div>
                 </div>
                 ";
