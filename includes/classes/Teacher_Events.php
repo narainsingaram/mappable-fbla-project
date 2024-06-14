@@ -334,10 +334,22 @@ if(isset($_POST['auth_submit'])) {
         $start_time = $event_row['start']; 
         $end_time = $event_row['end']; 
         $description = $event_row['description'];
-        $image = $event_row['image'];
         $added_by = $event_row['added_by'];
         $date_added = $event_row['date_added'];
 
+        $imageUrl = '';
+
+        if ($type == 'Academic') {
+            $imageUrl = 'https://media.istockphoto.com/id/1390864016/vector/educational-tourism-abstract-concept-vector-illustration.jpg?s=612x612&w=0&k=20&c=mhkj3CUSexYWJA2m7oJGdW_4p-N0U-Sw9_DME5nwuV0='; // Replace with your actual image URL
+        } elseif ($type == 'Extracurricular') {
+            $imageUrl = 'https://cdnsm5-ss15.sharpschool.com/UserFiles/Servers/Server_79775/Image/The-Galore-of-Extracurricular-Activities-at-Banyan-Tree.jpg';
+        } elseif ($type == 'Sports') {
+            $imageUrl = 'https://img.freepik.com/free-vector/athletes-carrying-different-sport-icons_53876-66186.jpg?size=626&ext=jpg&ga=GA1.1.1518270500.1717113600&semt=ais_user';
+        } elseif ($type == 'Environmental') {
+            $imageUrl = 'https://media.istockphoto.com/id/1133737075/vector/volunteering-charity-social-concept-volunteer-people-plant-trees-in-park-vector-illustration.jpg?s=612x612&w=0&k=20&c=xdSV-lPXz-YFX2KPOv7FxXy4LrYh_SdFW8bPZTwFB-M=';
+        } else {
+            $imageUrl = 'https://thumbs.dreamstime.com/b/volunteers-needed-banner-design-vector-illustration-charity-volunteer-work-community-assistance-crowd-people-ready-119508814.jpg'; // Default image in case type doesn't match
+        }
         $date = date_create($date);
         $reformated_date = date_format($date,'m/d/Y');
 
@@ -370,103 +382,101 @@ if(isset($_POST['auth_submit'])) {
 
         $match_request_rows = mysqli_num_rows($check_requests);
         
+        
 
         if($match_request_rows == 0) {
             $event_content .= "             
-        <div class='bg-amber-50 z-10 relative border-4 border-amber-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
+            <div class='bg-amber-50 z-10 relative border-4 border-amber-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
             <div>
                 <div>
                     <div class='flex align-center'> 
-                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
-    <a href='profile.php?profile_username=$username' class='font-semibold text-gray-600'>$cap_added_by_initials</a>
-</div>
+                        <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
+                            <a href='profile.php?profile_username=$username' class='font-semibold text-gray-600'>$cap_added_by_initials</a>
+                        </div>
                         <ul class='mt-2'>
                             <li>
-                                <h3'>
+                                <h3>
                                     <a href='profile.php?profile_username=$username'>$added_by</a>
-                                <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
+                                    <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
                                 </h3>
                             </li>
-                            <li><span class='text-gray-400 text-sm'>$date_added</span>
-                            </li>
+                            <li><span class='text-gray-400 text-sm'>$date_added</span></li>
                         </ul>
                     </div>
-            <div>
-                <h1 class='rounded-2xl bg-amber-300/30 my-3 px-6 py-3 text-2xl font-bold text-amber-800'>$title</h1>
-            </div>
-                <div class='post-images'>
-                    <div class='grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl'>
-	
-                    <!-- Tile 1 -->
-                    <div class='p-5 bg-white rounded flex items-center'>
-                        <div class='bg-green-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
-                            <i class='text-3xl uil uil-calender'></i>
-                        </div>
-                        <div class='flex-grow flex flex-col ml-4'>
-                            <span class='text-xl font-bold'>{$reformated_date}</span>
-                            <div class='flex justify-between items-center'>
-                                <span class='text-gray-500'>Date</span>
+                    <div>
+                        <h1 class='rounded-2xl bg-amber-300/30 my-3 px-6 py-3 text-2xl font-bold text-amber-800'>$title</h1>
+                    </div>
+                    <div class='post-images'>
+                        <img src='$imageUrl' alt='$title' class='w-full h-auto rounded-xl mb-4'>
+                        <div class='grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl'>
+                            <!-- Tile 1 -->
+                            <div class='p-5 bg-white rounded flex items-center'>
+                                <div class='bg-green-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                                    <i class='text-3xl uil uil-calender'></i>
+                                </div>
+                                <div class='flex-grow flex flex-col ml-4'>
+                                    <span class='text-xl font-bold'>{$reformated_date}</span>
+                                    <div class='flex justify-between items-center'>
+                                        <span class='text-gray-500'>Date</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tile 2 -->
+                            <div class='p-5 bg-white rounded flex items-center'>
+                                <div class='bg-blue-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                                    <i class='text-3xl uil uil-signin'></i>
+                                </div>
+                                <div class='flex-grow flex flex-col ml-4'>
+                                    <span class='text-xl font-bold'>$start_time</span>
+                                    <div class='flex justify-between items-center'>
+                                        <span class='text-gray-500'>Start Time</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Tile 3 -->
+                            <div class='p-5 bg-white rounded flex items-center'>
+                                <div class='bg-red-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                                    <i class='text-3xl uil uil-signout'></i>
+                                </div>
+                                <div class='flex-grow flex flex-col ml-4'>
+                                    <span class='text-xl font-bold'>$end_time</span>
+                                    <div class='flex justify-between items-center'>
+                                        <span class='text-gray-500'>End Time</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <!-- Tile 2 -->
-                    <div class='p-5 bg-white rounded flex items-center'>
-                        <div class='bg-blue-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
-                            <i class='text-3xl uil uil-signin'></i>
-                        </div>
-                        <div class='flex-grow flex flex-col ml-4'>
-                            <span class='text-xl font-bold'>$start_time</span>
-                            <div class='flex justify-between items-center'>
-                                <span class='text-gray-500'>Start Time</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Tile 3 -->
-                    <div class='p-5 bg-white rounded flex items-center'>
-                        <div class='bg-red-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
-                            <i class='text-3xl uil uil-signout'></i>
-                        </div>
-                        <div class='flex-grow flex flex-col ml-4'>
-                            <span class='text-xl font-bold'>$end_time</span>
-                            <div class='flex justify-between items-center'>
-                                <span class='text-gray-500'>End Time</span>
-                            </div>
-                        </div>
-                    </div>
-                    </div>
-
                         <p class='bg-amber-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
                             <b class='text-lg text-amber-900'>
                                 <i class='uil uil-info-circle'></i> Description: 
                             </b>
                             <br> 
-                            <span class='mx-2 text-orange-800 bg-red-200'>$description </span></p>
+                            <span class='mx-2 text-orange-800 bg-red-200'>$description</span>
+                        </p>
                     </div>
                 </div>
-            <form action='index.php' method='POST' enctype='multipart/form-data'>
-                <input type='hidden' name='event_id' value='$id'>
-                <input type='hidden' name='authentifier' value='$added_by'>
-                <input type='hidden' name='auth_title' value='$title'>
-                <input type='hidden' name='auth_image' value='$image'>
-                <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
-                    <center>
-                        <button name='auth_submit' type='submit' class='btn bg-amber-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'> 
-                            <i class='text-2xl mr-2 uil uil-comment-add'></i> Ask to Join
-                        </button>
-                    </center>
-                </div>
-            </form>  
-    </main>
-    </div>
-    <div class='-top-0 -right-0 absolute dropdown'>
-        <label tabindex='0' class='btn bg-amber-50 border-none text-black hover:bg-slate-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
-        <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
-            <li><a href='profile.php?profile_username=$username'>View Profile</a></li>
-        </ul>
+                <form action='index.php' method='POST' enctype='multipart/form-data'>
+                    <input type='hidden' name='event_id' value='$id'>
+                    <input type='hidden' name='authentifier' value='$added_by'>
+                    <input type='hidden' name='auth_title' value='$title'>
+                    <input type='hidden' name='auth_image' value='$imageUrl'>
+                    <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
+                        <center>
+                            <button name='auth_submit' type='submit' class='btn bg-amber-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'> 
+                                <i class='text-2xl mr-2 uil uil-comment-add'></i> Ask to Join
+                            </button>
+                        </center>
+                    </div>
+                </form>  
+            </main>
+            </div>
+            <div class='-top-0 -right-0 absolute dropdown'>
+                <label tabindex='0' class='btn bg-amber-50 border-none text-black hover:bg-slate-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
+                <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
+                    <li><a href='profile.php?profile_username=$username'>View Profile</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
 ";
 }
         //Today's date

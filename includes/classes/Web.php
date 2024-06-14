@@ -19,6 +19,7 @@ class Web {
                             <option value="Academic">Academic</option>
                             <option value="Extracurricular">Extracurricular</option>
                             <option value="Sports">Sports</option>
+                            <option value="Environmental">Environmental</option>
                             <option value="Other">Other</option>
                         </select>
                     </div>
