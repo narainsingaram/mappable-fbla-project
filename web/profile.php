@@ -59,7 +59,7 @@ $events_attended = mysqli_query(
                       echo $cap_added_by_initials;
                      ?>
                   </div>
-                    <sup class='absolute bottom-0 bg-blue-500 text-blue-100 text-xs px-3 py-2 rounded-full h-7'><?php echo $profile_list['position']; ?></sup>
+                    <sup class='absolute bottom-0 bg-blue-50 border-blue-200 border-dashed0 text-blue-100 text-xs px-3 py-2 rounded-full h-7'><?php echo $profile_list['position']; ?></sup>
                   </div>
                 </div>
                 <div class="w-full lg:w-6/12 px-4 lg:order-2">
