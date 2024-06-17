@@ -40,7 +40,7 @@ $current_space = mysqli_fetch_array($get_space_info);
 
 <main class='w-full'>
 
-<div class="navbar border-t-4 border-amber-400/50">
+<div class="navbar border-t-4 border-blue-400/50">
   <div class="navbar-start">
       <label for="my-modal-4" class="btn btn-ghost text-3xl btn-circle">
         <i class="uil uil-bars"></i>
