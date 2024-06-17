@@ -206,6 +206,7 @@ public function loadAuthentifications() {
 
 }
 
+
 public function loadAttendanceTable() {
     $userLoggedIn = $this->user_object->gettingUsername();
     $select_events_query = mysqli_query($this->con, "SELECT * from authentifications WHERE requester='$userLoggedIn' ORDER BY id");
@@ -288,6 +289,11 @@ EOT;
     }
     echo $authentifications_content;
 }
+
+// like_event.php
+
+// Handle AJAX request
+
 
 
 
@@ -381,8 +387,40 @@ if(isset($_POST['auth_submit'])) {
         $check_requests = mysqli_query($this->con,"SELECT * FROM authentifications WHERE id='$id' AND requester='$userLoggedIn'");
 
         $match_request_rows = mysqli_num_rows($check_requests);
-        
-        
+
+                // Inside the while loop where you fetch event data
+        // Example: Fetch and display like count
+        $like_count_query = mysqli_query($this->con, "SELECT COUNT(*) AS like_count FROM event_likes WHERE event_id='$id'");
+        $like_count_row = mysqli_fetch_assoc($like_count_query);
+        $like_count = $like_count_row['like_count'];
+
+        // Inside your while loop where you generate event content
+        $liked = false; // Flag to check if user has liked this event
+
+        // Check if the user has already liked the event
+        $check_like_query = mysqli_query($this->con, "SELECT * FROM event_likes WHERE event_id='$id' AND liker_username='$userLoggedIn'");
+        if (mysqli_num_rows($check_like_query) > 0) {
+            $liked = true;
+        }
+
+        $button_text = $liked ? "Unlike" : "Like";
+
+
+        if (isset($_POST['like_event'])) {
+            if ($liked) {
+                // User wants to unlike the event
+                mysqli_query($this->con, "DELETE FROM event_likes WHERE event_id='$id' AND liker_username='$userLoggedIn'");
+                $liked = false; // Update liked status
+            } else {
+                // User wants to like the event
+                mysqli_query($this->con, "INSERT INTO event_likes (event_id, liker_username) VALUES ('$id', '$userLoggedIn')");
+                $liked = true; // Update liked status
+            }
+            // Redirect or refresh to prevent form resubmission
+            header('Location: index.php');
+            exit;
+        }
+
 
         if($match_request_rows == 0) {
             $event_content .= "             
@@ -464,6 +502,13 @@ if(isset($_POST['auth_submit'])) {
                         <center>
                             <button name='auth_submit' type='submit' class='btn bg-blue-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'> 
                                 <i class='text-2xl mr-2 uil uil-comment-add'></i> Ask to Join
+                            </button>
+                        </center>
+                    </div>
+                    <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
+                        <center>
+                            <button name='like_event' type='submit' class='btn bg-red-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>
+                                <i class='text-2xl mr-2 uil uil-heart'></i> $button_text
                             </button>
                         </center>
                     </div>
@@ -720,3 +765,7 @@ if(isset($_POST['auth_submit'])) {
     }
 }
 ?>
+
+
+
+
