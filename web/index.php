@@ -96,7 +96,7 @@ if (!empty($search_query)) {
         </div>
       </div>
       <div class="mt-8">
-        <h1 class="font-bold text-gray-900 text-2xl mb-4 mx-4">Spaces</h1>
+        <h1 class="font-bold text-gray-900 text-2xl mb-4 mx-4">Organizations</h1>
         <?php
         $space->load_space_div(); // Example of loading space division
         ?>

@@ -178,7 +178,7 @@ class Spaces {
                         <p class='text-gray-800'><strong>Members:</strong> " . count($participant_arr) . "</p>
                     </div>
                     <div class='flex justify-end'>
-                        <a href='space.php?space=$id' class='btn bg-blue-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>Go To Space</a>
+                        <a href='space.php?space=$id' class='btn bg-blue-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>Go to Organization</a>
                         <form name='index.php' method='POST' class='inline'>
                             <button class='btn bg-red-500 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full' name='$id-spaces-leave'>Leave</button>
                         </form>

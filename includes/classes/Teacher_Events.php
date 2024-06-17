@@ -1,4 +1,8 @@
 <?php
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 class Teacher_Events {
     private $user_object;
     private $connection;
@@ -35,57 +39,62 @@ public function load_requested_feed() {
     $event_data_query = mysqli_query($this->con, "SELECT * FROM teacher_events WHERE user_deleted='no' ORDER BY event_id DESC");
     $requested_content = '';
 
-    while($event_row = mysqli_fetch_array($event_data_query)) {
+    if (!$event_data_query) {
+        die('Query error: ' . mysqli_error($this->con));
+    }
+
+    while ($event_row = mysqli_fetch_assoc($event_data_query)) {
         $create_event_query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$event_row[added_by]'");
-        $row = mysqli_fetch_array($create_event_query);
-        $check_requests = mysqli_query($this->con,"SELECT * FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
+        $row = mysqli_fetch_assoc($create_event_query);
+
+        $check_requests = mysqli_query($this->con, "SELECT * FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
         $match_request_rows = mysqli_num_rows($check_requests);
 
-        if($match_request_rows == 1) {
+        if ($match_request_rows == 1) {
             $requested_content .= <<<EOT
-        <li class='py-3 sm:py-4 mb-3 rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] px-2 py-1'>
-            <div class='flex items-center space-x-4'>
-                <button class='absolute bg-slate-200 w-8 h-8 text-md text-gray-700 rounded-full font-semibold'>
-                <span class=''> {$row['first_name'][0]}{$row['last_name'][0]} </span>
-                </button>
-            <div class='flex-shrink-0'>
-                <img class='object-cover w-16 h-10 rounded-lg shadow-md' src='../assets/event_images/$event_row[image]'>
-            </div>
-
-        <div class='flex-1 min-w-0'>
-                    <p class='text-sm font-medium text-gray-900 truncate'>
-                        $event_row[title]
-                    </p>
-                    <p class='text-sm text-gray-500 truncate'>
-                        $event_row[description]
-                    </p>
-                </div>
+            <li class='py-3 sm:py-4 mb-3 rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] px-2 py-1'>
+                <div class='flex items-center space-x-4'>
+                    <button class='absolute bg-slate-200 w-8 h-8 text-md text-gray-700 rounded-full font-semibold'>
+                        <span>{$row['first_name'][0]}{$row['last_name'][0]}</span>
+                    </button>
+                    <div class='flex-shrink-0'>
+                        <img class='object-cover w-16 h-10 rounded-lg shadow-md' src='../assets/event_images/{$event_row['image']}'>
+                    </div>
+                    <div class='flex-1 min-w-0'>
+                        <p class='text-sm font-medium text-gray-900 truncate'>
+                            {$event_row['title']}
+                        </p>
+                        <p class='text-sm text-gray-500 truncate'>
+                            {$event_row['description']}
+                        </p>
+                    </div>
                     <form action='index.php' method='POST'>
-                        <button name='auth_delete_btn_$event_row[event_id]' type='submit' class='inline-flex cursor-pointer active:scale-105 items-center text-xl text-red-400 px-2 py-1 rounded-xl text-gray-900'>
+                        <button name='auth_delete_btn_{$event_row['event_id']}' type='submit' class='inline-flex cursor-pointer active:scale-105 items-center text-xl text-red-400 px-2 py-1 rounded-xl text-gray-900'>
                             <i class="uil uil-trash-alt"></i>
                         </button>
                     </form>
-            </div>
-        </li>
-    EOT;;
-    ;
-    }
-
-    else {
-        $requested_content = <<<EOT
+                </div>
+            </li>
+    EOT;
+        } else {
+            $requested_content .= <<<EOT
             <span class='bg-blue-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
-        EOT;;
-    }
+    EOT;
+        }
 
-    if(isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
-        $create_event_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='$event_row[event_id]' AND requester='$userLoggedIn'");
-        header("Location: index.php");
-        echo "Deleted";
-    }
-
+        if (isset($_POST["auth_delete_btn_{$event_row['event_id']}"])) {
+            $delete_query = mysqli_query($this->con, "DELETE FROM authentifications WHERE id='{$event_row['event_id']}' AND requester='$userLoggedIn'");
+            if (!$delete_query) {
+                die('Delete query error: ' . mysqli_error($this->con));
             }
+            header("Location: index.php");
+            exit();
+        }
+    }
+
     echo $requested_content;
 }
+
 
 public function loadAuthentifications() {
     $userLoggedIn = $this->user_object->gettingUsername();
@@ -441,8 +450,9 @@ if(isset($_POST['auth_submit'])) {
                             <li><span class='text-gray-400 text-sm'>$date_added</span></li>
                         </ul>
                     </div>
-                    <div>
-                        <h1 class='rounded-2xl bg-blue-300/30 my-3 px-6 py-3 text-2xl font-bold text-blue-800'>$title</h1>
+                    <div> 
+
+                        <h1 class='rounded-2xl bg-blue-300/30 my-3 px-6 py-3 text-2xl font-bold text-blue-800'><a href='detail.php?event_id=$id'>$title <i class='uil uil-external-link-alt'></i></a></h1>
                     </div>
                     <div class='post-images'>
                         <img src='$imageUrl' alt='$title' class='w-full h-auto rounded-xl mb-4'>
@@ -515,14 +525,65 @@ if(isset($_POST['auth_submit'])) {
                 </form>  
             </main>
             </div>
-            <div class='-top-0 -right-0 absolute dropdown'>
-                <label tabindex='0' class='btn bg-blue-50 border-blue-200 border-dashed border-none text-black hover:bg-slate-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
-                <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
-                    <li><a href='profile.php?profile_username=$username'>View Profile</a></li>
-                </ul>
-            </div>
-        </div>
 ";
+}
+
+$comments_query = mysqli_query($this->con, "SELECT * FROM event_comments WHERE event_id='$id'");
+
+
+
+// Add form for adding new comment
+$event_content .= "
+    <form action='index.php' method='POST' class='mt-4'>
+        <input type='hidden' name='event_id' value='$id'>
+        <textarea name='comment_text' class='w-full px-3 py-2 border border-gray-300 rounded-lg' placeholder='Write a comment...' required></textarea>
+        <button type='submit' name='submit_comment' class='btn bg-blue-700 hover:text-white text-white border-none capitalize mt-2'>
+            <i class='uil uil-comment'></i> Add Comment
+        </button>
+    </form>
+";
+
+// Display existing comments
+while ($comment_row = mysqli_fetch_array($comments_query)) {
+    $comment_text = $comment_row['comment_text'];
+    $commenter_username = $comment_row['commenter_username'];
+    
+    // Display each comment below the event
+    $event_content .= "
+        <div class='bg-gray-100 p-3 mt-2 rounded-lg'>
+            <p><strong>$commenter_username:</strong> $comment_text</p>
+        </div>
+
+        <div class='-top-0 -right-0 absolute dropdown'>
+        <label tabindex='0' class='btn bg-blue-50 border-blue-200 border-dashed border-none text-black hover:bg-slate-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
+        <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
+            <li><a href='profile.php?profile_username=$username'>View Profile</a></li>
+        </ul>
+    </div>
+</div>
+    ";
+}
+
+
+
+
+if (isset($_POST['submit_comment'])) {
+    $event_id = mysqli_real_escape_string($this->con, $_POST['event_id']);
+    $comment_text = mysqli_real_escape_string($this->con, $_POST['comment_text']);
+    $commenter_username = $this->user_object->gettingUsername(); // Assuming this retrieves the logged-in username
+
+    // Insert the comment into the database
+    $insert_comment_query = mysqli_query($this->con, "INSERT INTO event_comments (event_id, commenter_username, comment_text) 
+                                                     VALUES ('$event_id', '$commenter_username', '$comment_text')");
+    
+    if ($insert_comment_query) {
+        // Optionally, you can redirect back to the same page or handle success
+        header("Location: index.php");
+        exit();
+    } else {
+        // Handle error if insertion fails
+        echo "Error: " . mysqli_error($this->con);
+    }
 }
         //Today's date
         $current_date = date('Y-m-d');
@@ -765,7 +826,5 @@ if(isset($_POST['auth_submit'])) {
     }
 }
 ?>
-
-
 
 
