@@ -92,16 +92,16 @@ error_reporting(E_ALL);
 <div class="mb-4">
     <ul class="flex mb-2 text-sm font-medium text-center" id="myTab" data-tabs-toggle="#myTabContent" role="tablist">
         <li class="mr-2" role="presentation">
-            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="profile-tab" data-tabs-target="#profile" role="tab" aria-controls="profile">  Full Name</button>
+            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="profile-tab" data-tabs-target="#profile" role="tab" aria-controls="profile">  1. Full Name</button>
         </li>
         <li class="mr-2" role="presentation">
-            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="dashboard-tab" data-tabs-target="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false">User Information</button>
+            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="dashboard-tab" data-tabs-target="#dashboard" role="tab" aria-controls="dashboard" aria-selected="false">2. User Information</button>
         </li>
         <li class="mr-2" role="presentation">
-            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="settings-tab" data-tabs-target="#settings" role="tab" aria-controls="settings" aria-selected="false">Credentials</button>
+            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="settings-tab" data-tabs-target="#settings" role="tab" aria-controls="settings" aria-selected="false">3. Credentials</button>
         </li>
         <li role="presentation">
-            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="contacts-tab" data-tabs-target="#contacts" role="tab" aria-controls="contacts" aria-selected="false">Submit</button>
+            <button class="btn rounded-xl my-2 py-1 px-4 text-sm text-black bg-slate-100 hover:bg-slate-200/50 border-none normal-case" id="contacts-tab" data-tabs-target="#contacts" role="tab" aria-controls="contacts" aria-selected="false">4. Submit</button>
         </li>
     </ul>
 </div>
