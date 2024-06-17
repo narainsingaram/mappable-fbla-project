@@ -31,7 +31,7 @@ error_reporting(E_ALL);
 
 
 <div class="flex items-center justify-center min-h-screen bg-gray-100">
-<div class="px-6 py-8 mx-4 mt-4 text-left rounded-2xl bg-white">
+<div class="px-6 py-8 mx-4 mt-4 text-left rounded-2xl bg-blue-100">
 <!-- Errors -->
     <?php 
     
@@ -248,7 +248,7 @@ shuffle($img_rotations);
 <!-- Put this part before </body> tag -->
 <input type="checkbox" id="my-modal-4" class="modal-toggle" />
 <label for="my-modal-4" class="modal cursor-pointer">
-<label class="bg-white modal-box relative" for="">
+<label class="bg-blue-100 modal-box relative" for="">
     <center class=''>
         <main class='relative m-auto w-48 bg-slate-200 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_30px] 0px 9px 20px; rounded-3xl mb-4'>
             <img class=' p-5 rotate-<?php echo $img_rotations[0];?>' src="<?php echo $human_image_verification_array[0]; ?>" alt="">
@@ -259,7 +259,7 @@ shuffle($img_rotations);
                 <button type="button" class="inline-flex justify-center p-2 text-gray-500 rounded-lg cursor-pointer">
                     <svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path></svg>
                 </button>
-                    <input class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-white focus:outline-none focus:ring focus:ring-blue-3000" placeholder="What does the image depict?"></input>
+                    <input class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-blue-100 text-slate-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-blue-100 focus:outline-none focus:ring focus:ring-blue-3000" placeholder="What does the image depict?"></input>
                         <button name='image_auth' type="submit" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer">
                             <svg aria-hidden="true" class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
                         </button>

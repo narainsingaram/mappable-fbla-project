@@ -177,7 +177,7 @@ public function loadAuthentifications() {
 
     else if ($match_auth_rows == 0) {
         $authentifications_content .= <<<EOT
-                <div class="bg-blue-50 border border-blue-200 rounded-md p-4" role="alert">
+                <div class="bg-blue-50 border-blue-200 border-dashed border border-blue-200 rounded-md p-4" role="alert">
         <div class="flex">
             <div class="flex-shrink-0">
             <svg class="h-4 w-4 text-blue-600 mt-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -386,7 +386,7 @@ if(isset($_POST['auth_submit'])) {
 
         if($match_request_rows == 0) {
             $event_content .= "             
-            <div class='bg-amber-50 z-10 relative border-4 border-amber-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
+            <div class='bg-blue-50 border-blue-200 border-dashed z-10 relative border-4 border-blue-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
             <div>
                 <div>
                     <div class='flex align-center'> 
@@ -404,7 +404,7 @@ if(isset($_POST['auth_submit'])) {
                         </ul>
                     </div>
                     <div>
-                        <h1 class='rounded-2xl bg-amber-300/30 my-3 px-6 py-3 text-2xl font-bold text-amber-800'>$title</h1>
+                        <h1 class='rounded-2xl bg-blue-300/30 my-3 px-6 py-3 text-2xl font-bold text-blue-800'>$title</h1>
                     </div>
                     <div class='post-images'>
                         <img src='$imageUrl' alt='$title' class='w-full h-auto rounded-xl mb-4'>
@@ -446,8 +446,8 @@ if(isset($_POST['auth_submit'])) {
                                 </div>
                             </div>
                         </div>
-                        <p class='bg-amber-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
-                            <b class='text-lg text-amber-900'>
+                        <p class='bg-blue-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
+                            <b class='text-lg text-blue-900'>
                                 <i class='uil uil-info-circle'></i> Description: 
                             </b>
                             <br> 
@@ -462,7 +462,7 @@ if(isset($_POST['auth_submit'])) {
                     <input type='hidden' name='auth_image' value='$imageUrl'>
                     <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
                         <center>
-                            <button name='auth_submit' type='submit' class='btn bg-amber-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'> 
+                            <button name='auth_submit' type='submit' class='btn bg-blue-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'> 
                                 <i class='text-2xl mr-2 uil uil-comment-add'></i> Ask to Join
                             </button>
                         </center>
@@ -471,7 +471,7 @@ if(isset($_POST['auth_submit'])) {
             </main>
             </div>
             <div class='-top-0 -right-0 absolute dropdown'>
-                <label tabindex='0' class='btn bg-amber-50 border-none text-black hover:bg-slate-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
+                <label tabindex='0' class='btn bg-blue-50 border-blue-200 border-dashed border-none text-black hover:bg-slate-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
                 <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
                     <li><a href='profile.php?profile_username=$username'>View Profile</a></li>
                 </ul>

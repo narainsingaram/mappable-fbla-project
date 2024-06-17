@@ -16,14 +16,14 @@ header("Location: index.php");
 ?>
 
 
-<header aria-label="Page Header" class="bg-amber-800 mx-8 mt-4 rounded-xl">
+<header aria-label="Page Header" class="bg-blue-800 mx-8 mt-4 rounded-xl">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
     <div class="my-6">
-      <h1 class="font-bold text-amber-50 text-4xl">
-        Welcome Back, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-amber-200'>$first_name</a>";?>
+      <h1 class="font-bold text-blue-50 text-4xl">
+        Welcome Back, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-200'>$first_name</a>";?>
       </h1>
 
-      <p class="mt-1.5 text-sm text-amber-100">
+      <p class="mt-1.5 text-sm text-blue-100">
       Explore your school & community's events created by your teachers and administrators. 🚀
       </p>
     </div>
