@@ -64,101 +64,141 @@ $experience_sum_points = $experience_rows["experience_sum"];
     </div>
   </div>
 </header>
+
+      <!-- Card Section -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <!-- Grid -->
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+    <!-- Card -->
+    <div class="flex flex-col bg-white border shadow-sm rounded-xl bg-neutral-900 border-neutral-800">
+      <div class="p-4 md:p-5 flex gap-x-4">
+        <div class="flex-shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg bg-neutral-800">
+          <svg class="flex-shrink-0 size-5 text-gray-200" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+
+        <div class="grow">
+          <div class="flex items-center gap-x-2">
+            <p class="text-xs uppercase tracking-wide text-gray-500 ">
+              Total users
+            </p>
+            <div class="hs-tooltip">
+              <div class="hs-tooltip-toggle">
+                <svg class="flex-shrink-0 size-4 text-gray-500 " xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm bg-neutral-700" role="tooltip">
+                  The number of daily users
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-1 flex items-center gap-x-2">
+            <h3 class="text-xl sm:text-2xl font-medium text-gray-800 200">
+            <?php while (
+                $row = $number_of_global_users->fetch_assoc()
+            ) {
+                echo $row["id"] . "<br>";
+            } ?>
+            </h3>
+            <span class="inline-flex items-center gap-x-1 py-0.5 px-2 rounded-full bg-green-100 text-green-900 bg-green-800 text-green-100">
+              <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+              <span class="inline-block text-xs font-medium">
+                12.5%
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Card -->
+
+    <!-- Card -->
+    <div class="flex flex-col bg-white border shadow-sm rounded-xl bg-neutral-900 border-neutral-800">
+      <div class="p-4 md:p-5 flex gap-x-4">
+        <div class="flex-shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg bg-neutral-800">
+          <svg class="flex-shrink-0 size-5 text-gray-200 400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 22h14"/><path d="M5 2h14"/><path d="M17 22v-4.172a2 2 0 0 0-.586-1.414L12 12l-4.414 4.414A2 2 0 0 0 7 17.828V22"/><path d="M7 2v4.172a2 2 0 0 0 .586 1.414L12 12l4.414-4.414A2 2 0 0 0 17 6.172V2"/></svg>
+        </div>
+
+        <div class="grow">
+          <div class="flex items-center gap-x-2">
+            <p class="text-xs uppercase tracking-wide text-gray-500">
+              Overall Points
+            </p>
+          </div>
+          <div class="mt-1 flex items-center gap-x-2">
+            <h3 class="text-xl font-medium text-gray-800 200">
+              <?php echo $total_sum_points; ?>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Card -->
+
+    <!-- Card -->
+    <div class="flex flex-col bg-white border shadow-sm rounded-xl bg-neutral-900 border-neutral-800">
+      <div class="p-4 md:p-5 flex gap-x-4">
+        <div class="flex-shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg bg-neutral-800">
+          <svg class="flex-shrink-0 size-5 text-gray-200 400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"/><path d="m12 12 4 10 1.7-4.3L22 16Z"/></svg>
+        </div>
+
+        <div class="grow">
+          <div class="flex items-center gap-x-2">
+            <p class="text-xs uppercase tracking-wide text-gray-500 ">
+              Overall Gems
+            </p>
+          </div>
+          <div class="mt-1 flex items-center gap-x-2">
+            <h3 class="text-xl sm:text-2xl font-medium text-gray-800">
+              <?php echo $total_sum_gems; ?>
+            </h3>
+            <span class="inline-flex items-center gap-x-1 py-0.5 px-2 rounded-full bg-red-100 text-red-900 bg-red-800 text-red-100">
+              <svg class="inline-block size-4 self-center" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/></svg>
+              <span class="inline-block text-xs font-medium">
+                1.7%
+              </span>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Card -->
+
+    <!-- Card -->
+    <div class="flex flex-col bg-white border shadow-sm rounded-xl bg-neutral-900 border-neutral-800">
+      <div class="p-4 md:p-5 flex gap-x-4">
+        <div class="flex-shrink-0 flex justify-center items-center size-[46px] bg-gray-100 rounded-lg bg-neutral-800">
+          <svg class="flex-shrink-0 size-5 text-gray-200 400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12s2.545-5 7-5c4.454 0 7 5 7 5s-2.546 5-7 5c-4.455 0-7-5-7-5z"/><path d="M12 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/><path d="M21 17v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2"/><path d="M21 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v2"/></svg>
+        </div>
+
+        <div class="grow">
+          <div class="flex items-center gap-x-2">
+            <p class="text-xs uppercase tracking-wide text-gray-500">
+              Experience Points
+            </p>
+            <div class="hs-tooltip">
+              <div class="hs-tooltip-toggle">
+                <svg class="flex-shrink-0 size-4 text-gray-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>
+                <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded shadow-sm bg-neutral-700" role="tooltip">
+                  The average pageviews
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="mt-1 flex items-center gap-x-2">
+            <h3 class="text-xl font-medium text-gray-800">
+              <?php echo $experience_sum_points; ?>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Card -->
+  </div>
+  <!-- End Grid -->
+</div>
+<!-- End Card Section -->
           
       <div class="flex flex-wrap mt-6 -mx-3 p-2">
-      <div class="w-full px-3 mb-4 lg:mb-0 lg:w-7/12 rounded-2xl">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-      <li class="flex items-center pl-4 xl:hidden">
-        <a href="javascript:;" class="block p-0 transition-all ease-nav-brand text-size-sm text-slate-500" sidenav-trigger="">
-          <div class="w-4.5 overflow-hidden">
-            <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-            <i class="ease-soft mb-0.75 relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-            <i class="ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all"></i>
-          </div>
-        </a>
-      </li>
-      <li class="flex items-center px-4">
-        <a href="javascript:;" class="p-0 transition-all text-size-sm ease-nav-brand text-slate-500">
-          <i fixed-plugin-button-nav="" class="cursor-pointer fa fa-cog" aria-hidden="true"></i>
-        </a>
-      </li>
 
-      <li class="relative flex items-center pr-2">
-      <p class="hidden transform-dropdown-show"></p>
-      <a href="javascript:;" class="block p-0 transition-all text-size-sm ease-nav-brand text-slate-500" dropdown-trigger="" aria-expanded="false">
-      <i class="cursor-pointer fa fa-bell" aria-hidden="true"></i>
-      </a>
-      <ul dropdown-menu="" class="text-size-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 pointer-events-none absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer">
-
-      <li class="relative mb-2">
-      <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg bg-transparent px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 lg:transition-colors" href="javascript:;">
-      <div class="flex py-1">
-      <div class="my-auto">
-      <img src="../assets/img/team-2.jpg" class="inline-flex items-center justify-center mr-4 text-white text-size-sm h-9 w-9 max-w-none rounded-xl">
-      </div>
-      <div class="flex flex-col justify-center">
-      <h6 class="mb-1 font-normal leading-normal text-size-sm"><span class="font-semibold">New
-      message</span> from Laur</h6>
-      <p class="mb-0  leading-tight text-size-xs text-slate-400">
-      <i class="mr-1 fa fa-clock" aria-hidden="true"></i>
-      13 minutes ago
-      </p>
-      </div>
-      </div>
-      </a>
-      </li>
-      <li class="relative mb-2">
-      <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700" href="javascript:;">
-      <div class="flex py-1">
-      <div class="my-auto">
-      <img src="../assets/img/small-logos/logo-spotify.svg" class="inline-flex items-center justify-center mr-4 text-white text-size-sm bg-gradient-dark-gray h-9 w-9 max-w-none rounded-xl">
-      </div>
-      <div class="flex flex-col justify-center">
-      <h6 class="mb-1 font-normal leading-normal text-size-sm"><span class="font-semibold">New
-      album</span> by Travis Scott</h6>
-      <p class="mb-0  leading-tight text-size-xs text-slate-400">
-      <i class="mr-1 fa fa-clock" aria-hidden="true"></i>
-      1 day
-      </p>
-      </div>
-      </div>
-      </a>
-      </li>
-      <li class="relative">
-      <a class="ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg px-4 transition-colors duration-300 hover:bg-gray-200 hover:text-slate-700" href="javascript:;">
-      <div class="flex py-1">
-      <div class="inline-flex items-center justify-center my-auto mr-4 text-white transition-all duration-200 ease-nav-brand text-size-sm bg-gradient-slate h-9 w-9 rounded-xl">
-      <svg width="12px" height="12px" viewBox="0 0 43 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <title>credit-card</title>
-      <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-      <g transform="translate(-2169.000000, -745.000000)" fill="#FFFFFF" fill-rule="nonzero">
-      <g transform="translate(1716.000000, 291.000000)">
-      <g transform="translate(453.000000, 454.000000)">
-      <path class="color-background" d="M43,10.7482083 L43,3.58333333 C43,1.60354167 41.3964583,0 39.4166667,0 L3.58333333,0 C1.60354167,0 0,1.60354167 0,3.58333333 L0,10.7482083 L43,10.7482083 Z" opacity="0.593633743"></path>
-      <path class="color-background" d="M0,16.125 L0,32.25 C0,34.2297917 1.60354167,35.8333333 3.58333333,35.8333333 L39.4166667,35.8333333 C41.3964583,35.8333333 43,34.2297917 43,32.25 L43,16.125 L0,16.125 Z M19.7083333,26.875 L7.16666667,26.875 L7.16666667,23.2916667 L19.7083333,23.2916667 L19.7083333,26.875 Z M35.8333333,26.875 L28.6666667,26.875 L28.6666667,23.2916667 L35.8333333,23.2916667 L35.8333333,26.875 Z">
-      </path>
-      </g>
-      </g>
-      </g>
-      </g>
-      </svg>
-      </div>
-      <div class="flex flex-col justify-center">
-      <h6 class="mb-1 font-normal leading-normal text-size-sm">Payment successfully completed</h6>
-      <p class="mb-0  leading-tight text-size-xs text-slate-400">
-      <i class="mr-1 fa fa-clock" aria-hidden="true"></i>
-      2 days
-      </p>
-      </div>
-      </div>
-      </a>
-      </li>
-      </ul>
-      </li>
-      </ul>
-      </div>
-      </div>
-      </nav>
       <div class="w-full px-6 py-2 mx-auto">
       <div wire:id="4ilqyNplThbbtlHVw3TJ">
       <div class="flex flex-wrap -mx-3">
@@ -173,103 +213,10 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 bg-blue-100">
 	<i class="uil uil-user text-4xl px-1 text-black"></i>
 </div>
-<div class="flex flex-col justify-center align-middle">
-	<p class="text-3xl font-semibold leading-none"> <?php while (
-     $row = $number_of_global_users->fetch_assoc()
- ) {
-     echo $row["id"] . "<br>";
- } ?></p>
-	<p class="capitalize">Users</p>
-  <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+55%</span>
-</div>
+
 </div>
       </h5>
-      </div>
-      </div>
-      <div class="px-3 text-right basis-1/3">
-      <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-fuchsia">
-      <i class="ni ni-money-coins text-size-lg relative top-3.5 text-white"></i>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
 
-      <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-      <div class="flex-auto p-4">
-      <div class="flex flex-row -mx-3">
-      <div class="flex-none w-2/3 max-w-full px-3">
-      <div>
-      <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
-<div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-yellow-100">
-<i class="uil uil-star text-4xl px-1 text-black"></i>
-</div>
-<div class="flex flex-col justify-center align-middle">
-	<p class="text-3xl font-semibold leading-none"><?php echo $total_sum_points; ?></p>
-	<p class="capitalize">Overall Points</p>
-  <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">+15%</span>
-</div>
-</div>
-      </h5>
-      </div>
-      </div>
-      <div class="px-3 text-right basis-1/3">
-      <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-fuchsia">
-      <i class="ni ni-world text-size-lg relative top-3.5 text-white"></i>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      </div>
-      <div class="w-full max-w-full px-3 mb-6 sm:w-1/2 sm:flex-none xl:mb-0 xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-      <div class="flex-auto p-4">
-      <div class="flex flex-row -mx-3">
-      <div class="flex-none w-2/3 max-w-full px-3">
-      <div>
-      <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-green">
-<div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-green-100">
-<i class="bx bx-diamond text-4xl px-1 text-black"></i>
-</div>
-<div class="flex flex-col justify-center align-middle">
-	<p class="text-3xl font-semibold leading-none"><?php echo $total_sum_gems; ?></p>
-	<p class="capitalize">Overall Gems</p>
-  <span class="leading-normal text-size-sm font-weight-bolder text-lime-500">-5%</span>
-</div>
-</div>
-      </h5>
-      </div>
-      </div>
-      <div class="px-3 text-right basis-1/3">
-      <div class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-fuchsia">
-      <i class="ni ni-paper-diploma text-size-lg relative top-3.5 text-white"></i>
-      </div>
-      </div>
-      </div>
-      </div> 
-      </div>
-      </div>
-
-      <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
-      <div class="relative flex flex-col min-w-0 break-words bg-white shadow-soft-xl rounded-2xl bg-clip-border">
-      <div class="flex-auto p-4">
-      <div class="flex flex-row -mx-3">
-      <div>
-      <div class="flex flex-col justify-center align-middle">
-      <div class="flex p-4 space-x-4 rounded-2xl md:space-x-6 bg-white">
-<div class="flex justify-center p-2 align-middle rounded-lg sm:p-4 dark:bg-violet-100">
-<i class="uil uil-user text-4xl px-1 text-black"></i>
-</div>
-
-<div class="flex flex-col justify-center align-middle">
-	<p class="text-3xl font-semibold leading-none"><?php echo $experience_sum_points; ?></p>
-	<p class="capitalize">Experience Points</p>
-  <span class="leading-normal text-size-sm font-weight-extrabold text-lime-500">+13%</span>
-</div>
-</div>
 
       </h5>
       </div>
@@ -317,7 +264,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
       <div class="flex mb-2">
-      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-cyan text-neutral-900">
+      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-cyan 900">
       
       
       </div>
@@ -331,7 +278,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
       <div class="flex mb-2">
-      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-orange text-neutral-900">
+      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-orange 900">
       
      
 
@@ -346,7 +293,7 @@ $experience_sum_points = $experience_rows["experience_sum"];
       </div>
       <div class="flex-none w-1/4 max-w-full py-4 pl-0 pr-3 mt-0">
       <div class="flex mb-2">
-      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-red text-neutral-900">
+      <div class="flex items-center justify-center w-5 h-5 mr-2 text-center bg-center rounded fill-current shadow-soft-2xl bg-gradient-red 900">
       
       </div>
 
