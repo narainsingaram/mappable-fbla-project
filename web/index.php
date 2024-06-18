@@ -1,8 +1,6 @@
 <?php
 include("../template/navbar.php");
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+
 
 
 
@@ -47,7 +45,7 @@ header("Location: index.php");
 <input type="checkbox" id="create_space" class="modal-toggle hidden">
     <div class="modal fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
         <div class="modal-box bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full">
-            <label for="create_space" class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer text-gray-500">✕</label>
+            <label for="create_space" class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer text-white">✕</label>
             <h3 class="text-xl font-semibold mb-4">Create a Space</h3>
             <form action="index.php" method="POST">
                 <div class="mb-4">

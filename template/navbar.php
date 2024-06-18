@@ -43,6 +43,9 @@ include("../template/web_defaults.php");
         </span>
         <span class='justify-end'>
         </span>
+        <form>
+          <button class='mb-2 text-sm text-red-400' type='submit'>Clear All</button>
+        </form>
       </div>
     <?php 
       $add_notification = new Notify($connection, $userLoggedIn);

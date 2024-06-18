@@ -113,7 +113,6 @@ public function loadAuthentifications() {
         $requester = $auth_rows['requester'];
         $title = $auth_rows['title'];
         $image = $auth_rows['image'];
-        $desc = $auth_rows['description'];
 
         $requester_query = mysqli_query($this->con, "SELECT first_name, last_name FROM users WHERE username='$requester'");
         $select_request_details = mysqli_fetch_assoc($requester_query);
@@ -335,6 +334,7 @@ if(isset($_POST['auth_submit'])) {
         // Create a new notification object and send a notification
         $add_notification = new Notify($this->con, $authentifier);
         $add_notification->pushNewNotification($authentifier, 'request_received');
+        $add_notification->pushNewNotification($authentifier, 'request_sent');
     }
     // Redirect the user back to the index page
     header('Location: index.php');
