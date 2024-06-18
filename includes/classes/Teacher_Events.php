@@ -431,160 +431,184 @@ if(isset($_POST['auth_submit'])) {
         }
 
 
-        if($match_request_rows == 0) {
+        if ($match_request_rows == 0) {
             $event_content .= "             
             <div class='bg-blue-50 border-blue-200 border-dashed z-10 relative border-4 border-blue-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
-            <div>
                 <div>
-                    <div class='flex align-center'> 
-                        <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
-                            <a href='profile.php?profile_username=$username' class='font-semibold text-gray-600'>$cap_added_by_initials</a>
+                    <div>
+                        <div class='flex align-center'> 
+                            <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
+                                <a href='profile.php?profile_username=$username' class='font-semibold text-gray-600'>$cap_added_by_initials</a>
+                            </div>
+                            <ul class='mt-2'>
+                                <li>
+                                    <h3>
+                                        <a href='profile.php?profile_username=$username'>$added_by</a>
+                                        <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
+                                    </h3>
+                                </li>
+                                <li><span class='text-gray-400 text-sm'>$date_added</span></li>
+                            </ul>
                         </div>
-                        <ul class='mt-2'>
-                            <li>
-                                <h3>
-                                    <a href='profile.php?profile_username=$username'>$added_by</a>
-                                    <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
-                                </h3>
-                            </li>
-                            <li><span class='text-gray-400 text-sm'>$date_added</span></li>
-                        </ul>
+                        <div> 
+                            <h1 class='rounded-2xl bg-blue-300/30 my-3 px-6 py-3 text-2xl font-bold text-blue-800'><a href='detail.php?event_id=$id'>$title <i class='uil uil-external-link-alt'></i></a></h1>
+                        </div>
+                        <div class='post-images'>
+                            <img src='$imageUrl' alt='$title' class='w-full h-auto rounded-xl mb-4'>
+                            <div class='grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl'>
+                                <!-- Tile 1 -->
+                                <div class='p-5 bg-white rounded flex items-center'>
+                                    <div class='bg-green-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                                        <i class='text-3xl uil uil-calender'></i>
+                                    </div>
+                                    <div class='flex-grow flex flex-col ml-4'>
+                                        <span class='text-xl font-bold'>{$reformated_date}</span>
+                                        <div class='flex justify-between items-center'>
+                                            <span class='text-gray-500'>Date</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Tile 2 -->
+                                <div class='p-5 bg-white rounded flex items-center'>
+                                    <div class='bg-blue-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                                        <i class='text-3xl uil uil-signin'></i>
+                                    </div>
+                                    <div class='flex-grow flex flex-col ml-4'>
+                                        <span class='text-xl font-bold'>$start_time</span>
+                                        <div class='flex justify-between items-center'>
+                                            <span class='text-gray-500'>Start Time</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Tile 3 -->
+                                <div class='p-5 bg-white rounded flex items-center'>
+                                    <div class='bg-red-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                                        <i class='text-3xl uil uil-signout'></i>
+                                    </div>
+                                    <div class='flex-grow flex flex-col ml-4'>
+                                        <span class='text-xl font-bold'>$end_time</span>
+                                        <div class='flex justify-between items-center'>
+                                            <span class='text-gray-500'>End Time</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class='bg-blue-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
+                                <b class='text-lg text-blue-900'>
+                                    <i class='uil uil-info-circle'></i> Description: 
+                                </b>
+                                <br> 
+                                <span class='mx-2 text-orange-800 bg-red-200'>$description</span>
+                            </p>
+                        </div>
                     </div>
-                    <div> 
+                    <form action='index.php' method='POST' enctype='multipart/form-data'>
+                        <input type='hidden' name='event_id' value='$id'>
+                        <input type='hidden' name='authentifier' value='$added_by'>
+                        <input type='hidden' name='auth_title' value='$title'>
+                        <input type='hidden' name='auth_image' value='$imageUrl'>
+                        <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
+                            <center>
+                                <button name='auth_submit' type='submit' class='btn bg-blue-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'> 
+                                    <i class='text-2xl mr-2 uil uil-comment-add'></i> Ask to Join
+                                </button>
+                            </center>
+                        </div>
+                        <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
+                            <center>
+                                <button name='like_event' type='submit' class='btn bg-red-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>
+                                    <i class='text-2xl mr-2 uil uil-heart'></i> $button_text
+                                </button>
+                            </center>
+                        </div>
 
-                        <h1 class='rounded-2xl bg-blue-300/30 my-3 px-6 py-3 text-2xl font-bold text-blue-800'><a href='detail.php?event_id=$id'>$title <i class='uil uil-external-link-alt'></i></a></h1>
-                    </div>
-                    <div class='post-images'>
-                        <img src='$imageUrl' alt='$title' class='w-full h-auto rounded-xl mb-4'>
-                        <div class='grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-6xl'>
-                            <!-- Tile 1 -->
-                            <div class='p-5 bg-white rounded flex items-center'>
-                                <div class='bg-green-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
-                                    <i class='text-3xl uil uil-calender'></i>
-                                </div>
-                                <div class='flex-grow flex flex-col ml-4'>
-                                    <span class='text-xl font-bold'>{$reformated_date}</span>
-                                    <div class='flex justify-between items-center'>
-                                        <span class='text-gray-500'>Date</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Tile 2 -->
-                            <div class='p-5 bg-white rounded flex items-center'>
-                                <div class='bg-blue-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
-                                    <i class='text-3xl uil uil-signin'></i>
-                                </div>
-                                <div class='flex-grow flex flex-col ml-4'>
-                                    <span class='text-xl font-bold'>$start_time</span>
-                                    <div class='flex justify-between items-center'>
-                                        <span class='text-gray-500'>Start Time</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Tile 3 -->
-                            <div class='p-5 bg-white rounded flex items-center'>
-                                <div class='bg-red-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
-                                    <i class='text-3xl uil uil-signout'></i>
-                                </div>
-                                <div class='flex-grow flex flex-col ml-4'>
-                                    <span class='text-xl font-bold'>$end_time</span>
-                                    <div class='flex justify-between items-center'>
-                                        <span class='text-gray-500'>End Time</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <p class='bg-blue-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
-                            <b class='text-lg text-blue-900'>
-                                <i class='uil uil-info-circle'></i> Description: 
-                            </b>
-                            <br> 
-                            <span class='mx-2 text-orange-800 bg-red-200'>$description</span>
-                        </p>
-                    </div>
-                </div>
-                <form action='index.php' method='POST' enctype='multipart/form-data'>
-                    <input type='hidden' name='event_id' value='$id'>
-                    <input type='hidden' name='authentifier' value='$added_by'>
-                    <input type='hidden' name='auth_title' value='$title'>
-                    <input type='hidden' name='auth_image' value='$imageUrl'>
                     <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
                         <center>
-                            <button name='auth_submit' type='submit' class='btn bg-blue-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'> 
-                                <i class='text-2xl mr-2 uil uil-comment-add'></i> Ask to Join
-                            </button>
+                            <span id='toggle-comments-$id' class='btn bg-gray-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>
+                                <i class='uil uil-comments'></i> Toggle Comments
+                            </span>
                         </center>
                     </div>
-                    <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
-                        <center>
-                            <button name='like_event' type='submit' class='btn bg-red-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>
-                                <i class='text-2xl mr-2 uil uil-heart'></i> $button_text
+                    </form>  
+        
+                    <!-- Toggle Comments Button --
+
+        
+                    <!-- Comments Section -->
+                    <div id='comments-section-$id' class='comments-section mt-4 hidden'>
+                        <!-- Add form for adding new comment -->
+                        <form action='index.php' method='POST' class='mt-4'>
+                            <input type='hidden' name='event_id' value='$id'>
+                            <textarea name='comment_text' class='w-full px-3 py-2 border border-gray-300 rounded-lg' placeholder='Write a comment...' required></textarea>
+                            <button type='submit' name='submit_comment' class='btn bg-blue-700 hover:text-white text-white border-none capitalize mt-2'>
+                                <i class='uil uil-comment'></i> Add Comment
                             </button>
-                        </center>
-                    </div>
-                </form>  
-            </main>
-            </div>
-";
-}
+                        </form>
+        
+                        <!-- Display existing comments -->
+                        <div class='mt-4'>";
+                        
+                        $comments_query = mysqli_query($this->con, "SELECT * FROM event_comments WHERE event_id='$id' AND parent_id IS NULL");
+                        while ($comment_row = mysqli_fetch_array($comments_query)) {
+                            $comment_id = $comment_row['comment_id'];
+                            $comment_text = $comment_row['comment_text'];
+                            $commenter_username = $comment_row['commenter_username'];
+                        
+                            $event_content .= "
+                            <div class='bg-gray-100 p-3 mt-2 rounded-lg'>
+                                <p><strong>$commenter_username:</strong> $comment_text</p>
+                                <a href='detail.php?event_id=$id&comment_id=$comment_id' class='text-blue-500'>Reply</a>
+                            </div>";
+                        
+                            // Display replies
+                            $replies_query = mysqli_query($this->con, "SELECT * FROM event_comments WHERE parent_id='$comment_id'");
+                            while ($reply_row = mysqli_fetch_array($replies_query)) {
+                                $reply_text = $reply_row['comment_text'];
+                                $reply_username = $reply_row['commenter_username'];
+                        
+                                $event_content .= "
+                                <div class='bg-gray-200 p-2 mt-1 ml-5 rounded-lg'>
+                                    <p><strong>$reply_username:</strong> $reply_text</p>
+                                </div>";
+                            }
+                        }
+                        
+        
+            $event_content .= "</div></div></div></div>";
 
-$comments_query = mysqli_query($this->con, "SELECT * FROM event_comments WHERE event_id='$id'");
-
-
-
-// Add form for adding new comment
-$event_content .= "
-    <form action='index.php' method='POST' class='mt-4'>
-        <input type='hidden' name='event_id' value='$id'>
-        <textarea name='comment_text' class='w-full px-3 py-2 border border-gray-300 rounded-lg' placeholder='Write a comment...' required></textarea>
-        <button type='submit' name='submit_comment' class='btn bg-blue-700 hover:text-white text-white border-none capitalize mt-2'>
-            <i class='uil uil-comment'></i> Add Comment
-        </button>
-    </form>
-";
-
-// Display existing comments
-while ($comment_row = mysqli_fetch_array($comments_query)) {
-    $comment_text = $comment_row['comment_text'];
-    $commenter_username = $comment_row['commenter_username'];
-    
-    // Display each comment below the event
-    $event_content .= "
-        <div class='bg-gray-100 p-3 mt-2 rounded-lg'>
-            <p><strong>$commenter_username:</strong> $comment_text</p>
-        </div>
-
-        <div class='-top-0 -right-0 absolute dropdown'>
-        <label tabindex='0' class='btn bg-blue-50 border-blue-200 border-dashed border-none text-black hover:bg-slate-200 active:scale-125 cursor-pointer text-sm'><i class='uil uil-ellipsis-h'></i></label>
-        <ul tabindex='0' class='dropdown-content menu p-2 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] bg-white rounded-2xl w-52'>
-            <li><a href='profile.php?profile_username=$username'>View Profile</a></li>
-        </ul>
-    </div>
-</div>
-    ";
-}
-
-
+            $event_content .= "
+                <script>
+                    document.getElementById('toggle-comments-$id').addEventListener('click', function() {
+                        const commentsSection = document.getElementById('comments-section-$id');
+                        commentsSection.classList.toggle('hidden');
+                    });
+                </script>
+            ";
+        }
+        
 
 
-if (isset($_POST['submit_comment'])) {
-    $event_id = mysqli_real_escape_string($this->con, $_POST['event_id']);
-    $comment_text = mysqli_real_escape_string($this->con, $_POST['comment_text']);
-    $commenter_username = $this->user_object->gettingUsername(); // Assuming this retrieves the logged-in username
 
-    // Insert the comment into the database
-    $insert_comment_query = mysqli_query($this->con, "INSERT INTO event_comments (event_id, commenter_username, comment_text) 
-                                                     VALUES ('$event_id', '$commenter_username', '$comment_text')");
-    
-    if ($insert_comment_query) {
-        // Optionally, you can redirect back to the same page or handle success
-        header("Location: index.php");
-        exit();
-    } else {
-        // Handle error if insertion fails
-        echo "Error: " . mysqli_error($this->con);
-    }
-}
+        if (isset($_POST['submit_comment'])) {
+            $event_id = mysqli_real_escape_string($this->con, $_POST['event_id']);
+            $comment_text = mysqli_real_escape_string($this->con, $_POST['comment_text']);
+            $commenter_username = $this->user_object->gettingUsername(); // Assuming this retrieves the logged-in username
+            $parent_id = isset($_POST['parent_id']) ? mysqli_real_escape_string($this->con, $_POST['parent_id']) : 'NULL';
+        
+            // Insert the comment into the database
+            $insert_comment_query = mysqli_query($this->con, "INSERT INTO event_comments (event_id, commenter_username, comment_text, parent_id) 
+                                                             VALUES ('$event_id', '$commenter_username', '$comment_text', $parent_id)");
+            
+            if ($insert_comment_query) {
+                // Optionally, you can redirect back to the same page or handle success
+                header("Location: index.php");
+                exit();
+            } else {
+                // Handle error if insertion fails
+                echo "Error: " . mysqli_error($this->con);
+            }
+        }
+        
         //Today's date
         $current_date = date('Y-m-d');
 

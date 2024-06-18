@@ -40,7 +40,7 @@ class Web {
                         <textarea name="user_desc" placeholder="Description of Your Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" rows="4" required></textarea>
                     </div>
                     <div class="flex justify-end">
-                        <button name="user_submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-50 border-blue-200 border-dashed0 hover:bg-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" type="submit">Submit</button>
+                        <button name="user_submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
@@ -87,7 +87,6 @@ EOT;
             echo $success_alert;
     }
 }
-
 
 
 
