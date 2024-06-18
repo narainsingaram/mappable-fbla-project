@@ -329,7 +329,7 @@ if(isset($_POST['auth_submit'])) {
     $cross_check_result = mysqli_fetch_assoc($verifying_checkin);
     
     // If the event id does not exist, insert new record into the authentifications table
-    if ($cross_check_result['checkin_crosscheck'] == 0) {
+    if ($cross_check_result['checkin_crosscheck']) {
         mysqli_query($this->con, "INSERT INTO authentifications VALUES($event_id, '$authentifier', '$userLoggedIn', '$title', '$image', 'no', 'no') ORDER BY id DESC");
         // Create a new notification object and send a notification
         $add_notification = new Notify($this->con, $authentifier);

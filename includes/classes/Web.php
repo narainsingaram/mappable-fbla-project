@@ -41,6 +41,18 @@ class Web {
                         <label for="user_hours" class="block text-sm font-medium text-gray-500">Number of Volunteer Hours</label>
                         <input type="number" name="user_hours" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
                     </div>
+                    <div class="relative mb-4">
+                        <label for="labels-range-input" class="sr-only">Number of Volunteers </label>
+                        <input id="labels-range-input" type="range" value="1000" min="100" max="1500" class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+                        <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-0 -bottom-6">Min ($100)</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-1/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">$500</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 absolute start-2/3 -translate-x-1/2 rtl:translate-x-1/2 -bottom-6">$1000</span>
+                        <span class="text-sm text-gray-500 dark:text-gray-400 absolute end-0 -bottom-6">Max ($1500)</span>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_spots" class="block text-sm font-medium text-gray-500">Number of Seats Available</label>
+                        <input type="number" name="user_spots" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
                     <div class="mb-4">
                         <h3>Event Location</h3>
                         <span class='text-sm text-gray-600'>Use the following link to find your latitude and longitude to present your location: <a href='https://www.latlong.net/convert-address-to-lat-long.html'>Get Latitude and Longitude</a></span>
