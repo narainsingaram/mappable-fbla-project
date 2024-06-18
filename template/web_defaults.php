@@ -5,7 +5,6 @@ include("../includes/classes/Teacher_Events.php");
 include("../includes/classes/Spaces.php");
 include("../includes/classes/Notify.php");
 include("../includes/classes/Web.php");
-include("../includes/classes/Message.php");
 
 ini_set('display_errors', 1);
 
