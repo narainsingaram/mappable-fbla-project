@@ -42,7 +42,7 @@ header("Location: index.php");
 
 ?>
 
-<div class="w-1/2 p-5">
+<div class="w-2/3">
 
 <input type="checkbox" id="create_space" class="modal-toggle hidden">
     <div class="modal fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">

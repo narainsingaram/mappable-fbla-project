@@ -36,6 +36,24 @@ class Web {
                         <input type="time" name="user_end" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
                     </div>
                     <div class="mb-4">
+                        <label for="user_hours" class="block text-sm font-medium text-gray-500">Number of Volunteer Hours</label>
+                        <input type="number" name="user_hours" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                        <div class="mb-4">
+                        <h3>Event Location</h3>
+                        <span class='text-sm text-gray-600'>Use the following link to find your latitude and longitude to present your location: <a href='https://www.latlong.net/convert-address-to-lat-long.html'>Get Latitude and Longitude</a></span>
+                        <label for="user_loc_1" class="block text-sm font-medium text-gray-500">Latitude</label>
+                        <input name="user_loc_1" placeholder="Description of Your Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" rows="4" required>
+                        <label for="user_loc_1" class="block text-sm font-medium text-gray-500">Longitude</label>
+                        <input name="user_loc_1" placeholder="Description of Your Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" rows="4" required>
+                        <label for="user_city" class="block text-sm font-medium text-gray-500">City</label>
+                        <input name="user_city" placeholder="City of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" rows="4" required>
+                        <label for="user_state" class="block text-sm font-medium text-gray-500">State</label>
+                        <input name="user_state" placeholder="State of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" rows="4" required>
+                        <label for="user_country" class="block text-sm font-medium text-gray-500">Country</label>
+                        <input name="user_country" placeholder="Country of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" rows="4" required>
+                    </div>
+                    <div class="mb-4">
                         <label for="user_desc" class="block text-sm font-medium text-gray-500">Event Description</label>
                         <textarea name="user_desc" placeholder="Description of Your Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" rows="4" required></textarea>
                     </div>

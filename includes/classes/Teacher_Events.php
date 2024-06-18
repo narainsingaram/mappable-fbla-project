@@ -525,7 +525,15 @@ if(isset($_POST['auth_submit'])) {
                     <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
                         <center>
                             <span id='toggle-comments-$id' class='btn bg-gray-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>
-                                <i class='uil uil-comments'></i> Toggle Comments
+                                <i class='uil uil-comments'></i>
+                            </span>
+                        </center>
+                    </div>
+
+                    <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
+                        <center>
+                            <span id='toggle-comments-$id' class='btn bg-green-600 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>
+                                <i class='uil uil-share'></i> 
                             </span>
                         </center>
                     </div>
