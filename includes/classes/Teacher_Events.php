@@ -12,26 +12,39 @@ class Teacher_Events {
         $this->user_object = new User_Info($connection, $user);
     }
 
-public function event_feed($title, $type, $date, $start_time, $end_time, $description, $image, $user_to) {
-    $title = strip_tags($title);
-    $description = strip_tags($description);
-
-    if(preg_replace('/\s+/', '', $description) != ""){
-        $date_added = date('Y-m-d H:i:s'); // get current date
-        $added_by = $this->user_object->gettingUsername(); // get the username of the user who added the event
-
-        // If the event is being added by the same user it is being sent to, then recipient to "none"
-        if($user_to == $added_by) {
-            $user_to = "none";
+    public function event_feed($title, $type, $date, $start_time, $end_time, $description, $hours, $spots, $latitude, $longitude, $city, $state, $country, $image, $user_to) {
+        $title = strip_tags($title);
+        $description = strip_tags($description);
+    
+        if (preg_replace('/\s+/', '', $description) != "") {
+            $date_added = date('Y-m-d H:i:s'); // get current date
+            $added_by = $this->user_object->gettingUsername(); // get the username of the user who added the event
+    
+            // If the event is being added by the same user it is being sent to, then recipient to "none"
+            if ($user_to == $added_by) {
+                $user_to = "none";
+            }
+    
+            // Prepare the SQL statement
+            $stmt = $this->con->prepare("INSERT INTO teacher_events 
+                (title, type, date, start, end, description, image, added_by, user_to, date_added, live, user_deleted, hours, spots, latitude, longitude, city, state, country)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'no', 'no', ?, ?, ?, ?, ?, ?, ?)");
+    
+            // Bind the parameters
+            $stmt->bind_param("ssssssssssiiissss", $title, $type, $date, $start_time, $end_time, $description, $image, $added_by, $user_to, $date_added, $hours, $spots, $latitude, $longitude, $city, $state, $country);
+    
+            // Execute the statement
+            $stmt->execute();
+    
+            // Get ID of the currently created event
+            $id_return = $stmt->insert_id;
+    
+            // Close the statement
+            $stmt->close();
         }
-
-        // Insert the event details into the database
-        $push_event_submit_query = mysqli_query($this->con, "INSERT INTO teacher_events VALUES(NULL, '$title', '$type', '$date', '$start_time', '$end_time', '$description', '$image', '$added_by', '$user_to', '$date_added', '', 'no')");
-        
-        // Get ID of the currently created event
-        $id_return = mysqli_insert_id($this->con);
     }
-}
+    
+    
     
 
 public function load_requested_feed() {
@@ -324,18 +337,11 @@ if(isset($_POST['auth_submit'])) {
     $title = mysqli_real_escape_string($this->con, $_POST['auth_title']);
     $image = mysqli_real_escape_string($this->con, $_POST['auth_image']);
     
-    // Check if the event id exists in the authentifications table
-    $verifying_checkin = mysqli_query($this->con, "SELECT COUNT(*) AS checkin_crosscheck FROM authentifications WHERE id='$event_id'");
-    $cross_check_result = mysqli_fetch_assoc($verifying_checkin);
-    
-    // If the event id does not exist, insert new record into the authentifications table
-    if ($cross_check_result['checkin_crosscheck']) {
-        mysqli_query($this->con, "INSERT INTO authentifications VALUES($event_id, '$authentifier', '$userLoggedIn', '$title', '$image', 'no', 'no') ORDER BY id DESC");
-        // Create a new notification object and send a notification
-        $add_notification = new Notify($this->con, $authentifier);
-        $add_notification->pushNewNotification($authentifier, 'request_received');
-        $add_notification->pushNewNotification($authentifier, 'request_sent');
-    }
+    mysqli_query($this->con, "INSERT INTO authentifications VALUES($event_id, '$authentifier', '$userLoggedIn', '$title', '$image', 'no', 'no') ORDER BY id DESC");
+    // Create a new notification object and send a notification
+    $add_notification = new Notify($this->con, $authentifier);
+    $add_notification->pushNewNotification($authentifier, 'request_received');
+    $add_notification->pushNewNotification($authentifier, 'request_sent');
     // Redirect the user back to the index page
     header('Location: index.php');
 }
@@ -349,8 +355,19 @@ if(isset($_POST['auth_submit'])) {
         $start_time = $event_row['start']; 
         $end_time = $event_row['end']; 
         $description = $event_row['description'];
+        $image = $event_row['image'];
         $added_by = $event_row['added_by'];
+        $user_to = $event_row['user_to'];
         $date_added = $event_row['date_added'];
+        $live = $event_row['live'];
+        $user_deleted = $event_row['user_deleted'];
+        $hours = $event_row['hours'];
+        $spots = $event_row['spots'];
+        $latitude = $event_row['latitude'];
+        $longitude = $event_row['longitude'];
+        $city = $event_row['city'];
+        $state = $event_row['state'];
+        $country = $event_row['country'];
 
         $imageUrl = '';
 
@@ -429,6 +446,12 @@ if(isset($_POST['auth_submit'])) {
             header('Location: index.php');
             exit;
         }
+        
+
+        $spots_filled_query = mysqli_query($this->con,"SELECT * FROM authentifications WHERE id='$id'");
+        $spots_filled_value = mysqli_num_rows($check_requests);
+
+        $spots_left = $spots - $spots_filled_value;
 
 
         if ($match_request_rows == 0) {
@@ -493,6 +516,8 @@ if(isset($_POST['auth_submit'])) {
                                     </div>
                                 </div>
                             </div>
+                            Volunteer Hours Given: $hours
+                            Number of Spots Left: $spots_left of $spots 
                             <p class='bg-blue-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
                                 <b class='text-lg text-blue-900'>
                                     <i class='uil uil-info-circle'></i> Description: 
@@ -593,6 +618,70 @@ if(isset($_POST['auth_submit'])) {
                 </script>
             ";
         }
+
+        else if ($match_request_rows != 0) {
+            // Build the UI card using Tailwind CSS classes
+            $event_content .= "
+                <div class='bg-blue-50 border-blue-200 border-dashed z-10 relative border-4 border-blue-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
+                                        <div class='mt-4'>
+                            <p class='bg-green-200 p-4 mb-4 font-bold rounded-2xl text-center text-green-500'>You have already requested to join this event.</p>
+                        </div>
+                    <div class='flex items-center justify-between'>
+                        <div class='flex items-center'>
+                            <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-slate-300/30 rounded-full'>
+                                <span class='font-semibold text-gray-600'>$cap_added_by_initials</span>
+                            </div>
+                            <div class='flex flex-col'>
+                                <h3>
+                                    <a href='profile.php?profile_username=$username' class='font-semibold text-gray-800 hover:text-blue-500'>$added_by</a>
+                                    <span class='bg-blue-300/20 text-blue-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
+                                </h3>
+                                <span class='text-gray-400 text-sm'>$date_added</span>
+                            </div>
+                        </div>
+                        <div class='flex items-center'>
+                            <img src='$imageUrl' alt='$title' class='w-24 h-24 rounded-xl'>
+                        </div>
+                    </div>
+                    <div class='mt-4'>
+                        <h1 class='text-2xl font-bold text-blue-800'>$title</h1>
+                        <div class='grid lg:grid-cols-3 md:grid-cols-2 gap-6 mt-4'>
+                            <div class='p-3 bg-white rounded-lg flex items-center'>
+                                <div class='bg-green-200 h-16 w-16 rounded flex items-center justify-center'>
+                                    <i class='text-3xl uil uil-calendar'></i>
+                                </div>
+                                <div class='ml-4'>
+                                    <span class='text-xl font-bold'>$reformated_date</span>
+                                    <p class='text-gray-500 text-sm'>Date</p>
+                                </div>
+                            </div>
+                            <div class='p-3 bg-white rounded-lg flex items-center'>
+                                <div class='bg-blue-200 h-16 w-16 rounded flex items-center justify-center'>
+                                    <i class='text-3xl uil uil-sign-in'></i>
+                                </div>
+                                <div class='ml-4'>
+                                    <span class='text-xl font-bold'>$start_time</span>
+                                    <p class='text-gray-500 text-sm'>Start Time</p>
+                                </div>
+                            </div>
+                            <div class='p-3 bg-white rounded-lg flex items-center'>
+                                <div class='bg-red-200 h-16 w-16 rounded flex items-center justify-center'>
+                                    <i class='text-3xl uil uil-sign-out'></i>
+                                </div>
+                                <div class='ml-4'>
+                                    <span class='text-xl font-bold'>$end_time</span>
+                                    <p class='text-gray-500 text-sm'>End Time</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='mt-4'>
+                            <p class='bg-blue-300/30 px-5 py-3 rounded-xl text-lg text-blue-900'><i class='uil uil-info-circle'></i> Description: $description</p>
+                        </div>
+                    </div>
+                </div>
+            ";
+        }
+        
         
 
 

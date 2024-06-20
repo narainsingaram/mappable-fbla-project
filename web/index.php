@@ -1,15 +1,27 @@
 <?php
 include("../template/navbar.php");
 
-
-
-
-if(isset($_POST['user_submit'])) {
+if (isset($_POST['user_submit'])) {
   $post = new Teacher_Events($connection, $userLoggedIn);
-  $post->event_feed($_POST['user_title'],$_POST['user_type'], $_POST['user_date'], $_POST['user_start'], $_POST['user_end'], $_POST['user_desc'], '', 'none'); //do submitEvent function in Post_Events.php
-header("Location: index.php");
+  $post->event_feed(
+      $_POST['user_title'],
+      $_POST['user_type'],
+      $_POST['user_date'],
+      $_POST['user_start'],
+      $_POST['user_end'],
+      $_POST['user_desc'],
+      $_POST['user_hours'],
+      $_POST['user_spots'],
+      $_POST['user_loc_1'],
+      $_POST['user_loc_2'],
+      $_POST['user_city'],
+      $_POST['user_state'],
+      $_POST['user_country'],
+      '',
+      'none'
+  );
+  header("Location: index.php");
 }
-
 
 ?>
 
@@ -17,7 +29,7 @@ header("Location: index.php");
 <header aria-label="Page Header" class="bg-blue-800 mx-8 mt-4 rounded-xl">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
     <div class="my-6">
-      <h1 class="font-bold text-blue-50 text-4xl">
+      <h1 class="font-b old text-blue-50 text-4xl">
         Welcome Back, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-200'>$first_name</a>";?>
       </h1>
 
