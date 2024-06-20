@@ -4,8 +4,8 @@ class Web {
         $html = <<<EOT
         <input type="checkbox" id="create_event" class="modal-toggle hidden">
         <div class="modal fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
-            <div class="modal-box bg-white p-6 rounded-lg shadow-lg relative max-w-lg w-full">
-                <label for="create_event" class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer text-gray-500">✕</label>
+            <div class="modal-box bg-white p-6 rounded-lg shadow-lg relative max-w-2xl w-full">
+                <label for="create_event" class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer text-white">✕</label>
                 <h3 class="text-xl font-semibold mb-4">Create a Space</h3>
                 <form action="{$_SERVER['PHP_SELF']}" method="POST" enctype="multipart/form-data">
                     <div class="mb-4">
@@ -27,27 +27,64 @@ class Web {
                         <label for="user_date" class="block text-sm font-medium text-gray-500">Event Date</label>
                         <input type="date" name="user_date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
                     </div>
-                    <div class="mb-4">
-                        <label for="user_start" class="block text-sm font-medium text-gray-500">Start Time</label>
-                        <input type="time" name="user_start" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    <div class="mb-4 flex space-x-4">
+                        <div class="w-1/2">
+                            <label for="user_start" class="block text-sm font-medium text-gray-500">Start Time</label>
+                            <input type="time" name="user_start" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                        </div>
+                        <div class="w-1/2">
+                            <label for="user_end" class="block text-sm font-medium text-gray-500">End Time</label>
+                            <input type="time" name="user_end" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                        </div>
                     </div>
                     <div class="mb-4">
-                        <label for="user_end" class="block text-sm font-medium text-gray-500">End Time</label>
-                        <input type="time" name="user_end" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                        <label for="user_hours" class="block text-sm font-medium text-gray-500">Number of Volunteer Hours</label>
+                        <input type="number" name="user_hours" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_spots" class="block text-sm font-medium text-gray-500">Number of Seats Available</label>
+                        <input type="number" name="user_spots" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div class="mb-4">
+                        <h3>Event Location</h3>
+                        <span class='text-sm text-gray-600'>Use the following link to find your latitude and longitude to present your location: <a href='https://www.latlong.net/convert-address-to-lat-long.html'>Get Latitude and Longitude</a></span>
+                    </div>
+                    <div class="mb-4 flex space-x-4">
+                        <div class="w-1/2">
+                            <label for="user_loc_1" class="block text-sm font-medium text-gray-500">Latitude</label>
+                            <input name="user_loc_1" placeholder="Latitude" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                        </div>
+                        <div class="w-1/2">
+                            <label for="user_loc_2" class="block text-sm font-medium text-gray-500">Longitude</label>
+                            <input name="user_loc_2" placeholder="Longitude" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_city" class="block text-sm font-medium text-gray-500">City</label>
+                        <input name="user_city" placeholder="City of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_state" class="block text-sm font-medium text-gray-500">State</label>
+                        <input name="user_state" placeholder="State of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="user_country" class="block text-sm font-medium text-gray-500">Country</label>
+                        <input name="user_country" placeholder="Country of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" required>
                     </div>
                     <div class="mb-4">
                         <label for="user_desc" class="block text-sm font-medium text-gray-500">Event Description</label>
                         <textarea name="user_desc" placeholder="Description of Your Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" rows="4" required></textarea>
                     </div>
                     <div class="flex justify-end">
-                        <button name="user_submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-50 border-blue-200 border-dashed0 hover:bg-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" type="submit">Submit</button>
+                        <button name="user_submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-500 hover:bg-blue-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
         </div>
-EOT;
+    EOT;
         echo $html;
     }
+    
 
     public function displayFundamentalSuccessAlert() {
         $success_alert = <<<EOT
@@ -87,7 +124,6 @@ EOT;
             echo $success_alert;
     }
 }
-
 
 
 

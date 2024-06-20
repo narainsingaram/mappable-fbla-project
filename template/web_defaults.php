@@ -1,5 +1,5 @@
 <?php
-require "../includes/configs/configurations.php";
+include("../includes/configs/configurations.php");
 include("../includes/classes/User_Info.php");
 include("../includes/classes/Teacher_Events.php");
 include("../includes/classes/Spaces.php");

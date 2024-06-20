@@ -35,72 +35,72 @@ class Notify {
 
         $return_string = '';
 
-        while($row = mysqli_fetch_array($get_notifications_query)) {
-            $user_info_query = mysqli_query($this->con,"SELECT * FROM users WHERE username='$userLoggedIn'");
+        while ($row = mysqli_fetch_array($get_notifications_query)) {
+            $user_info_query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$userLoggedIn'");
             $user_data = mysqli_fetch_array($user_info_query);
 
             $username = $user_data['username'];
-
+            $user_from = $row["user_from"];
             $message = $row["message"];
             $not_id = $row["id"];
-
+            $datetime = date("Y-m-d H:i:s", strtotime($row["datetime"]));
 
             if (isset($_POST["{$user_data['username']}_{$row['id']}_mark_as_read"])) {
                 $mark_as_read_query = mysqli_query($this->con, "UPDATE notifications SET viewed='yes' WHERE id='$not_id'", MYSQLI_STORE_RESULT);
             }
+            
+            if (isset($_POST["{$user_data['username']}_{$row['id']}_delete_noti"])) {
+                $mark_as_read_query = mysqli_query($this->con, "DELETE FROM notifications WHERE id='$not_id'", MYSQLI_STORE_RESULT);
+            }
+            
 
-        switch($row['viewed']) {
-            case $row['viewed'] == 'no':
+            $viewed_class = $row['viewed'] == 'no' ? 'bg-slate-100' : 'bg-slate-200';
+
             $return_string .= <<<EOT
             <li>
-                    <a class='flex bg-slate-100 m-1' href='index.php'>
-                        <span class='indicator bg-slate-200 p-1.5 w-10 h-10 text-xl font-semibold text-gray-700 rounded-full flex items-center justify-center'>
-                        $pfp_name
-                        </span>
-                        <span>
-                            {$row['message']}
-                        </span> 
-                        <div class="tooltip tooltip-left" data-tip="Mark As Read">
-                            <form class="inline" method="POST" action="index.php">
-                                <button type='submit' name='{$user_data['username']}_{$row['id']}_mark_as_read' class='bg-emerald-200 badge w-3 text-black border-none'>
-                                    <i class="uil uil-check"></i>
-                                </button>     
-                            </form>                   
-                        </div>
-                    </a>
+                <a class='flex $viewed_class m-1' href='index.php'>
+                    <span class='indicator bg-slate-200 p-1.5 w-10 h-10 text-xl font-semibold text-gray-700 rounded-full flex items-center justify-center'>
+                        $user_from
+                    </span>
+                    <span class='flex flex-col'>
+                        <span>{$row['message']}</span>
+                        <span class='text-xs text-gray-500'>$datetime</span>
+                    </span>
+                    <div class="tooltip tooltip-left" data-tip="Mark As Read">
+                        <form class="inline" method="POST" action="index.php">
+                            <button type='submit' name='{$user_data['username']}_{$row['id']}_mark_as_read' class='bg-emerald-200 badge w-3 text-black border-none'>
+                                <i class="uil uil-check"></i>
+                            </button>
+                            <button type='submit' name='{$user_data['username']}_{$row['id']}_delete_noti' class='bg-rose-200 badge w-3 text-black border-none'>
+                                <i class="uil uil-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </a>
             </li>
             EOT;
-            break;
-            case $row['viewed'] == 'yes':
-                $return_string .= <<<EOT
-
-                EOT;
-            break;
         }
-    }
-        echo $return_string;
-        
-    }
 
+        echo $return_string;
+    }
+    
     public function pushNewNotification($user_to, $noti_type) {
         $userLoggedIn = $this->user_object->gettingUsername();
         $full_name = $this->user_object->getFullName();
 
         $current_date = date("Y-m-d H:i:s");
 
-        if($noti_type == 'authentification_accepted') {
-            $notify_message = $full_name . "accepted your authentification";
-        }
-        else if($noti_type == 'request_received') {
-            $notify_message = $full_name . " " . "requested to join your event";
-        }
-        else if($noti_type == 'live_request_received') {
-            $notify_message = $full_name . "wants to join your live event";
+        if ($noti_type == 'authentification_accepted') {
+            $notify_message = $full_name . " accepted your authentification";
+        } else if ($noti_type == 'request_received') {
+            $notify_message = $full_name . " requested to join your event";
+        } else if ($noti_type == 'request_sent') {
+            $notify_message = "You sent a request to " . $full_name;
         }
 
-        $push_notification_query = mysqli_query($this->con,"INSERT INTO notifications VALUES(NULL, '$user_to', '$userLoggedIn',  '$noti_type', '$notify_message', '$current_date', 'no')");
+        $push_notification_query = mysqli_query($this->con, "INSERT INTO notifications VALUES(NULL, '$user_to', '$userLoggedIn', '$noti_type', '$notify_message', '$current_date', 'no')");
     }
-
 }
+
 
 ?>
