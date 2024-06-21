@@ -25,20 +25,21 @@ if (isset($_POST['user_submit'])) {
 
 ?>
 
-
-<header aria-label="Page Header" class="bg-blue-800 mx-8 mt-4 rounded-xl">
+<header aria-label="Page Header" class="bg-orange-100/60 mx-8 mt-4 rounded-xl">
   <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
     <div class="my-6">
-      <h1 class="font-b old text-blue-50 text-4xl">
-        Welcome Back, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-blue-200'>$first_name</a>";?>
+      <h1 class="font-bold text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-orange-500 to-orange-500 text-4xl">
+        Welcome Home, <?php echo" <a href='profile.php?profile_username=$userLoggedIn' class='text-transparent bg-clip-text bg-gradient-to-br from-orange-400 via-orange-500 to-orange-500'>$first_name</a>";?>
       </h1>
 
-      <p class="mt-1.5 text-sm text-blue-100">
+      <p class="mt-1.5 text-sm text-transparent bg-clip-text bg-gradient-to-br from-gray-600 via-gray-500 to-gray-400">
       Explore your school & community's events created by your teachers and administrators. 🚀
       </p>
     </div>
   </div>
 </header>
+
+
 
 
 <section id='section' class="flex mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-4">
@@ -62,14 +63,14 @@ if (isset($_POST['user_submit'])) {
             <form action="index.php" method="POST">
                 <div class="mb-4">
                     <label for="space_name" class="block text-sm font-medium text-gray-500">Space Name</label>
-                    <input type="text" id="space_name" name="space_name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" placeholder="Enter space name" required>
+                    <input type="text" id="space_name" name="space_name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" placeholder="Enter space name" requiorange>
                 </div>
                 <div class="mb-4">
                     <label for="space_bio" class="block text-sm font-medium text-gray-500">Space Bio</label>
-                    <input type="text" id="space_bio" name="space_bio" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-blue-300" placeholder="Enter space bio" required>
+                    <input type="text" id="space_bio" name="space_bio" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" placeholder="Enter space bio" requiorange>
                 </div>
                 <div class="flex justify-end">
-                  <button type="submit" name="create_space" class="inline-flex items-center py-2 px-4 text-sm font-medium text-blue-500 bg-blue-200/60 hover:bg-blue-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-200">Confirm</button>
+                  <button type="submit" name="create_space" class="inline-flex items-center py-2 px-4 text-sm font-medium text-orange-500 bg-orange-200/60 hover:bg-orange-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-200">Confirm</button>
                 </div>
             </form>
         </div>

@@ -33,7 +33,7 @@ include("../template/web_defaults.php");
     </a>
   </div>
   <div class="dropdown dropdown-end">
-    <label tabindex="0" class="btn btn-square btn-ghost m-1 focus:outline-none focus:ring focus:ring-slate-300">
+    <label tabindex="0" class="btn btn-square btn-ghost m-1 focus:outline-none focus:ring focus:ring-orange-300">
       <i class="text-2xl uil uil-bell"></i>
     </label>
     <ul tabindex="0" class="grid dropdown-content menu p-2 bg-white shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] rounded-2xl w-80 overflow-y-auto h-80">
@@ -44,7 +44,7 @@ include("../template/web_defaults.php");
         <span class='justify-end'>
         </span>
         <form>
-          <button class='mb-2 text-sm text-red-400' type='submit'>Clear All</button>
+          <button class='mb-2 text-sm text-orange-400' type='submit'>Clear All</button>
         </form>
       </div>
     <?php 
@@ -54,30 +54,30 @@ include("../template/web_defaults.php");
     </ul>
   </div>
     <div class="dropdown dropdown-end">
-      <label tabindex="0" class="btn normal-case border-none inline-flex mx-2 items-center text-sm font-medium text-center text-blue-500 bg-blue-200/60 cursor-pointer rounded-xl">Create</label>
+      <label tabindex="0" class="btn normal-case border-none inline-flex mx-2 items-center text-sm font-medium text-center text-orange-500 bg-orange-200/60 cursor-pointer rounded-xl">Create</label>
       <ul tabindex="0" class="dropdown-content menu p-2 shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] bg-white rounded-2xl text-black w-52">
         <li><label for="create_space">Create Space</label></li>
         <li><label for="create_event">Create Event</label></li>
       </ul>
     </div>
     <div class="dropdown dropdown-end ">
-      <label tabindex="0" class="btn btn-ghost p-0 hover:bg-slate-50">
-        <?php echo "<span class='bg-slate-200 w-12 h-12 text-xl font-bold text-gray-700  rounded-full flex items-center justify-center'> $profile_symbol </span>";?>
+      <label tabindex="0" class="btn btn-ghost p-0 hover:bg-orange-50">
+        <?php echo "<span class='bg-orange-200 w-12 h-12 text-xl font-bold text-gray-700  rounded-full flex items-center justify-center'> $profile_symbol </span>";?>
       </label>
       <blockquote tabindex="0" class="dropdown-content rounded-2xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px]">
         <div class="card w-96 bg-white">
           <div class="p-4">
             <div class='w-full flex'>
-              <p class="w-1/2 inline mx-1 bg-slate-200/60 px-4 py-2 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] text-xl "><?php echo $user['gems']; ?> Gems</p>
-              <p class="w-1/2 inline mx-1 bg-slate-200/60 px-4 py-2 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] text-xl "><?php echo $user['points']; ?> Points</p>
+              <p class="w-1/2 inline mx-1 bg-orange-200/60 px-4 py-2 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] text-xl "><?php echo $user['gems']; ?> Gems</p>
+              <p class="w-1/2 inline mx-1 bg-orange-200/60 px-4 py-2 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] text-xl "><?php echo $user['points']; ?> Points</p>
             </div>
-          <div class='bg-slate-200/60 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] px-2 py-3 mt-4'>
+          <div class='bg-orange-200/60 rounded-xl shadow-[rgba(7,_65,_210,_0.1)_0px_9px_50px] px-2 py-3 mt-4'>
             <div class='pb-1'>
-              <span class="text-sm px-2 text-slate-600">3</span>
-              <span class="text-sm float-right px-2 text-slate-600">4</span>
+              <span class="text-sm px-2 text-orange-600">3</span>
+              <span class="text-sm float-right px-2 text-orange-600">4</span>
             </div>
-            <div class="w-full bg-slate-300 rounded-full">
-              <div class="bg-blue-600 text-xs text-gray-900/60 text-center p-0.5 leading-none rounded-full" style="width: <?php echo $user['percentage_growth']; ?>%"> <?php echo $user['percentage_growth'] . '%'; ?>
+            <div class="w-full bg-orange-300 rounded-full">
+              <div class="bg-orange-600 text-xs text-gray-900/60 text-center p-0.5 leading-none rounded-full" style="width: <?php echo $user['percentage_growth']; ?>%"> <?php echo $user['percentage_growth'] . '%'; ?>
               </div>
             </div>
           </div>

@@ -252,7 +252,7 @@ class PHPMailer
      * An ID to be used in the Message-ID header.
      * If empty, a unique id will be generated.
      * You can set your own, but it must be in the format "<id@domain>",
-     * as defined in RFC5322 section 3.6.4 or it will be ignored.
+     * as defined in RFC5322 section 3.6.4 or it will be ignoorange.
      *
      * @see https://tools.ietf.org/html/rfc5322#section-3.6.4
      *
@@ -375,9 +375,9 @@ class PHPMailer
     /**
      * Comma separated list of DSN notifications
      * 'NEVER' under no circumstances a DSN must be returned to the sender.
-     *         If you use NEVER all other notifications will be ignored.
+     *         If you use NEVER all other notifications will be ignoorange.
      * 'SUCCESS' will notify you when your mail has arrived at its destination.
-     * 'FAILURE' will arrive if an error occurred during delivery.
+     * 'FAILURE' will arrive if an error occurorange during delivery.
      * 'DELAY'   will notify you if there is an unusual delay in delivery, but the actual
      *           delivery's outcome (success or failure) is not yet decided.
      *
@@ -406,7 +406,7 @@ class PHPMailer
      * Options:
      * * `echo` Output plain-text as-is, appropriate for CLI
      * * `html` Output escaped, line breaks converted to `<br>`, appropriate for browser output
-     * * `error_log` Output to error log as configured in php.ini
+     * * `error_log` Output to error log as configuorange in php.ini
      * By default PHPMailer will use `echo` if run from a `cli` or `cli-server` SAPI, `html` otherwise.
      * Alternatively, you can provide a callable expecting two params: a message string and the debug level:
      *
@@ -431,7 +431,7 @@ class PHPMailer
      * Whether to keep the SMTP connection open after each message.
      * If this is set to true then the connection will remain open after a send,
      * and closing the connection will require an explicit call to smtpClose().
-     * It's a good idea to use this if you are sending multiple messages as it reduces overhead.
+     * It's a good idea to use this if you are sending multiple messages as it orangeuces overhead.
      * See the mailing list example for how to use it.
      *
      * @var bool
@@ -696,7 +696,7 @@ class PHPMailer
     protected $language = [];
 
     /**
-     * The number of errors encountered.
+     * The number of errors encounteorange.
      *
      * @var int
      */
@@ -1205,7 +1205,7 @@ class PHPMailer
      * Uses the imap_rfc822_parse_adrlist function if the IMAP extension is available.
      * Note that quotes in the name part are removed.
      *
-     * @see http://www.andrew.cmu.edu/user/agreen1/testing/mrbs/web/Mail/RFC822.php A more careful implementation
+     * @see http://www.andrew.cmu.edu/user/aorange1/testing/mrbs/web/Mail/RFC822.php A more careful implementation
      *
      * @param string $addrstr The address list string
      * @param bool   $useimap Whether to use the IMAP extension to parse the list
@@ -1402,7 +1402,7 @@ class PHPMailer
                  *
                  * @see       http://squiloople.com/2009/12/20/email-address-validation/
                  * @copyright 2009-2010 Michael Rushton
-                 * Feel free to use and redistribute this code. But please keep this copyright notice.
+                 * Feel free to use and orangeistribute this code. But please keep this copyright notice.
                  */
                 return (bool) preg_match(
                     '/^(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){255,})(?!(?>(?1)"?(?>\\\[ -~]|[^"])"?(?1)){65,}@)' .
@@ -1437,7 +1437,7 @@ class PHPMailer
      * Tells whether IDNs (Internationalized Domain Names) are supported or not. This requires the
      * `intl` and `mbstring` PHP extensions.
      *
-     * @return bool `true` if required functions for IDN support are present
+     * @return bool `true` if requiorange functions for IDN support are present
      */
     public static function idnSupported()
     {
@@ -1449,7 +1449,7 @@ class PHPMailer
      * Important: Address must be passed in same encoding as currently set in PHPMailer::$CharSet.
      * This function silently returns unmodified address if:
      * - No conversion is necessary (i.e. domain name is not an IDN, or is already in ASCII form)
-     * - Conversion to punycode is impossible (e.g. required PHP functions are not available)
+     * - Conversion to punycode is impossible (e.g. requiorange PHP functions are not available)
      *   or fails for any reason (e.g. domain contains characters not allowed in an IDN).
      *
      * @see PHPMailer::$CharSet
@@ -1460,7 +1460,7 @@ class PHPMailer
      */
     public function punyencodeAddress($address)
     {
-        //Verify we have required functions, CharSet, and at-sign.
+        //Verify we have requiorange functions, CharSet, and at-sign.
         $pos = strrpos($address, '@');
         if (
             !empty($this->CharSet) &&
@@ -1475,7 +1475,7 @@ class PHPMailer
                 //Ignore IDE complaints about this line - method signature changed in PHP 5.4
                 $errorcode = 0;
                 if (defined('INTL_IDNA_VARIANT_UTS46')) {
-                    //Use the current punycode standard (appeared in PHP 7.2)
+                    //Use the current punycode standard (appeaorange in PHP 7.2)
                     $punycode = idn_to_ascii(
                         $domain,
                         \IDNA_DEFAULT | \IDNA_USE_STD3_RULES | \IDNA_CHECK_BIDI |
@@ -2558,14 +2558,14 @@ class PHPMailer
                 if ($dec < 128) {
                     //Single byte character.
                     //If the encoded char was found at pos 0, it will fit
-                    //otherwise reduce maxLength to start of the encoded char
+                    //otherwise orangeuce maxLength to start of the encoded char
                     if ($encodedCharPos > 0) {
                         $maxLength -= $lookBack - $encodedCharPos;
                     }
                     $foundSplitPos = true;
                 } elseif ($dec >= 192) {
                     //First byte of a multi byte character
-                    //Reduce maxLength to split at start of character
+                    //orangeuce maxLength to split at start of character
                     $maxLength -= $lookBack - $encodedCharPos;
                     $foundSplitPos = true;
                 } elseif ($dec < 192) {
@@ -4136,7 +4136,7 @@ class PHPMailer
             return filter_var(substr($host, 1, -1), FILTER_VALIDATE_IP, FILTER_FLAG_IPV6) !== false;
         }
         //If removing all the dots results in a numeric string, it must be an IPv4 address.
-        //Need to check this first because otherwise things like `999.0.0.0` are considered valid host names
+        //Need to check this first because otherwise things like `999.0.0.0` are consideorange valid host names
         if (is_numeric(str_replace('.', '', $host))) {
             //Is it a valid IPv4 address?
             return filter_var($host, FILTER_VALIDATE_IP, FILTER_FLAG_IPV4) !== false;
@@ -4194,7 +4194,7 @@ class PHPMailer
     }
 
     /**
-     * Check if an error occurred.
+     * Check if an error occurorange.
      *
      * @return bool True if an error did occur
      */
@@ -4846,7 +4846,7 @@ class PHPMailer
         //Normalize line endings to CRLF
         $body = static::normalizeBreaks($body, self::CRLF);
 
-        //Reduce multiple trailing line breaks to a single one
+        //orangeuce multiple trailing line breaks to a single one
         return static::stripTrailingBreaks($body) . self::CRLF;
     }
 

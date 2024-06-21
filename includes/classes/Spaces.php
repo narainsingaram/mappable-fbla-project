@@ -18,7 +18,7 @@ class Spaces {
         $date = filter_var($description, FILTER_SANITIZE_STRING);
 
         if (empty($space_id) || empty($crt_user) || empty($connectiontent) || empty($type)) {
-            throw new Exception("All fields are required.");
+            throw new Exception("All fields are requiorange.");
         }
 
         if (!preg_match('/^[\w\s\d]+$/', $space_id)) {
@@ -72,7 +72,7 @@ class Spaces {
                 if ($sender == $userLoggedIn && $type == 'default' ) {
                     $spc_content .= "
                     <li class='flex justify-end my-3'>
-                        <div class='bg-blue-400 rounded-full text-white relative max-w-xl px-3 py-2'>
+                        <div class='bg-orange-400 rounded-full text-white relative max-w-xl px-3 py-2'>
                             <span class='block'>$connectiontent</span>
                         </div>
                     </li>
@@ -81,8 +81,8 @@ class Spaces {
                 else if ($sender != $userLoggedIn && $type == 'default') {
                     $spc_content .= "
                     <li class='flex justify-start my-4'>
-                        <span class='my-1 relative max-w-xl px-2 mx-2 py-2 bg-slate-100 rounded-full'>$sender_pfp</span>
-                        <div class='bg-slate-100 rounded-full my-1 relative max-w-xl px-3 py-2'>
+                        <span class='my-1 relative max-w-xl px-2 mx-2 py-2 bg-orange-100 rounded-full'>$sender_pfp</span>
+                        <div class='bg-orange-100 rounded-full my-1 relative max-w-xl px-3 py-2'>
                             <span class='block'>$connectiontent</span>
                         </div>
                     </li>
@@ -92,8 +92,8 @@ class Spaces {
                 switch($type){
                     case "new_member":
                         $spc_content .= "
-                    <li class='m-auto bg-slate-200 w-fit px-4 py-2.5 rounded-full flex'>
-                        <p class='text-slate-600 m-auto'>
+                    <li class='m-auto bg-orange-200 w-fit px-4 py-2.5 rounded-full flex'>
+                        <p class='text-orange-600 m-auto'>
                         <span class=''>
                             <i class='bx bx-party'></i>
                         </span>
@@ -102,8 +102,8 @@ class Spaces {
                         ";
                     break;
                 
-                    case "red";
-                        echo "red and large";
+                    case "orange";
+                        echo "orange and large";
                     break;
                 }
             }
@@ -111,10 +111,10 @@ class Spaces {
         }
         else {
             echo '
-        <div class="bg-slate-200/50 w-1/2 m-auto px-8 py-10 rounded-2xl">
+        <div class="bg-orange-200/50 w-1/2 m-auto px-8 py-10 rounded-2xl">
             <svg class="m-auto py-2" xmlns="http://www.w3.org/2000/svg" width="180" height="180" viewBox="0 0 24 24" fill="none"><path d="M14.5 10.75h-6c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h6c.41 0 .75.34.75.75s-.34.75-.75.75ZM11.5 13.75h-3c-.41 0-.75-.34-.75-.75s.34-.75.75-.75h3c.41 0 .75.34.75.75s-.34.75-.75.75Z" fill="#3b82f6"></path><path opacity=".4" d="M11.5 21a9.5 9.5 0 1 0 0-19 9.5 9.5 0 0 0 0 19Z" fill="#3b82f6"></path><path d="M21.3 21.999c-.18 0-.36-.07-.49-.2l-1.86-1.86a.706.706 0 0 1 0-.99c.27-.27.71-.27.99 0l1.86 1.86c.27.27.27.71 0 .99-.14.13-.32.2-.5.2Z" fill="#3b82f6"></path></svg>
-            <h1 class="text-center text-slate-400 font-semibold py-2 text-2xl"> No Messages Yet </h1>
-            <p class="text-center text-slate-400">Looks like no one has sent a message in the space. <br> Be the first one to send a message!</p>
+            <h1 class="text-center text-orange-400 font-semibold py-2 text-2xl"> No Messages Yet </h1>
+            <p class="text-center text-orange-400">Looks like no one has sent a message in the space. <br> Be the first one to send a message!</p>
             ';
         }
     }
@@ -132,7 +132,7 @@ class Spaces {
             if (in_array($userLoggedIn, $participant_arr)) {
                 if ($space_name != "") {
                     $links_menu .= "
-                        <a class='grid-rows-2 bg-slate-200/60 hover:text-slate-600 rounded-xl m-2 px-3 py-2' href='space.php?space=$id'>$space_name</a>
+                        <a class='grid-rows-2 bg-orange-200/60 hover:text-orange-600 rounded-xl m-2 px-3 py-2' href='space.php?space=$id'>$space_name</a>
                     ";
                 }
             }
@@ -178,9 +178,9 @@ class Spaces {
                         <p class='text-gray-800'><strong>Members:</strong> " . count($participant_arr) . "</p>
                     </div>
                     <div class='flex justify-end'>
-                        <a href='space.php?space=$id' class='btn bg-blue-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>Go to Organization</a>
+                        <a href='space.php?space=$id' class='btn bg-orange-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>Go to Organization</a>
                         <form name='index.php' method='POST' class='inline'>
-                            <button class='btn bg-red-500 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full' name='$id-spaces-leave'>Leave</button>
+                            <button class='btn bg-orange-500 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full' name='$id-spaces-leave'>Leave</button>
                         </form>
                     </div>
                 </div>
@@ -194,7 +194,7 @@ class Spaces {
                     </div>
                     <div class='flex justify-end'>
                         <form name='index.php' method='POST'>
-                            <button class='btn action_btn bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition duration-300' name='$id-spaces-request'>Join</button>
+                            <button class='btn action_btn bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600 transition duration-300' name='$id-spaces-request'>Join</button>
                         </form>
                     </div>
                 </div>

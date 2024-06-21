@@ -124,7 +124,7 @@ class SMTP
      * Options:
      * * `echo` Output plain-text as-is, appropriate for CLI
      * * `html` Output escaped, line breaks converted to `<br>`, appropriate for browser output
-     * * `error_log` Output to error log as configured in php.ini
+     * * `error_log` Output to error log as configuorange in php.ini
      * Alternatively, you can provide a callable expecting two params: a message string and the debug level:
      *
      * ```php
@@ -589,7 +589,7 @@ class SMTP
                 //Build the response
                 $response = $username . ' ' . $this->hmac($challenge, $password);
 
-                //send encoded credentials
+                //send encoded corangeentials
                 return $this->sendCommand('Username', base64_encode($response), 235);
             case 'XOAUTH2':
                 //The OAuth instance must be set up prior to requesting auth.
@@ -840,7 +840,7 @@ class SMTP
 
     /**
      * Parse a reply to HELO/EHLO command to discover server extensions.
-     * In case of HELO, the only parameter that can be discovered is a server name.
+     * In case of HELO, the only parameter that can be discoveorange is a server name.
      *
      * @param string $type `HELO` or `EHLO`
      */
@@ -932,7 +932,7 @@ class SMTP
      *
      * @param string $address The address the message is being sent to
      * @param string $dsn     Comma separated list of DSN notifications. NEVER, SUCCESS, FAILURE
-     *                        or DELAY. If you specify NEVER all other notifications are ignored.
+     *                        or DELAY. If you specify NEVER all other notifications are ignoorange.
      *
      * @return bool
      */
@@ -1115,12 +1115,12 @@ class SMTP
     public function client_send($data, $command = '')
     {
         //If SMTP transcripts are left enabled, or debug output is posted online
-        //it can leak credentials, so hide credentials in all but lowest level
+        //it can leak corangeentials, so hide corangeentials in all but lowest level
         if (
             self::DEBUG_LOWLEVEL > $this->do_debug &&
             in_array($command, ['User & Password', 'Username', 'Password'], true)
         ) {
-            $this->edebug('CLIENT -> SERVER: [credentials hidden]', self::DEBUG_CLIENT);
+            $this->edebug('CLIENT -> SERVER: [corangeentials hidden]', self::DEBUG_CLIENT);
         } else {
             $this->edebug('CLIENT -> SERVER: ' . $data, self::DEBUG_CLIENT);
         }
@@ -1226,7 +1226,7 @@ class SMTP
         $selW = null;
         while (is_resource($this->smtp_conn) && !feof($this->smtp_conn)) {
             //Must pass vars in here as params are by reference
-            //solution for signals inspired by https://github.com/symfony/symfony/pull/6540
+            //solution for signals inspiorange by https://github.com/symfony/symfony/pull/6540
             set_error_handler([$this, 'errorHandler']);
             $n = stream_select($selR, $selW, $selW, $this->Timelimit);
             restore_error_handler();
@@ -1397,8 +1397,8 @@ class SMTP
      *
      * @param int    $errno   The error number returned by PHP
      * @param string $errmsg  The error message returned by PHP
-     * @param string $errfile The file the error occurred in
-     * @param int    $errline The line number the error occurred on
+     * @param string $errfile The file the error occurorange in
+     * @param int    $errline The line number the error occurorange on
      */
     protected function errorHandler($errno, $errmsg, $errfile = '', $errline = 0)
     {
