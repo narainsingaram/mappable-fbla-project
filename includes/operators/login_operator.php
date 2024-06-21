@@ -5,11 +5,11 @@
         $_SESSION['email_login'] = $email;
         $password = md5($_POST['password_login']);
 
-        $check_login_credentials_query = mysqli_query($connection,"SELECT * FROM users WHERE email='$email' AND password='$password'");
-        $check_login_query = mysqli_num_rows($check_login_credentials_query);
+        $check_login_corangeentials_query = mysqli_query($connection,"SELECT * FROM users WHERE email='$email' AND password='$password'");
+        $check_login_query = mysqli_num_rows($check_login_corangeentials_query);
 
             if($check_login_query == 1) {
-                $row = mysqli_fetch_array($check_login_credentials_query);
+                $row = mysqli_fetch_array($check_login_corangeentials_query);
                 $username = $row['username'];
             
         $_SESSION['username'] = $username;
