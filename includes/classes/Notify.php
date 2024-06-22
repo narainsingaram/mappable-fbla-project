@@ -26,7 +26,7 @@ class Notify {
             <div id='noti_card' class='mb-3 rounded-2xl bg-white text-black  shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px]'>
             <center class='card-body'>
             <svg class='m-auto' xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none'><path d='M16.75 3.56V2c0-.41-.34-.75-.75-.75s-.75.34-.75.75v1.5h-6.5V2c0-.41-.34-.75-.75-.75s-.75.34-.75.75v1.56c-2.7.25-4.01 1.86-4.21 4.25-.02.29.22.53.5.53h16.92c.29 0 .53-.25.5-.53-.2-2.39-1.51-4-4.21-4.25Z' fill='#3b82f6'></path><path opacity='.4' d='M21 10.838v1.74c0 .61-.54 1.08-1.14.98-.28-.04-.57-.07-.86-.07a5.51 5.51 0 0 0-5.5 5.5c0 .46.18 1.1.37 1.68a.998.998 0 0 1-.95 1.32H8c-3.5 0-5-2-5-5v-6.16c0-.55.45-1 1-1h16c.55.01 1 .46 1 1.01Z' fill='#3b82f6'></path><path d='M19 15c-2.21 0-4 1.79-4 4 0 .75.21 1.46.58 2.06A3.97 3.97 0 0 0 19 23c1.46 0 2.73-.78 3.42-1.94.37-.6.58-1.31.58-2.06 0-2.21-1.79-4-4-4Zm2.07 3.57-2.13 1.97c-.14.13-.33.2-.51.2-.19 0-.38-.07-.53-.22l-.99-.99a.754.754 0 0 1 0-1.06c.29-.29.77-.29 1.06 0l.48.48 1.6-1.48c.3-.28.78-.26 1.06.04s.26.77-.04 1.06ZM8.5 15c-.26 0-.52-.11-.71-.29-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71.23-.23.58-.34.91-.27.06.01.12.03.18.06.06.02.12.05.18.09l.15.12c.18.19.29.45.29.71 0 .26-.11.52-.29.71l-.15.12c-.06.04-.12.07-.18.09-.06.03-.12.05-.18.06-.07.01-.14.02-.2.02ZM12 15c-.26 0-.52-.11-.71-.29-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71.38-.37 1.05-.37 1.42 0 .18.19.29.45.29.71 0 .26-.11.52-.29.71-.19.18-.45.29-.71.29ZM8.5 18.499c-.26 0-.52-.11-.71-.29-.18-.19-.29-.45-.29-.71 0-.26.11-.52.29-.71.1-.09.2-.16.33-.21.37-.16.81-.07 1.09.21.18.19.29.45.29.71 0 .26-.11.52-.29.71-.19.18-.45.29-.71.29Z' fill='#3b82f6'></path></svg>
-            <p class='px-2 py-2 text-sm text-orange-500'>You're up to date now!</p>
+            <p class='px-2 py-2 text-sm text-emerald-500'>You're up to date now!</p>
             </center>
           </div> 
             ";
@@ -54,12 +54,12 @@ class Notify {
             }
             
 
-            $viewed_class = $row['viewed'] == 'no' ? 'bg-orange-100' : 'bg-orange-200';
+            $viewed_class = $row['viewed'] == 'no' ? 'bg-emerald-100' : 'bg-emerald-200';
 
             $return_string .= <<<EOT
             <li>
                 <a class='flex $viewed_class m-1' href='index.php'>
-                    <span class='indicator bg-orange-200 p-1.5 w-10 h-10 text-xl font-semibold text-gray-700 rounded-full flex items-center justify-center'>
+                    <span class='indicator bg-emerald-200 p-1.5 w-10 h-10 text-xl font-semibold text-gray-700 rounded-full flex items-center justify-center'>
                         $user_from
                     </span>
                     <span class='flex flex-col'>

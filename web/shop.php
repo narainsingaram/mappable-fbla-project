@@ -12,14 +12,6 @@ function fetchRewards($connection) {
     return $rewards;
 }
 
-// Function to fetch user's points
-function fetchUserPoints($connection, $username) {
-    $sql = "SELECT points FROM users WHERE username = '$username'";
-    $result = mysqli_query($connection, $sql);
-    $row = mysqli_fetch_assoc($result);
-    return $row['points'];
-}
-
 // Fetch rewards
 $rewards = fetchRewards($connection);
 
@@ -33,10 +25,10 @@ if (isset($_POST['reward_submit'])) {
     $reward = mysqli_fetch_assoc($result);
     
     // Check if user has enough points to purchase
-    $points_requiorange = $reward['reward_points_cost'];
+    $points_required = $reward['reward_points_cost'];
     $user_points = fetchUserPoints($connection, $userLoggedIn); // Assuming $userLoggedIn is set elsewhere
     
-    if ($user_points >= $points_requiorange) {
+    if ($user_points >= $points_required) {
         // Generate unique 32-letter code
         $unique_code = generateUniqueCode();
         
@@ -45,28 +37,20 @@ if (isset($_POST['reward_submit'])) {
         mysqli_query($connection, $update_sql);
         
         // Deduct points from user
-        $deduct_points_sql = "UPDATE users SET points = points - $points_requiorange WHERE username = '$userLoggedIn'";
+        $deduct_points_sql = "UPDATE users SET points = points - $points_required WHERE username = '$userLoggedIn'";
         mysqli_query($connection, $deduct_points_sql);
         
         // Insert into claimed_reward table
         $insert_claimed_sql = "INSERT INTO claimed_reward (user_id, reward_id, reward_code) VALUES ('$userLoggedIn', '$reward_id', '$unique_code')";
         mysqli_query($connection, $insert_claimed_sql);
         
-        // orangeirect to a success page with unique code
+        // Redirect to a success page with unique code
         header("Location: shop.php?claim_success=$unique_code");
-        exit(); // Ensure no further code execution after orangeirect
+        exit(); // Ensure no further code execution after redirect
     } else {
         echo "<p>Sorry, you do not have enough points to claim this reward.</p>";
     }
 }
-
-// Check if a success message is passed via GET parameter
-if (isset($_GET['claim_success'])) {
-    $unique_code = $_GET['claim_success'];
-    echo "<p>Congratulations! You have successfully claimed a reward. Here is your unique 32-letter code: <strong>$unique_code</strong></p>";
-}
-
-
 
 // Function to generate a unique 32-letter code
 function generateUniqueCode() {
@@ -79,25 +63,34 @@ function generateUniqueCode() {
     return $code;
 }
 
+// Function to fetch user points
+function fetchUserPoints($connection, $userLoggedIn) {
+    $sql = "SELECT points FROM users WHERE username = '$userLoggedIn'";
+    $result = mysqli_query($connection, $sql);
+    $user = mysqli_fetch_assoc($result);
+    return $user['points'];
+}
+
 // Display rewards
 foreach ($rewards as $reward) {
+    $imageTag = $reward['image'] ? "<img src='../assets/images/{$reward['image']}' alt='{$reward['reward_name']}' class='reward-image w-full h-48 object-cover rounded-t-lg'>" : '';
     echo <<<EOT
-    <header aria-label="Page Header" class="my-10 bg-orange-200 mx-8 rounded-xl">
-        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-            <div class="my-6">
-                <h1 class="font-bold text-gray-900 text-4xl">
-                    {$reward['reward_name']}
-                </h1>
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl my-8 bg-opacity-80" style="backdrop-filter: blur(10px);">
+        <div class="md:flex">
+            <div class="md:flex-shrink-0">
+                $imageTag
+            </div>
+            <div class="p-8">
+                <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Reward</div>
+                <h1 class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{$reward['reward_name']}</h1>
+                <p class="mt-2 text-gray-500">{$reward['reward_description']}</p>
                 <form class='inline' method='POST' action='shop.php'>
                     <input name='reward_value' type='hidden' value='{$reward['reward_id']}'></input>
-                    <button name='reward_submit' type='submit' class='btn bg-blue-300 border-none text-black hover:text-white capitalize float-right'>Buy ({$reward['reward_points_cost']} points)</button>
+                    <button name='reward_submit' type='submit' class='mt-4 inline-flex items-center px-4 py-2 bg-indigo-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150'>Buy ({$reward['reward_points_cost']} points)</button>
                 </form>
-                <p class="mt-1.5 text-sm text-gray-500">
-                    {$reward['reward_description']}
-                </p>
             </div>
         </div>
-    </header>
+    </div>
     EOT;
 }
 

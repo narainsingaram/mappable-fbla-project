@@ -130,7 +130,7 @@ if ($current_page == "/mappable-fbla-project/settings/index.php") {
 
 
 
-<body class='bg-gradient-to-br from-yellow-200 via-orange-300 to-orange-300'>
+<body class='bg-gradient-to-br from-yellow-200 via-emerald-300 to-emerald-300'>
     <script type='text/javascript' src='../assets/js/toggle_notification.js'></script>
     <script type='text/javascript' src='../assets/js/ajax/forms.js'></script>
     <script src="https://unpkg.com/flowbite@1.5.3/dist/flowbite.js"></script>

@@ -40,7 +40,7 @@ $current_space = mysqli_fetch_array($get_space_info);
 
 <main class='w-full'>
 
-<div class="navbar border-t-4 border-orange-400/50">
+<div class="navbar border-t-4 border-emerald-400/50">
   <div class="navbar-start">
       <label for="my-modal-4" class="btn btn-ghost text-3xl btn-circle">
         <i class="uil uil-bars"></i>
@@ -66,9 +66,9 @@ $current_space = mysqli_fetch_array($get_space_info);
             </div>
           </main>
 
-            <form method='POST' id='chat_input' style='position:fixed; bottom:0px;' class='inline bg-orange-100 flex items-center justify-between w-full p-3' action="space.php?space=<?php echo $space_id; ?>">
+            <form method='POST' id='chat_input' style='position:fixed; bottom:0px;' class='inline bg-emerald-100 flex items-center justify-between w-full p-3' action="space.php?space=<?php echo $space_id; ?>">
                 <input type="text" placeholder="Send a message"
-                    class="block w-full px-3 py-2.5 text-orange-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-white focus:outline-none focus:ring focus:ring-orange-300 border-none"
+                    class="block w-full px-3 py-2.5 text-emerald-600 placeholder-gray-300 transition duration-150 ease-in-out transform rounded-xl bg-white focus:outline-none focus:ring focus:ring-emerald-300 border-none"
                     name="spc_msg_input" autofocus autocomplete="off">
                     <input type='hidden' name="msg_type" value='default'>
                 <button id='submit' name='spc_msg_send' class='btn btn-ghost px-2 py-1.5 rounded-xl ml-3' type="submit">
@@ -79,8 +79,8 @@ $current_space = mysqli_fetch_array($get_space_info);
           </div>
 
 
-  <button style='display:none;' onclick="moveToLatestMessages()" class='fixed bottom-24 right-4 rounded-xl text-orange-500 z-50' id="scrollBottomActionButton" title="Go to top">
-    <span class='bg-orange-200 px-3 py-2 rounded-xl'> Jump To Latest Messages </span>
+  <button style='display:none;' onclick="moveToLatestMessages()" class='fixed bottom-24 right-4 rounded-xl text-emerald-500 z-50' id="scrollBottomActionButton" title="Go to top">
+    <span class='bg-emerald-200 px-3 py-2 rounded-xl'> Jump To Latest Messages </span>
   </button>
 
 <script type='text/javascript' src='../assets/js/bottom_page.js'></script>

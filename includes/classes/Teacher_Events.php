@@ -67,7 +67,7 @@ public function load_requested_feed() {
             $requested_content .= <<<EOT
             <li class='py-3 sm:py-4 mb-3 rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] px-2 py-1'>
                 <div class='flex items-center space-x-4'>
-                    <button class='absolute bg-orange-200 w-8 h-8 text-md text-gray-700 rounded-full font-semibold'>
+                    <button class='absolute bg-emerald-200 w-8 h-8 text-md text-gray-700 rounded-full font-semibold'>
                         <span>{$row['first_name'][0]}{$row['last_name'][0]}</span>
                     </button>
                     <div class='flex-shrink-0'>
@@ -82,7 +82,7 @@ public function load_requested_feed() {
                         </p>
                     </div>
                     <form action='index.php' method='POST'>
-                        <button name='auth_delete_btn_{$event_row['event_id']}' type='submit' class='inline-flex cursor-pointer active:scale-105 items-center text-xl text-orange-400 px-2 py-1 rounded-xl text-gray-900'>
+                        <button name='auth_delete_btn_{$event_row['event_id']}' type='submit' class='inline-flex cursor-pointer active:scale-105 items-center text-xl text-emerald-400 px-2 py-1 rounded-xl text-gray-900'>
                             <i class="uil uil-trash-alt"></i>
                         </button>
                     </form>
@@ -91,7 +91,7 @@ public function load_requested_feed() {
     EOT;
         } else {
             $requested_content .= <<<EOT
-            <span class='bg-orange-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
+            <span class='bg-emerald-100 px-3 py-1.5 rounded-xl mt-2'> Seems that you have not requested to attend any events yet! </span>
     EOT;
         }
 
@@ -148,22 +148,22 @@ public function loadAuthentifications() {
 
         $authentifications_content .= "
         <li class='mb-10 ml-6'>
-        <span class='flex absolute -left-5 justify-center items-center w-10 h-10 bg-orange-200 rounded-full'>
-            <div class='rounded-full text-xl font-bold font-mono shadow-lg'>$requester_first_name[0]$requester_last_name[0]</div>
+        <span class='flex absolute -left-5 justify-center items-center w-12 h-12  bg-slate-200 rounded-full'>
+            <div class='rounded-full text-xl font-bold shadow-lg'>$requester_first_name[0]$requester_last_name[0]</div>
         </span>
         <div class='p-4 ml-4 bg-white rounded-lg border-none shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px]'>
             <div class='justify-between items-center mb-3 sm:flex'>
                 <time class='text-xs font-normal text-gray-500 sm:order-last sm:mb-0'>Time Sent</time>
                 <div class='text-sm font-normal text-gray-500'><a href='#' class='font-semibold text-gray-900 hover:underline'>$requester_first_name $requester_last_name</a> requested an authentification</div>
             </div>
-        <button type='submit' class='active:scale-105 absolute -right-5 p-2 text-xl bg-orange-200 rounded-full'>
+        <button type='submit' class='active:scale-105 absolute -right-5 p-2 text-xl bg-slate-200 rounded-full'>
         <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path opacity='0.4' d='M19.6433 9.48844C19.6433 9.55644 19.1103 16.2972 18.8059 19.1341C18.6153 20.875 17.493 21.931 15.8095 21.961C14.516 21.99 13.2497 22 12.0039 22C10.6812 22 9.38772 21.99 8.13216 21.961C6.50508 21.922 5.38178 20.845 5.20089 19.1341C4.88772 16.2872 4.36449 9.55644 4.35477 9.48844C4.34504 9.28345 4.41117 9.08846 4.54539 8.93046C4.67765 8.78447 4.86827 8.69647 5.06862 8.69647H18.9392C19.1385 8.69647 19.3194 8.78447 19.4624 8.93046C19.5956 9.08846 19.6627 9.28345 19.6433 9.48844Z' fill='#ef4444'></path>
         <path opacity='0.4' d='M19.6433 9.48844C19.6433 9.55644 19.1103 16.2972 18.8059 19.1341C18.6153 20.875 17.493 21.931 15.8095 21.961C14.516 21.99 13.2497 22 12.0039 22C10.6812 22 9.38772 21.99 8.13216 21.961C6.50508 21.922 5.38178 20.845 5.20089 19.1341C4.88772 16.2872 4.36449 9.55644 4.35477 9.48844C4.34504 9.28345 4.41117 9.08846 4.54539 8.93046C4.67765 8.78447 4.86827 8.69647 5.06862 8.69647H18.9392C19.1385 8.69647 19.3194 8.78447 19.4624 8.93046C19.5956 9.08846 19.6627 9.28345 19.6433 9.48844Z' fill='#ef4444'></path>
         <path d='M21 5.97686C21 5.56588 20.6761 5.24389 20.2871 5.24389H17.3714C16.7781 5.24389 16.2627 4.8219 16.1304 4.22692L15.967 3.49795C15.7385 2.61698 14.9498 2 14.0647 2H9.93624C9.0415 2 8.26054 2.61698 8.02323 3.54595L7.87054 4.22792C7.7373 4.8219 7.22185 5.24389 6.62957 5.24389H3.71385C3.32386 5.24389 3 5.56588 3 5.97686V6.35685C3 6.75783 3.32386 7.08982 3.71385 7.08982H20.2871C20.6761 7.08982 21 6.75783 21 6.35685V5.97686Z' fill='#ef4444'></path>
         </svg>
         </button>
-            <div class='px-3 py-5 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] flex items-center justify-between bg-orange-100 rounded-lg'>
+            <div class='px-3 py-5 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] flex items-center justify-between bg-slate-200 rounded-lg'>
             <blockquote class='flex items-center'>
             <img src='../assets/event_images/$image' class='object-cover w-16 h-10 rounded-lg shadow-md'>
                 <p class='ml-2 text-xl font-bold tracking-wide'>$title</p>
@@ -184,7 +184,7 @@ public function loadAuthentifications() {
                 <option value='15'> 15 Gems</option>
                 <option value='20'> 20 Gems</option>
             </select>
-                <button class='rounded-xl bg-orange-100 text-orange-500 text-sm px-2.5 mx-2 py-2' name='auth_verify$id-$requester' type='submit'> 
+                <button class='rounded-xl bg-emerald-100 text-emerald-500 text-sm px-2.5 mx-2 py-2' name='auth_verify$id-$requester' type='submit'> 
                     Submit
                 </button>
             </form>
@@ -198,10 +198,10 @@ public function loadAuthentifications() {
 
     else if ($match_auth_rows == 0) {
         $authentifications_content .= <<<EOT
-                <div class="bg-orange-50 border-orange-200 border-dashed border border-orange-200 rounded-md p-4" role="alert">
+                <div class="bg-emerald-50 border-emerald-200 border-dashed border border-emerald-200 rounded-md p-4" role="alert">
         <div class="flex">
             <div class="flex-shrink-0">
-            <svg class="h-4 w-4 text-orange-600 mt-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <svg class="h-4 w-4 text-emerald-600 mt-1" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/>
             </svg>
             </div>
@@ -213,7 +213,7 @@ public function loadAuthentifications() {
                 No students or educators have requested any authentifications for you to verify.
             </div>
             <div class="mt-4">
-                <a href='index.php' type="button" class="btn capitalize inline-flex justify-center items-center gap-2 rounded-md border border-transparent bg-orange-200 text-orange-500">
+                <a href='index.php' type="button" class="btn capitalize inline-flex justify-center items-center gap-2 rounded-md border border-transparent bg-emerald-200 text-emerald-500">
                     Go Back Home
                 </a>
                 </div>
@@ -244,12 +244,12 @@ public function loadAttendanceTable() {
 
         if ($accepted == 'yes') {
             $accepted = "Completed";
-            $style_bg = 'bg-orange-100';
+            $style_bg = 'bg-emerald-100';
         }
 
         else if ($accepted == 'no') {
             $accepted = "In Review";
-            $style_bg = 'bg-orange-100';
+            $style_bg = 'bg-yellow-100';
         }
 
         $requester_query = mysqli_query($this->con, "SELECT first_name, last_name FROM users WHERE username='$requester'");
@@ -261,11 +261,11 @@ public function loadAttendanceTable() {
         $authentifications_content .= <<<EOT
         <tr>
     <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
-      <tr class="bg-white hover:bg-gray-50 dark:bg-orange-900 dark:hover:bg-orange-800">
+      <tr class="bg-white hover:bg-gray-50 dark:bg-emerald-700 dark:hover:bg-emerald-600">
         <td class="h-px w-px whitespace-nowrap">
           <a class="block h-full p-6" href="#">
             <div class="flex items-center gap-x-4">
-                <i class="uil uil-text-size bg-orange-200 p-2 rounded-xl text-black"></i>
+                <i class="uil uil-text-size bg-emerald-200 p-2 rounded-xl text-black"></i>
               <div>
                 <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">$title</span>
               </div>
@@ -277,19 +277,19 @@ public function loadAttendanceTable() {
             <div class="flex items-center gap-x-3">
               <div class="grow">
                 <span class="block text-sm font-semibold text-gray-800 dark:text-gray-200">$authentifier</span>
-                <span class="block text-sm text-gray-500">Event Owner</span>
+                <span class="block text-sm text-gray-300">Event Owner</span>
               </div>
             </div>
           </a>
         </td>
         <td class="h-px w-px whitespace-nowrap">
           <a class="block h-full p-6" href="#">
-            <span class="text-sm text-gray-600 dark:text-gray-400"># $id</span>
+            <span class="text-sm text-gray-600 dark:text-gray-300 font-bold text-xl"># $id</span>
           </a>
         </td>
         <td class="h-px w-px whitespace-nowrap">
           <a class="block h-full p-6" href="#">
-            <span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium $style_bg text-orange-800">
+            <span class="inline-flex items-center gap-1.5 py-0.5 px-2 rounded-full text-xs font-medium $style_bg text-emerald-800">
               <svg class="w-2.5 h-2.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                 <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
               </svg>
@@ -334,7 +334,7 @@ if(isset($_POST['auth_submit'])) {
     $add_notification = new Notify($this->con, $authentifier);
     $add_notification->pushNewNotification($authentifier, 'request_received');
     $add_notification->pushNewNotification($authentifier, 'request_sent');
-    // orangeirect the user back to the index page
+    // emeraldirect the user back to the index page
     header('Location: index.php');
 }
 
@@ -406,39 +406,33 @@ if(isset($_POST['auth_submit'])) {
 
         $match_request_rows = mysqli_num_rows($check_requests);
 
-                // Inside the while loop where you fetch event data
-        // Example: Fetch and display like count
-        $like_count_query = mysqli_query($this->con, "SELECT COUNT(*) AS like_count FROM event_likes WHERE event_id='$id'");
-        $like_count_row = mysqli_fetch_assoc($like_count_query);
-        $like_count = $like_count_row['like_count'];
 
-        // Inside your while loop where you generate event content
-        $liked = false; // Flag to check if user has liked this event
-
-        // Check if the user has already liked the event
-        $check_like_query = mysqli_query($this->con, "SELECT * FROM event_likes WHERE event_id='$id' AND liker_username='$userLoggedIn'");
-        if (mysqli_num_rows($check_like_query) > 0) {
-            $liked = true;
-        }
-
-        $button_text = $liked ? "Unlike" : "Like";
-
-
-        if (isset($_POST['like_event'])) {
-            if ($liked) {
-                // User wants to unlike the event
-                mysqli_query($this->con, "DELETE FROM event_likes WHERE event_id='$id' AND liker_username='$userLoggedIn'");
-                $liked = false; // Update liked status
-            } else {
-                // User wants to like the event
-                mysqli_query($this->con, "INSERT INTO event_likes (event_id, liker_username) VALUES ('$id', '$userLoggedIn')");
-                $liked = true; // Update liked status
-            }
-            // orangeirect or refresh to prevent form resubmission
-            header('Location: index.php');
-            exit;
-        }
-        
+       $like_count_query = mysqli_query($this->con, "SELECT COUNT(*) AS like_count FROM event_likes WHERE event_id='$id'");
+       $like_count_row = mysqli_fetch_assoc($like_count_query);
+       $like_count = $like_count_row['like_count'];
+       
+       // Check if the user has already liked the current event
+       $check_like_query = mysqli_query($this->con, "SELECT * FROM event_likes WHERE event_id='$id' AND liker_username='$userLoggedIn'");
+       $liked = (mysqli_num_rows($check_like_query) > 0);
+       
+       // Button text based on whether user has liked the event
+       $button_text = $liked ? "Unlike" : "Like";
+       
+       // Process like/unlike action when form is submitted for this specific event
+       if (isset($_POST['like_event_'.$id])) { // Assuming you have a form field like 'like_event_{$id}' for each event
+           if ($liked) {
+               // User wants to unlike the event
+               mysqli_query($this->con, "DELETE FROM event_likes WHERE event_id='$id' AND liker_username='$userLoggedIn'");
+               $liked = false; // Update liked status
+           } else {
+               // User wants to like the event
+               mysqli_query($this->con, "INSERT INTO event_likes (event_id, liker_username) VALUES ('$id', '$userLoggedIn')");
+               $liked = true; // Update liked status
+           }
+           // Redirect to prevent form resubmission
+           header('Location: index.php');
+           exit;
+       }
 
         $spots_filled_query = mysqli_query($this->con, "SELECT * FROM authentifications WHERE id='$id'");
         $spots_filled_value = mysqli_num_rows($spots_filled_query);        
@@ -448,32 +442,32 @@ if(isset($_POST['auth_submit'])) {
 
         if ($match_request_rows == 0) {
             $event_content .= "             
-            <div class='bg-gradient-to-br from-orange-50 via-orange-100 to-orange-50 border-orange-200 border-dashed z-10 relative border-4 border-orange-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
+            <div class='bg-gradient-to-br from-emerald-50 via-emerald-100 to-emerald-50 border-emerald-200 border-dashed z-10 relative border-4 border-emerald-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
                 <div>
                     <div>
                         <div class='flex align-center'> 
-                            <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-orange-300/30 rounded-full'>
+                            <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-emerald-300/30 rounded-full'>
                                 <a href='profile.php?profile_username=$username' class='font-semibold text-gray-600'>$cap_added_by_initials</a>
                             </div>
                             <ul class='mt-2'>
                                 <li>
                                     <h3>
                                         <a href='profile.php?profile_username=$username'>$added_by</a>
-                                        <span class='bg-orange-300/20 text-orange-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
+                                        <span class='bg-emerald-300/20 text-emerald-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
                                     </h3>
                                 </li>
                                 <li><span class='text-gray-400 text-sm'>$date_added</span></li>
                             </ul>
                         </div>
                         <div> 
-                            <h1 class='rounded-2xl bg-orange-300/30 my-3 px-6 py-3 text-2xl font-bold text-orange-800'><a href='detail.php?event_id=$id'>$title <i class='uil uil-external-link-alt'></i></a></h1>
+                            <h1 class='rounded-2xl bg-emerald-300/30 my-3 px-6 py-3 text-2xl font-bold text-emerald-800'><a href='detail.php?event_id=$id'>$title <i class='uil uil-external-link-alt'></i></a></h1>
                         </div>
                         <div class='post-images'>
                             <img src='$imageUrl' alt='$title' class='w-80 h-auto rounded-xl mb-4'>
                             <div class='grid lg:grid-cols-3 md:grid-cols-2 gap-6 w-full max-w-4xl'>
                                 <!-- Tile 1 -->
                                 <div class='p-5 bg-white rounded flex items-center'>
-                                    <div class='bg-orange-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                                    <div class='bg-emerald-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
                                         <i class='text-3xl uil uil-calender'></i>
                                     </div>
                                     <div class='flex-grow flex flex-col ml-4'>
@@ -485,7 +479,7 @@ if(isset($_POST['auth_submit'])) {
                                 </div>
                                 <!-- Tile 2 -->
                                 <div class='p-5 bg-white rounded flex items-center'>
-                                    <div class='bg-orange-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                                    <div class='bg-emerald-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
                                         <i class='text-3xl uil uil-signin'></i>
                                     </div>
                                     <div class='flex-grow flex flex-col ml-4'>
@@ -497,7 +491,7 @@ if(isset($_POST['auth_submit'])) {
                                 </div>
                                 <!-- Tile 3 -->
                                 <div class='p-5 bg-white rounded flex items-center'>
-                                    <div class='bg-orange-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
+                                    <div class='bg-emerald-200 h-16 w-16 rounded flex flex-shrink-0 items-center justify-center'>
                                         <i class='text-3xl uil uil-signout'></i>
                                     </div>
                                     <div class='flex-grow flex flex-col ml-4'>
@@ -510,12 +504,12 @@ if(isset($_POST['auth_submit'])) {
                             </div>
                             Volunteer Hours Given: $hours
                             Number of Spots Left: $spots_left of $spots 
-                            <p class='bg-orange-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
-                                <b class='text-lg text-orange-900'>
+                            <p class='bg-emerald-300/30 mt-6 mx-2 rounded-xl px-5 py-4 break-word'>
+                                <b class='text-lg text-emerald-900'>
                                     <i class='uil uil-info-circle'></i> Description: 
                                 </b>
                                 <br> 
-                                <span class='mx-2 text-orange-800 bg-orange-200'>$description</span>
+                                <span class='mx-2 text-emerald-800 bg-emerald-200'>$description</span>
                             </p>
                         </div>
                     </div>
@@ -526,14 +520,14 @@ if(isset($_POST['auth_submit'])) {
                         <input type='hidden' name='auth_image' value='$imageUrl'>
                         <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
                             <center>
-                                <button name='auth_submit' type='submit' class='btn bg-orange-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'> 
+                                <button name='auth_submit' type='submit' class='btn bg-emerald-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'> 
                                     <i class='text-2xl mr-2 uil uil-comment-add'></i> Ask to Join
                                 </button>
                             </center>
                         </div>
                         <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
                             <center>
-                                <button name='like_event' type='submit' class='btn bg-orange-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>
+                                <button name='like_event_$id' type='submit' class='btn bg-emerald-700 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>
                                     <i class='text-2xl mr-2 uil uil-heart'></i> $button_text
                                 </button>
                             </center>
@@ -549,7 +543,7 @@ if(isset($_POST['auth_submit'])) {
 
                     <div class='tooltip tooltip-right' data-tip='Request an authentification for {$title}'>
                         <center>
-                            <span id='toggle-comments-$id' class='btn bg-orange-600 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>
+                            <span id='toggle-comments-$id' class='btn bg-emerald-600 hover:text-white text-white border-none capitalize mx-2 my-4 rounded-full'>
                                 <i class='uil uil-share'></i> 
                             </span>
                         </center>
@@ -564,8 +558,8 @@ if(isset($_POST['auth_submit'])) {
                         <!-- Add form for adding new comment -->
                         <form action='index.php' method='POST' class='mt-4'>
                             <input type='hidden' name='event_id' value='$id'>
-                            <textarea name='comment_text' class='w-full px-3 py-2 border border-gray-300 rounded-lg' placeholder='Write a comment...' requiorange></textarea>
-                            <button type='submit' name='submit_comment' class='btn bg-orange-700 hover:text-white text-white border-none capitalize mt-2'>
+                            <textarea name='comment_text' class='w-full px-3 py-2 border border-gray-300 rounded-lg' placeholder='Write a comment...' requiemerald></textarea>
+                            <button type='submit' name='submit_comment' class='btn bg-emerald-700 hover:text-white text-white border-none capitalize mt-2'>
                                 <i class='uil uil-comment'></i> Add Comment
                             </button>
                         </form>
@@ -582,7 +576,7 @@ if(isset($_POST['auth_submit'])) {
                             $event_content .= "
                             <div class='bg-gray-100 p-3 mt-2 rounded-lg'>
                                 <p><strong>$commenter_username:</strong> $comment_text</p>
-                                <a href='detail.php?event_id=$id&comment_id=$comment_id' class='text-orange-500'>Reply</a>
+                                <a href='detail.php?event_id=$id&comment_id=$comment_id' class='text-emerald-500'>Reply</a>
                             </div>";
                         
                             // Display replies
@@ -614,19 +608,19 @@ if(isset($_POST['auth_submit'])) {
         else if ($match_request_rows != 0) {
             // Build the UI card using Tailwind CSS classes
             $event_content .= "
-                <div class='bg-orange-50 border-orange-200 border-dashed z-10 relative border-4 border-orange-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
+                <div class='bg-emerald-50 border-emerald-200 border-dashed z-10 relative border-4 border-emerald-200 border-dashed transition ease-in px-3 pb-4 pt-2 rounded-2xl my-4'>
                                         <div class='mt-4'>
-                            <p class='bg-orange-200 p-4 mb-4 font-bold rounded-2xl text-center text-orange-500'>You have already requested to join this event.</p>
+                            <p class='bg-emerald-200 p-4 mb-4 font-bold rounded-2xl text-center text-emerald-500'>You have already requested to join this event.</p>
                         </div>
                     <div class='flex items-center justify-between'>
                         <div class='flex items-center'>
-                            <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-orange-300/30 rounded-full'>
+                            <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mt-1.5 mr-2 text-xl bg-emerald-300/30 rounded-full'>
                                 <span class='font-semibold text-gray-600'>$cap_added_by_initials</span>
                             </div>
                             <div class='flex flex-col'>
                                 <h3>
-                                    <a href='profile.php?profile_username=$username' class='font-semibold text-gray-800 hover:text-orange-500'>$added_by</a>
-                                    <span class='bg-orange-300/20 text-orange-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
+                                    <a href='profile.php?profile_username=$username' class='font-semibold text-gray-800 hover:text-emerald-500'>$added_by</a>
+                                    <span class='bg-emerald-300/20 text-emerald-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
                                 </h3>
                                 <span class='text-gray-400 text-sm'>$date_added</span>
                             </div>
@@ -636,10 +630,10 @@ if(isset($_POST['auth_submit'])) {
                         </div>
                     </div>
                     <div class='mt-4'>
-                        <h1 class='text-2xl font-bold text-orange-800'>$title</h1>
+                        <h1 class='text-2xl font-bold text-emerald-800'>$title</h1>
                         <div class='grid lg:grid-cols-3 md:grid-cols-2 gap-6 mt-4'>
                             <div class='p-3 bg-white rounded-lg flex items-center'>
-                                <div class='bg-orange-200 h-16 w-16 rounded flex items-center justify-center'>
+                                <div class='bg-emerald-200 h-16 w-16 rounded flex items-center justify-center'>
                                     <i class='text-3xl uil uil-calendar'></i>
                                 </div>
                                 <div class='ml-4'>
@@ -648,7 +642,7 @@ if(isset($_POST['auth_submit'])) {
                                 </div>
                             </div>
                             <div class='p-3 bg-white rounded-lg flex items-center'>
-                                <div class='bg-orange-200 h-16 w-16 rounded flex items-center justify-center'>
+                                <div class='bg-emerald-200 h-16 w-16 rounded flex items-center justify-center'>
                                     <i class='text-3xl uil uil-sign-in'></i>
                                 </div>
                                 <div class='ml-4'>
@@ -657,7 +651,7 @@ if(isset($_POST['auth_submit'])) {
                                 </div>
                             </div>
                             <div class='p-3 bg-white rounded-lg flex items-center'>
-                                <div class='bg-orange-200 h-16 w-16 rounded flex items-center justify-center'>
+                                <div class='bg-emerald-200 h-16 w-16 rounded flex items-center justify-center'>
                                     <i class='text-3xl uil uil-sign-out'></i>
                                 </div>
                                 <div class='ml-4'>
@@ -667,7 +661,7 @@ if(isset($_POST['auth_submit'])) {
                             </div>
                         </div>
                         <div class='mt-4'>
-                            <p class='bg-orange-300/30 px-5 py-3 rounded-xl text-lg text-orange-900'><i class='uil uil-info-circle'></i> Description: $description</p>
+                            <p class='bg-emerald-300/30 px-5 py-3 rounded-xl text-lg text-emerald-900'><i class='uil uil-info-circle'></i> Description: $description</p>
                         </div>
                     </div>
                 </div>
@@ -689,7 +683,7 @@ if(isset($_POST['auth_submit'])) {
                                                              VALUES ('$event_id', '$commenter_username', '$comment_text', $parent_id)");
             
             if ($insert_comment_query) {
-                // Optionally, you can orangeirect back to the same page or handle success
+                // Optionally, you can emeraldirect back to the same page or handle success
                 header("Location: index.php");
                 exit();
             } else {
@@ -758,7 +752,7 @@ if(isset($_POST['auth_submit'])) {
                     <div class='relative'>
     <div class='rounded-full' src='/docs/images/people/profile-picture-5.jpg'>fasdfsa</div>
 </div>
-<div class='p-6 relative rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] hover:-tranorange-y-1 transition ease-in'>
+<div class='p-6 relative rounded-2xl shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px] hover:-tranemerald-y-1 transition ease-in'>
     <header class='mb-2'>
         <h5 class='inline text-2xl font-bold tracking-tight text-gray-900'>
         $title
@@ -766,7 +760,7 @@ if(isset($_POST['auth_submit'])) {
         <span class='text-xs tracking-normal uppercase font-semibold text-emerald-500 bg-emerald-200 px-2 py-1 active:scale-10 rounded-full'>Live</span>
     </header>
     <p class='mb-3 font-normal text-gray-700'>$description</p>
-    <a class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-orange-500 bg-orange-200/60 cursor-pointer rounded-xl'>
+    <a class='inline-flex items-center py-2 px-3 text-sm font-medium text-center text-emerald-500 bg-emerald-200/60 cursor-pointer rounded-xl'>
         <svg class='mr-1' width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path d='M21.101 9.58786H19.8979V8.41162C19.8979 7.90945 19.4952 7.5 18.999 7.5C18.5038 7.5 18.1 7.90945 18.1 8.41162V9.58786H16.899C16.4027 9.58786 16 9.99731 16 10.4995C16 11.0016 16.4027 11.4111 16.899 11.4111H18.1V12.5884C18.1 13.0906 18.5038 13.5 18.999 13.5C19.4952 13.5 19.8979 13.0906 19.8979 12.5884V11.4111H21.101C21.5962 11.4111 22 11.0016 22 10.4995C22 9.99731 21.5962 9.58786 21.101 9.58786Z' fill='#3b82f6'></path>
         <path d='M9.5 15.0155C5.45422 15.0155 2 15.6623 2 18.2466C2 20.8299 5.4332 21.5 9.5 21.5C13.5448 21.5 17 20.8532 17 18.2689C17 15.6846 13.5668 15.0155 9.5 15.0155Z' fill='#3b82f6'></path>
@@ -774,7 +768,7 @@ if(isset($_POST['auth_submit'])) {
         </svg>
     Join Event
     </a>
-    <span class='-top-0 -right-0 absolute w-3 h-3 bg-orange-400 border-2 border-white rounded-full animate-ping opacity-75'></span>
+    <span class='-top-0 -right-0 absolute w-3 h-3 bg-emerald-400 border-2 border-white rounded-full animate-ping opacity-75'></span>
 </div>
                     
                 "; 
@@ -822,14 +816,14 @@ if(isset($_POST['auth_submit'])) {
             <div>
                 <div>
                     <div class='flex align-center'> 
-                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mr-2 text-xl bg-orange-300/30 rounded-full'>
+                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mr-2 text-xl bg-emerald-300/30 rounded-full'>
     <span class='font-semibold text-gray-600'>$first_name[0]$last_name[0]</span>
 </div>
                         <ul class='mt-2'>
                             <li>
                                 <h3>
                                 $first_name $last_name 
-                                <span class='bg-orange-300/20 text-orange-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
+                                <span class='bg-emerald-300/20 text-emerald-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. $level $position</span>
                                 </h3>
                             </li>
                             <li><span class='text-gray-400 text-sm'>$date_added</span>
@@ -837,7 +831,7 @@ if(isset($_POST['auth_submit'])) {
                         </ul>
                     </div>
             <div>
-                <h1 class='rounded-2xl bg-orange-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>$title</h1>
+                <h1 class='rounded-2xl bg-emerald-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>$title</h1>
             </div>
                     <div class='post-images'>
                         <img class='mb-3 rounded-2xl overflow-hidden w-max h-max' src='../assets/event_images/$image'> 
@@ -901,14 +895,14 @@ if(isset($_POST['auth_submit'])) {
             <div>
                 <div>
                     <div class='flex align-center'> 
-                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mr-2 text-xl bg-orange-300/30 rounded-full'>
+                    <div class='inline-flex overflow-hidden relative justify-center items-center w-12 h-12 mr-2 text-xl bg-emerald-300/30 rounded-full'>
     <span class='font-semibold text-gray-600'>{$row['first_name'][0]}{$row['last_name'][0]}</span>
     </div>
                         <ul class='mt-2'>
                             <li>
                                 <h3>
                                 {$row['first_name']} {$row['last_name']} 
-                                <span class='bg-orange-300/20 text-orange-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. {$row['levels']} {$row['position']}</span>
+                                <span class='bg-emerald-300/20 text-emerald-500 text-xs font-semibold px-2 py-1 tracking-wide rounded'>Lvl. {$row['levels']} {$row['position']}</span>
                                 </h3>
                             </li>
                             <li><span class='text-gray-400 text-sm'>{$row['date']}</span>
@@ -916,7 +910,7 @@ if(isset($_POST['auth_submit'])) {
                         </ul>
                     </div>
             <div>
-                <h1 class='rounded-2xl bg-orange-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>{$profile['title']}</h1>
+                <h1 class='rounded-2xl bg-emerald-300/30 my-3 px-4 py-3 text-2xl font-bold text-black'>{$profile['title']}</h1>
             </div>
                 <div>
                 <br>
