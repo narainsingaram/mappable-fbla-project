@@ -42,7 +42,7 @@ $events_attended = mysqli_query(
             <div class="px-6">
               <div class="flex flex-wrap justify-center">
                 <div class="w-full lg:w-6/12 px-4 lg:order-1 flex justify-center">
-                  <div class='-mt-24 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] inline-flex overflow-hidden relative justify-center items-center w-48 h-48 text-8xl bg-orange-200 rounded-full'>
+                  <div class='-mt-24 shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] inline-flex overflow-hidden relative justify-center items-center w-48 h-48 text-8xl bg-emerald-200 rounded-full'>
                     <div class='relative z-10 font-semibold text-gray-600'>
                       
                     <?php 
@@ -59,24 +59,24 @@ $events_attended = mysqli_query(
                       echo $cap_added_by_initials;
                      ?>
                   </div>
-                    <sup class='absolute bottom-0 bg-orange-50 border-orange-200 border-dashed0 text-orange-100 text-xs px-3 py-2 rounded-full h-7'><?php echo $profile_list['position']; ?></sup>
+                    <sup class='absolute bottom-0 bg-emerald-50 border-emerald-200 border-dashed0 text-emerald-100 text-xs px-3 py-2 rounded-full h-7'><?php echo $profile_list['position']; ?></sup>
                   </div>
                 </div>
                 <div class="w-full lg:w-6/12 px-4 lg:order-2">
                   <div class="flex justify-center py-4 lg:pt-4 pt-8">
-                    <div class="bg-orange-100 rounded-xl px-4 py-6  mr-4 p-3 text-center">
+                    <div class="bg-emerald-100 rounded-xl px-4 py-6  mr-4 p-3 text-center">
                       <span
                         class="text-xl font-bold block uppercase tracking-wide text-gray-700"
                         >10</span
                       ><span class="text-sm text-gray-500">Attended</span>
                     </div>
-                    <div class="bg-orange-100 rounded-xl px-4 py-6  mr-4 p-3 text-center">
+                    <div class="bg-emerald-100 rounded-xl px-4 py-6  mr-4 p-3 text-center">
                       <span
                         class="text-xl font-bold block uppercase tracking-wide text-gray-700"
                         ><?php echo $points ?> </span
                       ><span class="text-sm text-gray-500">Points</span>
                     </div>
-                    <div class="bg-orange-100 rounded-xl px-4 py-6  lg:mr-4 p-3 text-center">
+                    <div class="bg-emerald-100 rounded-xl px-4 py-6  lg:mr-4 p-3 text-center">
                       <span
                         class="text-xl font-bold block uppercase tracking-wide text-gray-700"
                         ><?php echo $gems ?></span
@@ -99,7 +99,7 @@ $events_attended = mysqli_query(
                       $post->load_regular_feed("profile");
                     ?>
                   <div class="text-center">
-                    <a href="#pablo" class="font-normal text-orange-600 "
+                    <a href="#pablo" class="font-normal text-emerald-600 "
                       >View All</a
                     >
                   </div> 

@@ -10,11 +10,11 @@ class Web {
                 <form action="{$_SERVER['PHP_SELF']}" method="POST" enctype="multipart/form-data">
                     <div class="mb-4">
                         <label for="user_title" class="block text-sm font-medium text-gray-500">Event Title</label>
-                        <input name="user_title" type="text" placeholder="Event Title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                        <input name="user_title" type="text" placeholder="Event Title" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                     </div>
                     <div class="mb-4">
                         <label for="user_type" class="block text-sm font-medium text-gray-500">Type of Event</label>
-                        <select name="user_type" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                        <select name="user_type" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                             <option value="" disabled selected>Choose Type of Event</option>
                             <option value="Academic">Academic</option>
                             <option value="Extracurricular">Extracurricular</option>
@@ -25,25 +25,25 @@ class Web {
                     </div>
                     <div class="mb-4">
                         <label for="user_date" class="block text-sm font-medium text-gray-500">Event Date</label>
-                        <input type="date" name="user_date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                        <input type="date" name="user_date" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                     </div>
                     <div class="mb-4 flex space-x-4">
                         <div class="w-1/2">
                             <label for="user_start" class="block text-sm font-medium text-gray-500">Start Time</label>
-                            <input type="time" name="user_start" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                            <input type="time" name="user_start" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                         </div>
                         <div class="w-1/2">
                             <label for="user_end" class="block text-sm font-medium text-gray-500">End Time</label>
-                            <input type="time" name="user_end" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                            <input type="time" name="user_end" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                         </div>
                     </div>
                     <div class="mb-4">
                         <label for="user_hours" class="block text-sm font-medium text-gray-500">Number of Volunteer Hours</label>
-                        <input type="number" name="user_hours" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                        <input type="number" name="user_hours" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                     </div>
                     <div class="mb-4">
                         <label for="user_spots" class="block text-sm font-medium text-gray-500">Number of Seats Available</label>
-                        <input type="number" name="user_spots" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                        <input type="number" name="user_spots" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                     </div>
                     <div class="mb-4">
                         <h3>Event Location</h3>
@@ -52,31 +52,31 @@ class Web {
                     <div class="mb-4 flex space-x-4">
                         <div class="w-1/2">
                             <label for="user_loc_1" class="block text-sm font-medium text-gray-500">Latitude</label>
-                            <input name="user_loc_1" placeholder="Latitude" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                            <input name="user_loc_1" placeholder="Latitude" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                         </div>
                         <div class="w-1/2">
                             <label for="user_loc_2" class="block text-sm font-medium text-gray-500">Longitude</label>
-                            <input name="user_loc_2" placeholder="Longitude" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                            <input name="user_loc_2" placeholder="Longitude" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                         </div>
                     </div>
                     <div class="mb-4">
                         <label for="user_city" class="block text-sm font-medium text-gray-500">City</label>
-                        <input name="user_city" placeholder="City of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                        <input name="user_city" placeholder="City of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                     </div>
                     <div class="mb-4">
                         <label for="user_state" class="block text-sm font-medium text-gray-500">State</label>
-                        <input name="user_state" placeholder="State of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                        <input name="user_state" placeholder="State of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                     </div>
                     <div class="mb-4">
                         <label for="user_country" class="block text-sm font-medium text-gray-500">Country</label>
-                        <input name="user_country" placeholder="Country of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" requiorange>
+                        <input name="user_country" placeholder="Country of Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" requiemerald>
                     </div>
                     <div class="mb-4">
                         <label for="user_desc" class="block text-sm font-medium text-gray-500">Event Description</label>
-                        <textarea name="user_desc" placeholder="Description of Your Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-orange-300" rows="4" requiorange></textarea>
+                        <textarea name="user_desc" placeholder="Description of Your Event" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" rows="4" requiemerald></textarea>
                     </div>
                     <div class="flex justify-end">
-                        <button name="user_submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-orange-500 hover:bg-orange-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-500" type="submit">Submit</button>
+                        <button name="user_submit" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-emerald-500 hover:bg-emerald-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-500" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
@@ -90,7 +90,7 @@ class Web {
         $success_alert = <<<EOT
     <div class="fixed top-0 w-full mx-auto">
         <div id="toast-success" class="flex items-center max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow-[rgba(7,_65,_50,_0.1)_0px_9px_50px]" role="alert">
-        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg">
+        <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-emerald-500 bg-emerald-100 rounded-lg">
             <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
             <span class="sr-only">Check icon</span>
         </div>
@@ -109,7 +109,7 @@ class Web {
         $success_alert = <<<EOT
     <div class="fixed top-0 w-full mx-auto">
         <div id="toast-danger" class="flex items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow dark:text-gray-400 dark:bg-gray-800" role="alert">
-            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-orange-500 bg-orange-100 rounded-lg dark:bg-orange-800 dark:text-orange-200">
+            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-emerald-500 bg-emerald-100 rounded-lg dark:bg-emerald-800 dark:text-emerald-200">
                 <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                 <span class="sr-only">Error icon</span>
             </div>

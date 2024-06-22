@@ -73,25 +73,24 @@ function fetchUserPoints($connection, $userLoggedIn) {
 
 // Display rewards
 foreach ($rewards as $reward) {
-    $imageTag = $reward['image'] ? "<img src='../assets/images/{$reward['image']}' alt='{$reward['reward_name']}' class='reward-image'>" : '';
+    $imageTag = $reward['image'] ? "<img src='../assets/images/{$reward['image']}' alt='{$reward['reward_name']}' class='reward-image w-full h-48 object-cover rounded-t-lg'>" : '';
     echo <<<EOT
-    <header aria-label="Page Header" class="my-10 bg-slate-200 mx-8 rounded-xl">
-        <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-            <div class="my-6">
-                <h1 class="font-bold text-gray-900 text-4xl">
-                    {$reward['reward_name']}
-                </h1>
+    <div class="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl my-8 bg-opacity-80" style="backdrop-filter: blur(10px);">
+        <div class="md:flex">
+            <div class="md:flex-shrink-0">
                 $imageTag
+            </div>
+            <div class="p-8">
+                <div class="uppercase tracking-wide text-sm text-indigo-500 font-semibold">Reward</div>
+                <h1 class="block mt-1 text-lg leading-tight font-medium text-black hover:underline">{$reward['reward_name']}</h1>
+                <p class="mt-2 text-gray-500">{$reward['reward_description']}</p>
                 <form class='inline' method='POST' action='shop.php'>
                     <input name='reward_value' type='hidden' value='{$reward['reward_id']}'></input>
-                    <button name='reward_submit' type='submit' class='btn bg-blue-300 border-none text-black hover:text-white capitalize float-right'>Buy ({$reward['reward_points_cost']} points)</button>
+                    <button name='reward_submit' type='submit' class='mt-4 inline-flex items-center px-4 py-2 bg-indigo-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-700 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring ring-indigo-300 disabled:opacity-25 transition ease-in-out duration-150'>Buy ({$reward['reward_points_cost']} points)</button>
                 </form>
-                <p class="mt-1.5 text-sm text-gray-500">
-                    {$reward['reward_description']}
-                </p>
             </div>
         </div>
-    </header>
+    </div>
     EOT;
 }
 

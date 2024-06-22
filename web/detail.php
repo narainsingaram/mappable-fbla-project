@@ -51,8 +51,8 @@ function displayComments($con, $event_id, $parent_id = NULL, $depth = 0, $specif
         echo "<form action='detail.php?event_id=$event_id' method='POST' class='mt-2'>";
         echo "<input type='hidden' name='event_id' value='$event_id'>";
         echo "<input type='hidden' name='parent_id' value='$comment_id'>";
-        echo "<textarea name='comment_text' placeholder='Write your reply...' requiorange class='w-full p-2 border border-gray-300 rounded-md'></textarea>";
-        echo "<button type='submit' name='submit_comment' class='mt-2 px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600'>Send Reply</button>";
+        echo "<textarea name='comment_text' placeholder='Write your reply...' requiemerald class='w-full p-2 border border-gray-300 rounded-md'></textarea>";
+        echo "<button type='submit' name='submit_comment' class='mt-2 px-4 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600'>Send Reply</button>";
         echo "</form>";
 
         echo "</div>";
@@ -72,7 +72,7 @@ if (isset($_POST['submit_comment'])) {
     $insert_comment_query = "INSERT INTO event_comments (event_id, commenter_username, comment_text, parent_id) VALUES ('$event_id', '$userLoggedIn', '$comment_text', $parent_id)";
     mysqli_query($connection, $insert_comment_query);
     
-    // orangeirect to avoid resubmission
+    // emeraldirect to avoid resubmission
     header("Location: detail.php?event_id=$event_id");
     exit;
 }
@@ -120,8 +120,8 @@ if (isset($_POST['submit_comment'])) {
         <h2 class="text-2xl font-semibold text-gray-800">Add Comment</h2>
         <form action="detail.php?event_id=<?php echo $event_id; ?>" method="POST" class="mt-4 space-y-4">
             <input type="hidden" name="event_id" value="<?php echo $event_id; ?>">
-            <textarea name="comment_text" placeholder="Write your comment..." requiorange class="w-full p-2 border border-gray-300 rounded-md"></textarea>
-            <button type="submit" name="submit_comment" class="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600">Add Comment</button>
+            <textarea name="comment_text" placeholder="Write your comment..." requiemerald class="w-full p-2 border border-gray-300 rounded-md"></textarea>
+            <button type="submit" name="submit_comment" class="px-4 py-2 bg-emerald-500 text-white rounded-md hover:bg-emerald-600">Add Comment</button>
         </form>
     </div>
 </body>
