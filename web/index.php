@@ -39,9 +39,6 @@ if (isset($_POST['user_submit'])) {
   </div>
 </header>
 
-
-
-
 <section id='section' class="flex mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-4">
 <?php
  if(isset($_POST['create_space'])) {
@@ -49,13 +46,15 @@ if (isset($_POST['user_submit'])) {
   increaseUserPointsGems($connection, $id, $points, $gems, $experience);
   header("Location: index.php");
 }
-
-
 ?>
 
 <div class="w-2/3">
+  <!-- Search Bar -->
+  <div class="mb-4">
+    <input type="text" id="searchBar" onkeyup="filterEvents()" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:border-emerald-300" placeholder="Search events...">
+  </div>
 
-<input type="checkbox" id="create_space" class="modal-toggle hidden">
+  <input type="checkbox" id="create_space" class="modal-toggle hidden">
     <div class="modal fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center">
         <div class="modal-box bg-white p-6 rounded-lg shadow-lg relative max-w-md w-full">
             <label for="create_space" class="btn btn-sm btn-circle absolute right-2 top-2 cursor-pointer text-white">✕</label>
@@ -76,34 +75,54 @@ if (isset($_POST['user_submit'])) {
         </div>
     </div>
 
-<?php
-  $web->disp_evt_mo();
-  $post->live_events();
-  $post->load_regular_feed("home");
-?>
+  <div id="eventsContainer">
+    <?php
+      $web->disp_evt_mo();
+      $post->live_events();
+      $post->load_regular_feed("home");
+    ?>
+  </div>
 </div>
 
-
-
 <div class="w-1/2 p-5">
-<div class="p-4 w-full shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] bg-white rounded-2xl sm:p-8">
+  <div class="p-4 w-full shadow-[rgba(7,_65,_50,_0.1)_0px_9px_100px] bg-white rounded-2xl sm:p-8">
     <div class="flex justify-between items-center mb-2">
         <h5 class="text-xl font-bold leading-none text-gray-900">Activity</h5>
-   </div>
-   <div class="flow-root">
+    </div>
+    <div class="flow-root">
         <ul role="list" class="my-2 divide-y divide-gray-200">
             <?php
-            $post->load_requested_feed();
-          ?>
+              $post->load_requested_feed();
+            ?>
         </ul>
-   </div>
+    </div>
   </div>
   <?php 
     echo "<h1 class='font-bold text-gray-900 text-2xl mb-2 mt-8 mx-4'> Spaces </h1>";
     $space->load_space_div();
   ?>
 </div>
-  </main>
-    </section>
+</main>
+</section>
+
 <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>  
+
+<script>
+// Function to filter events
+function filterEvents() {
+  const searchBar = document.getElementById('searchBar').value.toLowerCase();
+  const eventsContainer = document.getElementById('eventsContainer');
+  const events = eventsContainer.getElementsByTagName('div');
+
+  for (let i = 0; i < events.length; i++) {
+    const event = events[i];
+    if (event.textContent.toLowerCase().includes(searchBar)) {
+      event.style.display = '';
+    } else {
+      event.style.display = 'none';
+    }
+  }
+}
+</script>
+
 </html>
