@@ -60,7 +60,7 @@ class Notify {
             <li>
                 <a class='flex $viewed_class m-1' href='index.php'>
                     <span class='indicator bg-emerald-200 p-1.5 w-10 h-10 text-xl font-semibold text-gray-700 rounded-full flex items-center justify-center'>
-                        $user_from
+                        $pfp_name
                     </span>
                     <span class='flex flex-col'>
                         <span>{$row['message']}</span>

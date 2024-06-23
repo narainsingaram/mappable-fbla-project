@@ -91,7 +91,7 @@ if (isset($_POST['register_btn'])) {
             $profile_pic = "assets/images/profile_pics/defaults/head_emerald.png";
         }
 
-        $query = mysqli_query($connection, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 0, 'no')");
+        $query = mysqli_query($connection, "INSERT INTO users VALUES (NULL, '$first_name', '$last_name', '$username', '$email', '$password', '$date', '$position', '$date_of_birth', '$gender', '$grade' , 0, '', 0, 0, 100, 1, 1, 'system_default', 'Poppins', 0, 'no')");
 
         if (!$query) {
             echo "Error: " . mysqli_error($connection);

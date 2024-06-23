@@ -579,6 +579,188 @@ $experience_sum_points = $experience_rows["experience_sum"];
       <body>
       <div id="chartContainer" style="height: 370px; width: 100%;"></div>
       <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+      <?php
+        // Query to fetch event types and their counts
+$sqlEventTypes = "SELECT type, COUNT(*) as count FROM teacher_events GROUP BY type";
+$resultEventTypes = $connection->query($sqlEventTypes);
+
+// Query to fetch event distribution by state
+$sqlEventStates = "SELECT state, COUNT(*) as count FROM teacher_events WHERE state IS NOT NULL GROUP BY state";
+$resultEventStates = $connection->query($sqlEventStates);
+      ?>
+
+      <!-- HTML/PHP structure for Event Types Bar Chart -->
+<div>
+    <canvas id="eventTypeChart" width="400" height="400"></canvas>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var eventTypesData = <?php echo json_encode($resultEventTypes->fetch_all(MYSQLI_ASSOC)); ?>;
+    
+    var ctx = document.getElementById('eventTypeChart').getContext('2d');
+    var eventTypeChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: eventTypesData.map(item => item.type),
+            datasets: [{
+                label: 'Event Types Distribution',
+                data: eventTypesData.map(item => item.count),
+                backgroundColor: 'rgba(54, 162, 235, 0.5)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Number of Events'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Event Types'
+                    }
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+});
+</script>
+
+
+<!-- HTML/PHP structure for Event Distribution by State Pie Chart -->
+<div>
+    <canvas id="eventStateChart" width="400" height="400"></canvas>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var eventStatesData = <?php echo json_encode($resultEventStates->fetch_all(MYSQLI_ASSOC)); ?>;
+    
+    var ctx = document.getElementById('eventStateChart').getContext('2d');
+    var eventStateChart = new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: eventStatesData.map(item => item.state),
+            datasets: [{
+                label: 'Event Distribution by State',
+                data: eventStatesData.map(item => item.count),
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 205, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)',
+                    'rgba(255, 0, 255, 0.5)',
+                    'rgba(0, 128, 0, 0.5)',
+                    'rgba(0, 0, 255, 0.5)',
+                    'rgba(128, 128, 128, 0.5)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 205, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(255, 0, 255, 1)',
+                    'rgba(0, 128, 0, 1)',
+                    'rgba(0, 0, 255, 1)',
+                    'rgba(128, 128, 128, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            return eventStatesData[tooltipItem.index].state + ': ' + tooltipItem.raw;
+                        }
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var scatterChartData = <?php echo json_encode($scatterChartData); ?>;
+    
+    var hours = scatterChartData.map(item => item.hours);
+    var gradeLevels = scatterChartData.map(item => item.grade_level);
+    
+    var ctx = document.getElementById('scatterPlotHoursGradeLevel').getContext('2d');
+    var scatterPlotHoursGradeLevel = new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            datasets: [{
+                label: 'Hours vs Grade Level',
+                data: scatterChartData,
+                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            var data = tooltipItem.parsed;
+                            return 'Hours: ' + data.hours + ', Grade Level: ' + data.grade_level;
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Hours'
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    title: {
+                        display: true,
+                        text: 'Grade Level'
+                    }
+                }
+            }
+        }
+    });
+});
+</script>
+
+
+
+
         </body>
 </html>
       </div>
